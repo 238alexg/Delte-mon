@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1304554206228670}
+  m_IsPrefabParent: 1
+--- !u!1 &1304554206228670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4131101138721732}
+  - component: {fileID: 114155860948458018}
+  m_Layer: 0
+  m_Name: Math
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4131101138721732
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304554206228670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 373.66498, y: 203.18907, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114155860948458018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1304554206228670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c86b3ece660b4f36ae4b50f3ecae424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  majorName: Math
+  majorElement: Bug
+  majorImage: {fileID: 21300018, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  background: {r: 0.6423458, g: 0.8161765, b: 0.36607915, a: 1}
+  veryEffective:
+  - {fileID: 114582865463298880, guid: f68a4243c40204ce8a0b0fb810e1fcda, type: 2}
+  - {fileID: 114106646660134524, guid: fe8c460b019a14454a2dc2d13262c2dd, type: 2}
+  - {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809, type: 2}
+  uneffective:
+  - {fileID: 114394108228007282, guid: 5b660c6f965c841d9bf09166a00d41b6, type: 2}
+  - {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
+  - {fileID: 114360536651164410, guid: 57dd3f09a0e0044cfbbc87e6881029e4, type: 2}
+  - {fileID: 114465524613548366, guid: 555162204460743288a9e749529ff5cb, type: 2}
+  - {fileID: 114501488618173236, guid: b14db376bafcb4f56858c61ca0a0edcd, type: 2}
+  - {fileID: 114540014119815600, guid: 644f904836ae3466d9e8497ab649dc96, type: 2}
+  - {fileID: 114434105413943968, guid: 7e5b9687f78bb4154a97476da33e2a09, type: 2}
+  zeroDamage: []

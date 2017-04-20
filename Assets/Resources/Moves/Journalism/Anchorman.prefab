@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1956760776119010}
+  m_IsPrefabParent: 1
+--- !u!1 &1956760776119010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4545917100966104}
+  - component: {fileID: 114688841496680892}
+  m_Layer: 0
+  m_Name: Anchorman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4545917100966104
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956760776119010}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -952.78265, y: -57.824036, z: -0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114688841496680892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956760776119010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f1bb001a8fc4ee493b43826a470765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: Anchorman
+  moveDescription: "\u201CThey\u2019ve done studies, you know. 60 percent of the time,
+    it works every time.\u201D \u2014 Brian Fantana. Roasts on hit."
+  majorType: {fileID: 114540014119815600, guid: 644f904836ae3466d9e8497ab649dc96,
+    type: 2}
+  status: {fileID: 21300068, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  movType: 1
+  PP: 10
+  PPLeft: 10
+  damage: 0
+  hitChance: 70
+  statType: 4
+  buffs: []
+  statusChance: 100
+  critChance: 0

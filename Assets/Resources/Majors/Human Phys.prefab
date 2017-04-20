@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1177046568566054}
+  m_IsPrefabParent: 1
+--- !u!1 &1177046568566054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4113567658282856}
+  - component: {fileID: 114394108228007282}
+  m_Layer: 0
+  m_Name: Human Phys
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4113567658282856
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177046568566054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 373.66498, y: 203.18907, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114394108228007282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177046568566054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c86b3ece660b4f36ae4b50f3ecae424, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  majorName: Human Phys
+  majorElement: Fighting
+  majorImage: {fileID: 21300016, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  background: {r: 0.89705884, g: 0.6792537, b: 0.48150954, a: 1}
+  veryEffective:
+  - {fileID: 114394108228007282}
+  - {fileID: 114844525101115764, guid: bb3e99524269b43f690a29ffbf938d8b, type: 2}
+  - {fileID: 114501488618173236, guid: b14db376bafcb4f56858c61ca0a0edcd, type: 2}
+  - {fileID: 114996360122170080, guid: 6b8d0e3c94bb2489e83ccaf6ee59c904, type: 2}
+  - {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809, type: 2}
+  uneffective:
+  - {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
+  - {fileID: 114360536651164410, guid: 57dd3f09a0e0044cfbbc87e6881029e4, type: 2}
+  - {fileID: 114155860948458018, guid: b8cf6cd1282474dcbbbe43c97bfe30e7, type: 2}
+  - {fileID: 114106646660134524, guid: fe8c460b019a14454a2dc2d13262c2dd, type: 2}
+  - {fileID: 114434105413943968, guid: 7e5b9687f78bb4154a97476da33e2a09, type: 2}
+  zeroDamage:
+  - {fileID: 114465524613548366, guid: 555162204460743288a9e749529ff5cb, type: 2}
