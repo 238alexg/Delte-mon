@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1703659183635504}
+  m_IsPrefabParent: 1
+--- !u!1 &1703659183635504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224339839732350510}
+  - component: {fileID: 114363910331204070}
+  m_Layer: 0
+  m_Name: DobbyDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114363910331204070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703659183635504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Dobby
+  deltName: Will Kilty
+  description: This motivated Delt often seeks to improve his surroundings while evading
+    Green Chair meetings.
+  frontImage: {fileID: 21300220, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300222, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1504
+  major1: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 3c2f2d2e2c3a
+  prevEvol: {fileID: 0}
+  nextEvol: {fileID: 114208541242301162, guid: 9f68dffb266234c4f9e79b7b0183dd15, type: 2}
+  evolveLevel: 19
+  levelUpMoves:
+  - level: 0
+    move: {fileID: 114098116144903234, guid: e715adf32260b47189ec0a344b5a7398, type: 2}
+  - level: 6
+    move: {fileID: 114685345062691956, guid: 4a783d8741583485f864733231dafc6c, type: 2}
+  - level: 9
+    move: {fileID: 114539024145985162, guid: 210178f860136456abcc8bd02804f96d, type: 2}
+  - level: 13
+    move: {fileID: 114503879977606200, guid: 5ba69c5fd7ccf44468591a4e20898463, type: 2}
+  - level: 17
+    move: {fileID: 114313179337464780, guid: 8784017cc505440da8acb74896dbfa98, type: 2}
+  rarity: 4
+  AVIndex: 0
+  AVAwardAmount: 2
+--- !u!224 &224339839732350510
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1703659183635504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999166, y: 0.99999166, z: 0.9999916}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00015449524, y: -0.00010570884}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

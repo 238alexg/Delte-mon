@@ -206,11 +206,23 @@ public class UIManager : MonoBehaviour {
 	// Open settings menu on settings button push
 	public void OpenSettings() {
 		currentUI = UIMode.Settings;
+
+		// Set UI tools to current settings of the user
 		SettingsUI.transform.GetChild (0).gameObject.GetComponent<InputField> ().text = gameManager.playerName;
 		SettingsUI.transform.GetChild (1).gameObject.GetComponent<Slider> ().value = 1/scrollSpeed;
 		SettingsUI.transform.GetChild (2).gameObject.GetComponent<Slider> ().value = MusicManager.Instance.maxVolume;
 		SettingsUI.transform.GetChild (3).gameObject.GetComponent<Slider> ().value = SoundEffectManager.SEM.source.volume;
 		SettingsUI.transform.GetChild (4).gameObject.GetComponent<Toggle> ().isOn = gameManager.pork;
+
+		// Select character to current gender selection of user
+		if (PlayerMovement.PlayMov.isMale) {
+			SettingsUI.transform.GetChild (5).gameObject.GetComponent <Image> ().color = Color.white;
+			SettingsUI.transform.GetChild (6).gameObject.GetComponent <Image> ().color = Color.grey;
+		} else {
+			SettingsUI.transform.GetChild (5).gameObject.GetComponent <Image> ().color = Color.grey;
+			SettingsUI.transform.GetChild (6).gameObject.GetComponent <Image> ().color = Color.white;
+		}
+
 		SettingsUI.SetActive (true);
 		SettingsUI.GetComponent <Animator>().SetTrigger ("SlideIn");
 		playerMovement.StopMoving ();
@@ -219,6 +231,11 @@ public class UIManager : MonoBehaviour {
 	// Close settings menu on back button push
 	public void CloseSettings() {
 		StartCoroutine(AnimateUIClose (SettingsUI));
+		playerMovement.ResumeMoving ();
+	}
+
+	public void CloseMap() {
+		StartCoroutine (AnimateUIClose (MapManager.MapMan.gameObject));
 		playerMovement.ResumeMoving ();
 	}
 

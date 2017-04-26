@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 69ef2c69aa07d4bc8a5c7e3169c15cde
-timeCreated: 1491172331
+timeCreated: 1492751410
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,7 +13,7 @@ TextureImporter:
     21300012: Nurse_Valleck
     21300014: Shopkeeper_Bergie
     21300016: Professor Cheema
-    21300018: WorldCharacterSprites_9
+    21300018: ProfCheema_World
     21300020: WorldCharacterSprites_10
     21300022: WorldCharacterSprites_11
     21300024: WorldCharacterSprites_12
@@ -48,8 +48,8 @@ TextureImporter:
     21300082: Stock Man 1
     21300084: Stock Man 2
     21300086: Stock Woman 1
-    21300088: WorldCharacterSprites_7
-    21300090: WorldCharacterSprites_8
+    21300088: NurseVallek_World
+    21300090: Salesman_Bergie_World
     21300092: WorldCharacterSprites_35
     21300094: Stock Woman 3
     21300096: Stock Man 5
@@ -185,6 +185,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -280,7 +288,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WorldCharacterSprites_7
+      name: NurseVallek_World
       rect:
         serializedVersion: 2
         x: 224
@@ -293,7 +301,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WorldCharacterSprites_8
+      name: Salesman_Bergie_World
       rect:
         serializedVersion: 2
         x: 256
@@ -306,7 +314,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WorldCharacterSprites_9
+      name: ProfCheema_World
       rect:
         serializedVersion: 2
         x: 288

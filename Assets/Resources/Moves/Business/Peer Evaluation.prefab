@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Peer Evaluation
-  moveDescription: 
+  moveDescription: Nothing like teachers delegating grading work to students!
   majorType: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e,
     type: 2}
   status: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
@@ -60,12 +60,12 @@ MonoBehaviour:
   moveIndex: 0
   PP: 30
   PPLeft: 30
-  damage: 40
+  damage: 60
   hitChance: 100
   statType: 0
   buffs:
   - isBuff: 1
     buffT: 2
     buffAmount: 1
-  statusChance: 35
+  statusChance: 0
   critChance: 15

@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Hired
   moveDescription: '"Never hire someone who knows less than you do about what he''s
-    hired to do." - Malcolm Forbes'
+    hired to do." - Malcolm Forbes. 30% crit.'
   majorType: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e,
     type: 2}
   status: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
@@ -65,5 +65,5 @@ MonoBehaviour:
   hitChance: 95
   statType: 6
   buffs: []
-  statusChance: 40
+  statusChance: 15
   critChance: 30

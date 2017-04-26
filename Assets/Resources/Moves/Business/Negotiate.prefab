@@ -56,19 +56,19 @@ MonoBehaviour:
   majorType: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e,
     type: 2}
   status: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
-  movType: 3
+  movType: 2
   moveIndex: 0
-  PP: 20
-  PPLeft: 20
+  PP: 15
+  PPLeft: 15
   damage: 0
   hitChance: 100
   statType: 0
   buffs:
   - isBuff: 1
     buffT: 5
-    buffAmount: 2
+    buffAmount: 4
   - isBuff: 0
     buffT: 5
-    buffAmount: 2
+    buffAmount: 4
   statusChance: 0
   critChance: 0

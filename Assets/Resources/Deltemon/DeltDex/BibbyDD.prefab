@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1609075454347202}
+  m_RootGameObject: {fileID: 1320274974841496}
   m_IsPrefabParent: 1
---- !u!1 &1609075454347202
+--- !u!1 &1320274974841496
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4892817493629374}
-  - component: {fileID: 114678398469074838}
+  - component: {fileID: 4891735334068954}
+  - component: {fileID: 114304362442100648}
   m_Layer: 0
   m_Name: BibbyDD
   m_TagString: Untagged
@@ -27,28 +27,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4892817493629374
+--- !u!4 &4891735334068954
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1609075454347202}
+  m_GameObject: {fileID: 1320274974841496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1388.9222, y: 328.4658, z: 0}
+  m_LocalPosition: {x: -200, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114678398469074838
+--- !u!114 &114304362442100648
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1609075454347202}
+  m_GameObject: {fileID: 1320274974841496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7252964908c79480098675ee50b7b5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nickname: Bibby
@@ -61,8 +61,19 @@ MonoBehaviour:
   major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
   BVs: 2f2b2322404d
   prevEvol: {fileID: 0}
-  nextEvol: {fileID: 114239258628145154, guid: 9aa15835064824159adcfe869fb1aeff, type: 2}
+  nextEvol: {fileID: 114492529317336872, guid: 36c91910ce990403c85dbd40b11af819, type: 2}
   evolveLevel: 19
+  levelUpMoves:
+  - level: 0
+    move: {fileID: 114399767283162076, guid: 723ad9ceb400b486fa17c29e3b366681, type: 2}
+  - level: 7
+    move: {fileID: 114846361937572358, guid: 9ea3487c3c8db4ade95cb6960bbab151, type: 2}
+  - level: 10
+    move: {fileID: 114264482239285086, guid: 408b873974a8048d688d7434f94bac94, type: 2}
+  - level: 13
+    move: {fileID: 114169982223895670, guid: 52544288db49b4d11903c012b8d85bba, type: 2}
+  - level: 17
+    move: {fileID: 114132692131192192, guid: 764775755fade41059f80eaa984df213, type: 2}
   rarity: 4
-  AVAwardAmount: 2
   AVIndex: 5
+  AVAwardAmount: 2

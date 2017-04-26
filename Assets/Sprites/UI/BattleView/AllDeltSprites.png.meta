@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 33c0fbfbb145e48faa4926d7a8e996dc
-timeCreated: 1488101347
+timeCreated: 1492750389
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -34,98 +34,98 @@ TextureImporter:
     21300054: DormKicks_Back
     21300056: Frijoles_Front
     21300058: Frijoles_Back
-    21300060: AllDeltSprites_30
-    21300062: AllDeltSprites_31
-    21300064: AllDeltSprites_32
-    21300066: AllDeltSprites_33
-    21300068: AllDeltSprites_34
-    21300070: AllDeltSprites_35
-    21300072: AllDeltSprites_36
-    21300074: AllDeltSprites_37
-    21300076: AllDeltSprites_38
-    21300078: AllDeltSprites_39
-    21300080: AllDeltSprites_40
-    21300082: AllDeltSprites_41
-    21300084: AllDeltSprites_42
-    21300086: AllDeltSprites_43
-    21300088: AllDeltSprites_44
-    21300090: AllDeltSprites_45
+    21300060: Meatball_Front
+    21300062: Meatball_Back
+    21300064: Ishmeat_Front
+    21300066: Ishmeat_Back
+    21300068: Bleedy_Front
+    21300070: Bleedy_Back
+    21300072: Dorricourt_Front
+    21300074: Dorricourt_Back
+    21300076: Treent_Front
+    21300078: Treent_Back
+    21300080: Tancker_Front
+    21300082: Tancker_Back
+    21300084: Gilliair_Front
+    21300086: Gilliair_Back
+    21300088: Calvpen_Front
+    21300090: Calvpen_Back
     21300092: AllDeltSprites_46
     21300094: AllDeltSprites_47
-    21300096: AllDeltSprites_48
-    21300098: AllDeltSprites_49
-    21300100: AllDeltSprites_50
-    21300102: AllDeltSprites_51
-    21300104: AllDeltSprites_52
-    21300106: AllDeltSprites_53
-    21300108: AllDeltSprites_54
-    21300110: AllDeltSprites_55
-    21300112: AllDeltSprites_56
-    21300114: AllDeltSprites_57
-    21300116: AllDeltSprites_58
-    21300118: AllDeltSprites_59
-    21300120: AllDeltSprites_60
-    21300122: AllDeltSprites_61
-    21300124: AllDeltSprites_62
-    21300126: AllDeltSprites_63
-    21300128: AllDeltSprites_64
-    21300130: AllDeltSprites_65
-    21300132: AllDeltSprites_66
-    21300134: AllDeltSprites_67
-    21300136: AllDeltSprites_68
-    21300138: AllDeltSprites_69
-    21300140: AllDeltSprites_70
-    21300142: AllDeltSprites_71
+    21300096: Muricastorina_Front
+    21300098: Muricastorina_Back
+    21300100: Shinja_Front
+    21300102: Shinja_Back
+    21300104: Scooby_front
+    21300106: Scooby_Back
+    21300108: PaulRyan_Front
+    21300110: PaulRyan_Back
+    21300112: Seuss_Front
+    21300114: Seuss_Back
+    21300116: Deadass_Front
+    21300118: Deadass_Back
+    21300120: Kumarsh_Front
+    21300122: Kumarsh_Back
+    21300124: Concusspinks_Front
+    21300126: Concusspinks_Back
+    21300128: Tannon_Front
+    21300130: Tannon_Back
+    21300132: Shermurk_Front
+    21300134: Shermurk_Back
+    21300136: Jurbot_Front
+    21300138: Jurbot_Back
+    21300140: Robbot_front
+    21300142: Robbot_Back
     21300144: AllDeltSprites_72
     21300146: AllDeltSprites_73
-    21300148: AllDeltSprites_74
-    21300150: AllDeltSprites_75
-    21300152: AllDeltSprites_76
-    21300154: AllDeltSprites_77
+    21300148: Drinkyle_Front
+    21300150: Drinkyle_Back
+    21300152: Bath_Front
+    21300154: Bath_Back
     21300156: AllDeltSprites_78
     21300158: AllDeltSprites_79
-    21300160: AllDeltSprites_80
-    21300162: AllDeltSprites_81
-    21300164: AllDeltSprites_82
-    21300166: AllDeltSprites_83
-    21300168: AllDeltSprites_84
-    21300170: AllDeltSprites_85
-    21300172: AllDeltSprites_86
-    21300174: AllDeltSprites_87
-    21300176: AllDeltSprites_88
-    21300178: AllDeltSprites_89
-    21300180: AllDeltSprites_90
-    21300182: AllDeltSprites_91
-    21300184: AllDeltSprites_92
-    21300186: AllDeltSprites_93
-    21300188: AllDeltSprites_94
-    21300190: AllDeltSprites_95
-    21300192: AllDeltSprites_96
-    21300194: AllDeltSprites_97
-    21300196: AllDeltSprites_98
-    21300198: AllDeltSprites_99
-    21300200: AllDeltSprites_100
-    21300202: AllDeltSprites_101
+    21300160: Boredon_Front
+    21300162: Boredon_Back
+    21300164: Lazpinczyk_Front
+    21300166: Lazpinczyk_Back
+    21300168: Bilbo_Front
+    21300170: Bilbo_Back
+    21300172: Gavalen_Front
+    21300174: Gavalen_Back
+    21300176: Mohlord_Front
+    21300178: Mohlord_Back
+    21300180: Delvin_Front
+    21300182: Delvin_Back
+    21300184: Legolalec_Front
+    21300186: Legolalec_Back
+    21300188: Huntweet_Front
+    21300190: Huntweet_Back
+    21300192: Flyle_Front
+    21300194: Flyle_Back
+    21300196: Italeagle_Front
+    21300198: Italeagle_Back
+    21300200: Shahound_Front
+    21300202: Shahound_Back
     21300204: AllDeltSprites_102
     21300206: AllDeltSprites_103
-    21300208: AllDeltSprites_104
-    21300210: AllDeltSprites_105
-    21300212: AllDeltSprites_106
-    21300214: AllDeltSprites_107
-    21300216: AllDeltSprites_108
-    21300218: AllDeltSprites_109
-    21300220: AllDeltSprites_110
-    21300222: AllDeltSprites_111
-    21300224: AllDeltSprites_112
-    21300226: AllDeltSprites_113
-    21300228: AllDeltSprites_114
-    21300230: AllDeltSprites_115
-    21300232: AllDeltSprites_116
-    21300234: AllDeltSprites_117
+    21300208: Wolfmond_Front
+    21300210: Wolfmond_Back
+    21300212: Merl_Front
+    21300214: Merl_Back
+    21300216: PuffPuffPeter_Front
+    21300218: PuffPuffPeter_Back
+    21300220: Dobby_Front
+    21300222: Dobby_Back
+    21300224: Scaley_Front
+    21300226: Scaley_Back
+    21300228: Shawcodile_Front
+    21300230: Shawcodile_Back
+    21300232: Belzard_Front
+    21300234: Belzard_Back
     21300236: AllDeltSprites_118
     21300238: AllDeltSprites_119
-    21300240: AllDeltSprites_120
-    21300242: AllDeltSprites_121
+    21300240: Rimdrag_Front
+    21300242: Rimdrag_Back
     21300244: AllDeltSprites_122
     21300246: AllDeltSprites_123
     21300248: AllDeltSprites_124
@@ -304,6 +304,8 @@ TextureImporter:
     21300594: AllDeltSprites_297
     21300596: PorkSprite_Back
     21300598: PorkSprite
+    21300600: Sneaky_Front
+    21300602: Sneaky_Back
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -367,6 +369,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -459,7 +469,7 @@ TextureImporter:
       name: Markofish_Front
       rect:
         serializedVersion: 2
-        x: 384
+        x: 512
         y: 896
         width: 64
         height: 64
@@ -472,7 +482,7 @@ TextureImporter:
       name: Markofish_Back
       rect:
         serializedVersion: 2
-        x: 448
+        x: 576
         y: 896
         width: 64
         height: 64
@@ -485,7 +495,7 @@ TextureImporter:
       name: Gayrados_Front
       rect:
         serializedVersion: 2
-        x: 512
+        x: 640
         y: 896
         width: 64
         height: 64
@@ -498,7 +508,7 @@ TextureImporter:
       name: Gayrados_Back
       rect:
         serializedVersion: 2
-        x: 576
+        x: 704
         y: 896
         width: 64
         height: 64
@@ -511,8 +521,8 @@ TextureImporter:
       name: Bjorggfelt_Front
       rect:
         serializedVersion: 2
-        x: 640
-        y: 896
+        x: 768
+        y: 704
         width: 64
         height: 64
       alignment: 0
@@ -524,8 +534,8 @@ TextureImporter:
       name: Bjorggfelt_Back
       rect:
         serializedVersion: 2
-        x: 704
-        y: 896
+        x: 832
+        y: 704
         width: 64
         height: 64
       alignment: 0
@@ -537,8 +547,8 @@ TextureImporter:
       name: Exceleon_Front
       rect:
         serializedVersion: 2
-        x: 768
-        y: 896
+        x: 128
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -550,8 +560,8 @@ TextureImporter:
       name: Exceleon_Back
       rect:
         serializedVersion: 2
-        x: 832
-        y: 896
+        x: 192
+        y: 576
         width: 64
         height: 64
       alignment: 0
@@ -768,7 +778,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_30
+      name: Meatball_Front
       rect:
         serializedVersion: 2
         x: 640
@@ -781,7 +791,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_31
+      name: Meatball_Back
       rect:
         serializedVersion: 2
         x: 704
@@ -794,7 +804,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_32
+      name: Ishmeat_Front
       rect:
         serializedVersion: 2
         x: 768
@@ -807,7 +817,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_33
+      name: Ishmeat_Back
       rect:
         serializedVersion: 2
         x: 832
@@ -820,7 +830,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_34
+      name: Bleedy_Front
       rect:
         serializedVersion: 2
         x: 896
@@ -833,7 +843,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_35
+      name: Bleedy_Back
       rect:
         serializedVersion: 2
         x: 960
@@ -846,7 +856,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_36
+      name: Dorricourt_Front
       rect:
         serializedVersion: 2
         x: 1024
@@ -859,7 +869,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_37
+      name: Dorricourt_Back
       rect:
         serializedVersion: 2
         x: 1088
@@ -872,7 +882,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_38
+      name: Treent_Front
       rect:
         serializedVersion: 2
         x: 1152
@@ -885,7 +895,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_39
+      name: Treent_Back
       rect:
         serializedVersion: 2
         x: 1216
@@ -898,7 +908,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_40
+      name: Tancker_Front
       rect:
         serializedVersion: 2
         x: 0
@@ -911,7 +921,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_41
+      name: Tancker_Back
       rect:
         serializedVersion: 2
         x: 64
@@ -924,7 +934,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_42
+      name: Gilliair_Front
       rect:
         serializedVersion: 2
         x: 128
@@ -937,7 +947,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_43
+      name: Gilliair_Back
       rect:
         serializedVersion: 2
         x: 192
@@ -950,7 +960,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_44
+      name: Calvpen_Front
       rect:
         serializedVersion: 2
         x: 256
@@ -963,7 +973,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_45
+      name: Calvpen_Back
       rect:
         serializedVersion: 2
         x: 320
@@ -992,7 +1002,7 @@ TextureImporter:
       name: AllDeltSprites_47
       rect:
         serializedVersion: 2
-        x: 448
+        x: 449
         y: 768
         width: 64
         height: 64
@@ -1002,7 +1012,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_48
+      name: Muricastorina_Front
       rect:
         serializedVersion: 2
         x: 512
@@ -1015,7 +1025,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_49
+      name: Muricastorina_Back
       rect:
         serializedVersion: 2
         x: 576
@@ -1028,7 +1038,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_50
+      name: Shinja_Front
       rect:
         serializedVersion: 2
         x: 640
@@ -1041,7 +1051,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_51
+      name: Shinja_Back
       rect:
         serializedVersion: 2
         x: 704
@@ -1054,7 +1064,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_52
+      name: Scooby_front
       rect:
         serializedVersion: 2
         x: 768
@@ -1067,7 +1077,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_53
+      name: Scooby_Back
       rect:
         serializedVersion: 2
         x: 832
@@ -1080,7 +1090,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_54
+      name: PaulRyan_Front
       rect:
         serializedVersion: 2
         x: 896
@@ -1093,7 +1103,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_55
+      name: PaulRyan_Back
       rect:
         serializedVersion: 2
         x: 960
@@ -1106,7 +1116,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_56
+      name: Seuss_Front
       rect:
         serializedVersion: 2
         x: 1024
@@ -1119,7 +1129,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_57
+      name: Seuss_Back
       rect:
         serializedVersion: 2
         x: 1088
@@ -1132,7 +1142,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_58
+      name: Deadass_Front
       rect:
         serializedVersion: 2
         x: 1152
@@ -1145,7 +1155,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_59
+      name: Deadass_Back
       rect:
         serializedVersion: 2
         x: 1216
@@ -1158,7 +1168,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_60
+      name: Kumarsh_Front
       rect:
         serializedVersion: 2
         x: 0
@@ -1171,7 +1181,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_61
+      name: Kumarsh_Back
       rect:
         serializedVersion: 2
         x: 64
@@ -1184,7 +1194,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_62
+      name: Concusspinks_Front
       rect:
         serializedVersion: 2
         x: 128
@@ -1197,7 +1207,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_63
+      name: Concusspinks_Back
       rect:
         serializedVersion: 2
         x: 192
@@ -1210,7 +1220,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_64
+      name: Tannon_Front
       rect:
         serializedVersion: 2
         x: 256
@@ -1223,7 +1233,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_65
+      name: Tannon_Back
       rect:
         serializedVersion: 2
         x: 320
@@ -1236,7 +1246,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_66
+      name: Shermurk_Front
       rect:
         serializedVersion: 2
         x: 384
@@ -1249,7 +1259,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_67
+      name: Shermurk_Back
       rect:
         serializedVersion: 2
         x: 448
@@ -1262,7 +1272,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_68
+      name: Jurbot_Front
       rect:
         serializedVersion: 2
         x: 512
@@ -1275,7 +1285,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_69
+      name: Jurbot_Back
       rect:
         serializedVersion: 2
         x: 576
@@ -1288,7 +1298,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_70
+      name: Robbot_front
       rect:
         serializedVersion: 2
         x: 640
@@ -1301,7 +1311,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_71
+      name: Robbot_Back
       rect:
         serializedVersion: 2
         x: 704
@@ -1340,7 +1350,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_74
+      name: Drinkyle_Front
       rect:
         serializedVersion: 2
         x: 896
@@ -1353,7 +1363,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_75
+      name: Drinkyle_Back
       rect:
         serializedVersion: 2
         x: 960
@@ -1366,7 +1376,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_76
+      name: Bath_Front
       rect:
         serializedVersion: 2
         x: 1024
@@ -1379,7 +1389,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_77
+      name: Bath_Back
       rect:
         serializedVersion: 2
         x: 1088
@@ -1418,7 +1428,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_80
+      name: Boredon_Front
       rect:
         serializedVersion: 2
         x: 0
@@ -1431,7 +1441,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_81
+      name: Boredon_Back
       rect:
         serializedVersion: 2
         x: 64
@@ -1444,7 +1454,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_82
+      name: Lazpinczyk_Front
       rect:
         serializedVersion: 2
         x: 128
@@ -1457,7 +1467,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_83
+      name: Lazpinczyk_Back
       rect:
         serializedVersion: 2
         x: 192
@@ -1470,7 +1480,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_84
+      name: Bilbo_Front
       rect:
         serializedVersion: 2
         x: 256
@@ -1483,7 +1493,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_85
+      name: Bilbo_Back
       rect:
         serializedVersion: 2
         x: 320
@@ -1496,7 +1506,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_86
+      name: Gavalen_Front
       rect:
         serializedVersion: 2
         x: 384
@@ -1509,7 +1519,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_87
+      name: Gavalen_Back
       rect:
         serializedVersion: 2
         x: 448
@@ -1522,7 +1532,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_88
+      name: Mohlord_Front
       rect:
         serializedVersion: 2
         x: 512
@@ -1535,7 +1545,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_89
+      name: Mohlord_Back
       rect:
         serializedVersion: 2
         x: 576
@@ -1548,7 +1558,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_90
+      name: Delvin_Front
       rect:
         serializedVersion: 2
         x: 640
@@ -1561,7 +1571,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_91
+      name: Delvin_Back
       rect:
         serializedVersion: 2
         x: 704
@@ -1574,7 +1584,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_92
+      name: Legolalec_Front
       rect:
         serializedVersion: 2
         x: 768
@@ -1587,7 +1597,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_93
+      name: Legolalec_Back
       rect:
         serializedVersion: 2
         x: 832
@@ -1600,7 +1610,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_94
+      name: Huntweet_Front
       rect:
         serializedVersion: 2
         x: 896
@@ -1613,7 +1623,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_95
+      name: Huntweet_Back
       rect:
         serializedVersion: 2
         x: 960
@@ -1626,7 +1636,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_96
+      name: Flyle_Front
       rect:
         serializedVersion: 2
         x: 1024
@@ -1639,7 +1649,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_97
+      name: Flyle_Back
       rect:
         serializedVersion: 2
         x: 1088
@@ -1652,7 +1662,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_98
+      name: Italeagle_Front
       rect:
         serializedVersion: 2
         x: 1152
@@ -1665,7 +1675,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_99
+      name: Italeagle_Back
       rect:
         serializedVersion: 2
         x: 1216
@@ -1678,7 +1688,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_100
+      name: Shahound_Front
       rect:
         serializedVersion: 2
         x: 0
@@ -1691,7 +1701,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_101
+      name: Shahound_Back
       rect:
         serializedVersion: 2
         x: 64
@@ -1707,8 +1717,8 @@ TextureImporter:
       name: AllDeltSprites_102
       rect:
         serializedVersion: 2
-        x: 128
-        y: 576
+        x: 768
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -1720,8 +1730,8 @@ TextureImporter:
       name: AllDeltSprites_103
       rect:
         serializedVersion: 2
-        x: 192
-        y: 576
+        x: 832
+        y: 896
         width: 64
         height: 64
       alignment: 0
@@ -1730,7 +1740,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_104
+      name: Wolfmond_Front
       rect:
         serializedVersion: 2
         x: 256
@@ -1743,7 +1753,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_105
+      name: Wolfmond_Back
       rect:
         serializedVersion: 2
         x: 320
@@ -1756,7 +1766,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_106
+      name: Merl_Front
       rect:
         serializedVersion: 2
         x: 384
@@ -1769,7 +1779,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_107
+      name: Merl_Back
       rect:
         serializedVersion: 2
         x: 448
@@ -1782,7 +1792,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_108
+      name: PuffPuffPeter_Front
       rect:
         serializedVersion: 2
         x: 512
@@ -1795,7 +1805,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_109
+      name: PuffPuffPeter_Back
       rect:
         serializedVersion: 2
         x: 576
@@ -1808,7 +1818,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_110
+      name: Dobby_Front
       rect:
         serializedVersion: 2
         x: 640
@@ -1821,7 +1831,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_111
+      name: Dobby_Back
       rect:
         serializedVersion: 2
         x: 704
@@ -1834,7 +1844,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_112
+      name: Scaley_Front
       rect:
         serializedVersion: 2
         x: 768
@@ -1847,7 +1857,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_113
+      name: Scaley_Back
       rect:
         serializedVersion: 2
         x: 832
@@ -1860,7 +1870,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_114
+      name: Shawcodile_Front
       rect:
         serializedVersion: 2
         x: 896
@@ -1873,7 +1883,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_115
+      name: Shawcodile_Back
       rect:
         serializedVersion: 2
         x: 960
@@ -1886,7 +1896,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_116
+      name: Belzard_Front
       rect:
         serializedVersion: 2
         x: 1024
@@ -1899,7 +1909,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_117
+      name: Belzard_Back
       rect:
         serializedVersion: 2
         x: 1088
@@ -1938,7 +1948,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_120
+      name: Rimdrag_Front
       rect:
         serializedVersion: 2
         x: 0
@@ -1951,7 +1961,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: AllDeltSprites_121
+      name: Rimdrag_Back
       rect:
         serializedVersion: 2
         x: 64
@@ -4270,6 +4280,32 @@ TextureImporter:
         serializedVersion: 2
         x: 1216
         y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sneaky_Front
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Sneaky_Back
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 896
         width: 64
         height: 64
       alignment: 0

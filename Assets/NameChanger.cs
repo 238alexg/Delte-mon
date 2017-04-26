@@ -107,6 +107,7 @@ public class NameChanger : MonoBehaviour {
 		priceScreen.SetActive (false);
 		NameChangeScreen.SetActive (false);
 		UIMan.StartNPCMessage ("Leave this place, human.", "Name Changer");
+		UIMan.StartMessage (null, null, ()=>UIMan.EndNPCMessage ());
 		PlayerMovement.PlayMov.ResumeMoving ();
 	}
 

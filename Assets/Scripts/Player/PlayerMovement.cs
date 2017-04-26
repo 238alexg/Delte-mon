@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public bool isMoving, movementQueued, isRunning, isMale;
 	public byte repelStepsLeft;
+	public Image maleButton, femaleButton;
+
 	float t;
 	Vector3 startPos;
 	Vector3 endPos;
@@ -347,8 +349,15 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	// Setting function: Chance avatar gender
-	public void ChangeGender(bool isAMale) {
-		isMale = isAMale;
+	public void ChangeGender(bool male) {
+		if (isMale) {
+			maleButton.color = Color.white;
+			femaleButton.color = Color.grey;
+		} else {
+			femaleButton.color = Color.white;
+			maleButton.color = Color.grey;
+		}
+		isMale = male;
 	}
 }
 

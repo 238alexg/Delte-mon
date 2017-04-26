@@ -66,12 +66,12 @@ MonoBehaviour:
   buffs:
   - isBuff: 1
     buffT: 1
-    buffAmount: 30
+    buffAmount: 40
   - isBuff: 1
     buffT: 3
-    buffAmount: 3
+    buffAmount: 4
   - isBuff: 1
     buffT: 4
-    buffAmount: 2
+    buffAmount: 3
   statusChance: 0
   critChance: 0

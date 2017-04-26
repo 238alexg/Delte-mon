@@ -61,7 +61,7 @@ MonoBehaviour:
   moveIndex: 0
   PP: 20
   PPLeft: 20
-  damage: 40
+  damage: 60
   hitChance: 100
   statType: 7
   buffs: []

@@ -52,11 +52,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Rush
-  moveDescription: Gotta rush 'em all! Chance to rush Delt!
+  moveDescription: Gotta rush 'em all! Chance to rush wild Delt!
   majorType: {fileID: 114303113598987508, guid: afa998fc1034b42ba8cb69e3d796447b,
     type: 2}
   status: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   movType: 1
+  moveIndex: 0
   PP: 5
   PPLeft: 5
   damage: 20

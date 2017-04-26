@@ -94,8 +94,10 @@ public class NewGame : MonoBehaviour {
 	}
 
 	// When user selects starter from button
-	public void SelectStarter(DeltemonClass selectedStarter) {
-		starter = selectedStarter;
+	public void SelectStarter(DeltDexClass selectedStarter) {
+		starter.deltdex = selectedStarter;
+		starter.nickname = selectedStarter.nickname;
+		starter.initializeDelt ();
 	}
 
 	// When user selects confirm button on starter screen
@@ -129,7 +131,7 @@ public class NewGame : MonoBehaviour {
 			UIMan.StartMessage (null, null, (() => profCheema.SetTrigger ("SlideOut")));
 
 			// Change to normal world settings
-			UIMan.StartMessage (null, null, (() => UIMan.NPCMessage = false));
+			UIMan.StartMessage (null, null, (() => UIMan.EndNPCMessage ()));
 			UIMan.StartMessage (null, null, (() => backpack.SetActive(true)));
 
 			// Switch scene to beginning bedroom in Delts
@@ -147,13 +149,12 @@ public class NewGame : MonoBehaviour {
 
 	// Initialize interactable scene data for all scenes in game
 	void StartFileSaves() {
-		GameMan.InitializeSceneData ("Hometown", 8, new byte [2] {1, 3}, 0);		// Hometown: 4 items, 0 trainers
+		GameMan.InitializeSceneData ("Hometown", 4, new byte [2] {1, 3}, 0);		// Hometown: 4 items, 0 trainers
 		GameMan.InitializeSceneData ("Delta Shelter", 9, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 items, 0 trainers
 		GameMan.InitializeSceneData ("University St", 3, null, 4);					// University St: 3 items, 4 trainers
 		GameMan.InitializeSceneData ("Sigston", 2, null, 0);						// Sigston: 2 items, 0 trainers
 		GameMan.InitializeSceneData ("Sigma Chi", 0, null, 5);						// Sig Chi Gym: 0 items, 5 trainers
 		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 3);					// DA Graveyard: 2 items, 3 trainers
-
 
 		GameMan.discoveredTowns = new bool[15] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 	}

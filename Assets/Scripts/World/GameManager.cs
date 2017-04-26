@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
 		houseDelts = new List<DeltemonData> ();
 		location = new Vector3 (0, 0, 0);
 		curSceneData = new SceneInteractionData ();
+		Application.targetFrameRate = 60;
 	}
 
 	// When title screen is pressed
@@ -275,6 +276,7 @@ public class GameManager : MonoBehaviour {
 			MoveData newMove = new MoveData ();
 			newMove.moveName = deltClass.moveset [i].moveName;
 			newMove.PPLeft = deltClass.moveset [i].PPLeft;
+			newMove.major = deltClass.moveset [i].majorType.majorName;
 			tempSave.moves.Add (newMove);
 		}
 
@@ -350,7 +352,7 @@ public class GameManager : MonoBehaviour {
 			tmpDelt.item = null;
 		}
 		foreach (MoveData move in deltSave.moves) {
-			GameObject newMoveObject = (GameObject)Instantiate(Resources.Load ("Moves/" + move.moveName), tmpDeltObject.transform);
+			GameObject newMoveObject = (GameObject)Instantiate(Resources.Load ("Moves/" + move.major + "/" + move.moveName), tmpDeltObject.transform);
 			MoveClass newMove = newMoveObject.GetComponent<MoveClass>();
 			tmpDelt.moveset.Add (newMove);
 		}
@@ -372,7 +374,7 @@ public class GameManager : MonoBehaviour {
 		if (!deltDex.Exists (x => x.pin == newDelt.deltdex.pinNumber)) {
 			deltDex.Add (ConvertDexToData (newDelt.deltdex));
 
-			UIManager.StartMessage ((newDelt.nickname + " was added to " + playerName + "'s DeltDex!"), null, null);
+			UIManager.StartMessage ((newDelt.nickname + " was added to " + playerName + "'s DeltDex!"));
 
 			// Update leaderboard
 			AchievementManager.AchieveMan.UpdateDeltDexCount (deltDex.Count);
@@ -495,7 +497,7 @@ public class GameManager : MonoBehaviour {
 	// Save new scene data for a scene
 	public void InitializeSceneData(string initSceneName, byte numOfInteractables, byte[] childInteracts, byte numOfTrainers) {
 		if (File.Exists (Application.persistentDataPath + "/scene_" + initSceneName + ".dat")) {
-			print ("Scene data exists, it is being overwritten!");
+			//print ("Scene data exists, it is being overwritten!");
 		}
 		SceneInteractionData sceneDataInit = new SceneInteractionData ();
 
@@ -516,9 +518,10 @@ public class GameManager : MonoBehaviour {
 		}
 		SaveSceneData(sceneDataInit);
 	}
-		
+
+
 	void DeleteAllSceneData() {
-		string[] sceneNames = { "Hometown", "Delta Shelter" };
+		string[] sceneNames = { "Hometown", "Delta Shelter"};
 		foreach (string sceneName in sceneNames) {
 			File.Delete (Application.persistentDataPath + "/scene_" + sceneName + ".dat");
 		}
@@ -573,6 +576,7 @@ public class MoveData {
 	public string moveName;
 	public byte PP;
 	public byte PPLeft;
+	public string major;
 }
 
 [System.Serializable]

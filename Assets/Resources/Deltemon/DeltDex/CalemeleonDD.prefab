@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1834141387187078}
+  m_RootGameObject: {fileID: 1608589150942788}
   m_IsPrefabParent: 1
---- !u!1 &1834141387187078
+--- !u!1 &1608589150942788
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4487996132775026}
-  - component: {fileID: 114239258628145154}
+  - component: {fileID: 4817583670487964}
+  - component: {fileID: 114492529317336872}
   m_Layer: 0
   m_Name: CalemeleonDD
   m_TagString: Untagged
@@ -27,48 +27,53 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4487996132775026
+--- !u!4 &4817583670487964
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1834141387187078}
+  m_GameObject: {fileID: 1608589150942788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1388.9222, y: 328.4658, z: 0}
+  m_LocalPosition: {x: -200, y: 200, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114239258628145154
+--- !u!114 &114492529317336872
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1834141387187078}
+  m_GameObject: {fileID: 1608589150942788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7252964908c79480098675ee50b7b5d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nickname: Calemeleon
   deltName: Simon Calem
-  description: They say Calemeleon's flame grows when the beat drops.
+  description: Jersey boy turned PC chair.
   frontImage: {fileID: 21300036, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   backImage: {fileID: 21300038, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   pinNumber: 1489
   major1: {fileID: 114540014119815600, guid: 644f904836ae3466d9e8497ab649dc96, type: 2}
   major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
   BVs: 4b442d2b5d6f
-  prevEvol: {fileID: 114678398469074838, guid: 4e2de9d4486224a78b887f0bb5be1a2f, type: 2}
-  nextEvol: {fileID: 114740307115956580, guid: 11fb2558ce2784c0b8390d4b662e80b9, type: 2}
+  prevEvol: {fileID: 114304362442100648, guid: 8f1fccd8ff59d48f18784d09336ef8ba, type: 2}
+  nextEvol: {fileID: 114111323127500312, guid: f93c1cf9d7e7d4e5db92fcd7765dcc45, type: 2}
   evolveLevel: 35
-  levelUpMoves: []
+  levelUpMoves:
+  - level: 20
+    move: {fileID: 114132692131192192, guid: 764775755fade41059f80eaa984df213, type: 2}
+  - level: 23
+    move: {fileID: 114447211506012744, guid: 38c2f3b0beb0c4ecdb6317e0a7c197fc, type: 2}
+  - level: 26
+    move: {fileID: 114233591756911396, guid: 94da52cc764c64a38add7b620caad379, type: 2}
+  - level: 29
+    move: {fileID: 114519779296742100, guid: 8e99d91a5b4e34850bf717fcf4bdf4e0, type: 2}
+  - level: 32
+    move: {fileID: 114214948686025688, guid: 04a10e989eef847928b11d1ecd58e736, type: 2}
   rarity: 4
   AVIndex: 5
   AVAwardAmount: 3
-  secondEvol:
-    secondEvol: {fileID: 114716456392152626, guid: 47a58d3cd801d4782a9424471db33dd2,
-      type: 2}
-    firstEvolStat: 4
-    secondEvolStat: 1

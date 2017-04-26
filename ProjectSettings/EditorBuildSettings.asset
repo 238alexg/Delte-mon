@@ -8,3 +8,39 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Other/Main Menu.unity
     guid: b2acb6e8e40f44deeb29fa762b42e10c
+  - enabled: 1
+    path: Assets/Scenes/Other/New Game.unity
+    guid: f3c937cb708014f65bbea93d1d6fa5f5
+  - enabled: 1
+    path: Assets/Scenes/Towns/Hometown.unity
+    guid: 81c6e66d03d0b4691a86acc1fd5009f5
+  - enabled: 1
+    path: Assets/Scenes/Indoors/Delta Shelter.unity
+    guid: e9499c780a6f94e56a5b4699bd0682b7
+  - enabled: 1
+    path: Assets/Scenes/Routes/University St.unity
+    guid: 9871cc7bf083745f88820eb250604ff0
+  - enabled: 1
+    path: Assets/Scenes/Routes/DA Graveyard.unity
+    guid: 23fe3b3a9020b4be78408cf809082441
+  - enabled: 1
+    path: Assets/Scenes/Towns/Sigston.unity
+    guid: 3e81cd04e8f8a4ca3a98d681b98ea4af
+  - enabled: 1
+    path: Assets/Scenes/Routes/Onyx St.unity
+    guid: 83291e23374ee4c42964bb8e7ce969d4
+  - enabled: 1
+    path: Assets/Scenes/Towns/ChiTown.unity
+    guid: 7899cbf780f0f47d6bda5afda2331acf
+  - enabled: 1
+    path: Assets/Scenes/Routes/19th St.unity
+    guid: 9b1d395f57ac744fdb89cb71fb6f955d
+  - enabled: 1
+    path: Assets/Scenes/Towns/Atlambdis.unity
+    guid: b353f83ef64c24f9d81b02a1d5d0bb52
+  - enabled: 1
+    path: Assets/Scenes/Routes/Alder St.unity
+    guid: 722db5dd872e84b91a8ad41c6915e0e2
+  - enabled: 1
+    path: Assets/Scenes/Towns/Las Saegas.unity
+    guid: f1c7cead9c3ea4a25be2e67940fb326c

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1041420844628022}
+  m_IsPrefabParent: 1
+--- !u!1 &1041420844628022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224491620532826664}
+  - component: {fileID: 114208541242301162}
+  m_Layer: 0
+  m_Name: ScaleyDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114208541242301162
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041420844628022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Scaley
+  deltName: Caley Berney
+  description: Scaleys bounce soccer balls on their chest as part of an elaborate
+    mating ritual.
+  frontImage: {fileID: 21300224, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300226, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1488
+  major1: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 534843444150
+  prevEvol: {fileID: 114363910331204070, guid: 8e47cb8b2779841949299ff342de4905, type: 2}
+  nextEvol: {fileID: 114777208735152928, guid: 33c7d27c863404d65b96b10d51cac983, type: 2}
+  evolveLevel: 35
+  levelUpMoves:
+  - level: 20
+    move: {fileID: 114288290988486986, guid: 8233fa93d17f94e4c98cf72586784e7b, type: 2}
+  - level: 23
+    move: {fileID: 114957619390818724, guid: 6177caf9958af4f6494debc37d5e76be, type: 2}
+  - level: 26
+    move: {fileID: 114661038089016976, guid: 6479a08deaa2e413a8395a8644ccab0c, type: 2}
+  - level: 29
+    move: {fileID: 114245796511451510, guid: 19cec947919a54195ae4a7cfe40c7ce3, type: 2}
+  - level: 32
+    move: {fileID: 114956862389629008, guid: ceff0222e783e47d1b6a925ecd806172, type: 2}
+  rarity: 4
+  AVIndex: 0
+  AVAwardAmount: 3
+--- !u!224 &224491620532826664
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041420844628022}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999166, y: 0.99999166, z: 0.9999916}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00015449524, y: -0.00010570884}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

@@ -60,9 +60,9 @@ MonoBehaviour:
   moveIndex: 0
   PP: 20
   PPLeft: 20
-  damage: 50
+  damage: 70
   hitChance: 90
   statType: 3
   buffs: []
-  statusChance: 40
+  statusChance: 10
   critChance: 15

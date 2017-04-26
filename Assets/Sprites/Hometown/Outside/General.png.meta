@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe3b1e453b9d88047b7d779f8a2ba8c1
-timeCreated: 1488666722
+timeCreated: 1493104917
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -704,15 +704,15 @@ TextureImporter:
     21301394: General_697
     21301396: General_698
     21301398: General_699
-    21301400: General_700
+    21301400: DeltaSig_Left
     21301402: General_701
     21301404: General_702
     21301406: General_703
     21301408: General_704
     21301410: General_705
-    21301412: General_706
-    21301414: General_707
-    21301416: General_708
+    21301412: DeltaSig_Roof
+    21301414: DeltaSig_Right
+    21301416: DeltaSig_Door
     21301418: General_709
     21301420: General_710
     21301422: General_711
@@ -744,7 +744,7 @@ TextureImporter:
     21301474: General_737
     21301476: General_738
     21301478: General_739
-    21301480: General_740
+    21301480: SigNu_Roof
     21301482: General_741
     21301484: General_742
     21301486: General_743
@@ -832,9 +832,9 @@ TextureImporter:
     21301650: General_825
     21301652: General_826
     21301654: General_827
-    21301656: General_828
+    21301656: SigNu_Left
     21301658: General_829
-    21301660: General_830
+    21301660: SigNu_Door
     21301662: General_831
     21301664: General_832
     21301666: General_833
@@ -878,7 +878,7 @@ TextureImporter:
     21301742: General_871
     21301744: General_872
     21301746: General_873
-    21301748: General_874
+    21301748: SigNu_Right
     21301750: General_875
     21301752: General_876
     21301754: General_877
@@ -1570,20 +1570,20 @@ TextureImporter:
     21303126: General_1567
     21303128: General_1568
     21303130: General_1569
-    21303132: General_1570
-    21303134: General_1571
+    21303132: StockHouse1_Left
+    21303134: StockHouse1_Roof
     21303136: General_1572
     21303138: General_1573
-    21303140: General_1574
+    21303140: StockHouse2_Left
     21303142: General_1575
-    21303144: General_1576
+    21303144: StockHouse2_Roof
     21303146: General_1577
     21303148: General_1578
     21303150: General_1579
-    21303152: General_1580
+    21303152: StockHouse4_Roof
     21303154: General_1581
     21303156: General_1582
-    21303158: General_1583
+    21303158: StockHouse5_Roof
     21303160: General_1584
     21303162: General_1585
     21303164: General_1586
@@ -1594,7 +1594,7 @@ TextureImporter:
     21303174: General_1591
     21303176: General_1592
     21303178: General_1593
-    21303180: General_1594
+    21303180: StockHouse9_Roof
     21303182: General_1595
     21303184: General_1596
     21303186: General_1597
@@ -1613,7 +1613,7 @@ TextureImporter:
     21303212: General_1610
     21303214: General_1611
     21303216: General_1612
-    21303218: General_1613
+    21303218: StockHouse3_Roof
     21303220: General_1614
     21303222: General_1615
     21303224: General_1616
@@ -1628,7 +1628,7 @@ TextureImporter:
     21303242: General_1625
     21303244: General_1626
     21303246: General_1627
-    21303248: General_1628
+    21303248: StockHouse10_Roof
     21303250: General_1629
     21303252: General_1630
     21303254: General_1631
@@ -1637,37 +1637,37 @@ TextureImporter:
     21303260: General_1634
     21303262: General_1635
     21303264: General_1636
-    21303266: General_1637
+    21303266: StockHouse1_Right
     21303268: General_1638
     21303270: General_1639
     21303272: General_1640
-    21303274: General_1641
-    21303276: General_1642
-    21303278: General_1643
+    21303274: StockHouse2_Door
+    21303276: StockHouse2_Right
+    21303278: StockHouse3_Left
     21303280: General_1644
     21303282: General_1645
     21303284: General_1646
-    21303286: General_1647
-    21303288: General_1648
+    21303286: StockHouse3_Right
+    21303288: StockHouse4_Left
     21303290: General_1649
     21303292: General_1650
-    21303294: General_1651
-    21303296: General_1652
+    21303294: StockHouse4_Right
+    21303296: StockHouse5_Left
     21303298: General_1653
     21303300: General_1654
     21303302: General_1655
     21303304: General_1656
-    21303306: General_1657
+    21303306: StockHouse6_Roof
     21303308: General_1658
     21303310: General_1659
     21303312: General_1660
     21303314: General_1661
-    21303316: General_1662
+    21303316: StockHouse7_Roof
     21303318: General_1663
     21303320: General_1664
     21303322: General_1665
     21303324: General_1666
-    21303326: General_1667
+    21303326: StockHouse8_Roof
     21303328: General_1668
     21303330: General_1669
     21303332: General_1670
@@ -1683,7 +1683,7 @@ TextureImporter:
     21303352: General_1680
     21303354: General_1681
     21303356: General_1682
-    21303358: General_1683
+    21303358: StockHouse1_Door
     21303360: General_1684
     21303362: General_1685
     21303364: General_1686
@@ -1691,40 +1691,40 @@ TextureImporter:
     21303368: General_1688
     21303370: General_1689
     21303372: General_1690
-    21303374: General_1691
+    21303374: StockHouse3_Door
     21303376: General_1692
     21303378: General_1693
     21303380: General_1694
     21303382: General_1695
-    21303384: General_1696
+    21303384: StockHouse4_Door
     21303386: General_1697
     21303388: General_1698
     21303390: General_1699
-    21303392: General_1700
+    21303392: StockHouse5_Door
     21303394: General_1701
-    21303396: General_1702
+    21303396: StockHouse5_Right
     21303398: General_1703
-    21303400: General_1704
-    21303402: General_1705
+    21303400: StockHouse6_Left
+    21303402: StockHouse6_Door
     21303404: General_1706
-    21303406: General_1707
-    21303408: General_1708
+    21303406: StockHouse6_Right
+    21303408: StockHouse7_Left
     21303410: General_1709
-    21303412: General_1710
+    21303412: StockHouse7_Door
     21303414: General_1711
-    21303416: General_1712
-    21303418: General_1713
-    21303420: General_1714
-    21303422: General_1715
-    21303424: General_1716
-    21303426: General_1717
-    21303428: General_1718
+    21303416: StockHouse7_Right
+    21303418: StockHouse8_Left
+    21303420: StockHouse8_Door
+    21303422: StockHouse8_Right
+    21303424: StockHouse9_Left
+    21303426: StockHouse9_Door
+    21303428: StockHouse9_Right
     21303430: General_1719
-    21303432: General_1720
+    21303432: StockHouse10_Left
     21303434: General_1721
-    21303436: General_1722
+    21303436: StockHouse10_Door
     21303438: General_1723
-    21303440: General_1724
+    21303440: StockHouse10_Right
     21303442: General_1725
     21303444: Tall_Grass_1
     21303446: Tall_Grass_2
@@ -1857,6 +1857,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
@@ -10838,12 +10846,12 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_700
+      name: DeltaSig_Left
       rect:
         serializedVersion: 2
-        x: 672
-        y: 496
-        width: 16
+        x: 640
+        y: 512
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -10916,12 +10924,25 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_706
+      name: DeltaSig_Roof
       rect:
         serializedVersion: 2
-        x: 656
-        y: 480
-        width: 16
+        x: 640
+        y: 528
+        width: 112
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: DeltaSig_Right
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 512
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -10929,24 +10950,11 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_707
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 480
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_708
+      name: DeltaSig_Door
       rect:
         serializedVersion: 2
         x: 688
-        y: 480
+        y: 512
         width: 16
         height: 16
       alignment: 0
@@ -11358,67 +11366,15 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_740
+      name: SigNu_Roof
       rect:
         serializedVersion: 2
         x: 640
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_741
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_742
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_743
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_744
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 464
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 448
+        width: 112
+        height: 64
+      alignment: 9
+      pivot: {x: 0.9085312, y: 0.7687702}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
@@ -11921,71 +11877,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 608
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_784
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_785
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_786
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_787
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 448
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_788
-      rect:
-        serializedVersion: 2
-        x: 704
         y: 448
         width: 16
         height: 16
@@ -12502,12 +12393,12 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_828
+      name: SigNu_Left
       rect:
         serializedVersion: 2
-        x: 656
+        x: 640
         y: 432
-        width: 16
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -12515,20 +12406,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_829
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 432
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_830
+      name: SigNu_Door
       rect:
         serializedVersion: 2
         x: 688
@@ -13100,12 +12978,12 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_874
+      name: SigNu_Right
       rect:
         serializedVersion: 2
         x: 704
-        y: 416
-        width: 16
+        y: 432
+        width: 48
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -22096,182 +21974,78 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1570
+      name: StockHouse1_Left
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
+        x: 0
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1571
+      name: StockHouse1_Roof
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
-        width: 16
-        height: 16
+        y: 32
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1572
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1573
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1574
+      name: StockHouse2_Left
       rect:
         serializedVersion: 2
         x: 80
-        y: 48
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1575
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1576
+      name: StockHouse2_Roof
       rect:
         serializedVersion: 2
         x: 112
-        y: 48
-        width: 16
-        height: 16
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1577
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1578
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1579
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1580
+      name: StockHouse4_Roof
       rect:
         serializedVersion: 2
         x: 224
-        y: 48
-        width: 16
-        height: 16
+        y: 32
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1581
+      name: StockHouse5_Roof
       rect:
         serializedVersion: 2
-        x: 240
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1582
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1583
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 48
-        width: 16
-        height: 16
+        x: 304
+        y: 32
+        width: 96
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -22395,78 +22169,13 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1593
-      rect:
-        serializedVersion: 2
-        x: 624
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1594
+      name: StockHouse9_Roof
       rect:
         serializedVersion: 2
         x: 640
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1595
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1596
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1597
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1598
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 48
-        width: 16
-        height: 16
+        y: 32
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -22538,377 +22247,26 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1604
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1605
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1606
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1607
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1608
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1609
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1610
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1611
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1612
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1613
+      name: StockHouse3_Roof
       rect:
         serializedVersion: 2
         x: 144
         y: 32
-        width: 16
-        height: 16
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1614
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1615
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1616
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1617
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1618
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1619
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1620
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1621
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1622
-      rect:
-        serializedVersion: 2
-        x: 624
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1623
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1624
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1625
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1626
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1627
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1628
+      name: StockHouse10_Roof
       rect:
         serializedVersion: 2
         x: 720
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1629
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1630
-      rect:
-        serializedVersion: 2
-        x: 752
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1631
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1632
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 32
-        width: 16
-        height: 16
+        y: 16
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -22928,598 +22286,143 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1634
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1635
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1636
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1637
+      name: StockHouse1_Right
       rect:
         serializedVersion: 2
         x: 48
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1638
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1639
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1640
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1641
+      name: StockHouse2_Door
       rect:
         serializedVersion: 2
         x: 112
-        y: 16
+        y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1642
+      name: StockHouse2_Right
       rect:
         serializedVersion: 2
         x: 128
-        y: 16
+        y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1643
+      name: StockHouse3_Left
       rect:
         serializedVersion: 2
         x: 144
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1644
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1645
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1646
+      name: StockHouse3_Right
       rect:
         serializedVersion: 2
         x: 192
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1647
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1648
+      name: StockHouse4_Left
       rect:
         serializedVersion: 2
         x: 224
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1649
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1650
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1651
+      name: StockHouse4_Right
       rect:
         serializedVersion: 2
         x: 272
-        y: 16
-        width: 16
-        height: 16
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1652
+      name: StockHouse5_Left
       rect:
         serializedVersion: 2
-        x: 320
-        y: 16
-        width: 16
-        height: 16
+        x: 304
+        y: 0
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1653
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1654
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1655
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1656
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1657
+      name: StockHouse6_Roof
       rect:
         serializedVersion: 2
         x: 400
         y: 16
-        width: 16
-        height: 16
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1658
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1659
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1660
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1661
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1662
+      name: StockHouse7_Roof
       rect:
         serializedVersion: 2
         x: 480
-        y: 16
-        width: 16
-        height: 16
+        y: 32
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1663
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1664
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1665
-      rect:
-        serializedVersion: 2
-        x: 528
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1666
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1667
+      name: StockHouse8_Roof
       rect:
         serializedVersion: 2
         x: 560
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1668
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1669
-      rect:
-        serializedVersion: 2
-        x: 624
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1670
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1671
-      rect:
-        serializedVersion: 2
-        x: 656
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1672
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1673
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1674
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1675
-      rect:
-        serializedVersion: 2
-        x: 720
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1676
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1677
-      rect:
-        serializedVersion: 2
-        x: 752
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1678
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1679
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 16
-        width: 16
-        height: 16
+        y: 32
+        width: 80
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -23539,298 +22442,77 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1681
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1682
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1683
+      name: StockHouse1_Door
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1684
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1685
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1686
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1687
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1688
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1689
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1690
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1691
+      name: StockHouse3_Door
       rect:
         serializedVersion: 2
         x: 176
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1692
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1693
-      rect:
-        serializedVersion: 2
-        x: 208
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1694
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1695
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1696
+      name: StockHouse4_Door
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1697
-      rect:
-        serializedVersion: 2
-        x: 272
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1698
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1699
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1700
+      name: StockHouse5_Door
       rect:
         serializedVersion: 2
         x: 352
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1701
+      name: StockHouse5_Right
       rect:
         serializedVersion: 2
         x: 368
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1702
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1703
+      name: StockHouse6_Left
       rect:
         serializedVersion: 2
         x: 400
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -23838,20 +22520,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1704
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1705
+      name: StockHouse6_Door
       rect:
         serializedVersion: 2
         x: 432
@@ -23864,12 +22533,12 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1706
+      name: StockHouse6_Right
       rect:
         serializedVersion: 2
         x: 448
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -23877,181 +22546,129 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1707
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1708
+      name: StockHouse7_Left
       rect:
         serializedVersion: 2
         x: 480
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1709
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1710
+      name: StockHouse7_Door
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1711
+      name: StockHouse7_Right
       rect:
         serializedVersion: 2
         x: 528
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1712
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1713
+      name: StockHouse8_Left
       rect:
         serializedVersion: 2
         x: 560
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1714
+      name: StockHouse8_Door
       rect:
         serializedVersion: 2
         x: 576
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1715
+      name: StockHouse8_Right
       rect:
         serializedVersion: 2
-        x: 624
+        x: 592
         y: 0
-        width: 16
-        height: 16
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1716
+      name: StockHouse9_Left
       rect:
         serializedVersion: 2
         x: 640
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1717
+      name: StockHouse9_Door
       rect:
         serializedVersion: 2
         x: 656
         y: 0
         width: 16
-        height: 16
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1718
+      name: StockHouse9_Right
       rect:
         serializedVersion: 2
-        x: 688
+        x: 672
         y: 0
-        width: 16
-        height: 16
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1719
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1720
+      name: StockHouse10_Left
       rect:
         serializedVersion: 2
         x: 720
         y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -24059,20 +22676,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1721
-      rect:
-        serializedVersion: 2
-        x: 736
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1722
+      name: StockHouse10_Door
       rect:
         serializedVersion: 2
         x: 752
@@ -24085,25 +22689,12 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1723
+      name: StockHouse10_Right
       rect:
         serializedVersion: 2
         x: 768
         y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1724
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 0
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

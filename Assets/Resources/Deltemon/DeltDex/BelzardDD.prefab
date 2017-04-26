@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1825306138101600}
+  m_IsPrefabParent: 1
+--- !u!1 &1825306138101600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224371032675536012}
+  - component: {fileID: 114238155827112766}
+  m_Layer: 0
+  m_Name: BelzardDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114238155827112766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825306138101600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Belzard
+  deltName: John Belz
+  description: In competition with it's own kind, Belzards get very aggressive and
+    will often chirp "Sway" at each other.
+  frontImage: {fileID: 21300232, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300234, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1488
+  major1: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 756b4f516771
+  prevEvol: {fileID: 114208541242301162, guid: 9f68dffb266234c4f9e79b7b0183dd15, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 38
+    move: {fileID: 114685345062691956, guid: 4a783d8741583485f864733231dafc6c, type: 2}
+  - level: 42
+    move: {fileID: 114917123655856142, guid: 23f9a0e51b472427885937eb1ffd2b28, type: 2}
+  - level: 45
+    move: {fileID: 114245796511451510, guid: 19cec947919a54195ae4a7cfe40c7ce3, type: 2}
+  - level: 48
+    move: {fileID: 114447211506012744, guid: 38c2f3b0beb0c4ecdb6317e0a7c197fc, type: 2}
+  - level: 51
+    move: {fileID: 114040947228649598, guid: 4db02d534450f41779c55aa679ceceae, type: 2}
+  - level: 54
+    move: {fileID: 114893161152560750, guid: 82a9388846bdb43b4b9451a12981a754, type: 2}
+  - level: 57
+    move: {fileID: 114279646801120690, guid: dbf54a3dcd8aa41d8a6ff3bb238869b4, type: 2}
+  - level: 60
+    move: {fileID: 114168280439635206, guid: 165c4cc57ff594857a3e5e94f1c0e34c, type: 2}
+  - level: 62
+    move: {fileID: 114758239826958608, guid: d532cd55b025742d2961e47733f05f23, type: 2}
+  rarity: 4
+  AVIndex: 0
+  AVAwardAmount: 3
+--- !u!224 &224371032675536012
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825306138101600}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999166, y: 0.99999166, z: 0.9999916}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00015449524, y: -0.00010570884}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

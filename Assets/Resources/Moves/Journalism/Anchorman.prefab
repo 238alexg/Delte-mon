@@ -58,10 +58,11 @@ MonoBehaviour:
     type: 2}
   status: {fileID: 21300068, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   movType: 1
+  moveIndex: 0
   PP: 10
   PPLeft: 10
-  damage: 0
-  hitChance: 70
+  damage: 60
+  hitChance: 60
   statType: 4
   buffs: []
   statusChance: 100
