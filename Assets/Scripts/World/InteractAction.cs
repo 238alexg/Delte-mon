@@ -8,7 +8,8 @@ public class InteractAction : MonoBehaviour {
 	public actionType actionT;
 	public bool hasBeenViewed;
 	public List<string> messages;
-	public ItemClass item;
+	public List<ItemClass> items;
+	public int coins;
 	public GameObject nextTile;
 	public int index;
 
@@ -16,6 +17,8 @@ public class InteractAction : MonoBehaviour {
 	public int questNum;
 	public bool needsItem;
 	public int numberOfItemsNeeded;
+	public int coinsNeeded;
+	public ItemClass questItem;
 	public List<string> questCompletionMessages;
 }
 

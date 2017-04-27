@@ -19,6 +19,7 @@ public class NameChanger : MonoBehaviour {
 	void Start() {
 		hasTriggered = false;
 		UIMan = UIManager.UIMan;
+		newName = "";
 	}
 
 	// Player steps into sight of Name Changer

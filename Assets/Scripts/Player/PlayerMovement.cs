@@ -281,11 +281,22 @@ public class PlayerMovement : MonoBehaviour {
 			if ((ia.actionT == actionType.itemWithNext) || (ia.actionT == actionType.itemWithoutNext)) {
 				if (!ia.hasBeenViewed) {
 					ia.hasBeenViewed = true;
+
+					// Present player with messages
 					foreach (string message in ia.messages) {
 						UIManager.StartMessage (message);
 					}
-					if (ia.item != null) {
-						GameManager.AddItem (ia.item, ia.numberOfItemsNeeded);
+
+					// Award player items
+					foreach (ItemClass item in ia.items) {
+						GameManager.AddItem (item, item.numberOfItem);
+					}
+
+					// Award player coins
+					if (ia.coins > 0) {
+						GameManager.coins += ia.coins;
+						UIManager.StartMessage (GameManager.playerName + " received " + ia.coins + " coins!", null,
+							()=> SoundEffectManager.SEM.PlaySoundImmediate ("coinDing"));
 					}
 					UIManager.StartMessage(null, null, (() => destroyQuestAndPresentChild(ia)));
 				} else {
@@ -296,31 +307,58 @@ public class PlayerMovement : MonoBehaviour {
 					UIManager.StartMessage (message);
 				}
 			} else if (ia.actionT == actionType.quest) {
+				ItemData questItem = null;
+
 				if (ia.needsItem) {
-					ItemData questItem = GameManager.allItems.Find (item => item.itemName.Equals (ia.item.itemName));
+					questItem = GameManager.allItems.Find (item => item.itemName.Equals (ia.questItem.itemName));
+
+					// Player doesn't have item
 					if (questItem == null) {
 						foreach (string message in ia.messages) {
 							UIManager.StartMessage (message, null, null);
 						}
-					} else if (questItem.numberOfItem < ia.numberOfItemsNeeded) {
+						return;
+					} 
+					// Player doesn't have enough of the item
+					else if (questItem.numberOfItem < ia.numberOfItemsNeeded) {
 						foreach (string message in ia.messages) {
 							UIManager.StartMessage (message, null, null);
 						}
-						UIManager.StartMessage ("You don't have enough of this item yet!");
-					} else {
-						questItem.numberOfItem -= ia.numberOfItemsNeeded;
-						// Remove item/s from inventory
-						if (questItem.numberOfItem < 1) {
-							GameManager.allItems.Remove (questItem);
-						}
-						// Print quest completion messages
-						foreach (string message in ia.questCompletionMessages) {
-							UIManager.StartMessage (message);
-						}
-						// Destroy completed quest object, update player quests
-						UIManager.StartMessage(null, null, (() => destroyQuestAndPresentChild(ia)));
+						UIManager.StartMessage ("You need " + (ia.numberOfItemsNeeded - questItem.numberOfItem) + " more of this item!");
+						return;
 					}
 				}
+				// Check if player has enough coins to proceed
+				if (ia.coinsNeeded > 0) {
+					if (GameManager.coins < ia.coinsNeeded) {
+						foreach (string message in ia.messages) {
+							UIManager.StartMessage (message, null, null);
+						}
+						UIManager.StartMessage ("You need " + (ia.coinsNeeded - GameManager.coins) + " more coins!");
+						return;
+					} 
+					// Player has enough coins
+					else {
+						GameManager.coins -= ia.coinsNeeded;
+						SoundEffectManager.SEM.PlaySoundImmediate ("coinDing");
+					}
+				}
+
+				// Remove items
+				if (ia.needsItem) {
+					questItem.numberOfItem -= ia.numberOfItemsNeeded;
+					// Remove item/s from inventory
+					if (questItem.numberOfItem < 1) {
+						GameManager.allItems.Remove (questItem);
+					}
+				}
+
+				// Print quest completion messages
+				foreach (string message in ia.questCompletionMessages) {
+					UIManager.StartMessage (message);
+				}
+				// Destroy completed quest object, update player quests
+				UIManager.StartMessage(null, null, (() => destroyQuestAndPresentChild(ia)));
 			}
 		}
 	}

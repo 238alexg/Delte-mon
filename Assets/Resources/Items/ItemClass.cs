@@ -5,7 +5,6 @@ using UnityEngine;
 //[System.Serializable]
 public class ItemClass : MonoBehaviour {
 	[Header("Item Info")]
-	public byte itemIndex;
 	public int numberOfItem;
 	public string itemName;
 	public string itemDescription;
@@ -16,7 +15,6 @@ public class ItemClass : MonoBehaviour {
 	public byte[] statUpgrades = new byte[6];
 
 	public ItemClass duplicateValues(ItemClass recipient) {
-		recipient.itemIndex = itemIndex;
 		recipient.numberOfItem = numberOfItem;
 		recipient.itemName = itemName;
 		recipient.itemDescription = itemDescription;
