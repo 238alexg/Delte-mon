@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour {
 	public Transform MoveOneOverview, MoveTwoOverview;
 	public List <Button> MoveOptions;
 	int overviewDeltIndex;
-	int switchIndex;
 
 	[Header("DeltDex UI")]
 	public GameObject DeltDexUI, ListDeltemonObject, curOverviewDex;
@@ -590,34 +589,12 @@ public class UIManager : MonoBehaviour {
 				if (!allDeltsLoaded) {
 					loadDeltIntoUI (delt, statCube);
 				}
-				// XP Bar and Health Set
-				Slider XP = statCube.GetChild (5).GetComponent<Slider> ();
-				Slider health = statCube.GetChild (6).GetComponent<Slider> ();
-				XP.maxValue = delt.XPToLevel;
-				XP.value = delt.experience;
-				health.maxValue = delt.GPA;
-				health.value = delt.health;
-
-				if (delt.health < (delt.GPA * 0.25)) {
-					health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.quarterHealth;
-				} else if (delt.health < (delt.GPA * 0.5)) {
-					health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.halfHealth;
-				} else {
-					health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.fullHealth;
-				}
-				// Add status sprite to the info box
-				if (delt.curStatus != statusType.none) {
-					statCube.GetChild (3).GetComponent<Image> ().sprite = delt.statusImage;
-				} else {
-					statCube.GetChild (3).GetComponent<Image> ().sprite = noStatus;
-				}
-				statCube.gameObject.SetActive (true);
 			} else {
 				statCube.gameObject.SetActive (false);
 			}
 		}
 
-		// If in battle and player forced to switch, do not offer back button
+		// If in battle and player forced to switch, do not offer back or Give Item button
 		if (isForceSwitchIn) {
 			DeltemonUI.transform.GetChild (7).GetChild (1).gameObject.SetActive (false);
 			DeltemonUI.transform.GetChild (8).GetChild (9).gameObject.SetActive (false);
@@ -668,23 +645,8 @@ public class UIManager : MonoBehaviour {
 					battleManager.chooseSwitchIn (activeDelt);
 				}
 			} 
-			// Switch order of delts in posse
-			else if (activeDelt != null) {
-				if (activeDelt == gameManager.deltPosse [overviewDeltIndex]) {
-					activeDelt = null;
-					DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = Color.white;
-				}
-				DeltemonClass tmp = gameManager.deltPosse [overviewDeltIndex];
-				gameManager.deltPosse [overviewDeltIndex] = activeDelt;
-				gameManager.deltPosse [switchIndex] = tmp;
-				overviewDeltIndex = switchIndex;
-				activeDelt = null;
-				allDeltsLoaded = false;
-				OpenDeltemon ();
-			} 
 			// Select and save first delt for switching
 			else {
-				switchIndex = overviewDeltIndex;
 				activeDelt = gameManager.deltPosse [overviewDeltIndex];
 				DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = rarityColor [1];
 			}
@@ -710,56 +672,104 @@ public class UIManager : MonoBehaviour {
 		} else {
 			statCube.transform.GetChild (4).GetComponent<Image> ().sprite = noStatus;
 		}
+		// XP Bar and Health Set
+		Slider XP = statCube.GetChild (5).GetComponent<Slider> ();
+		Slider health = statCube.GetChild (6).GetComponent<Slider> ();
+		XP.maxValue = delt.XPToLevel;
+		XP.value = delt.experience;
+		health.maxValue = delt.GPA;
+		health.value = delt.health;
+
+		if (delt.health < (delt.GPA * 0.25)) {
+			health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.quarterHealth;
+		} else if (delt.health < (delt.GPA * 0.5)) {
+			health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.halfHealth;
+		} else {
+			health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.fullHealth;
+		}
+		// Add status sprite to the info box
+		if (delt.curStatus != statusType.none) {
+			statCube.GetChild (3).GetComponent<Image> ().sprite = delt.statusImage;
+		} else {
+			statCube.GetChild (3).GetComponent<Image> ().sprite = noStatus;
+		}
+		statCube.gameObject.SetActive (true);
 	}
 
 	// Load delt information into the overview panel
 	public void loadDeltIntoPlayerOverview(int i) {
-		overviewDeltIndex = i;
-		DeltemonClass delt = gameManager.deltPosse [i];
-		Text stats = DeltOverviewUI.transform.GetChild (1).GetComponent<Text> ();
-		Image frontSprite = DeltOverviewUI.transform.GetChild (2).GetComponent<Image> ();
-		Text nickname = DeltOverviewUI.transform.GetChild (3).GetComponent<Text> ();
-		Text actualName = DeltOverviewUI.transform.GetChild (4).GetComponent<Text> ();
-		Slider expBar = DeltOverviewUI.transform.GetChild (5).GetComponent<Slider> ();
-		Slider health = DeltOverviewUI.transform.GetChild (6).GetComponent<Slider> ();
+		// Switch order of delts in posse
+		if (activeDelt != null && !inBattle) {
+			
+			// If player selected a Delt that was different than the overview
+			if (i != overviewDeltIndex) {
+				// Get the Delt to switch positions with
+				DeltemonClass tmp = gameManager.deltPosse [i];
+				print ("Switching " + activeDelt.nickname + " with " + tmp.nickname);
 
-		stats.text = "Lv. " + delt.level + System.Environment.NewLine + delt.GPA + System.Environment.NewLine + delt.Truth +
+				// Switch positions of the Delts in the posse
+				gameManager.deltPosse [i] = activeDelt;
+				gameManager.deltPosse [overviewDeltIndex] = tmp;
+
+				// Update the overview index (since overview Delt is now in a new position)
+				loadDeltIntoUI (activeDelt, DeltemonUI.transform.GetChild (i + 1));
+				loadDeltIntoUI (tmp, DeltemonUI.transform.GetChild (overviewDeltIndex + 1));
+			}
+
+			// Return selected Delt to unselected color, unselect active Delt
+			DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = Color.white;
+			activeDelt = null;
+			overviewDeltIndex = i;
+		} 
+		// Else selected Delt gets put into the overview
+		else {
+			overviewDeltIndex = i;
+			DeltemonClass delt = gameManager.deltPosse [i];
+			Text stats = DeltOverviewUI.transform.GetChild (1).GetComponent<Text> ();
+			Image frontSprite = DeltOverviewUI.transform.GetChild (2).GetComponent<Image> ();
+			Text nickname = DeltOverviewUI.transform.GetChild (3).GetComponent<Text> ();
+			Text actualName = DeltOverviewUI.transform.GetChild (4).GetComponent<Text> ();
+			Slider expBar = DeltOverviewUI.transform.GetChild (5).GetComponent<Slider> ();
+			Slider health = DeltOverviewUI.transform.GetChild (6).GetComponent<Slider> ();
+
+			stats.text = "Lv. " + delt.level + System.Environment.NewLine + delt.GPA + System.Environment.NewLine + delt.Truth +
 			System.Environment.NewLine + delt.Courage + System.Environment.NewLine + delt.Faith + System.Environment.NewLine + delt.Power + System.Environment.NewLine + delt.ChillToPull;
 
-		if (gameManager.pork) {
-			frontSprite.sprite = porkSprite;
-			nickname.text = "What is " + delt.nickname + " !?";
-			actualName.text = "Loinel " + delt.deltdex.deltName + " Baconius";
-		} else {
-			frontSprite.sprite = delt.deltdex.frontImage;
-			nickname.text = delt.nickname;
-			actualName.text = delt.deltdex.deltName;
-		}
-
-		health.maxValue = delt.GPA;
-		health.value = delt.health;
-		expBar.maxValue = delt.XPToLevel;
-		expBar.value = delt.experience;
-
-		MoveClass tmpMove;
-		// Set color and text of all Delt moves
-		for (int index = 0; index < 4; index++) {
-			if (index < delt.moveset.Count) {
-				tmpMove = delt.moveset [index];
-				if (gameManager.pork) {
-					MoveOptions [index].GetComponent<Image> ().color = new Color(0.967f,0.698f,0.878f);
-					MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = ("What is pork!?" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
-				} else {
-					MoveOptions [index].GetComponent<Image> ().color = tmpMove.majorType.background;
-					MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
-				}
-
+			if (gameManager.pork) {
+				frontSprite.sprite = porkSprite;
+				nickname.text = "What is " + delt.nickname + " !?";
+				actualName.text = "Loinel " + delt.deltdex.deltName + " Baconius";
 			} else {
-				MoveOptions [index].gameObject.SetActive(false);
+				frontSprite.sprite = delt.deltdex.frontImage;
+				nickname.text = delt.nickname;
+				actualName.text = delt.deltdex.deltName;
 			}
-		}
 
-		DeltOverviewUI.SetActive (true);
+			health.maxValue = delt.GPA;
+			health.value = delt.health;
+			expBar.maxValue = delt.XPToLevel;
+			expBar.value = delt.experience;
+
+			MoveClass tmpMove;
+			// Set color and text of all Delt moves
+			for (int index = 0; index < 4; index++) {
+				if (index < delt.moveset.Count) {
+					tmpMove = delt.moveset [index];
+					if (gameManager.pork) {
+						MoveOptions [index].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
+						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = ("What is pork!?" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+					} else {
+						MoveOptions [index].GetComponent<Image> ().color = tmpMove.majorType.background;
+						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+					}
+
+				} else {
+					MoveOptions [index].gameObject.SetActive (false);
+				}
+			}
+
+			DeltOverviewUI.SetActive (true);
+		}
 	}
 
 	// Called on button down press on move from Delt's moveset
@@ -829,7 +839,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 	// Display message with letter animation
-	IEnumerator displayMessage (string message) {
+	public IEnumerator displayMessage (string message) {
 		char nextLetter;
 		MessageUI.SetActive (true);
 

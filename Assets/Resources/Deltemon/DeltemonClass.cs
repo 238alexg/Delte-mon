@@ -29,54 +29,48 @@ public class DeltemonClass : MonoBehaviour {
 	public float ChillToPull;
 
 	// Level up, checking for evolution
-	public void levelUp(float nextXPToLevel, UnityEngine.UI.Text levelupText) {
+	public string[] levelUp() {
 		level++;
 		experience = 0;
 		string[] text = new string[7];
 
-		// If delt can evolve
-		if ((level == deltdex.evolveLevel) && (deltdex.nextEvol != null)) {
-			// If unnamed Delt, inherits evolution's nickname
-			if (nickname == deltdex.nickname) {
-				nickname = deltdex.nextEvol.nickname;
-			}
-			// This Delt inherits all of evolution's traits
-			deltdex = deltdex.nextEvol;
-		}
-
 		// Perform increase to Stats, update levelup text
 		float oldGPA = GPA;
 		GPA = GPA + ((AVs[0] + deltdex.BVs[0])/10);
-		text [0] = oldGPA + " (+" + (GPA - oldGPA) + ")";
+		text [1] = oldGPA + " (+" + (GPA - oldGPA) + ")";
 
 		float oldTruth = Truth;
 		Truth = Truth + ((AVs[1] + deltdex.BVs[1])/10);
-		text [1] = oldTruth + " (+" + (Truth - oldTruth) + ")";
+		text [2] = oldTruth + " (+" + (Truth - oldTruth) + ")";
 
 		float oldCourage = Courage;
 		Courage = Courage + ((AVs[2] + deltdex.BVs[2])/10);
-		text [2] = oldCourage + " (+" + (Courage - oldCourage) + ")";
+		text [3] = oldCourage + " (+" + (Courage - oldCourage) + ")";
 
 		float oldFaith = Faith;
 		Faith = Faith + ((AVs[3] + deltdex.BVs[3])/10);
-		text [3] = oldFaith + " (+" + (Faith - oldFaith) + ")";
+		text [4] = oldFaith + " (+" + (Faith - oldFaith) + ")";
 
 		float oldPower = Power;
 		Power = Power + ((AVs[4] + deltdex.BVs[4])/10);
-		text [4] = oldPower + " (+" + (Power - oldPower) + ")";
+		text [5] = oldPower + " (+" + (Power - oldPower) + ")";
 
 		float oldCTP = ChillToPull;
 		ChillToPull = ChillToPull + ((AVs[5] + deltdex.BVs[5])/10);
-		text [5] = oldCTP + " (+" + (ChillToPull - oldCTP) + ")";
+		text [6] = oldCTP + " (+" + (ChillToPull - oldCTP) + ")";
 
-		levelupText.text = "";
-		for (int i = 0; i < 6; i++) {
-			levelupText.text = levelupText.text + text [i] + System.Environment.NewLine;
-		}
+		// Calculate total points gained to display at top
+		float oldTotal = oldGPA + oldTruth + oldCourage + oldFaith + oldPower + oldCTP;
+		float newTotal = GPA + Truth + Courage + Faith + Power + ChillToPull;
+		text [0] = newTotal + " (+" + (newTotal - oldTotal) + ")";
 
+		// Update XP needed to level up again
+		updateXPToLevel ();
+
+		// Completely heal Delt on level up
 		health = GPA;
 
-		XPToLevel = nextXPToLevel;
+		return text;
 	}
 
 	public void learnNewMove(MoveClass newMove, int indexToRemove) {
@@ -86,6 +80,7 @@ public class DeltemonClass : MonoBehaviour {
 
 
 	public void initializeDelt(bool setMoves = true) {
+		nickname = deltdex.nickname;
 		curStatus = statusType.none;
 		experience = 0;
 		updateXPToLevel ();

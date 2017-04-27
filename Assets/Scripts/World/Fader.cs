@@ -15,7 +15,6 @@ public class Fader : MonoBehaviour {
 
 	public void FadeHasStopped () {
 		isFading = false;
-		print ("FADE ENDED");
 	}
 
 	public IEnumerator fadeOutSceneChange() {

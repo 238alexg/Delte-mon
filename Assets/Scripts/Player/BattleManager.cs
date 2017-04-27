@@ -17,16 +17,9 @@ public class BattleManager : MonoBehaviour {
 	[Header("UI Info")]
 	public UIManager UIManager;
 	public GameManager gameManager;
-	public GameObject BattleUI;
-	public GameObject MessageUI;
-	public GameObject PlayerOverview;
-	public GameObject MoveMenu;
-	public GameObject LevelUpUI;
-	public Color fullHealth;
-	public Color halfHealth;
-	public Color quarterHealth;
-	public Sprite noStatus;
-	public Sprite daStatus;
+	public GameObject BattleUI, MessageUI, PlayerOverview, MoveMenu, LevelUpUI, EvolveUI;
+	public Color fullHealth, halfHealth, quarterHealth;
+	public Sprite noStatus, daStatus;
 
 	[Header("Player Overview UI")]
 	public Image playerDeltSprite;
@@ -602,7 +595,7 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Switching out Delts, loading into Battle UI, clearing temporary battle stats
-	public IEnumerator SwitchDelts(DeltemonClass switchIn, bool isPlayer) {
+	IEnumerator SwitchDelts(DeltemonClass switchIn, bool isPlayer) {
 		DeltemonClass switchOut;
 		Text name;
 		Slider health;
@@ -628,11 +621,11 @@ public class BattleManager : MonoBehaviour {
 
 		// Only do if not the first turn of battle
 		if (isPlayer && (curPlayerDelt != null)) {
-			spriteAnim.SetBool ("SlideOut", true);
+			spriteAnim.SetTrigger ("SlideOut");
 			yield return new WaitForSeconds (1);
 		} else if (!isPlayer && (curOppDelt != null)) {
 			UIManager.StartMessage (switchIn.nickname + " has been switched in for " + switchOut.nickname, null, null, true);
-			spriteAnim.SetBool ("SlideOut", true);
+			spriteAnim.SetTrigger ("SlideOut");
 			yield return new WaitForSeconds (1);
 		} 
 
@@ -687,7 +680,7 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		// Animate Delt coming in
-		spriteAnim.SetBool ("SlideOut", false);
+		spriteAnim.SetTrigger ("SlideIn");
 
 		// Wait for animation to finish
 		yield return new WaitForSeconds (1);
@@ -1380,7 +1373,7 @@ public class BattleManager : MonoBehaviour {
 				}
 			}
 
-			UIManager.StartMessage(null, awardXP());
+			UIManager.StartMessage(null, awardXP ());
 
 			OppDA = true;
 			// If trainer battle, check if all Delts are DA'd
@@ -1458,17 +1451,70 @@ public class BattleManager : MonoBehaviour {
 			// If level up occurs
 			if (playerXP.value == XPNeededToLevel) {
 				Handheld.Vibrate ();
+
 				SoundEffectManager.SEM.PlaySoundImmediate ("messageDing");
 
-				float nextXPToLevel = (curPlayerDelt.level * 10) + (curPlayerDelt.level * curPlayerDelt.level * 10);
-
 				// Perform levelup on Delt
-				// LATER: Perform on LevelUpUI
-				curPlayerDelt.levelUp (nextXPToLevel, levelupText);
+				string[] lvlUpText = curPlayerDelt.levelUp ();
+
+				// If the Delt's level causes it to evolve
+				if (curPlayerDelt.level == curPlayerDelt.deltdex.evolveLevel) {
+					Image prevEvolImage = EvolveUI.transform.GetChild (1).GetComponent <Image> ();
+					Image nextEvolImage = EvolveUI.transform.GetChild (2).GetComponent <Image> ();
+
+					// Set images for evolution animation
+					prevEvolImage.sprite = curPlayerDelt.deltdex.frontImage;
+					nextEvolImage.sprite = curPlayerDelt.deltdex.nextEvol.frontImage;
+					EvolveUI.SetActive (true);
+
+					// Text for before evolution animation
+					if (gameManager.pork) {
+						yield return StartCoroutine (evolMessage("WHAT IS PORKKENING?!?"));
+						yield return StartCoroutine (evolMessage("TIME TO BECOME A HONKING BOARPIG!"));
+					} else {
+						yield return StartCoroutine (evolMessage("What's happening?"));
+					}
+
+					// Start evolution animation, wait to end
+					EvolveUI.GetComponent <Animator>().SetBool ("Evolve", true);
+					yield return new WaitForSeconds (6.5f);
+
+					// Text for after evolution animation
+					if (gameManager.pork) {
+						yield return StartCoroutine (evolMessage("A NEW PORKER IS BORN!"));
+						yield return StartCoroutine (evolMessage("A gush of pink bacon-smelling amneotic fluid from the evolution stains the ground."));
+						yield return StartCoroutine (evolMessage("I wish this could have happened somewhere more private."));
+					} else {
+						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has evolved into " + curPlayerDelt.deltdex.nextEvol.nickname + "!"));
+					}
+					yield return new WaitUntil (() => UIManager.endMessage);
+
+					// If Delt's name is not custom nicknamed by the player, make it the evolution's nickname
+					if (curPlayerDelt.nickname == curPlayerDelt.deltdex.nickname) {
+						curPlayerDelt.nickname = curPlayerDelt.deltdex.nextEvol.nickname;
+					}
+
+					// Set the deltdex to the evolution's deltdex
+					// Note: This is how the Delt stays evolved
+					curPlayerDelt.deltdex = curPlayerDelt.deltdex.nextEvol;
+
+					// Set battle image to new image
+					playerDeltSprite.sprite = curPlayerDelt.deltdex.backImage;
+
+					// Prepare for next time Delt evolves
+					EvolveUI.GetComponent <Animator>().SetBool ("Evolve", false);
+					EvolveUI.SetActive (false);
+				}
+
+				// Perform level up, set LevelUp UI text
+				levelupText.text = "";
+				for (int i = 0; i < 7; i++) {
+					levelupText.text = levelupText.text + lvlUpText [i] + System.Environment.NewLine;
+				}
 
 				// Reset XP
 				playerXP.value = 0;
-				playerXP.maxValue = nextXPToLevel;
+				playerXP.maxValue = curPlayerDelt.XPToLevel;
 
 				// Bring health to full value
 				playerHealth.maxValue = curPlayerDelt.GPA;
@@ -1489,7 +1535,14 @@ public class BattleManager : MonoBehaviour {
 		}
 		SoundEffectManager.SEM.source.Stop ();
 		curPlayerDelt.experience = playerXP.value;
-		UIManager.StartMessage (curPlayerDelt.nickname + " gained " + totalXPGained + " XP points!", null, null, true);
+		UIManager.StartMessage (curPlayerDelt.nickname + " gained " + totalXPGained + " XP!", null, null, false);
+	}
+
+	// Helper IENumerator to reduce boilerplate code in awardXP (evolution)
+	IEnumerator evolMessage(string message) {
+		UIManager.endMessage = false;
+		StartCoroutine (UIManager.displayMessage (message));
+		yield return new WaitUntil (() => UIManager.endMessage);
 	}
 
 	public void LevelUpScreenQuit() {
@@ -1699,6 +1752,10 @@ public class BattleManager : MonoBehaviour {
 		curPlayerDelt = null;
 		curOppDelt = null;
 		DeltHasSwitched = false;
+
+		// Set up animations to get ready for next slide in
+//		playerDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle");
+//		oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle");
 
 		// If trainer battle, allow for dialogue/saving trainer defeat
 		if (trainer != null && playerWon) {
