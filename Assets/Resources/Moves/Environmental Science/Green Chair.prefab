@@ -67,5 +67,5 @@ MonoBehaviour:
   - isBuff: 1
     buffT: 2
     buffAmount: 5
-  statusChance: 15
+  statusChance: 0
   critChance: 0

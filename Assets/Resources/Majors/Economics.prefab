@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4862030087774338}
   - component: {fileID: 114791616684893104}
   m_Layer: 0
-  m_Name: Economy
+  m_Name: Economics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c86b3ece660b4f36ae4b50f3ecae424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  majorName: Economy
+  majorName: Economics
   majorElement: Flying
   majorImage: {fileID: 21300036, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   background: {r: 0.5329801, g: 0.63388914, b: 0.6838235, a: 1}

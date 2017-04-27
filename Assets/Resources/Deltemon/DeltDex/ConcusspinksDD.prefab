@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1143819046649902}
+  m_IsPrefabParent: 1
+--- !u!1 &1143819046649902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4889648022942162}
+  - component: {fileID: 114646929048067346}
+  m_Layer: 0
+  m_Name: ConcusspinksDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4889648022942162
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143819046649902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 406.27853, y: 206.3315, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114646929048067346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143819046649902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Concusspinks
+  deltName: Ryan Spinks
+  description: When out of water, this shark will flail about and probably end up
+    concussed.
+  frontImage: {fileID: 21300120, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300122, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1492
+  major1: {fileID: 114582865463298880, guid: f68a4243c40204ce8a0b0fb810e1fcda, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 62266f6a381a
+  prevEvol: {fileID: 114929641741392118, guid: 3d0c137eaded3475da2bf28a1b8d0ef0, type: 2}
+  nextEvol: {fileID: 114732457676606350, guid: 6b35c4252c0d74098970b21fdd3e8d31, type: 2}
+  evolveLevel: 35
+  levelUpMoves:
+  - level: 20
+    move: {fileID: 114840747515109678, guid: d5a2545607dcf4943956e1466cb15919, type: 2}
+  - level: 23
+    move: {fileID: 114321229802709758, guid: fea5f8dc1e7194e93b4f614e25772182, type: 2}
+  - level: 25
+    move: {fileID: 114914786879769280, guid: 3491c1606ada0499da490254aa035cec, type: 2}
+  - level: 27
+    move: {fileID: 114538770889674982, guid: c377ed2cae8b7444cb3ca75150a07789, type: 2}
+  - level: 30
+    move: {fileID: 114733331329656578, guid: 5d9b5a33d64a745be9cc2131743ff14c, type: 2}
+  - level: 32
+    move: {fileID: 114888088558206562, guid: 6890e883f9dfc49fbbbaef0dba422441, type: 2}
+  rarity: 4
+  AVIndex: 2
+  AVAwardAmount: 3

@@ -52,19 +52,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveName: Study Tables
-  moveDescription: Gotta make that term GPA! Heals 40.
+  moveDescription: Gotta make that term GPA! Heals 55.
   majorType: {fileID: 114303113598987508, guid: afa998fc1034b42ba8cb69e3d796447b,
     type: 2}
   status: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   movType: 2
-  PP: 15
-  PPLeft: 15
+  moveIndex: 0
+  PP: 10
+  PPLeft: 10
   damage: 0
   hitChance: 100
   statType: 0
   buffs:
   - isBuff: 1
     buffT: 1
-    buffAmount: 40
+    buffAmount: 55
   statusChance: 0
   critChance: 0

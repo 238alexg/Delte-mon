@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1386109583259356}
+  m_IsPrefabParent: 1
+--- !u!1 &1386109583259356
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4074009173697636}
+  - component: {fileID: 114937722128464780}
+  m_Layer: 0
+  m_Name: ItaleagleDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4074009173697636
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386109583259356}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.3404794, y: 0.39218044, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114937722128464780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1386109583259356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Italeagle
+  deltName: Yuri D'Agosto
+  description: Rumor has it the only thing Mussolini feared was the Italeagle.
+  frontImage: {fileID: 21300196, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300198, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1448
+  major1: {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
+  major2: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
+  BVs: 4f3062338f9c
+  prevEvol: {fileID: 114724640221884002, guid: d996fa897d47045e6badadc6719dc939, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 31
+    move: {fileID: 114168609057735324, guid: aa9479278dedf4ac9bfca4d56d5e0f14, type: 2}
+  - level: 34
+    move: {fileID: 114805630585418582, guid: 507c620e516cf445194929980ebe6e23, type: 2}
+  - level: 37
+    move: {fileID: 114233045001343008, guid: e6e669fbbe5db4ca588b580173c258c2, type: 2}
+  - level: 40
+    move: {fileID: 114917123655856142, guid: 23f9a0e51b472427885937eb1ffd2b28, type: 2}
+  - level: 43
+    move: {fileID: 114040947228649598, guid: 4db02d534450f41779c55aa679ceceae, type: 2}
+  - level: 46
+    move: {fileID: 114956862389629008, guid: ceff0222e783e47d1b6a925ecd806172, type: 2}
+  - level: 49
+    move: {fileID: 114855920050208846, guid: 3e5ae3a0db96e41e4a7247a3b7bcfb04, type: 2}
+  - level: 52
+    move: {fileID: 114546445046483900, guid: 6b61193dbe2644991be363bf66fb89aa, type: 2}
+  - level: 55
+    move: {fileID: 114758239826958608, guid: d532cd55b025742d2961e47733f05f23, type: 2}
+  - level: 58
+    move: {fileID: 114092777487467538, guid: 1b06c22aa72df45fab3e0092645c2900, type: 2}
+  rarity: 2
+  AVIndex: 5
+  AVAwardAmount: 3

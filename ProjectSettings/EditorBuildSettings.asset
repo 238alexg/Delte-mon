@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Other/New Game.unity
     guid: f3c937cb708014f65bbea93d1d6fa5f5
   - enabled: 1
+    path: Assets/Scenes/Indoors/Recovery Center.unity
+    guid: 4fba620b4c2c54b0a8a0ac3c412464f5
+  - enabled: 1
+    path: Assets/Scenes/Indoors/Shop.unity
+    guid: 6405cfc62c2e04a65af376a4f1a8fe11
+  - enabled: 1
     path: Assets/Scenes/Towns/Hometown.unity
     guid: 81c6e66d03d0b4691a86acc1fd5009f5
   - enabled: 1

@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1612240688063068}
+  m_IsPrefabParent: 1
+--- !u!1 &1612240688063068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4442944292537598}
+  - component: {fileID: 114724640221884002}
+  m_Layer: 0
+  m_Name: FlyleDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4442944292537598
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612240688063068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.3404794, y: 0.39218044, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114724640221884002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612240688063068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Flyle
+  deltName: Lyle Wescott
+  description: Flyles make a point of dropping pyles of poisonous fecal matter onto
+    their opponents.
+  frontImage: {fileID: 21300192, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300194, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1487
+  major1: {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 382647256165
+  prevEvol: {fileID: 114162614412232812, guid: 741b77a6c6e06477ab4c351b37f453c1, type: 2}
+  nextEvol: {fileID: 114937722128464780, guid: d4e10f201592c4046bf02b5f3b07e1f1, type: 2}
+  evolveLevel: 29
+  levelUpMoves:
+  - level: 18
+    move: {fileID: 114402113465175862, guid: 883fe6ab6f99e4886ac5cfeea3d8f245, type: 2}
+  - level: 21
+    move: {fileID: 114394747883292692, guid: c1c1d8db8378e415882e28a1bf614f8a, type: 2}
+  - level: 23
+    move: {fileID: 114563290571096062, guid: e0a41727992ce488bbc98b2977a8b730, type: 2}
+  - level: 25
+    move: {fileID: 114070484779454374, guid: 1e51c16b95442436e886f8087f870d1b, type: 2}
+  - level: 27
+    move: {fileID: 114737400058276804, guid: e60b3730544ae45a08689f710e3184d9, type: 2}
+  rarity: 1
+  AVIndex: 5
+  AVAwardAmount: 2

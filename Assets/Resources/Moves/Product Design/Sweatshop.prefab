@@ -56,7 +56,7 @@ MonoBehaviour:
     Chance to Indebt. Debuffs Faith, Courage.'
   majorType: {fileID: 114501488618173236, guid: b14db376bafcb4f56858c61ca0a0edcd,
     type: 2}
-  status: {fileID: 21300078, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  status: {fileID: 0}
   movType: 3
   moveIndex: 0
   PP: 10

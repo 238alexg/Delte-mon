@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1105959652998372}
+  m_IsPrefabParent: 1
+--- !u!1 &1105959652998372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4970901293514922}
+  - component: {fileID: 114802932896527632}
+  m_Layer: 0
+  m_Name: TannonDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4970901293514922
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105959652998372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 406.27853, y: 206.3315, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114802932896527632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105959652998372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Tannon
+  deltName: Hao Tan
+  description: '"Hao is a glass cannon" - Reginald'
+  frontImage: {fileID: 21300128, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300130, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1446
+  major1: {fileID: 114582865463298880, guid: f68a4243c40204ce8a0b0fb810e1fcda, type: 2}
+  major2: {fileID: 114394108228007282, guid: 5b660c6f965c841d9bf09166a00d41b6, type: 2}
+  BVs: 2aef45451ec9
+  prevEvol: {fileID: 114646929048067346, guid: a1048b1507a174fe1abc1678d7767c26, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 38
+    move: {fileID: 114170212673595546, guid: e66121e49bcaf489d83cd4ab4ee4c573, type: 2}
+  - level: 39
+    move: {fileID: 114394518291654434, guid: 943dbf0c118ac450a8203b75d3a78cab, type: 2}
+  - level: 42
+    move: {fileID: 114501564044490762, guid: 1aea64d6421e34e66974d03624475f61, type: 2}
+  - level: 45
+    move: {fileID: 114284424059070872, guid: e8305bb4bdd6b4927b5c564625758aea, type: 2}
+  - level: 48
+    move: {fileID: 114894600260853120, guid: 8dc7861413c0e40e4b611b0961a0d608, type: 2}
+  - level: 51
+    move: {fileID: 114101063804098370, guid: 53d2c3944f291401496e3758fb603ba4, type: 2}
+  - level: 54
+    move: {fileID: 114893161152560750, guid: 82a9388846bdb43b4b9451a12981a754, type: 2}
+  - level: 57
+    move: {fileID: 114154634826295774, guid: 58b7a4410149048db865d31137a587b0, type: 2}
+  - level: 60
+    move: {fileID: 114303690415989540, guid: e409f6579cb3344c59cf054d7c4681f0, type: 2}
+  - level: 62
+    move: {fileID: 114040488576696122, guid: ad6d5b33d543b4852b7e3e809d7d32e6, type: 2}
+  rarity: 5
+  AVIndex: 1
+  AVAwardAmount: 5

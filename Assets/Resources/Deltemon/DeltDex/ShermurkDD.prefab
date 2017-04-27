@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1274719486941580}
+  m_IsPrefabParent: 1
+--- !u!1 &1274719486941580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4396228364087418}
+  - component: {fileID: 114732457676606350}
+  m_Layer: 0
+  m_Name: ShermurkDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4396228364087418
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274719486941580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 406.27853, y: 206.3315, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114732457676606350
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274719486941580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Shermurk
+  deltName: Sherman Tran
+  description: Often called the "Godzilla of the swamp," Shermurk is known for it's
+    collosal size and rosy cheeks.
+  frontImage: {fileID: 21300132, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300134, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1456
+  major1: {fileID: 114582865463298880, guid: f68a4243c40204ce8a0b0fb810e1fcda, type: 2}
+  major2: {fileID: 114996360122170080, guid: 6b8d0e3c94bb2489e83ccaf6ee59c904, type: 2}
+  BVs: 873cab9b562b
+  prevEvol: {fileID: 114646929048067346, guid: a1048b1507a174fe1abc1678d7767c26, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 38
+    move: {fileID: 114170212673595546, guid: e66121e49bcaf489d83cd4ab4ee4c573, type: 2}
+  - level: 39
+    move: {fileID: 114733331329656578, guid: 5d9b5a33d64a745be9cc2131743ff14c, type: 2}
+  - level: 42
+    move: {fileID: 114501564044490762, guid: 1aea64d6421e34e66974d03624475f61, type: 2}
+  - level: 45
+    move: {fileID: 114575421994037898, guid: fee374a0522004f2cb9a448888e4238d, type: 2}
+  - level: 48
+    move: {fileID: 114504403109970706, guid: e1c94e051c9004e358f54861de57ce5c, type: 2}
+  - level: 51
+    move: {fileID: 114101063804098370, guid: 53d2c3944f291401496e3758fb603ba4, type: 2}
+  - level: 54
+    move: {fileID: 114735251849869086, guid: 0f93025b1a65343b5b2a462ef284f685, type: 2}
+  - level: 57
+    move: {fileID: 114644702731131944, guid: 0bf0c5c4133eb49e6a57c873a9f2e35b, type: 2}
+  - level: 60
+    move: {fileID: 114293626908744446, guid: 55f9f8b2b57d94a2d8c51b139cc025bc, type: 2}
+  - level: 62
+    move: {fileID: 114040488576696122, guid: ad6d5b33d543b4852b7e3e809d7d32e6, type: 2}
+  rarity: 5
+  AVIndex: 2
+  AVAwardAmount: 5
