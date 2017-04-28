@@ -891,7 +891,7 @@ public class UIManager : MonoBehaviour {
 		PlayerMovement.PlayMov.StopMoving ();
 		if (!string.IsNullOrEmpty(sceneName))  {
 			// Fade out to black
-			StartMessage (null, fade.fadeOutSceneChange (), null);
+			StartMessage (null, fade.fadeOutSceneChange (), ()=>PlayerMovement.PlayMov.ResumeMoving ());
 
 			// Change scene, change UI to world, show scene name in TL corner, load scene data
 			StartMessage (null, null, ()=>ChangeSceneFunctions(sceneName));
@@ -900,7 +900,8 @@ public class UIManager : MonoBehaviour {
 			StartMessage (null, null, (() => playerMovement.transform.position = new Vector3(x, y, -10f)));
 
 			// Fade in and allow player to move
-			StartMessage (null, fade.fadeInSceneChange (sceneName), (() => (PlayerMovement.PlayMov.ResumeMoving())));
+			StartMessage (null, fade.fadeInSceneChange (sceneName));
+			//StartMessage (null, fade.fadeInSceneChange (sceneName), (() => (PlayerMovement.PlayMov.ResumeMoving())));
 
 			// Wait for scene name to disappear then make gameobject inactive
 			StartMessage (null, null, EndSceneChangeUI);
@@ -923,7 +924,7 @@ public class UIManager : MonoBehaviour {
 
 		gameManager.changeScene (sceneName);
 		currentUI = UIMode.World;
-		MovementUI.SetActive (true);
+		//MovementUI.SetActive (true);
 
 		SceneChangeUI.gameObject.SetActive (true);
 		SceneChangeText.text = sceneName;

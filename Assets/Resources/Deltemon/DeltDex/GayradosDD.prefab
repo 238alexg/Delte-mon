@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1481892717485116}
+  m_IsPrefabParent: 1
+--- !u!1 &1481892717485116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4939168259220764}
+  - component: {fileID: 114798184640800436}
+  m_Layer: 0
+  m_Name: GayradosDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4939168259220764
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481892717485116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 416.94504, y: 234.97365, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114798184640800436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481892717485116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Gayrados
+  deltName: DJ McIntire
+  description: While beautiful to look at, Gayrados can tear you apart in the blink
+    of an eye.
+  frontImage: {fileID: 21300016, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300018, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1443
+  major1: {fileID: 114434105413943968, guid: 7e5b9687f78bb4154a97476da33e2a09, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 6087a6305514
+  prevEvol: {fileID: 114789849639785774, guid: ff594425b6ebb40f98be5cbbf609701d, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 12
+    move: {fileID: 114532087501290338, guid: b2570b910da7b4d5dadc364c7b3e01ca, type: 2}
+  - level: 14
+    move: {fileID: 114188335587388036, guid: 5ea934f6efee649c7a323739b7cc6661, type: 2}
+  - level: 16
+    move: {fileID: 114333359181067424, guid: afb41c08d565e438e816c5ebd73de678, type: 2}
+  - level: 18
+    move: {fileID: 114440603694949564, guid: 33c9e49ba66c747de89ef63d21d912a9, type: 2}
+  - level: 21
+    move: {fileID: 114242919706423904, guid: 13203fdd1a3674b44810948e6bc75b5c, type: 2}
+  - level: 23
+    move: {fileID: 114597572510022830, guid: db05c348db107478894b69089861e7a0, type: 2}
+  - level: 26
+    move: {fileID: 114109205800472352, guid: af0285d83b62c4601b5b48e92997a3da, type: 2}
+  - level: 28
+    move: {fileID: 114563290571096062, guid: e0a41727992ce488bbc98b2977a8b730, type: 2}
+  - level: 29
+    move: {fileID: 114759422801870158, guid: 3610d6f04ec8c477bbb573fa63be2756, type: 2}
+  - level: 32
+    move: {fileID: 114803824862845812, guid: 0cc0bfc43c6b0480e8817bfcb075baf5, type: 2}
+  - level: 35
+    move: {fileID: 114049688172440216, guid: 8ee95a8847b3a4bd08c936cd68c1e2b9, type: 2}
+  - level: 38
+    move: {fileID: 114720871850364198, guid: 1ac214a82f498455488cb0b04e8c9d6d, type: 2}
+  - level: 40
+    move: {fileID: 114623940789826872, guid: 1fb96911e11154bfd9e46b143bd298a7, type: 2}
+  - level: 41
+    move: {fileID: 114829224199106950, guid: e4fe1dfda62cf48b0895d23c6ba2ae7d, type: 2}
+  - level: 44
+    move: {fileID: 114664736787832920, guid: 579502b5c5b434fd1a74186ae9f100d4, type: 2}
+  - level: 46
+    move: {fileID: 114719171902852834, guid: a82501c6406cb428e9ecdf1b6173080b, type: 2}
+  - level: 48
+    move: {fileID: 114900783838805650, guid: 836cfd9dff4964faeb69a4ea0c089365, type: 2}
+  rarity: 2
+  AVIndex: 2
+  AVAwardAmount: 3

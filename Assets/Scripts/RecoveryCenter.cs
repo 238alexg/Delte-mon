@@ -57,6 +57,8 @@ public class RecoveryCenter: MonoBehaviour {
 	// When new game sequence triggered
 	IEnumerator OnTriggerEnter2D(Collider2D player) {
 		if (!hasTriggered) {
+			print ("TRIG ENTER: " + player.gameObject.name);
+
 			UIMan.MovementUI.SetActive (false);
 			PlayerMovement.PlayMov.StopMoving ();
 
@@ -569,6 +571,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Allow player to re-enter Recovery Center menu
 	void OnTriggerExit2D(Collider2D player) {
+		print ("TRIG EXIT: " + player.gameObject.name);
 		hasTriggered = false;
 		UIMan.EndNPCMessage ();
 	}

@@ -239,6 +239,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (!wasDPadRelease) {
 			QuestManager.QuestMan.isAllowedToMove = false;
 			UIManager.MovementUI.SetActive (false);
+			print ("Movement UI Inactive");
 		}
 		movementQueued = false;
 		dpad.sprite = dpadNeutral;
@@ -247,6 +248,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	// Allows player movement
 	public void ResumeMoving() {
+		print ("Resume moving call");
 		UIManager.MovementUI.SetActive (true);
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}

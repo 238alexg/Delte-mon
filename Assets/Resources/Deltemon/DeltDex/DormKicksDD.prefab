@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1338523756767538}
+  m_IsPrefabParent: 1
+--- !u!1 &1338523756767538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4333502022889498}
+  - component: {fileID: 114291324735133312}
+  m_Layer: 0
+  m_Name: DormKicksDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4333502022889498
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338523756767538}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 416.81488, y: 224.8457, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114291324735133312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1338523756767538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: DormKicks
+  deltName: Houston Greenberg
+  description: He's got the entrepenurial spirit. Or at least it's tombstone.
+  frontImage: {fileID: 21300052, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300054, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1497
+  major1: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 35375c1c5f4d
+  prevEvol: {fileID: 114101558971810938, guid: 7d2c191783806416b891560dde2e22e2, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 19
+    move: {fileID: 114503879977606200, guid: 5ba69c5fd7ccf44468591a4e20898463, type: 2}
+  - level: 22
+    move: {fileID: 114288290988486986, guid: 8233fa93d17f94e4c98cf72586784e7b, type: 2}
+  - level: 28
+    move: {fileID: 114563290571096062, guid: e0a41727992ce488bbc98b2977a8b730, type: 2}
+  - level: 31
+    move: {fileID: 114957619390818724, guid: 6177caf9958af4f6494debc37d5e76be, type: 2}
+  - level: 33
+    move: {fileID: 114953352229502168, guid: 86d9f8b3987764b048ff41abb03cd759, type: 2}
+  - level: 36
+    move: {fileID: 114956862389629008, guid: ceff0222e783e47d1b6a925ecd806172, type: 2}
+  - level: 39
+    move: {fileID: 114245796511451510, guid: 19cec947919a54195ae4a7cfe40c7ce3, type: 2}
+  - level: 42
+    move: {fileID: 114279646801120690, guid: dbf54a3dcd8aa41d8a6ff3bb238869b4, type: 2}
+  - level: 45
+    move: {fileID: 114168280439635206, guid: 165c4cc57ff594857a3e5e94f1c0e34c, type: 2}
+  - level: 48
+    move: {fileID: 114758239826958608, guid: d532cd55b025742d2961e47733f05f23, type: 2}
+  rarity: 1
+  AVIndex: 4
+  AVAwardAmount: 2

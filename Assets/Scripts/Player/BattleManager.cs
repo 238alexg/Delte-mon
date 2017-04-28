@@ -80,55 +80,11 @@ public class BattleManager : MonoBehaviour {
 		playerWon = false;
 	}
 
-	// Initializes battle for a player vs. NPC battle
-	public void StartTrainerBattle (NPCInteraction oppTrainer, bool isGymLeader) {
-		trainer = oppTrainer;
-		DeltHasSwitched = true;
-		playerWon = false;
-		finishLeveling = false;
+	// Function to initialize a new battle, for trainers and wild Delts
+	public void initializeBattle() {
+		// LATER: Set Enemy Podium and background
+		//		BattleUI.transform.GetChild (0).gameObject.transform.GetChild (0).GetComponent<Image> ().sprite = 
 
-		if (isGymLeader) {
-			// LATER: Gym leader music.
-		} else {
-			PlayBattleMusic ();
-		}
-		
-		// Clear temp battle stats for player and opponent
-		ClearStats (true);
-		ClearStats (false);
-	
-		// Set Delts going into battle
-		playerDelts = gameManager.deltPosse;
-		oppDelts = trainer.oppDelts;
-
-		// Set victory coins
-		coinsWon = trainer.coins;
-
-		// Set trainer items and name
-		trainerItems = trainer.trainerItems;
-		trainerName = trainer.NPCName;
-
-		// LATER: Set Enemy Podium
-//		BattleUI.transform.GetChild (0).gameObject.transform.GetChild (0).GetComponent<Image> ().sprite = 
-
-		// Select current battling Delts, update UI
-		DeltemonClass startingPlayerDelt = gameManager.deltPosse.Find(delt => delt.curStatus != statusType.da);
-		StartCoroutine(SwitchDelts (startingPlayerDelt, true));
-		StartCoroutine(SwitchDelts (oppDelts[0], false));
-
-		// Opening trainer dialogue when battle starts
-		foreach (string message in trainer.beforeBattleMessage) {
-			UIManager.StartMessage (message);
-		}
-		// End NPC Messages and start turn
-		UIManager.StartMessage (null, null, ()=>UIManager.EndNPCMessage());
-		UIManager.StartMessage(null, null, ()=>TurnStart());
-
-		// Remove NPC's notification chat bubble
-		UIManager.StartMessage (null, null, ()=>trainer.notificaiton.enabled = false);
-	}
-
-	public void StartWildBattle (DeltemonClass oppDeltSpawn) {
 		DeltHasSwitched = true;
 		playerWon = false;
 		finishLeveling = false;
@@ -141,12 +97,55 @@ public class BattleManager : MonoBehaviour {
 		// Set player delts
 		playerDelts = gameManager.deltPosse;
 
-		// LATER: Set Enemy Podium and background
-//		BattleUI.transform.GetChild (0).gameObject.transform.GetChild (0).GetComponent<Image> ().sprite = 
+		// Select current battling Delts, update UI
+		DeltemonClass startingPlayerDelt = playerDelts.Find(delt => delt.curStatus != statusType.da);
+		StartCoroutine(SwitchDelts (startingPlayerDelt, true));
+	}
+
+	// Initializes battle for a player vs. NPC battle
+	public void StartTrainerBattle (NPCInteraction oppTrainer, bool isGymLeader) {
+		initializeBattle ();
+
+		trainer = oppTrainer;
+
+		if (isGymLeader) {
+			// LATER: Gym leader music.
+		}
+	
+		// Set opp Delts going into battle
+		oppDelts = trainer.oppDelts;
+
+		// Set victory coins
+		coinsWon = trainer.coins;
+
+		// Set trainer items and name
+		trainerItems = trainer.trainerItems;
+		trainerName = trainer.NPCName;
 
 		// Select current battling Delts, update UI
-		DeltemonClass startingPlayerDelt = gameManager.deltPosse.Find(delt => delt.curStatus != statusType.da);
-		StartCoroutine(SwitchDelts (startingPlayerDelt, true));
+		StartCoroutine(SwitchDelts (oppDelts[0], false));
+
+		// Opening trainer dialogue when battle starts
+		foreach (string message in trainer.beforeBattleMessage) {
+			UIManager.StartMessage (message);
+		}
+
+		// End NPC Messages and start turn
+		UIManager.StartMessage (null, null, ()=>UIManager.EndNPCMessage());
+		UIManager.StartMessage(null, null, ()=>TurnStart());
+
+		// Remove NPC's notification chat bubble
+		UIManager.StartMessage (null, null, ()=>UIManager.EndNPCMessage ());
+	}
+
+	// Start a battle originating from TallGrass.cs
+	public void StartWildBattle (DeltemonClass oppDeltSpawn) {
+		initializeBattle ();
+
+		// Ensure Delt doesn't start with status affliction
+		oppDeltSpawn.curStatus = statusType.none;
+		oppDeltSpawn.statusImage = noStatus;
+
 		StartCoroutine(SwitchDelts (oppDeltSpawn, false));
 
 		UIManager.StartMessage("A wild " + oppDeltSpawn.deltdex.nickname + " appeared!", null, ()=>TurnStart());
@@ -1277,10 +1276,6 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	IEnumerator PostMoveEffects(bool blocked, bool playerFirst) {
-		if (PlayerDA) {
-			yield return new WaitUntil (() => switchOver == true);
-		}
-
 		if (blocked) {
 			if (playerFirst) {
 				// <curPlayerDelt.nickname> blocked, but <curOppDelt.nickname> already went!
