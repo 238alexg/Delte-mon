@@ -8188,7 +8188,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300002, guid: 33f7bc67051ba4616a629615759d9442, type: 3}
+  m_Sprite: {fileID: 21300178, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -27206,7 +27206,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 33f7bc67051ba4616a629615759d9442, type: 3}
+  m_Sprite: {fileID: 21300176, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -29452,9 +29452,9 @@ MonoBehaviour:
   - {fileID: 953297007}
   moveText:
   - {fileID: 676615980}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 101827314}
+  - {fileID: 1235294076}
+  - {fileID: 1401170046}
   deltBall: {fileID: 114075244929460830, guid: 1f00366b621824b71a951bf8bf246ea1, type: 2}
   DeltHasSwitched: 1
   isMessageToDisplay: 0

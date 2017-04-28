@@ -905,7 +905,7 @@ public class UIManager : MonoBehaviour {
 			// Wait for scene name to disappear then make gameobject inactive
 			StartMessage (null, null, EndSceneChangeUI);
 
-			StartMessage (null, null, () => gameManager.LoadSceneData (sceneName));
+			StartMessage (null, null, () => gameManager.UpdateSceneData (sceneName));
 		} else {
 			// Fade out to black, set player position
 			StartMessage (null, fade.fadeOutToBlack (), (() => playerMovement.transform.position = new Vector3(x, y, -10f)));

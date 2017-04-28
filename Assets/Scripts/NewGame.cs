@@ -110,6 +110,7 @@ public class NewGame : MonoBehaviour {
 			StarterUI.SetActive (false);
 
 			// Add starter to party & deltdex, set as current starting delt
+			UIMan.EndNPCMessage ();
 			GameMan.AddDelt(starter);
 			GameMan.currentStartingDelt = GameMan.deltPosse[0];
 
@@ -152,7 +153,8 @@ public class NewGame : MonoBehaviour {
 		GameMan.InitializeSceneData ("Hometown", 4, new byte [2] {1, 3}, 0);		// Hometown: 4 items, 0 trainers
 		GameMan.InitializeSceneData ("Delta Shelter", 9, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 items, 0 trainers
 		GameMan.InitializeSceneData ("University St", 3, null, 4);					// University St: 3 items, 4 trainers
-		GameMan.InitializeSceneData ("Sigston", 2, null, 0);						// Sigston: 2 items, 0 trainers
+		GameMan.InitializeSceneData ("Sigston", 5, null, 0);						// Sigston: 2 items, 0 trainers
+		GameMan.InitializeSceneData ("Delta Sigma", 0, null, 10);					// Delta Sig Gym: 0 items, 10 trainers
 		GameMan.InitializeSceneData ("Sigma Chi", 0, null, 5);						// Sig Chi Gym: 0 items, 5 trainers
 		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 3);					// DA Graveyard: 2 items, 3 trainers
 

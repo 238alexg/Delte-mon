@@ -16,11 +16,16 @@ public class NPCInteraction : MonoBehaviour {
 	public ItemClass rewardItem;
 	public List<ItemClass> trainerItems;
 	public List<DeltemonClass> oppDelts;
-	public bool hasTriggered, customDeltPosse, isGymLeader;
+	public bool hasTriggered, customDeltPosse;
 	public byte numberOfItem;
 	public SpriteRenderer notificaiton;
 	public Sprite largeCharacerSprite;
 	public int index;
+
+	[Header("Gym Leader Information")]
+	public bool isGymLeader;
+	public string sceneNameOfObstacleRelease;
+	public int indexOfObstacleRelease;
 
 	// Player walks in field of view of NPC
 	void OnTriggerEnter2D(Collider2D player) {
@@ -82,6 +87,12 @@ public class NPCInteraction : MonoBehaviour {
 	// Called from BattleManager when player has won the battle
 	public void EndBattleActions() {
 		
+		// Play congradulatory sound for beating boss
+		if (isGymLeader) {
+			//SoundEffectManager.SEM.PlaySoundImmediate ("BossWin");
+
+		}
+
 		// Trainer says something after being beaten
 		foreach (string message in afterBattleMessage) {
 			UIManager.UIMan.StartNPCMessage (message, NPCName);
@@ -95,8 +106,12 @@ public class NPCInteraction : MonoBehaviour {
 		GameManager.GameMan.curSceneData.trainers [index] = true;
 
 		if (isGymLeader) {
-			// LATER: congradulatory sound for beating boss
-//			SoundEffectManager.SEM.PlaySoundImmediate ("BossWin");
+			// Remove obstacle to next town/path/etc.
+			SceneInteractionData sid = GameManager.GameMan.LoadSceneData (sceneNameOfObstacleRelease);
+			sid.interactables [indexOfObstacleRelease] = true;
+			GameManager.GameMan.SaveSceneData (sid);
+
+			// Note: Should never use Find* commands, but this only happens once per gym (pretty safe)
 			GameObject exitDoor = GameObject.FindGameObjectWithTag ("Finish");
 			exitDoor.GetComponent <DoorAction> ().ActivateDoor ();
 		}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8b32bdc51865c4f0987935452b8aa3b0
-timeCreated: 1488670168
+timeCreated: 1493335487
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -184,7 +184,7 @@ TextureImporter:
     21300354: DeltemonInside_177
     21300356: DeltemonInside_178
     21300358: DeltemonInside_179
-    21300360: DeltemonInside_180
+    21300360: BasementWall_Blood
     21300362: Basement Wall Awk Corner Left
     21300364: NW Basement Wall Corner
     21300366: DeltemonInside_183
@@ -219,7 +219,7 @@ TextureImporter:
     21300424: DeltemonInside_212
     21300426: DeltemonInside_213
     21300428: DeltemonInside_214
-    21300430: DeltemonInside_215
+    21300430: BasementWall_OxSkull
     21300432: Basement Wall Awk Corner Right
     21300434: Basement Wall West
     21300436: DeltemonInside_218
@@ -1292,6 +1292,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -3591,7 +3599,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DeltemonInside_180
+      name: BasementWall_Blood
       rect:
         serializedVersion: 2
         x: 80
@@ -4046,7 +4054,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DeltemonInside_215
+      name: BasementWall_OxSkull
       rect:
         serializedVersion: 2
         x: 80

@@ -207,7 +207,7 @@ public class BattleManager : MonoBehaviour {
 		if (switchIn == null && chosenMove == null) {
 			ForceOppLoss ();
 		} else if (switchIn == null) {
-			oppChoice.action = () => UseMove (chosenMove, false);
+			oppChoice.IENum = UseMove (chosenMove, false);
 			oppChoice.type = actionT.Move;
 		} else if (chosenMove == null) {
 			oppChoice.IENum = SwitchDelts(switchIn, false);
@@ -215,7 +215,7 @@ public class BattleManager : MonoBehaviour {
 		} else {
 			// AI Determines if switch in is appropriate
 			if (stayInScore >= bestSwitchScore) {
-				oppChoice.action = () => UseMove (chosenMove, false);
+				oppChoice.IENum = UseMove (chosenMove, false);
 				oppChoice.type = actionT.Move;
 			} else {
 				oppChoice.IENum = SwitchDelts(switchIn, false);
@@ -236,7 +236,7 @@ public class BattleManager : MonoBehaviour {
 			ForceOppLoss ();
 		} else {
 			MoveClass randomMove = movesWithUses [Random.Range (0, movesWithUses.Count)];
-			oppChoice.action = (() => UseMove (randomMove, false));
+			oppChoice.IENum = UseMove (randomMove, false);
 			oppChoice.type = actionT.Move;
 		}
 	}
@@ -923,7 +923,7 @@ public class BattleManager : MonoBehaviour {
 			}
 
 			// Set player action and fight
-			playerChoice.action = () => UseMove (tmpMove, true);
+			playerChoice.IENum = UseMove (tmpMove, true);
 			playerChoice.type = actionT.Move;
 
 			if (tmpMove.movType == moveType.Block) {
@@ -962,7 +962,7 @@ public class BattleManager : MonoBehaviour {
 				playerChoice.action ();
 			}
 			if (!playerWon) {
-				if (oppChoice.type == actionT.Switch) {
+				if (oppChoice.type == actionT.Switch || oppChoice.type == actionT.Move) {
 					UIManager.StartMessage (null, oppChoice.IENum);
 					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 				} else {
@@ -975,22 +975,33 @@ public class BattleManager : MonoBehaviour {
 			} else {
 				oppChoice.action ();
 			}
-			playerChoice.action ();
+			if (!playerWon) {
+				if (playerChoice.type == actionT.Switch || playerChoice.type == actionT.Move) {
+					UIManager.StartMessage (null, playerChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
+				} else {
+					playerChoice.action ();
+				}
+			}
 		} else {
 			// Else both have chosen moves, first move based on Delt CTP
 			if (playerFirst) {
 				if (oppBlocked) {
-					oppChoice.action ();
+					UIManager.StartMessage (null, oppChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 					UIManager.StartMessage (curPlayerDelt.nickname + " was blocked!");
 				} else {
-					playerChoice.action ();
+					UIManager.StartMessage (null, playerChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 				}
 			} else {
 				if (playerBlocked) {
-					playerChoice.action ();
+					UIManager.StartMessage (null, playerChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 					UIManager.StartMessage (curOppDelt.nickname + " was blocked!");
 				} else {
-					oppChoice.action ();
+					UIManager.StartMessage (null, oppChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 				}
 			}
 
@@ -998,9 +1009,11 @@ public class BattleManager : MonoBehaviour {
 			if (!(PlayerDA || OppDA || playerBlocked || oppBlocked)) {
 				// Perform second Delt's move
 				if (playerFirst) {
-					oppChoice.action ();
+					UIManager.StartMessage (null, oppChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 				} else {
-					playerChoice.action ();
+					UIManager.StartMessage (null, playerChoice.IENum);
+					yield return new WaitWhile (() => UIManager.isMessageToDisplay);
 				}
 			}
 		}
@@ -1018,7 +1031,7 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Returns true if move was a successful blocking move
-	void UseMove(MoveClass move, bool isPlayer) {
+	IEnumerator UseMove(MoveClass move, bool isPlayer) {
 		DeltemonClass attacker;
 		DeltemonClass defender;
 
@@ -1048,7 +1061,7 @@ public class BattleManager : MonoBehaviour {
 					attacker.curStatus = statusType.da;
 					UIManager.StartMessage(attacker.nickname + " has DA'd for being too drunk!", null, () => StatusChange(!isPlayer, daStatus));
 				}
-				return;
+				yield break;
 			}
 			// Attacker relieved from drunk status
 			if (Random.Range (0, 100) <= 27) {
@@ -1068,7 +1081,7 @@ public class BattleManager : MonoBehaviour {
 			} else {
 				// attacker.nickname is asleep!
 				UIManager.StartMessage(attacker.nickname + " couldn't make that 8AM...", null, null);
-				return;
+				yield break;
 			}
 		// If Delt is high
 		} else if (attacker.curStatus == statusType.high) {
@@ -1082,7 +1095,7 @@ public class BattleManager : MonoBehaviour {
 			} else {
 				// attacker.nickname is asleep!
 				UIManager.StartMessage(attacker.nickname + " is still pretty lit.");
-				return;
+				yield break;
 			}
 		}
 
@@ -1094,6 +1107,14 @@ public class BattleManager : MonoBehaviour {
 
 		// If the first move is a hit
 		if (Random.Range(0,100) <= move.hitChance) {
+
+			if (isPlayer) {
+				playerDeltSprite.GetComponent <Animator> ().SetTrigger ("PlayerAttack");
+			} else {
+				oppDeltSprite.GetComponent <Animator>().SetTrigger ("OppAttack");
+			}
+			yield return new WaitForSeconds (0.4f);
+
 			// If it is just a status affect move
 			if (move.movType == moveType.Status) {
 				if (Random.Range (0, 100) <= move.statusChance) {
@@ -1114,7 +1135,7 @@ public class BattleManager : MonoBehaviour {
 					// attacker.nickname missed!
 					UIManager.StartMessage ("But " + attacker.nickname + " missed!");
 				}
-				return;
+				yield break;
 			} else if (move.movType == moveType.Block) {
 				// attacker.nickname blocks!
 				UIManager.StartMessage (attacker.nickname + " blocks!");
@@ -1167,6 +1188,13 @@ public class BattleManager : MonoBehaviour {
 
 				// Return final damage
 				defender.health = defender.health - rawDamage;
+
+				if (isPlayer) {
+					oppDeltSprite.GetComponent <Animator> ().SetTrigger ("OppHurt");
+				} else {
+					playerDeltSprite.GetComponent <Animator>().SetTrigger ("PlayerHurt");
+				}
+				yield return new WaitForSeconds (1);
 
 				UIManager.StartMessage (null, hurtDelt (!isPlayer), null);
 

@@ -52,31 +52,26 @@ public class TallGrass : MonoBehaviour {
 
 				// Very rare Delts
 				if ((spawnProb < 1.25) && (veryRare.Count > 0)) {
-					print ("VERY RARE DELT SPAWNS!");
 					chosenDelt.deltdex = veryRare [Random.Range (0, veryRare.Count)];
 				} 
 				// Rare Delts
 				else if ((spawnProb < 4.58) && (rare.Count > 0)) {
-					print ("RARE DELT SPAWNS!");
 					chosenDelt.deltdex = rare [Random.Range (0, rare.Count)];
 				}
 				// Uncommon Delts
 				else if ((spawnProb < 11.33) && (uncommon.Count > 0)) {
-					print ("UNCOMMON DELT SPAWNS!");
 					chosenDelt.deltdex = uncommon [Random.Range (0, uncommon.Count)];
 				}
 				// Common Delts
 				else if ((spawnProb < 19.83) && (common.Count > 0)) {
-					print ("COMMON DELT SPAWNS!");
 					chosenDelt.deltdex = common [Random.Range (0, common.Count)];
 				}
 				// Very Common Delts
 				else if ((spawnProb < 29.83) && (veryCommon.Count > 0)) {
-					print ("VERY COMMON DELT SPAWNS!");
 					chosenDelt.deltdex = veryCommon [Random.Range (0, veryCommon.Count)];
 				} else {
 					// no Delts assigned to this grass tile
-					print ("ERROR: No Delts assigned to this grass tile");
+					Debug.Log ("> ERROR: No Delts assigned to this grass tile");
 					return;
 				}
 

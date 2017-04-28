@@ -9381,7 +9381,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300368, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  m_Sprite: {fileID: 21300430, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -32224,7 +32224,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300368, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  m_Sprite: {fileID: 21300430, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -42582,7 +42582,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300368, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  m_Sprite: {fileID: 21300360, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -51088,7 +51088,7 @@ GameObject:
   - component: {fileID: 1775390960}
   m_Layer: 8
   m_Name: Stock Man 2
-  m_TagString: Untagged
+  m_TagString: Action
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51191,7 +51191,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1775390959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 543238026}

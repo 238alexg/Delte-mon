@@ -432,7 +432,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Load the scene interactable data
-	public bool LoadSceneData(string sceneName) {
+	public bool UpdateSceneData(string sceneName) {
 
 		// Put player and UI in the scene
 		GameObject testForReferenceObject = GameObject.FindGameObjectWithTag ("EditorOnly");
@@ -446,12 +446,9 @@ public class GameManager : MonoBehaviour {
 			UIManager.EntireUI.SetParent (testForUI.transform);
 		}
 
-		if (File.Exists (Application.persistentDataPath + "/scene_" + sceneName + ".dat")) {
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open	(Application.persistentDataPath + "/scene_" + sceneName + ".dat", FileMode.Open);
-			SceneInteractionData load = (SceneInteractionData)bf.Deserialize (file);
-			file.Close ();
+		SceneInteractionData load = LoadSceneData (sceneName);
 
+		if (load != null) {
 			// Set current scene interaction data
 			curSceneData.trainers = load.trainers;
 			curSceneData.interactables = load.interactables;
@@ -464,15 +461,22 @@ public class GameManager : MonoBehaviour {
 			// Find objects that have been interacted with and remove them
 			for (int i = 0; i < load.interactables.Length; i++) {
 				InteractAction ia = interactables.transform.GetChild (i).GetComponent<InteractAction> ();
-				ia.index = i;
-				if (load.interactables [i]) {
-					GameObject nextTile = ia.nextTile;
-					if (nextTile != null) {
-						nextTile.SetActive (true);
-						ia.gameObject.SetActive (false);
-					} else {
-						ia.hasBeenViewed = true;
+				if (ia != null) {
+					ia.index = i;
+					if (load.interactables [i]) {
+						GameObject nextTile = ia.nextTile;
+						if (nextTile != null) {
+							nextTile.SetActive (true);
+							ia.gameObject.SetActive (false);
+						} else {
+							ia.hasBeenViewed = true;
+							if (ia.actionT == actionType.message) {
+								ia.gameObject.SetActive (false);
+							}
+						}
 					}
+				} else {
+					interactables.transform.GetChild (i).gameObject.SetActive (!load.interactables [i]);
 				}
 			}
 			// Find trainers that have been defeated with and set their hasTriggered bool
@@ -491,6 +495,20 @@ public class GameManager : MonoBehaviour {
 		} else {
 			print ("> ERROR: Scene data not present!");
 			return false;
+		}
+	}
+
+	// Returns the SceneInteractionData instance for that scene
+	public SceneInteractionData LoadSceneData (string sceneName) {
+		if (File.Exists (Application.persistentDataPath + "/scene_" + sceneName + ".dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open	(Application.persistentDataPath + "/scene_" + sceneName + ".dat", FileMode.Open);
+			SceneInteractionData load = (SceneInteractionData)bf.Deserialize (file);
+			file.Close ();
+
+			return load;
+		} else {
+			return null;
 		}
 	}
 
@@ -531,7 +549,7 @@ public class GameManager : MonoBehaviour {
 	void activeSceneChanged(Scene past, Scene present) {
 		QuestManager.QuestMan.sceneName = present.name;
 		if (present.name != "Main Menu") {
-			LoadSceneData (present.name);
+			UpdateSceneData (present.name);
 		}
 		curSceneName = present.name;
 	}
