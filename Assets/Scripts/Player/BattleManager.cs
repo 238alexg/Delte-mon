@@ -1320,7 +1320,7 @@ public class BattleManager : MonoBehaviour {
 					print ("HIGH ANIM NEEDS TO BE IMPLEMENTED");
 					break;
 				case (statusType.indebted):
-					defenderStatus.SetTrigger ("Drunk");
+					defenderStatus.SetTrigger ("Indebted");
 					break;
 				case (statusType.plagued):
 					print ("PLAGUED ANIM NEEDS TO BE IMPLEMENTED");
