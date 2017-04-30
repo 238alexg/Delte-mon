@@ -12,7 +12,7 @@ public class BattleManager : MonoBehaviour {
 	public DeltemonClass curOppDelt;
 	byte[] PlayerStatAdditions;
 	byte[] OppStatAdditions;
-	bool playerBlocked, oppBlocked, PlayerDA, OppDA, actionsComplete, playerWon, switchOver, finishLeveling;
+	bool playerBlocked, oppBlocked, PlayerDA, OppDA, actionsComplete, playerWon, finishLeveling;
 
 	[Header("UI Info")]
 	public UIManager UIManager;
@@ -20,6 +20,7 @@ public class BattleManager : MonoBehaviour {
 	public GameObject BattleUI, MessageUI, PlayerOverview, MoveMenu, LevelUpUI, EvolveUI;
 	public Color fullHealth, halfHealth, quarterHealth;
 	public Sprite noStatus, daStatus;
+	public Animator playerBattleAnim, oppBattleAnim;
 
 	[Header("Player Overview UI")]
 	public Image playerDeltSprite;
@@ -46,7 +47,7 @@ public class BattleManager : MonoBehaviour {
 	[Header("Misc")]
 	public ItemClass deltBall;
 	int coinsWon;
-	public bool DeltHasSwitched = true;
+	private bool DeltHasSwitched, forcePlayerSwitch;
 	public bool isMessageToDisplay = false;
 	public ItemClass activeItem;
 	public AudioClip battleMusic;
@@ -78,6 +79,7 @@ public class BattleManager : MonoBehaviour {
 		playerChoice = new ActionChoice ();
 		trainer = null;
 		playerWon = false;
+		forcePlayerSwitch = false;
 	}
 
 	// Function to initialize a new battle, for trainers and wild Delts
@@ -86,6 +88,7 @@ public class BattleManager : MonoBehaviour {
 		//		BattleUI.transform.GetChild (0).gameObject.transform.GetChild (0).GetComponent<Image> ().sprite = 
 
 		DeltHasSwitched = true;
+		forcePlayerSwitch = false;
 		playerWon = false;
 		finishLeveling = false;
 		PlayBattleMusic();
@@ -167,7 +170,6 @@ public class BattleManager : MonoBehaviour {
 		PlayerDA = false;
 		OppDA = false;
 		actionsComplete = false;
-		switchOver = true;
 		DeltHasSwitched = false;
 
 		// Choose Opponent Move
@@ -582,14 +584,16 @@ public class BattleManager : MonoBehaviour {
 
 	// Player tries to switch in Delt
 	public void chooseSwitchIn(DeltemonClass switchIn) {
+		
 		// If forcePlayerSwitch true, it is a forced switch (Delt has DA'd)
-		if (DeltHasSwitched) {
+		if (DeltHasSwitched || forcePlayerSwitch) {
 			StartCoroutine (SwitchDelts (switchIn, true));
+			forcePlayerSwitch = false;
 		} else {
 			DeltHasSwitched = true;
 			playerChoice.type = actionT.Switch;
 			playerChoice.IENum = SwitchDelts (switchIn, true);
-			StartCoroutine(fight ());
+			StartCoroutine("fight");
 		}
 	}
 
@@ -714,7 +718,6 @@ public class BattleManager : MonoBehaviour {
 				MoveOptions [i].interactable = true;
 			}
 		}
-		switchOver = true;
 	}
 
 	// Player tries to use an item
@@ -929,7 +932,7 @@ public class BattleManager : MonoBehaviour {
 				playerBlocked = true;
 			}
 
-			StartCoroutine(fight ());
+			StartCoroutine("fight");
 		}
 	}
 
@@ -1033,13 +1036,25 @@ public class BattleManager : MonoBehaviour {
 	IEnumerator UseMove(MoveClass move, bool isPlayer) {
 		DeltemonClass attacker;
 		DeltemonClass defender;
+		Animator attackerStatus;
+		Animator defenderStatus;
+		Animator attackerSprite;
+		Animator defenderSprite;
 
 		if (isPlayer) {
 			attacker = curPlayerDelt;
 			defender = curOppDelt;
+			attackerStatus = playerBattleAnim;
+			defenderStatus = oppBattleAnim;
+			attackerSprite = playerDeltSprite.GetComponent <Animator> ();
+			defenderSprite = oppDeltSprite.GetComponent <Animator> ();
 		} else {
 			attacker = curOppDelt;
 			defender = curPlayerDelt;
+			attackerStatus = oppBattleAnim;
+			defenderStatus = playerBattleAnim;
+			attackerSprite = oppDeltSprite.GetComponent <Animator> ();
+			defenderSprite = playerDeltSprite.GetComponent <Animator> ();
 		}
 
 		//////////////////////////////////////////////////////////////////
@@ -1048,52 +1063,73 @@ public class BattleManager : MonoBehaviour {
 
 		// if Delt is Drunk
 		if (attacker.curStatus == statusType.drunk) {
-			UIManager.StartMessage(attacker.nickname + " is drunk...", null, null);
+
+			// LATER: DRUNK ANIMATION in null slot	----------------------------v
+			yield return StartCoroutine (evolMessage (attacker.nickname + " is drunk..."));
+			attackerStatus.SetTrigger ("Drunk");
+			yield return new WaitForSeconds (1);
+
 			// If Delt hurts himself
 			if (Random.Range (0, 100) <= 30) {
 				attacker.health = attacker.health - (attacker.GPA * 0.05f);
-				UIManager.StartMessage(attacker.nickname + " hurt itself in it's drunkeness!", hurtDelt (isPlayer), null);
+
+				attackerSprite.SetTrigger ("Hurt");
+				yield return new WaitForSeconds (1);
+
+				yield return StartCoroutine (evolMessage (attacker.nickname + " hurt itself in it's drunkeness!"));
+				yield return StartCoroutine (hurtDelt (isPlayer));
 
 				// Player DA's
 				if (attacker.health <= 0) {
 					attacker.health = 0;
 					attacker.curStatus = statusType.da;
-					UIManager.StartMessage(attacker.nickname + " has DA'd for being too drunk!", null, () => StatusChange(!isPlayer, daStatus));
+					yield return StartCoroutine (evolMessage (attacker.nickname + " has DA'd for being too drunk!"));
+					StatusChange(isPlayer, daStatus);
+					checkLoss (isPlayer);
 				}
 				yield break;
 			}
 			// Attacker relieved from drunk status
-			if (Random.Range (0, 100) <= 27) {
-				UIManager.StartMessage(attacker.nickname + " has sobered up!", null, () => StatusChange(!isPlayer, noStatus));
+			else if (Random.Range (0, 100) <= 27) {
+				yield return StartCoroutine (evolMessage (attacker.nickname + " has sobered up!"));
+				StatusChange(isPlayer, noStatus);
 				attacker.curStatus = statusType.none;
 				attacker.statusImage = noStatus;
 			}
+		} 
 		// If Delt is Asleep
-		} else if (attacker.curStatus == statusType.asleep) {
-			UIManager.StartMessage (attacker.nickname + " is fast asleep.", null, null);
+		else if (attacker.curStatus == statusType.asleep) {
+			
+			yield return StartCoroutine (evolMessage (attacker.nickname + " is fast asleep."));
+			// LATER: SLEEP ANIMATION
+
 			// Delt wakes up
 			if (Random.Range (0, 100) <= 20) {
-				// attacker.nickname woke up!
-				UIManager.StartMessage (attacker.nickname + " woke up!", null, () => StatusChange(!isPlayer, noStatus));
+				yield return StartCoroutine (evolMessage (attacker.nickname + " woke up!"));
+				StatusChange(!isPlayer, noStatus);
 				attacker.curStatus = statusType.none;
 				attacker.statusImage = noStatus;
 			} else {
-				// attacker.nickname is asleep!
-				UIManager.StartMessage(attacker.nickname + " couldn't make that 8AM...", null, null);
+				yield return StartCoroutine (evolMessage (attacker.nickname + " couldn't make that 8AM..."));
+				// LATER: SLEEP ANIMATION
 				yield break;
 			}
+		} 
 		// If Delt is high
-		} else if (attacker.curStatus == statusType.high) {
-			UIManager.StartMessage (attacker.nickname + " is high...", null, null);
+		else if (attacker.curStatus == statusType.high) {
+			
+			// LATER: HIGH ANIMATION in null slot	----------------------------v
+			yield return StartCoroutine (evolMessage (attacker.nickname + " is high..."));
+
 			// If Delt comes down
 			if (Random.Range (0, 100) <= 21) {
-				// attacker.nickname came down!
-				UIManager.StartMessage (attacker.nickname + " came down!", null, () => StatusChange(!isPlayer, noStatus));
+				yield return StartCoroutine (evolMessage (attacker.nickname + " came down!"));
+				StatusChange(!isPlayer, noStatus);
 				attacker.curStatus = statusType.none;
 				attacker.statusImage = noStatus;
 			} else {
-				// attacker.nickname is asleep!
-				UIManager.StartMessage(attacker.nickname + " is still pretty lit.");
+				// LATER: HIGH ANIMATION in null slot	-----------------------------------v
+				yield return StartCoroutine (evolMessage (attacker.nickname + " is still pretty lit."));
 				yield break;
 			}
 		}
@@ -1102,73 +1138,29 @@ public class BattleManager : MonoBehaviour {
 		///                 Attacker Move Outcome                      ///
 		//////////////////////////////////////////////////////////////////
 
-		UIManager.StartMessage (attacker.nickname + " used " + move.moveName + "!");
+		// Display attack choice
+		yield return StartCoroutine(evolMessage (attacker.nickname + " used " + move.moveName + "!"));
 
 		// If the first move is a hit
 		if (Random.Range(0,100) <= move.hitChance) {
-
+			
 			if (isPlayer) {
-				playerDeltSprite.GetComponent <Animator> ().SetTrigger ("PlayerAttack");
+				playerDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
 			} else {
-				oppDeltSprite.GetComponent <Animator>().SetTrigger ("OppAttack");
+				oppDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
 			}
 			yield return new WaitForSeconds (0.4f);
 
-			// If it is just a status affect move
-			if (move.movType == moveType.Status) {
-				if (Random.Range (0, 100) <= move.statusChance) {
-					if (move.statType == defender.curStatus) {
-						// Hit animation
-						// But defender.nickname is already <curStatus>...
-						UIManager.StartMessage ("But " + defender.nickname + " is already " + defender.curStatus + "...");
-					} else {
-						// LATER: Hit animation
 
-						// Update defender status
-						defender.curStatus = move.statType;
-
-						// defender.nickname is now <curStatus>!
-						UIManager.StartMessage (defender.nickname + " is now " + defender.curStatus + "!", null, () => StatusChange(!isPlayer, move.status));
-					}
-				} else {
-					// attacker.nickname missed!
-					UIManager.StartMessage ("But " + attacker.nickname + " missed!");
-				}
-				yield break;
-			} else if (move.movType == moveType.Block) {
+			if (move.movType == moveType.Block) {
 				// attacker.nickname blocks!
-				UIManager.StartMessage (attacker.nickname + " blocks!");
-			} else if (move.movType == moveType.Buff) {
-				foreach (buffTuple buff in move.buffs) {
-					if (buff.buffT == buffType.Heal) {
-						UIManager.StartMessage (attacker.nickname + " aced a test!", healDelt (isPlayer));
-					} else {
-						if (buff.buffAmount > 5) {
-							// If big buff: attacker.nickname's ___ stat went waaay up!
-							UIManager.StartMessage (attacker.nickname + "'s " + buff.buffT + " stat went waaay up!");
-							// LATER: Animate in the null lot of StartCoroutine?
+				yield return StartCoroutine (evolMessage (attacker.nickname + " blocks!"));
+				yield break;
+			} 
 
-						} else {
-							// If little buff: attacker.nickname's __ stat went up!
-							UIManager.StartMessage (attacker.nickname + "'s " + buff.buffT + " stat went up!");
-							// LATER: Animate in the null lot of StartCoroutine?
-						}
-					}
-				}
-			} else if (move.movType == moveType.Debuff) {
-				foreach (buffTuple buff in move.buffs) {
-					if (buff.buffAmount > 5) {
-						// If big debuff: defender.nickname's ___ stat went waaay down!
-						UIManager.StartMessage (defender.nickname + "'s " + buff.buffT + " stat went waaay down!");
-						// LATER: Animate in the null lot of StartCoroutine?
-
-					} else {
-						// If little debuff: defender.nickname's __ stat went down!
-						UIManager.StartMessage (defender.nickname + "'s " + buff.buffT + " stat went down!");
-						// LATER: Animate in the null lot of StartCoroutine?
-					}
-				}
-			} else { // Is an attack
+			// If move is an attack
+			if (move.damage > 0) {
+				// Is an attack
 				bool isCrit = false;
 				float rawDamage = moveDamage (move, attacker, defender, isPlayer);
 				float effectiveness;
@@ -1189,25 +1181,27 @@ public class BattleManager : MonoBehaviour {
 				defender.health = defender.health - rawDamage;
 
 				if (isPlayer) {
-					oppDeltSprite.GetComponent <Animator> ().SetTrigger ("OppHurt");
+					oppDeltSprite.GetComponent <Animator> ().SetTrigger ("Hurt");
 				} else {
-					playerDeltSprite.GetComponent <Animator>().SetTrigger ("PlayerHurt");
+					playerDeltSprite.GetComponent <Animator>().SetTrigger ("Hurt");
 				}
 				yield return new WaitForSeconds (1);
 
-				UIManager.StartMessage (null, hurtDelt (!isPlayer), null);
+				yield return StartCoroutine (hurtDelt (!isPlayer));
 
 				// Messages for various effective hits
 				if (effectiveness == 0) {
-					UIManager.StartMessage ("It was about as effective Shayon's pledgeship :(");
+					yield return StartCoroutine (evolMessage ("It was about as effective Shayon's pledgeship..."));
 				} else {
 					if (isCrit) {
-						UIManager.StartMessage ("It's a critical hit!");
+						yield return StartCoroutine (evolMessage ("It's a critical hit!"));
 					}
 					if (effectiveness <= 0.5f) {
-						UIManager.StartMessage ("It's not very effective...");
-					} else if (effectiveness >= 2) {
-						UIManager.StartMessage ("It's super effective!");
+						yield return StartCoroutine (evolMessage ("It's not very effective..."));
+					} else if (effectiveness == 2) {
+						yield return StartCoroutine (evolMessage ("It's super effective!"));
+					} else if (effectiveness > 2) {
+						yield return StartCoroutine (evolMessage ("It hit harder than the Shasta Trash Scandal!"));
 					}
 				}
 
@@ -1215,27 +1209,151 @@ public class BattleManager : MonoBehaviour {
 				if (defender.health <= 0) {
 					defender.health = 0;
 					defender.curStatus = statusType.da;
-					UIManager.StartMessage (defender.nickname + " has DA'd!", null, () => StatusChange(!isPlayer, daStatus));
-				} else if (move.statType != statusType.none) {
-					if (Random.Range (0, 100) <= move.statusChance) {
-						if (defender.curStatus != move.statType) {
-							// Update defender status
-							defender.curStatus = move.statType;
-							UIManager.StartMessage (defender.nickname + " is now " + defender.curStatus + "!", null, () => StatusChange(!isPlayer, move.status));
-							// LATER: Animate status change in UIManager.StartMessage null parameter
+					yield return StartCoroutine (evolMessage (defender.nickname + " has DA'd!"));
+					StatusChange(!isPlayer, daStatus);
+					checkLoss (!isPlayer);
+
+					if ((isPlayer && OppDA) || (!isPlayer && PlayerDA)) {
+						yield break;
+					}
+				} 
+			}
+
+			// declare index for de/buffs
+			byte statIndex = 0;
+
+			// Do move buffs
+			foreach (buffTuple buff in move.buffs) {
+				
+				// Get index for stat addition
+				switch (buff.buffT) {
+				case buffType.Truth:
+					statIndex = 1;
+					break;
+				case buffType.Courage:
+					statIndex = 2;
+					break;
+				case buffType.Faith:
+					statIndex = 3;
+					break;
+				case buffType.Power:
+					statIndex = 4;
+					break;
+				case buffType.ChillToPull:
+					statIndex = 5;
+					break;
+				}
+
+				// If buff helps player
+				if (buff.isBuff) {
+					
+					// If buff is a heal
+					if (buff.buffT == buffType.Heal) {
+
+						// Add health to Delt
+						curPlayerDelt.health += buff.buffAmount;
+
+						// Player health cannot exceed GPA
+						if (curPlayerDelt.health > curPlayerDelt.GPA) {
+							curPlayerDelt.health = curPlayerDelt.GPA;
 						}
+
+						// Animate heal of Delt
+						yield return StartCoroutine (evolMessage (attacker.nickname + " made a deal with the Director of Academic Affairs!"));
+						yield return StartCoroutine (healDelt (isPlayer));
+					} 
+					// If buff is a stat improvement
+					else {
+						
+						// Add to Delt's stat additions
+						if (isPlayer) {
+							PlayerStatAdditions [statIndex] += buff.buffAmount;
+							playerBattleAnim.SetTrigger ("Buff");
+						} else {
+							OppStatAdditions [statIndex] += buff.buffAmount;
+							oppBattleAnim.SetTrigger ("Buff");
+						}
+						yield return new WaitForSeconds (0.5f);
+
+						// Prompt message for user
+						if (buff.buffAmount < 5) {
+							yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went up!"));
+						} else {
+							yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went waaay up!"));
+						}
+					}
+				} 
+				// Else debuff hurts opponent
+				else {
+					// Subtract from Delt's stat additions
+					if (isPlayer) {
+						OppStatAdditions[statIndex] -= buff.buffAmount;
+						oppBattleAnim.SetTrigger ("Debuff");
+					} else {
+						PlayerStatAdditions [statIndex] -= buff.buffAmount;
+						playerBattleAnim.SetTrigger ("Debuff");
+					}
+					yield return new WaitForSeconds (0.5f);
+
+					// Prompt message for user
+					if (buff.buffAmount < 5) {
+						yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went down!"));
+					} else {
+						yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went waaay down!"));
 					}
 				}
 			}
-		} else {
-			// Attack missed!
-			UIManager.StartMessage ("But " + attacker.nickname + " missed!");
+
+			// If move has a status affliction and chance is met
+			if ((move.statusChance > 0) && (Random.Range (0, 100) <= move.statusChance) && (defender.curStatus != move.statType)) {
+
+				// Status animations!
+				// LATER: Sound effects for each animation!!
+				switch (move.statType) {
+				case (statusType.drunk):
+					defenderStatus.SetTrigger ("Drunk");
+					break;
+				case (statusType.asleep):
+					print ("ASLEEP ANIM NEEDS TO BE IMPLEMENTED");
+					break;
+				case (statusType.high):
+					print ("HIGH ANIM NEEDS TO BE IMPLEMENTED");
+					break;
+				case (statusType.indebted):
+					defenderStatus.SetTrigger ("Drunk");
+					break;
+				case (statusType.plagued):
+					print ("PLAGUED ANIM NEEDS TO BE IMPLEMENTED");
+					break;
+				case (statusType.roasted):
+					print ("ROASTED ANIM NEEDS TO BE IMPLEMENTED");
+					break;
+				case (statusType.suspension):
+					print ("SUSPENDED ANIM NEEDS TO BE IMPLEMENTED");
+					break;
+				}
+
+				yield return new WaitForSeconds (1);
+
+				// Update defender status
+				defender.curStatus = move.statType;
+				StatusChange(!isPlayer, move.status);
+
+				yield return StartCoroutine (evolMessage (defender.nickname + " is now " + defender.curStatus + "!"));
+			}
+		} 
+		// Attack missed!
+		else {
+			yield return StartCoroutine (evolMessage ("But " + attacker.nickname + " missed!"));
 		}
 
 		// Player loses/selects another Delt
 		if (curPlayerDelt.health <= 0) { 
 			checkLoss (true);
 		}
+
+		Debug.Log ("Opp health" + curOppDelt.health);
+
 		// Opponent loses/selects another Delt
 		if (curOppDelt.health <= 0) { 
 			checkLoss (false);
@@ -1304,14 +1422,12 @@ public class BattleManager : MonoBehaviour {
 					curOppDelt.health = 0;
 					curOppDelt.curStatus = statusType.da;
 					UIManager.StartMessage (curOppDelt.nickname + " has DA'd!", null, () => StatusChange (false, daStatus));
-				}
-			}
-			// Opponent loses/selects another Delt
-			print ("Post-Move OPP Health: " + curOppDelt.health);
-			if (curOppDelt.health <= 0) { 
-				checkLoss (false);
-				if (playerWon) {
-					yield break;
+
+					// Opponent loses/selects another Delt
+					checkLoss (false);
+					if (playerWon) {
+						yield break;
+					}
 				}
 			}
 		}
@@ -1331,16 +1447,17 @@ public class BattleManager : MonoBehaviour {
 					curPlayerDelt.health = 0;
 					curPlayerDelt.curStatus = statusType.da;
 					UIManager.StartMessage (curPlayerDelt.nickname + " has DA'd!", null, () => StatusChange (true, daStatus));
+
+					// Player loses/selects another Delt
+					checkLoss (true);
 				}
-			}
-			// Player loses/selects another Delt
-			print ("Post-Move PLAYER Health: " + curPlayerDelt.health);
-			if (curPlayerDelt.health <= 0) {
-				checkLoss (true);
 			}
 		}
 
-		UIManager.StartMessage (curPlayerDelt.nickname + "'s health is now " + curPlayerDelt.health + ", " + curOppDelt.nickname + "'s health is now " + curOppDelt.health, null, TurnStart);
+		// DEBUG
+		// UIManager.StartMessage (curPlayerDelt.nickname + "'s health is now " + curPlayerDelt.health + ", " + curOppDelt.nickname + "'s health is now " + curOppDelt.health, null, () => TurnStart());
+
+		UIManager.StartMessage (null, null, () => TurnStart());
 	}
 
 	// Change status sprites
@@ -1377,16 +1494,18 @@ public class BattleManager : MonoBehaviour {
 			// If playable Delt exists, switch
 			foreach (DeltemonClass delt in playerDelts) {
 				if (delt.curStatus != statusType.da) {
-					UIManager.StartMessage (gameManager.playerName + " must choose another Delt!", null, ()=>UIManager.OpenDeltemon(true));
-					switchOver = false;
 					DeltHasSwitched = true;
+					forcePlayerSwitch = true;
+					UIManager.StartMessage (gameManager.playerName + " must choose another Delt!", null, ()=>UIManager.OpenDeltemon(true));
 					return;
 				}
 			}
 		} else {
 			// Award Action Values to the player's Delt
 			if (curPlayerDelt.AVCount < 250) {
+				
 				curPlayerDelt.AVCount += curOppDelt.deltdex.AVAwardAmount;
+
 				// Cap AV Count at 250
 				if (curPlayerDelt.AVCount > 250) {
 					curPlayerDelt.AVs [curOppDelt.deltdex.AVIndex] += (byte)(curOppDelt.deltdex.AVAwardAmount - (curPlayerDelt.AVCount - 250));
@@ -1624,10 +1743,16 @@ public class BattleManager : MonoBehaviour {
 		DeltemonClass defender;
 
 		if (isPlayer) {
+			if (curPlayerDelt.health < 0) {
+				curPlayerDelt.health = 0;
+			}
 			healthBar = playerHealth;
 			health = curPlayerDelt.health;
 			defender = curPlayerDelt;
 		} else {
+			if (curOppDelt.health < 0) {
+				curOppDelt.health = 0;
+			}
 			healthBar = oppHealth;
 			health = curOppDelt.health;
 			defender = curOppDelt;
@@ -1636,6 +1761,7 @@ public class BattleManager : MonoBehaviour {
 
 		// Animate health decrease
 		while (healthBar.value > health) {
+			Debug.Log ("Healthbar: " + healthBar.value + " health: " + health);
 			if (health <= 0) {
 				healthBar.value = healthBar.value - (damage / 30);
 			} else {
@@ -1685,10 +1811,16 @@ public class BattleManager : MonoBehaviour {
 		DeltemonClass defender;
 
 		if (isPlayer) {
+			if (curPlayerDelt.health > curPlayerDelt.GPA) {
+				curPlayerDelt.health = curPlayerDelt.GPA;
+			}
 			healthBar = playerHealth;
 			health = curPlayerDelt.health;
 			defender = curPlayerDelt;
 		} else {
+			if (curOppDelt.health > curOppDelt.GPA) {
+				curOppDelt.health = curOppDelt.GPA;
+			}
 			healthBar = oppHealth;
 			health = curOppDelt.health;
 			defender = curOppDelt;
@@ -1754,6 +1886,7 @@ public class BattleManager : MonoBehaviour {
 
 	// Ends the battle once a player has lost, stops battle coroutine
 	void EndBattle() {
+		// Clear queue of messages/actions
 		UIQueueItem head = UIManager.queueHead;
 		while (head.next != null) {
 			UIQueueItem tmp = head.next;
@@ -1761,7 +1894,7 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		// Stop battle
-		StopCoroutine (fight ());
+		StopCoroutine ("fight");
 
 		// Play music, return to world UI
 		UIManager.StartMessage(null, null, ()=>ReturnToSceneMusic());

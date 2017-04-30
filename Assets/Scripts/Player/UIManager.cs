@@ -50,8 +50,11 @@ public class UIManager : MonoBehaviour {
 	public float scrollSpeed;
 	public GameObject NPCName;
 	public List<Color> itemColors;
+	public Animator NPCSlideIn;
 
 	int firstMoveLoaded;
+
+	public Coroutine curCoroutine { get; private set; }
 
 	public static UIManager UIMan { get; private set; }
 
@@ -139,15 +142,18 @@ public class UIManager : MonoBehaviour {
 
 	// LATER: Animate character sliding in/out
 	public IEnumerator characterSlideIn (Sprite npcSlideIn) {
-		yield return null;
+		NPCSlideIn.gameObject.SetActive (true);
+		NPCSlideIn.SetTrigger ("SlideIn");
+		NPCSlideIn.GetComponent <Image> ().sprite = npcSlideIn;
 
-		print ("THIS NEEDS TO BE IMPLEMENTED");
+		yield return new WaitForSeconds (1);
 	}
 
 	public IEnumerator characterSlideOut () {
-		yield return null;
+		NPCSlideIn.SetTrigger ("SlideOut");
+		yield return new WaitForSeconds (1);
 
-		print ("THIS NEEDS TO BE IMPLEMENTED");
+		NPCSlideIn.gameObject.SetActive (false);
 	}
 
 	// To execute message displays/functions in the right order
@@ -192,7 +198,8 @@ public class UIManager : MonoBehaviour {
 
 			// Execute next function, if one exists
 			if (curItem.ienum != null) {
-				yield return StartCoroutine (curItem.ienum);
+				curCoroutine = StartCoroutine (curItem.ienum);
+				yield return curCoroutine;
 			}
 
 			// Execute next function, if one exists
@@ -478,13 +485,14 @@ public class UIManager : MonoBehaviour {
 				DeltemonUI.SetActive (false);
 				ItemsUI.SetActive (false);
 				battleManager.UseItem (true, item);
+				gameManager.RemoveItem (item);
 			} else {
 				StartMessage ("Cannot give " + item.itemName + " to Delts in battle!");
 			}
 		} else {
 			activeItem = item;
 			// If item has to be to a Delt
-			if ((activeDelt == null) && ((item.itemT == itemType.Usable) || (item.itemT == itemType.Holdable) || (item.itemT == itemType.MegaEvolve))) {
+			if ((activeDelt == null) && ((item.itemT == itemType.Usable) || (item.itemT == itemType.Holdable) || (item.itemT == itemType.MegaEvolve) || (item.itemT == itemType.Move))) {
 				OpenDeltemon ();
 			} else {
 				UseItem ();
@@ -494,6 +502,8 @@ public class UIManager : MonoBehaviour {
 
 	// Use an item on a delt, called if both have been selected
 	public void UseItem() {
+
+		// Remove item from inventory
 		gameManager.RemoveItem (activeItem);
 		StartCoroutine(AnimateUIClose (ItemsUI));
 
@@ -504,9 +514,6 @@ public class UIManager : MonoBehaviour {
 			battleManager.UseItem (true, activeItem);
 		} else {
 			if ((activeItem.itemT == itemType.Holdable) || (activeItem.itemT == itemType.MegaEvolve)) {
-				if (activeDelt.item != null) {
-					gameManager.AddItem (activeDelt.item);
-				} 
 				activeDelt.item = activeItem;
 				if (QuestManager.QuestMan.DeltItemQuests (activeDelt)) {
 					// LATER: Quest or something happens?
@@ -520,7 +527,20 @@ public class UIManager : MonoBehaviour {
 			} else if (activeItem.itemT == itemType.Usable) {
 				StartMessage (null, null, () => OpenDeltemon ());
 				StartMessage ("Gave " + activeItem.itemName + " to " + activeDelt.nickname + "!");
-				//	LATER: Animate status removal, heal
+
+				// If item's cure was useless
+				if ((activeDelt.curStatus != statusType.none) && 
+					(activeItem.cure != statusType.none) &&
+					((activeItem.cure != activeDelt.curStatus) || (activeItem.cure != statusType.all))) {
+					StartMessage (activeDelt.nickname + " consumed the " + activeItem.itemName + ", but still has the status " + activeDelt.curStatus);
+				}
+
+				// If item's GPA boost was useless
+				if ((activeItem.statUpgrades [0] > 0) && (activeDelt.health == activeDelt.GPA)) {
+					StartMessage (activeDelt.nickname + " consumed the " + activeItem.itemName + ", but his GPA was maxed out already!");
+				}
+
+				// LATER: Animate status removal, heal
 			} else if (activeItem.itemT == itemType.Repel) {
 				OpenCloseBackpack ();
 				if (gameManager.pork) {
@@ -608,21 +628,31 @@ public class UIManager : MonoBehaviour {
 		DeltemonUI.GetComponent <Animator>().SetTrigger ("SlideIn");
 	}
 
+	public void RemoveDeltItemButtonPress() {
+		DeltemonClass overviewDelt = gameManager.deltPosse [overviewDeltIndex];
+		ItemClass removedItem = overviewDelt.item;
+
+		overviewDelt.item = null;
+		gameManager.AddItem (removedItem, 1, false);
+
+
+	}
+
 	// Delt Give Item click
 	public void GiveDeltItemButtonPress () {
 		activeDelt = gameManager.deltPosse [overviewDeltIndex];
 
+		// If delt has item remove it
+		if (activeDelt.item != null) {
+			gameManager.AddItem (activeDelt.item);
+			DeltemonUI.transform.GetChild (overviewDeltIndex + 1).transform.GetChild (4).GetComponent<Image> ().sprite = noStatus;
+			activeDelt.item = null;
+		}
+
 		// If item was already selected for giving
+		// Note: Selected item must be holdable, megaevolve, usable, or move
 		if (activeItem != null) {
-			if ((activeDelt.curStatus != statusType.none) && (activeItem.cure != activeDelt.curStatus)) {
-				activeItem = null;
-				activeDelt = null;
-				ItemsUI.SetActive (false);
-				DeltemonUI.SetActive (false);
-				StartMessage ("That item would not accomplish anything, you Geed!");
-			} else {
-				UseItem ();
-			}
+			UseItem ();
 		} else {
 			StartCoroutine(AnimateUIClose (DeltemonUI));
 			OpenItems ();
@@ -768,6 +798,13 @@ public class UIManager : MonoBehaviour {
 				}
 			}
 
+			Transform GiveItemButton = DeltemonUI.transform.GetChild (8).GetChild (9);
+			if (delt.item != null) {
+				GiveItemButton.GetChild (0).GetComponent <Text> ().text = "Swap Item";
+			} else {
+				GiveItemButton.GetChild (0).GetComponent <Text> ().text = "Give Item";
+			}
+
 			DeltOverviewUI.SetActive (true);
 		}
 	}
@@ -868,9 +905,10 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void StartTrainerBattle(NPCInteraction trainer, bool isGymLeader) {
+		StartMessage (null, characterSlideOut());
 		StartMessage (null, fade.fadeOutToBlack(), ()=>playerMovement.StopMoving ());
 		StartMessage (null, null, ()=>BattleUI.SetActive(true));
-		StartMessage(null, null, ()=>battleManager.StartTrainerBattle(trainer, isGymLeader));
+		StartMessage (null, null, ()=>battleManager.StartTrainerBattle(trainer, isGymLeader));
 		StartMessage (null, fade.fadeInSceneChange(), null);
 		currentUI = UIMode.Battle;
 		inBattle = true;

@@ -358,11 +358,12 @@ public class ItemShop : MonoBehaviour {
 
 	}
 
-	void OnTriggerExit2D(Collider2D player) {
+	IEnumerator OnTriggerExit2D(Collider2D player) {
+		// Wait for small amount so player doesn't re-enter
+		yield return new WaitForSeconds (0.1f);
+
 		hasTriggered = false;
 		UIMan.NPCMessage = false;
-
-		AchievementManager.AchieveMan.ShowLeaderboard ();
 	}
 }
 

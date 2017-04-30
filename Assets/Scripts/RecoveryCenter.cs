@@ -35,6 +35,7 @@ public class RecoveryCenter: MonoBehaviour {
 		hasHealed = false;
 		posseDeltsLoaded = false;
 		majorSelected = false;
+		hasTriggered = false;
 		HouseSwitchIn = null;
 		HouseDeltIndex = -1;
 		PosseDeltIndex = -1;
@@ -570,8 +571,8 @@ public class RecoveryCenter: MonoBehaviour {
 	}
 
 	// Allow player to re-enter Recovery Center menu
-	void OnTriggerExit2D(Collider2D player) {
-		print ("TRIG EXIT: " + player.gameObject.name);
+	IEnumerator OnTriggerExit2D(Collider2D player) {
+		yield return new WaitForSeconds (0.1f);
 		hasTriggered = false;
 		UIMan.EndNPCMessage ();
 	}

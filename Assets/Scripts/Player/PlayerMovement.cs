@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	public GameManager GameManager;
 	public Animator playerMovementAnimation;
 
-	public bool isMoving, movementQueued, isRunning, isMale;
+	public bool isMoving, isRunning, isMale;
 	public byte repelStepsLeft;
 	public Image maleButton, femaleButton;
 
@@ -20,7 +20,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Direction playerFacing;
 
-	private bool inMovementNow;
+	private bool inMovementNow, movementQueued;
+	private int x, y;
 
 	[Header("Player Sprites")]
 	public GameObject playerSprite;
@@ -49,12 +50,10 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Start() {
-		movementQueued = false;
 		inMovementNow = false;
+		movementQueued = false;
 		isRunning = false;
 		boxCollider = GetComponent<BoxCollider2D>();
-
-		StartCoroutine (MoveWorker());
 	}
 
 	#if UNITY_EDITOR
@@ -93,138 +92,151 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Worker to move character
 	IEnumerator MoveWorker() {
-		float walkSpeed;
-		int x = 0, y = 0;
-		while (true) {
-			// Wait until player allowed to move
-			yield return new WaitUntil (() => movementQueued);
+		
+		// Do not start another MoveWorker if one is already going
+		if (!inMovementNow) {
+			inMovementNow = true;
 
-			t = 0;
-			startPos = transform.position;
-
-			switch (playerFacing) {
-			case Direction.North:
-				playerMovementAnimation.SetInteger ("Move", 1);
-				x = 0;
-				y = 1;
-				break;
-			case Direction.East:
-				playerMovementAnimation.SetInteger ("Move", 2);
-				x = 1;
-				y = 0;
-				break;
-			case Direction.South:
-				playerMovementAnimation.SetInteger ("Move", 3);
-				x = 0;
-				y = -1;
-				break;
-			case Direction.West:
-				playerMovementAnimation.SetInteger ("Move", 4);
-				x = -1;
-				y = 0;
-				break;
-			}
-
-			if (CanMove (x, y)) {
-				inMovementNow = true;
-				endPos = new Vector3 (startPos.x + x, startPos.y + y, startPos.z);
-			} else {
-				// If player cannot move, set player orientation
-				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
-				playerMovementAnimation.SetInteger ("Move", 0);
-				switch (playerFacing) {
-				case Direction.North:
-					playerMovementAnimation.Play ("IdleNorth");
-					break;
-				case Direction.East:
-					playerMovementAnimation.Play ("IdleEast");
-					break;
-				case Direction.South:
-					playerMovementAnimation.Play ("IdleSouth");
-					break;
-				case Direction.West:
-					playerMovementAnimation.Play ("IdleWest");
-					break;
-				}
-			}
-
-			// Move player
-			if (inMovementNow) {
-				while (t < 1f) {
-					if (isRunning) {
-						walkSpeed = 8f;
-					} else {
-						walkSpeed = 4f;
+			// Keep moving until stopped
+			while (movementQueued) {
+				
+				// If the player can move to that position
+				if (CanMove (x, y)) {
+					
+					// Animate moving in that direction
+					switch (playerFacing) {
+					case Direction.North:
+						playerMovementAnimation.SetInteger ("Move", 1);
+						break;
+					case Direction.East:
+						playerMovementAnimation.SetInteger ("Move", 2);
+						break;
+					case Direction.South:
+						playerMovementAnimation.SetInteger ("Move", 3);
+						break;
+					case Direction.West:
+						playerMovementAnimation.SetInteger ("Move", 4);
+						break;
 					}
-					t += Time.deltaTime * walkSpeed;
-					transform.position = Vector3.Lerp (startPos, endPos, t);
-					yield return null;
-				}
 
-				// Decrement repel steps
-				if (repelStepsLeft > 0) {
-					if (repelStepsLeft == 1) {
-						UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
-						UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.");
-						StopMoving ();
+					t = 0;
+
+					// Get location of player and end position
+					startPos = transform.position;
+					endPos.x = startPos.x + x;
+					endPos.y = startPos.y + y;
+					endPos.z = startPos.z;
+
+					// Move player
+					while (t < 1f) {
+						if (isRunning) {
+							t += Time.deltaTime * 8;
+						} else {
+							t += Time.deltaTime * 4;
+						}
+
+						transform.position = Vector3.Lerp (startPos, endPos, t);
+						yield return null;
 					}
-					repelStepsLeft--;
+
+					// Decrement repel steps
+					if (repelStepsLeft > 0) {
+						if (repelStepsLeft == 1) {
+							UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
+							UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.");
+							StopMoving ();
+						}
+						repelStepsLeft--;
+					}
+
+					// Decrement steps before next opp can spawn
+					if (TallGrass.battleStepBuffer > 0) {
+						TallGrass.battleStepBuffer--;
+					}
+				} else {
+					// If player cannot move, set player orientation
+					// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
+					playerMovementAnimation.SetInteger ("Move", 0);
+					switch (playerFacing) {
+					case Direction.North:
+						playerMovementAnimation.Play ("IdleNorth");
+						break;
+					case Direction.East:
+						playerMovementAnimation.Play ("IdleEast");
+						break;
+					case Direction.South:
+						playerMovementAnimation.Play ("IdleSouth");
+						break;
+					case Direction.West:
+						playerMovementAnimation.Play ("IdleWest");
+						break;
+					}
+					movementQueued = false;
 				}
-
-				// Decrement steps before next opp can spawn
-				if (TallGrass.battleStepBuffer > 0) {
-					TallGrass.battleStepBuffer--;
-				}
-
-				inMovementNow = false;
-
-			} else {
-				playerMovementAnimation.SetInteger ("Move", 0);
 			}
+			inMovementNow = false;
 		}
 	}
 
 	// Called by: QUESTMANAGER
 	public void Move(int dir) {
+		
 		Direction pFace = Direction.South;
 		switch (dir) {
 		case 0:
 			pFace = Direction.North;
 			dpad.sprite = dpadNorth;
+			y = 1;
+			x = 0;
 			break;
 		case 1:
 			pFace = Direction.East;
 			dpad.sprite = dpadEast;
+			y = 0;
+			x = 1;
 			break;
 		case 2:
 			pFace = Direction.South;
 			dpad.sprite = dpadSouth;
+			y = -1;
+			x = 0;
 			break;
 		case 3:
 			pFace = Direction.West;
 			dpad.sprite = dpadWest;
+			y = 0;
+			x = -1;
 			break;
 		}
+
 		if (playerFacing != pFace) {
 			playerFacing = pFace;
 		}
+
+		// Tell Move Worker to keep moving player until stopped
 		movementQueued = true;
-		inMovementNow = true;
+
+		// Start a movement in that direction
+		StartCoroutine (MoveWorker ());
 	}
 
 	//Move returns true if it is able to move and false if not. 
 	//Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
 	protected bool CanMove (int xDir, int yDir)
 	{
+		// Player's current starting position
 		Vector2 start = transform.position;
+
 		// Calculate end position based on the direction parameters passed in when calling Move.
 		Vector2 end = new Vector2(start.x + xDir, start.y + yDir);
 
 		//Disable the boxCollider so that linecast doesn't hit this object's own collider.
 		boxCollider.enabled = false;
 
+		RaycastHit2D hit = Physics2D.Linecast (start, end, layer);
+
 		//Check if anything was hit
-		if (Physics2D.Linecast (start, end, layer)) {
+		if (hit) {
 			boxCollider.enabled = true;
 			return false;
 		}
@@ -239,16 +251,14 @@ public class PlayerMovement : MonoBehaviour {
 		if (!wasDPadRelease) {
 			QuestManager.QuestMan.isAllowedToMove = false;
 			UIManager.MovementUI.SetActive (false);
-			print ("Movement UI Inactive");
 		}
+		inMovementNow = false;
 		movementQueued = false;
 		dpad.sprite = dpadNeutral;
-		inMovementNow = false;
 		playerMovementAnimation.SetInteger ("Move", 0);
 	}
 	// Allows player movement
 	public void ResumeMoving() {
-		print ("Resume moving call");
 		UIManager.MovementUI.SetActive (true);
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}
