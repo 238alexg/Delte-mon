@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: a95b60c91b58e416dbbba6d73896e3c6
-timeCreated: 1491160749
+timeCreated: 1493588806
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,14 @@ TextureImporter:
     21300024: Delta Sig West
     21300026: Delta Sig East
     21300028: Delta Sig Leader
+    21300030: DillonTrainer_South
+    21300032: DillonTrainer_North
+    21300034: DillonTrainer_West
+    21300036: DillonTrainer_East
+    21300038: MarkoTrainer_South
+    21300040: MarkoTrainer_North
+    21300042: MarkoTrainer_West
+    21300044: MarkoTrainer_East
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -82,6 +90,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -280,6 +296,110 @@ TextureImporter:
         serializedVersion: 2
         x: 128
         y: 544
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DillonTrainer_South
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DillonTrainer_North
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DillonTrainer_West
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: DillonTrainer_East
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 608
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MarkoTrainer_South
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MarkoTrainer_North
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MarkoTrainer_West
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 576
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MarkoTrainer_East
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
         width: 32
         height: 32
       alignment: 0

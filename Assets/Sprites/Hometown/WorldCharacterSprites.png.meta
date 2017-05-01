@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 69ef2c69aa07d4bc8a5c7e3169c15cde
-timeCreated: 1492751410
+timeCreated: 1493589823
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -61,7 +61,7 @@ TextureImporter:
     21300108: WorldCharacterSprites_43
     21300110: WorldCharacterSprites_44
     21300112: WorldCharacterSprites_45
-    21300114: WorldCharacterSprites_46
+    21300114: NameChanger_East
     21300116: WorldCharacterSprites_47
     21300118: WorldCharacterSprites_48
     21300120: WorldCharacterSprites_49
@@ -795,7 +795,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: WorldCharacterSprites_46
+      name: NameChanger_East
       rect:
         serializedVersion: 2
         x: 256

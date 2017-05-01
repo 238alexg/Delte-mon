@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 7
   numberOfItem: 1
   itemName: Slippery Butts
   itemDescription: Still waiting on the sequel.
@@ -59,4 +58,4 @@ MonoBehaviour:
   itemT: 2
   holdT: 3
   cure: 0
-  statUpgrades: 00000000000a
+  statUpgrades: 000000000004

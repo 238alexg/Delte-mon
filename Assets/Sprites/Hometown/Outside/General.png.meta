@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe3b1e453b9d88047b7d779f8a2ba8c1
-timeCreated: 1493104917
+timeCreated: 1493594652
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -16,9 +16,9 @@ TextureImporter:
     21300018: Dirt Path TC
     21300020: Dirt Path Corner 1
     21300022: Dirt Path Corner 2
-    21300024: General_12
-    21300026: General_13
-    21300028: General_14
+    21300024: Red Car Vert
+    21300026: Blue Car Vert
+    21300028: Green Car Vert
     21300030: General_15
     21300032: General_16
     21300034: General_17
@@ -85,7 +85,7 @@ TextureImporter:
     21300156: Dirt Path BL
     21300158: Dirt Path BC
     21300160: Dirt Path BR
-    21300162: DirtTrack_6
+    21300162: Traffic Bar
     21300164: DirtTrack_7
     21300166: General_83
     21300168: General_84
@@ -178,7 +178,7 @@ TextureImporter:
     21300342: General_171
     21300344: General_172
     21300346: General_173
-    21300348: General_174
+    21300348: Traffic Cone
     21300350: General_175
     21300352: Road Path Bottom
     21300354: General_177
@@ -1303,7 +1303,7 @@ TextureImporter:
     21302592: General_1296
     21302594: General_1297
     21302596: General_1298
-    21302598: General_1299
+    21302598: Hayward_Field
     21302600: General_1300
     21302602: General_1301
     21302604: General_1302
@@ -2032,52 +2032,39 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_12
+      name: Red Car Vert
       rect:
         serializedVersion: 2
-        x: 432
-        y: 848
-        width: 16
-        height: 16
+        x: 416
+        y: 816
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_13
+      name: Blue Car Vert
       rect:
         serializedVersion: 2
         x: 448
-        y: 848
-        width: 16
-        height: 16
+        y: 816
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_14
+      name: Green Car Vert
       rect:
         serializedVersion: 2
         x: 480
-        y: 848
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_15
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 848
-        width: 16
-        height: 16
+        y: 816
+        width: 32
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2400,58 +2387,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_41
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_42
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_43
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 832
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_44
-      rect:
-        serializedVersion: 2
-        x: 496
         y: 832
         width: 16
         height: 16
@@ -2929,103 +2864,12 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: DirtTrack_6
+      name: Traffic Bar
       rect:
         serializedVersion: 2
         x: 384
         y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: DirtTrack_7
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_83
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_84
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_85
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_86
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_87
-      rect:
-        serializedVersion: 2
-        x: 480
-        y: 816
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_88
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 816
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -4008,7 +3852,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_174
+      name: Traffic Cone
       rect:
         serializedVersion: 2
         x: 272
@@ -18503,91 +18347,13 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1299
+      name: Hayward_Field
       rect:
         serializedVersion: 2
         x: 0
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1300
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1301
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1302
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1303
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1304
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1305
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 208
-        width: 16
-        height: 16
+        y: 64
+        width: 112
+        height: 160
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -18872,97 +18638,6 @@ TextureImporter:
         serializedVersion: 2
         x: 689
         y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1328
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1329
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1330
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1331
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1332
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1333
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 192
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1334
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 192
         width: 16
         height: 16
       alignment: 0
@@ -19361,97 +19036,6 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1365
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1366
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1367
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1368
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1369
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1370
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1371
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 176
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
       name: General_1372
       rect:
         serializedVersion: 2
@@ -19842,97 +19426,6 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_1403
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1404
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1405
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1406
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1407
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1408
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1409
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
       name: General_1410
       rect:
         serializedVersion: 2
@@ -20315,97 +19808,6 @@ TextureImporter:
         serializedVersion: 2
         x: 705
         y: 160
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1441
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1442
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1443
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1444
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1445
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1446
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1447
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 144
         width: 16
         height: 16
       alignment: 0
@@ -20822,97 +20224,6 @@ TextureImporter:
         serializedVersion: 2
         x: 705
         y: 144
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1481
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1482
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1483
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1484
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1485
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1486
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 128
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: General_1487
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 128
         width: 16
         height: 16
       alignment: 0
