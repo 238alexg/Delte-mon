@@ -93,89 +93,84 @@ public class PlayerMovement : MonoBehaviour {
 	// Worker to move character
 	IEnumerator MoveWorker() {
 		
-		// Do not start another MoveWorker if one is already going
-		if (!inMovementNow) {
-			inMovementNow = true;
-
-			// Keep moving until stopped
-			while (movementQueued) {
+		// Keep moving until stopped
+		while (movementQueued) {
+			
+			// If the player can move to that position
+			if (CanMove (x, y)) {
 				
-				// If the player can move to that position
-				if (CanMove (x, y)) {
-					
-					// Animate moving in that direction
-					switch (playerFacing) {
-					case Direction.North:
-						playerMovementAnimation.SetInteger ("Move", 1);
-						break;
-					case Direction.East:
-						playerMovementAnimation.SetInteger ("Move", 2);
-						break;
-					case Direction.South:
-						playerMovementAnimation.SetInteger ("Move", 3);
-						break;
-					case Direction.West:
-						playerMovementAnimation.SetInteger ("Move", 4);
-						break;
-					}
-
-					t = 0;
-
-					// Get location of player and end position
-					startPos = transform.position;
-					endPos.x = startPos.x + x;
-					endPos.y = startPos.y + y;
-					endPos.z = startPos.z;
-
-					// Move player
-					while (t < 1f) {
-						if (isRunning) {
-							t += Time.deltaTime * 8;
-						} else {
-							t += Time.deltaTime * 4;
-						}
-
-						transform.position = Vector3.Lerp (startPos, endPos, t);
-						yield return null;
-					}
-
-					// Decrement repel steps
-					if (repelStepsLeft > 0) {
-						if (repelStepsLeft == 1) {
-							UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
-							UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.");
-							StopMoving ();
-						}
-						repelStepsLeft--;
-					}
-
-					// Decrement steps before next opp can spawn
-					if (TallGrass.battleStepBuffer > 0) {
-						TallGrass.battleStepBuffer--;
-					}
-				} else {
-					// If player cannot move, set player orientation
-					// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
-					playerMovementAnimation.SetInteger ("Move", 0);
-					switch (playerFacing) {
-					case Direction.North:
-						playerMovementAnimation.Play ("IdleNorth");
-						break;
-					case Direction.East:
-						playerMovementAnimation.Play ("IdleEast");
-						break;
-					case Direction.South:
-						playerMovementAnimation.Play ("IdleSouth");
-						break;
-					case Direction.West:
-						playerMovementAnimation.Play ("IdleWest");
-						break;
-					}
-					movementQueued = false;
+				// Animate moving in that direction
+				switch (playerFacing) {
+				case Direction.North:
+					playerMovementAnimation.SetInteger ("Move", 1);
+					break;
+				case Direction.East:
+					playerMovementAnimation.SetInteger ("Move", 2);
+					break;
+				case Direction.South:
+					playerMovementAnimation.SetInteger ("Move", 3);
+					break;
+				case Direction.West:
+					playerMovementAnimation.SetInteger ("Move", 4);
+					break;
 				}
+
+				t = 0;
+
+				// Get location of player and end position
+				startPos = transform.position;
+				endPos.x = startPos.x + x;
+				endPos.y = startPos.y + y;
+				endPos.z = startPos.z;
+
+				// Move player
+				while (t < 1f) {
+					if (isRunning) {
+						t += Time.deltaTime * 8;
+					} else {
+						t += Time.deltaTime * 4;
+					}
+
+					transform.position = Vector3.Lerp (startPos, endPos, t);
+					yield return null;
+				}
+
+				// Decrement repel steps
+				if (repelStepsLeft > 0) {
+					if (repelStepsLeft == 1) {
+						UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
+						UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.");
+						StopMoving ();
+					}
+					repelStepsLeft--;
+				}
+
+				// Decrement steps before next opp can spawn
+				if (TallGrass.battleStepBuffer > 0) {
+					TallGrass.battleStepBuffer--;
+				}
+			} else {
+				// If player cannot move, set player orientation
+				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
+				playerMovementAnimation.SetInteger ("Move", 0);
+				switch (playerFacing) {
+				case Direction.North:
+					playerMovementAnimation.Play ("IdleNorth");
+					break;
+				case Direction.East:
+					playerMovementAnimation.Play ("IdleEast");
+					break;
+				case Direction.South:
+					playerMovementAnimation.Play ("IdleSouth");
+					break;
+				case Direction.West:
+					playerMovementAnimation.Play ("IdleWest");
+					break;
+				}
+				movementQueued = false;
 			}
-			inMovementNow = false;
 		}
+		inMovementNow = false;
 	}
 
 	// Called by: QUESTMANAGER
@@ -215,9 +210,14 @@ public class PlayerMovement : MonoBehaviour {
 
 		// Tell Move Worker to keep moving player until stopped
 		movementQueued = true;
+		
 
-		// Start a movement in that direction
-		StartCoroutine (MoveWorker ());
+		// Do not start another MoveWorker if one is already going
+		if (!inMovementNow) {
+			inMovementNow = true;
+			// Start a movement in that direction
+			StartCoroutine (MoveWorker ());
+		}
 	}
 
 	//Move returns true if it is able to move and false if not. 
@@ -252,7 +252,6 @@ public class PlayerMovement : MonoBehaviour {
 			QuestManager.QuestMan.isAllowedToMove = false;
 			UIManager.MovementUI.SetActive (false);
 		}
-		inMovementNow = false;
 		movementQueued = false;
 		dpad.sprite = dpadNeutral;
 		playerMovementAnimation.SetInteger ("Move", 0);

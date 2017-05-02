@@ -1808,7 +1808,7 @@ MonoBehaviour:
   - {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   emptyDelt: {fileID: 1500686949510560, guid: 822d5cdb26a3544a0b2c384e838121b8, type: 2}
   iPhoneBarBackground: {fileID: 0}
-  deleteSave: 0
+  deleteSave: 1
 --- !u!4 &128314436
 Transform:
   m_ObjectHideFlags: 0
@@ -21187,6 +21187,168 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &1425970678
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500686949510560, guid: 822d5cdb26a3544a0b2c384e838121b8, type: 2}
+      propertyPath: m_Name
+      value: BilboDD
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224120158808984302, guid: 822d5cdb26a3544a0b2c384e838121b8,
+        type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114938611354390524, guid: 822d5cdb26a3544a0b2c384e838121b8, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 822d5cdb26a3544a0b2c384e838121b8, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1425970679 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1500686949510560, guid: 822d5cdb26a3544a0b2c384e838121b8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1425970678}
+--- !u!114 &1425970680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1425970679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Bilbo
+  deltName: Dakoata Lutje
+  description: Don't underestimate Bilbo, he did wrestling in high school!
+  frontImage: {fileID: 0}
+  backImage: {fileID: 21300170, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1522
+  major1: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 2d20451c611d
+  prevEvol: {fileID: 0}
+  nextEvol: {fileID: 0}
+  evolveLevel: 18
+  levelUpMoves:
+  - level: 0
+    move: {fileID: 114098116144903234, guid: e715adf32260b47189ec0a344b5a7398, type: 2}
+  - level: 0
+    move: {fileID: 114420055902518902, guid: c6f96fa88fc4440089ff5baa23695c8e, type: 2}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  rarity: 0
+  AVIndex: 0
+  AVAwardAmount: 0
 --- !u!1 &1439365694
 GameObject:
   m_ObjectHideFlags: 0

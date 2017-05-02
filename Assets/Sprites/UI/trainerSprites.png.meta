@@ -1,12 +1,15 @@
 fileFormatVersion: 2
 guid: dc4070f8fb68a4be7b78cac85673289d
-timeCreated: 1493418800
+timeCreated: 1493756748
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: Dillon_Trainer
     21300002: Markovitch_Trainer
     21300004: Fidel_Trainer
+    21300006: trainerSprites_0
+    21300008: trainerSprites_1
+    21300010: trainerSprites_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -97,7 +100,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -110,7 +113,7 @@ TextureImporter:
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -118,12 +121,51 @@ TextureImporter:
       name: Fidel_Trainer
       rect:
         serializedVersion: 2
-        x: 120
+        x: 121
         y: 100
         width: 60
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_0
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_2
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 100
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

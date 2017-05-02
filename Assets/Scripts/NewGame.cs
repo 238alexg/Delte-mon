@@ -8,10 +8,11 @@ public class NewGame : MonoBehaviour {
 	public GameObject StarterUI;
 	public GameObject NameAndGenderUI;
 	public Animator profCheema;
-	public DeltemonClass starter;
+	public DeltemonClass emptyDelt;
 	public Color invalidName;
 	public Button male;
 	public Button female;
+	DeltemonClass starter;
 	UIManager UIMan;
 	GameManager GameMan;
 	GameObject backpack;
@@ -33,7 +34,7 @@ public class NewGame : MonoBehaviour {
 		};
 		dialogues2 = new string[] {
 			"You have been selected for a very special task.",
-			"Nationals is installing a new chapter of Delta Tau Delta at the U of Oregon.",
+			"Nationals is installing a new chapter of Delta Tau Delta at the University of Oregon.",
 			"Your mission is to recruit all the best Delts in Eugene, Oregon for the house.",
 			"But must first choose a Delt to accompany you on this journey!",
 			"I have a few potential candidates here that you can choose from!"
@@ -95,8 +96,10 @@ public class NewGame : MonoBehaviour {
 
 	// When user selects starter from button
 	public void SelectStarter(DeltDexClass selectedStarter) {
+		starter = emptyDelt;
 		starter.deltdex = selectedStarter;
 		starter.nickname = selectedStarter.nickname;
+		starter.ownedByTrainer = true;
 		starter.initializeDelt ();
 	}
 
@@ -127,7 +130,7 @@ public class NewGame : MonoBehaviour {
 			UIMan.StartNPCMessage("Oh! And before I forget your mother sent some items to you! Here they are.", "Professor Cheema");
 			GiveItems ();
 
-			UIMan.StartNPCMessage("I'm excited to see you make a differece on this campus.", "Professor Cheema");
+			UIMan.StartNPCMessage("I'm excited to see you make a difference on this campus.", "Professor Cheema");
 			UIMan.StartNPCMessage ("Best of luck, my friend. And remember, you gotta rush 'em all!", "Professor Cheema");
 			UIMan.StartMessage (null, null, (() => profCheema.SetTrigger ("SlideOut")));
 

@@ -114,5 +114,6 @@ public class NameChanger : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D player) {
 		hasTriggered = false;
+		UIMan.EndNPCMessage ();
 	}
 }

@@ -286,99 +286,92 @@ public class BattleManager : MonoBehaviour {
 				}
 			}
 		}
+		trainerItems.Remove (chosenItem);
 		return chosenItem;
 	}
 
-	// Calc cumulative score for all buffs of a move
-	float CalculateBuffScore(MoveClass move) {
-		float totalBuffScore = 0;
+	// Calc cumulative score for move buff
+	float CalculateBuffScore(buffTuple buff) {
 		float tmpBuffScore = 0;
 
-		foreach (buffTuple buff in move.buffs) {
-			if (buff.buffT == buffType.Heal) {
-				if (curOppDelt.health < 0.25 * curOppDelt.GPA) {
-					tmpBuffScore = 3;
-				} else if (curOppDelt.health < 0.5 * curOppDelt.GPA) {
-					tmpBuffScore = 2;
-				} else {
-					tmpBuffScore = 1;
-				}
-
-				// If only heal buff, increase heal priority
-				if (move.buffs.Count == 1) {
-					tmpBuffScore *= 60;
-				} else {
-					tmpBuffScore *= 45;
-				}
+		if (buff.buffT == buffType.Heal) {
+			if (curOppDelt.health < 0.4 * curOppDelt.GPA) {
+				tmpBuffScore = 2;
 			} else {
-				byte index = 0;
-				switch (buff.buffT) {
-				case (buffType.Truth):
-					index = 1;
-					// Priority for if oppDelt has TruthAtk and it buffs oppDelt
-					if (buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					} 
-					// Priority for if player has TruthAtk and it debuffs player
-					else if (!buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					}
-					break;
-				case (buffType.Courage):
-					index = 2;
-					// Priority for if oppDelt has powerAtk and it debuffs player
-					if (!buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					} 
-					// Priority for if player has powerAtk and it buffs oppDelt
-					else if (buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					}
-					break;
-				case (buffType.Faith):
-					index = 3;
-					// Priority for if oppDelt has truthAtk and it debuffs player
-					if (!buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					} 
-					// Priority for if player has truthAtk and it buffs oppDelt
-					else if (buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					}
-					break;
-				case (buffType.Power):
-					index = 4;
-					// Priority for if oppDelt has PowerAtk and it buffs oppDelt
-					if (buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					} 
-					// Priority for if player has PowerAtk and it debuffs player
-						else if (!buff.isBuff && (curPlayerDelt.moveset.Exists (m => (m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					}
-					break;
-				case (buffType.ChillToPull):
-					index = 5;
-					// Priority for if oppDelt has PowerAtk and it buffs oppDelt
-					float oppCTP = curOppDelt.ChillToPull + OppStatAdditions [index];
-					float playerCTP = curPlayerDelt.ChillToPull + PlayerStatAdditions [index];
-
-					// If opp speed is less than player's, and within an amendable range
-					// Note: Buff type does not matter in this context
-					if ((oppCTP < playerCTP) && (oppCTP > 0.80f * playerCTP)) {
-						tmpBuffScore = 15 * buff.buffAmount;
-					} 
-					break;
-				}
-				if (buff.isBuff && OppStatAdditions [index] > 0) {
-					tmpBuffScore *= 0.7f;
-				} else if (!buff.isBuff && OppStatAdditions [index] < 0) {
-					tmpBuffScore *= 0.7f;
-				}
+				tmpBuffScore = 1;
 			}
-			totalBuffScore += tmpBuffScore;
+
+			tmpBuffScore *= buff.buffAmount;
+
+		} else {
+			byte index = 0;
+			switch (buff.buffT) {
+			case (buffType.Truth):
+				index = 1;
+				// Priority for if oppDelt has TruthAtk and it buffs oppDelt
+				if (buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				} 
+				// Priority for if player has TruthAtk and it debuffs player
+				else if (!buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				}
+				break;
+			case (buffType.Courage):
+				index = 2;
+				// Priority for if oppDelt has powerAtk and it debuffs player
+				if (!buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				} 
+				// Priority for if player has powerAtk and it buffs oppDelt
+				else if (buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				}
+				break;
+			case (buffType.Faith):
+				index = 3;
+				// Priority for if oppDelt has truthAtk and it debuffs player
+				if (!buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				} 
+				// Priority for if player has truthAtk and it buffs oppDelt
+				else if (buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				}
+				break;
+			case (buffType.Power):
+				index = 4;
+				// Priority for if oppDelt has PowerAtk and it buffs oppDelt
+				if (buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				} 
+				// Priority for if player has PowerAtk and it debuffs player
+					else if (!buff.isBuff && (curPlayerDelt.moveset.Exists (m => (m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				}
+				break;
+			case (buffType.ChillToPull):
+				index = 5;
+				float oppCTP = curOppDelt.ChillToPull + OppStatAdditions [index];
+				float playerCTP = curPlayerDelt.ChillToPull + PlayerStatAdditions [index];
+
+				// If opp speed is less than player's, and within an amendable range
+				// Note: Buff type does not matter in this context
+				if ((oppCTP < playerCTP) && (oppCTP > 0.80f * playerCTP)) {
+					tmpBuffScore = 15 * buff.buffAmount;
+				} 
+				break;
+			}
+
+			// If a buff/debuff has already affected the Delt, lower the priority of the buff/debuff
+			if (buff.isBuff && OppStatAdditions [index] > 0) {
+				tmpBuffScore *= 0.8f;
+			} else if (!buff.isBuff && OppStatAdditions [index] < 0) {
+				tmpBuffScore *= 0.8f;
+			}
 		}
-		return totalBuffScore;
+
+		return tmpBuffScore;
 	}
 
 	/* Choose best move, taking into account: 
@@ -390,63 +383,66 @@ public class BattleManager : MonoBehaviour {
 		MoveClass chosenMove = null; 
 		float topScore = 0;
 		float score;
-		float tmpBuffScore;
+
+		// Calculate move score for each move
 		foreach (MoveClass move in curOppDelt.moveset) {
-			tmpBuffScore = 0;
+			score = 1;
 
 			// Cannot use move if no PP left
 			// If all Delt's move uses are exhausted, this will cause function to return null
 			if (move.PPLeft <= 0) {
 				continue;
 			}
-			// Get buff/debuff/heal score(s) of the move
-			score = CalculateBuffScore (move);
 
-			// Calculate move type-specific values
-			if ((move.movType == moveType.PowerAtk) || (move.movType == moveType.TruthAtk)) {
+			// If opp has a blocking move
+			if (move.movType == moveType.Block) {
+				// If player has damaging status, add score
+				if ((curPlayerDelt.curStatus == statusType.indebted) ||
+					(curPlayerDelt.curStatus == statusType.roasted) ||
+					(curPlayerDelt.curStatus == statusType.plagued)) {
+						score = 300;
+				} else {
+					score = 30;
+				}
 
-				tmpBuffScore = moveDamage (move, curOppDelt, curPlayerDelt, false);
-				tmpBuffScore = tmpBuffScore * moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
+				// If opponent has a damaging status, lower score
+				if ((curOppDelt.curStatus == statusType.indebted) ||
+				    (curOppDelt.curStatus == statusType.roasted) ||
+				    (curOppDelt.curStatus == statusType.plagued)) {
+					score *= 0.6f;
+				}
+
+				// Cannot use block twice in a row
+				if (oppBlocked) {
+					score = 0;
+				}
+
+				continue;
+			} 
+
+			// If move deals damage
+			if (move.damage > 0) {
+
+				// Set tmpScore to the base damage * effectiveness move deals
+				score = moveDamage (move, curOppDelt, curPlayerDelt, false);
+				score = score * moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
 
 				// More priority to crit chance
-				tmpBuffScore += (0.1f * move.critChance);
-
-				// No status increases status move priority
-				if (curOppDelt.curStatus != statusType.none) {
-					tmpBuffScore += (0.2f * move.statusChance);
-				}
+				score += (0.1f * move.critChance);
 
 				// Finally, multiply score by damage and hit chance
-				tmpBuffScore *= move.damage * 0.01f * move.hitChance;
-
-			} else if ((move.movType == moveType.Buff) || (move.movType == moveType.Debuff)) {
-				score *= 2f;
-				// If move would cure current Player status
-				if ((move.statType == curOppDelt.curStatus) && (move.statType != statusType.none) && (move.movType == moveType.Buff)) {
-					score += 100;
-				}
-			} else if (move.movType == moveType.Block) {
-				if (curPlayerDelt.curStatus != statusType.none) {
-					if (curOppDelt.ChillToPull > curPlayerDelt.ChillToPull) {
-						tmpBuffScore = 180;
-					} else {
-						tmpBuffScore = 200;
-					}
-				} else {
-					tmpBuffScore = 30;
-				}
-			} else if (move.movType == moveType.Status) {
-				if ((curPlayerDelt.curStatus != statusType.none) || (curPlayerDelt.health < 0.5)) {
-					tmpBuffScore = 20;
-				} else if (curPlayerDelt.health < 0.75) {
-					tmpBuffScore = 65;
-				} else {
-					tmpBuffScore = 160;
-				}
+				score *= move.damage * 0.01f * move.hitChance;
 			}
 
-			// Update score
-			score += tmpBuffScore;
+			// Add score for every buff
+			foreach (buffTuple buff in move.buffs) {
+				score += CalculateBuffScore (buff);
+			}
+
+			// Add score if move has a status effect and player has no status
+			if ((move.statType != statusType.none) && (curPlayerDelt.curStatus == statusType.none)) {
+				score += (move.statusChance * 0.01f * 150);
+			}
 
 			print ("Score of move " + move.moveName + ": " + score);
 
@@ -456,6 +452,7 @@ public class BattleManager : MonoBehaviour {
 				topScore = score;
 			}
 		}
+
 		if (chosenMove != null && chosenMove.movType == moveType.Block) {
 			oppBlocked = true;
 		}
@@ -477,31 +474,25 @@ public class BattleManager : MonoBehaviour {
 
 		// If opponent has a status
 		if (curOppDelt.curStatus != statusType.none) {
-			// If chosenMove relieves status
-			if ((chosenMove.movType == moveType.Buff) && (chosenMove.statType == curOppDelt.curStatus)) {
-				// If move doesn't heal
-				if (!chosenMove.buffs.Exists (b => b.buffT == buffType.Heal)) {
-					// Lower health == lower stayChance
-					if (curOppDelt.health < 0.35 * curOppDelt.GPA) {
-						stayChance = 60;
-					} 
-					// Slightly higher GPA means higher stayChance
-					else if (curOppDelt.health < 0.6 * curOppDelt.GPA) {
-						stayChance = 70;
-					}
+			// If move doesn't heal
+			if (!chosenMove.buffs.Exists (b => b.buffT == buffType.Heal)) {
+
+				// Lower health == lower stayChance
+				if (curOppDelt.health < 0.35 * curOppDelt.GPA) {
+					stayChance = 80;
+				} 
+				// Slightly higher GPA means higher stayChance
+				else if (curOppDelt.health < 0.6 * curOppDelt.GPA) {
+					stayChance = 90;
 				}
-			} 
-			// If move doesn't releive status
-			else {
-				stayChance = 50;
 			}
 		}
 		// If player goes first, and opp is hurt, lower stay chance
 		if (!oppGoesFirst) {
 			if (curOppDelt.health < curOppDelt.GPA * 0.1f) {
-				stayChance *= 0.1f;
+				stayChance *= 0.8f;
 			} else if (curOppDelt.health < curOppDelt.GPA * 0.3f) {
-				stayChance *= 0.4f;
+				stayChance *= 0.9f;
 			}
 		}
 		return stayChance;
@@ -525,22 +516,35 @@ public class BattleManager : MonoBehaviour {
 
 			// Determine the effectiveness against current player's Delt
 			foreach (MoveClass move in delt.moveset) {
-				majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
-				if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
-					if (majorEffectiveness == 4) {
-						switchEffectiveness += 50;
-					} else {
-						switchEffectiveness += 20;
+				if ((move.movType == moveType.TruthAtk) || (move.movType == moveType.PowerAtk)) {
+					majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
+					if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
+						if (majorEffectiveness == 4) {
+							switchEffectiveness += 50;
+						} else {
+							switchEffectiveness += 20;
+						}
 					}
-					break;
 				}
 			}
 
 			// Determine the effectiveness of other player's moves against it
 			foreach (MoveClass move in curPlayerDelt.moveset) {
 				majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curOppDelt.deltdex.major1, curOppDelt.deltdex.major2);
-				if ((majorEffectiveness == 2) && (move.PPLeft > 0)) {
-					switchEffectiveness -= 20;
+				if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
+					if (majorEffectiveness == 4) {
+						if (switchEffectiveness < 50) {
+							switchEffectiveness = 0;
+						} else {
+							switchEffectiveness -= 50;
+						}
+					} else {
+						if (switchEffectiveness < 20) {
+							switchEffectiveness = 0;
+						} else {
+							switchEffectiveness -= 20;
+						}
+					}
 					break;
 				}
 			}
@@ -550,15 +554,15 @@ public class BattleManager : MonoBehaviour {
 				switchEffectiveness += 15;
 			} else if (delt.health > 0.6f * delt.GPA) {
 				switchEffectiveness += 5;
-			} else if (delt.health > 0.6f * delt.GPA) {
-				switchEffectiveness -= 10;
-			} else {
-				switchEffectiveness -= 20;
 			}
 
 			// If Delt has a status condition, less priority to switch
 			if (delt.curStatus != statusType.none) {
-				switchEffectiveness -= 15;
+				if (switchEffectiveness < 15) {
+					switchEffectiveness = 0;
+				} else {
+					switchEffectiveness -= 15;
+				}
 			}
 
 			// Set best possible switch
@@ -913,8 +917,17 @@ public class BattleManager : MonoBehaviour {
 
 	// Button calls for MoveMenu
 	public void chooseMove(int moveIndex) {
-		if (moveIndex < curPlayerDelt.moveset.Count) {
-			MoveClass tmpMove = curPlayerDelt.moveset [moveIndex];
+		MoveClass tmpMove = curPlayerDelt.moveset [moveIndex];
+
+		// If player has uses left for this move
+		if (tmpMove.PPLeft > 0) {
+			
+			// Do not allow player to block twice in a row
+			if (tmpMove.movType == moveType.Block && playerBlocked) {
+				UIManager.StartMessage ("You cannot block twice in a row!");
+				return;
+			}
+
 			tmpMove.PPLeft--;
 			MoveMenu.SetActive (false);
 			moveText [moveIndex].GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
@@ -932,7 +945,9 @@ public class BattleManager : MonoBehaviour {
 				playerBlocked = true;
 			}
 
-			StartCoroutine("fight");
+			StartCoroutine ("fight");
+		} else {
+			UIManager.StartMessage ("You don't have any more uses for this move!");
 		}
 	}
 
@@ -1297,9 +1312,9 @@ public class BattleManager : MonoBehaviour {
 
 					// Prompt message for user
 					if (buff.buffAmount < 5) {
-						yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went down!"));
+						yield return StartCoroutine (evolMessage (defender.nickname + "'s " + buff.buffT + " stat went down!"));
 					} else {
-						yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went waaay down!"));
+						yield return StartCoroutine (evolMessage (defender.nickname + "'s " + buff.buffT + " stat went waaay down!"));
 					}
 				}
 			}
