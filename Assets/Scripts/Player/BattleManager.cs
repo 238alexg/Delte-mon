@@ -732,7 +732,7 @@ public class BattleManager : MonoBehaviour {
 
 	// Player tries to use an item
 	void OpenBag() {
-		playerChoice.action = () => ThrowBall (deltBall);
+		playerChoice.IENum = ThrowBall (deltBall);
 		playerChoice.type = actionT.Ball;
 		// Later: implement other choices
 	}
@@ -742,7 +742,7 @@ public class BattleManager : MonoBehaviour {
 
 		// If player chooses a ball, that is their action for the turn
 		if (item.itemT == itemType.Ball) {
-			playerChoice.action = () => ThrowBall (item);
+			playerChoice.IENum = ThrowBall (item);
 			playerChoice.type = actionT.Ball;
 			StartCoroutine (fight ());
 			return;
@@ -787,27 +787,24 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Player throws a ball at the opposing (hopefully wild) Delt
-	public void ThrowBall(ItemClass item) {
+	public IEnumerator ThrowBall(ItemClass item) {
 
 		// If not a wild battle, Trainer bats away ball in disgust
 		if (trainer != null) {
 			UIManager.StartMessage ("You throw a " + item.itemName + ", but the trainer bats it away!");
 
-			// LATER: Slide Delt out, slide trainer in
-
-			UIManager.StartMessage ("\"What the hell, man?\"");
+			UIManager.StartNPCMessage ("\"What the hell, man?\"", trainerName);
+			UIManager.StartMessage (null, null, () => UIManager.EndNPCMessage ());
 
 			// To add insult to injury
 			coinsWon = (int)(coinsWon * 0.6f);
 
-			// LATER: Slide trainer out, slide delt back in
-
-			return;
+			yield break;
 		}
 
 		PlayerOptions.SetActive (false);
 
-		UIManager.StartMessage ("You threw a " + item.itemName + "!");
+		yield return StartCoroutine(evolMessage ("You threw a " + item.itemName + "!"));
 
 		float catchChance;
 		float ballLevel = 1;
@@ -888,25 +885,52 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		float random = Random.Range (0, 100);
+		int ballRattles = 0;
+		float yieldTime = 0;
 
 		// DEBUG ONLY
 		print ("Catch Chance: " + catchChance + ", Random: " + random);
 
-		// LATER: Implement shake animations
 		if (random > catchChance) {
 			if (random > (2 * catchChance)) {
-				// No shakes
+				ballRattles = 1;
+				yieldTime = 2.75f;
 			} else if (random > (1.5 * catchChance)) {
-				// 1 shake
+				ballRattles = 2;
+				yieldTime = 3.75f;
 			} else {
-				// 2 shakes
+				ballRattles = 3;
+				yieldTime = 4.75f;
 			}
-			UIManager.StartMessage(curOppDelt.nickname + " escaped!");
-		} else {
-			// 3 shakes and catch
+		} 
+		// Catch success
+		else {
+			ballRattles = 4;
+			yieldTime = 5.25f;
+		}
+
+		// Trigger animations
+		oppBattleAnim.SetInteger ("BallRattles", ballRattles);
+		oppBattleAnim.SetTrigger ("ThrowBall");
+
+		yield return new WaitForSeconds (1);
+
+		oppDeltSprite.GetComponent <Animator> ().SetTrigger ("FadeOut");
+
+		// Wait until all shakes are done
+		yield return new WaitForSeconds (yieldTime);
+
+		if (ballRattles == 4) {
 			playerWon = true;
-			UIManager.StartMessage(curOppDelt.nickname + " was caught!", null, ()=>gameManager.AddDelt (curOppDelt));
-			UIManager.StartMessage(null, null, ()=>EndBattle());
+			UIManager.StartMessage (curOppDelt.nickname + " was caught!", null, () => gameManager.AddDelt (curOppDelt));
+			UIManager.StartMessage (null, null, () => EndBattle ());
+			UIManager.StartMessage (null, null, ()=> oppDeltSprite.GetComponent <Animator>().Play ("Idle"));
+		} else {
+			oppDeltSprite.GetComponent <Animator> ().Play ("BallReleaseFadeIn");
+
+			yield return new WaitForSeconds (0.5f);
+
+			UIManager.StartMessage(curOppDelt.nickname + " escaped!");
 		}
 	}
 
@@ -979,12 +1003,14 @@ public class BattleManager : MonoBehaviour {
 
 		// If player or opponent has a non-move action
 		if (playerChoice.type != actionT.Move) {
-			if (playerChoice.type == actionT.Switch) {
+			if (playerChoice.type == actionT.Switch || playerChoice.type == actionT.Ball) {
 				UIManager.StartMessage (null, playerChoice.IENum);
 				yield return new WaitWhile(()=>UIManager.isMessageToDisplay);
 			} else {
 				playerChoice.action ();
 			}
+
+			// If player hasn't won from throwing a ball, do player move
 			if (!playerWon) {
 				if (oppChoice.type == actionT.Switch || oppChoice.type == actionT.Move) {
 					UIManager.StartMessage (null, oppChoice.IENum);
@@ -993,6 +1019,7 @@ public class BattleManager : MonoBehaviour {
 					oppChoice.action ();
 				}
 			}
+
 		} else if (oppChoice.type != actionT.Move) {
 			if (oppChoice.type == actionT.Switch) {
 				UIManager.StartMessage (null, oppChoice.IENum);
