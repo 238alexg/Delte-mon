@@ -31,6 +31,12 @@ public class UIManager : MonoBehaviour {
 	public Button prevEvol, nextEvol;
 	public Color[] rarityColor;
 
+	[Header("Help UI")]
+	public GameObject HelpUI;
+	public Transform helpMenus;
+	public Text helpUITitle;
+	private int curHelpMenu;
+
 	[Header("Misc")]
 	bool inMessage;
 	public bool animateMessage, messageOver, endMessage, isMessageToDisplay, isFading, NPCMessage, allItemsLoaded, allDexesLoaded, allDeltsLoaded, inBattle;
@@ -52,7 +58,7 @@ public class UIManager : MonoBehaviour {
 	public List<Color> itemColors;
 	public Animator NPCSlideIn;
 
-	int firstMoveLoaded;
+	int firstMoveLoaded, secondMoveLoaded;
 
 	public Coroutine curCoroutine { get; private set; }
 
@@ -76,6 +82,8 @@ public class UIManager : MonoBehaviour {
 		queueHead = new UIQueueItem();
 		activeDelt = null;
 		activeItem = null;
+		firstMoveLoaded = -1;
+		secondMoveLoaded = -1;
 
 		currentUI = UIMode.World;
 		SEM = SoundEffectManager.SEM;
@@ -244,6 +252,39 @@ public class UIManager : MonoBehaviour {
 		StartCoroutine (AnimateUIClose (MapManager.MapMan.gameObject));
 		playerMovement.ResumeMoving ();
 	}
+
+	// Animates Open of Help Menu
+	public void OpenHelpMenu() {
+		HelpUI.SetActive (true);
+		HelpUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+	}
+
+	// User clicks on a Menu
+	public void HelpMenuButtonClick(int i) {
+
+		// Remove last menu
+		if (curHelpMenu != -1) {
+			helpMenus.GetChild (curHelpMenu).gameObject.SetActive (false);
+		}
+
+		// Get menu, set title to that menu. Set menu to active.
+		GameObject helpMenu = helpMenus.GetChild (i).gameObject;
+		helpUITitle.text = helpMenu.name;
+		helpMenu.SetActive (true);
+	}
+
+	// Close Help Menu
+	public void CloseHelpMenu() {
+		// Remove last open help menu
+		if (curHelpMenu != -1) {
+			helpMenus.GetChild (curHelpMenu).gameObject.SetActive (false);
+			curHelpMenu = -1;
+			helpUITitle.text = "Select A Category";
+		}
+
+		StartCoroutine (AnimateUIClose (HelpUI));
+	}
+
 
 	// A closing animation for all animating UI's, sets current UI
 	public IEnumerator AnimateUIClose(GameObject UI) {
@@ -444,6 +485,15 @@ public class UIManager : MonoBehaviour {
 
 	// Animates opening up items and populates list with all item entries
 	public void OpenItems() {
+
+		// Remove move overviews if are up
+		if (MoveOneOverview.gameObject.activeInHierarchy) {
+			firstMoveLoaded = -1;
+			secondMoveLoaded = -1;
+			MoveOneOverview.gameObject.SetActive (false);
+			MoveTwoOverview.gameObject.SetActive (false);
+		}
+
 		ItemOverviewUI.gameObject.SetActive (false);
 		if (BagMenuUI.activeInHierarchy || currentUI == UIMode.Deltemon || inBattle) {
 			currentUI = UIMode.Items;
@@ -560,8 +610,13 @@ public class UIManager : MonoBehaviour {
 	// Close items
 	public void CloseItems() {
 		StartCoroutine(AnimateUIClose (ItemsUI));
-		activeDelt = null;
 		activeItem = null;
+
+		if (activeDelt != null) {
+			activeDelt = null;
+			OpenDeltemon ();
+			loadDeltIntoPlayerOverview (overviewDeltIndex);
+		}
 	}
 
 	void AddListener(Button b, int i) {
@@ -640,6 +695,20 @@ public class UIManager : MonoBehaviour {
 
 	// Delt Give Item click
 	public void GiveDeltItemButtonPress () {
+
+		// Remove move overviews if are up
+		if (MoveOneOverview.gameObject.activeInHierarchy) {
+			firstMoveLoaded = -1;
+			secondMoveLoaded = -1;
+			MoveOneOverview.gameObject.SetActive (false);
+			MoveTwoOverview.gameObject.SetActive (false);
+			return;
+		}
+
+		// Make Delt white again (in case switch was pressed)
+		DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = Color.white;
+
+		// Set active Delt
 		activeDelt = gameManager.deltPosse [overviewDeltIndex];
 
 		// If delt has item remove it
@@ -661,6 +730,16 @@ public class UIManager : MonoBehaviour {
 
 	// Switch Delts in battle/order in delt posse
 	public void SwitchDelt() {
+		
+		// Remove move overviews if are up
+		if (MoveOneOverview.gameObject.activeInHierarchy) {
+			firstMoveLoaded = -1;
+			secondMoveLoaded = -1;
+			MoveOneOverview.gameObject.SetActive (false);
+			MoveTwoOverview.gameObject.SetActive (false);
+			return;
+		}
+
 		// To not confuse giving item/switching delts
 		if (activeItem == null) {
 			// Switch into battle
@@ -677,8 +756,13 @@ public class UIManager : MonoBehaviour {
 			} 
 			// Select and save first delt for switching
 			else {
-				activeDelt = gameManager.deltPosse [overviewDeltIndex];
-				DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = rarityColor [1];
+				if (activeDelt == gameManager.deltPosse [overviewDeltIndex]) {
+					activeDelt = null;
+					DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = Color.white;
+				} else {
+					activeDelt = gameManager.deltPosse [overviewDeltIndex];
+					DeltemonUI.transform.GetChild (overviewDeltIndex + 1).gameObject.GetComponent<Image> ().color = rarityColor [1];
+				}
 			}
 		} else {
 			StartMessage (activeItem.itemName + " has been unselected");
@@ -728,6 +812,16 @@ public class UIManager : MonoBehaviour {
 
 	// Load delt information into the overview panel
 	public void loadDeltIntoPlayerOverview(int i) {
+
+		// Remove move overviews if are up
+		if (MoveOneOverview.gameObject.activeInHierarchy) {
+			firstMoveLoaded = -1;
+			secondMoveLoaded = -1;
+			MoveOneOverview.gameObject.SetActive (false);
+			MoveTwoOverview.gameObject.SetActive (false);
+			return;
+		}
+
 		// Switch order of delts in posse
 		if (activeDelt != null && !inBattle) {
 			
@@ -755,15 +849,24 @@ public class UIManager : MonoBehaviour {
 		else {
 			overviewDeltIndex = i;
 			DeltemonClass delt = gameManager.deltPosse [i];
-			Text stats = DeltOverviewUI.transform.GetChild (1).GetComponent<Text> ();
-			Image frontSprite = DeltOverviewUI.transform.GetChild (2).GetComponent<Image> ();
-			Text nickname = DeltOverviewUI.transform.GetChild (3).GetComponent<Text> ();
-			Text actualName = DeltOverviewUI.transform.GetChild (4).GetComponent<Text> ();
-			Slider expBar = DeltOverviewUI.transform.GetChild (5).GetComponent<Slider> ();
-			Slider health = DeltOverviewUI.transform.GetChild (6).GetComponent<Slider> ();
+			Text stats = DeltOverviewUI.transform.GetChild (2).GetComponent<Text> ();
+			Image frontSprite = DeltOverviewUI.transform.GetChild (3).GetComponent<Image> ();
+			Text nickname = DeltOverviewUI.transform.GetChild (4).GetComponent<Text> ();
+			Text actualName = DeltOverviewUI.transform.GetChild (5).GetComponent<Text> ();
+			Slider expBar = DeltOverviewUI.transform.GetChild (6).GetComponent<Slider> ();
+			Slider health = DeltOverviewUI.transform.GetChild (7).GetComponent<Slider> ();
 
-			stats.text = "Lv. " + delt.level + System.Environment.NewLine + delt.GPA + System.Environment.NewLine + delt.Truth +
-			System.Environment.NewLine + delt.Courage + System.Environment.NewLine + delt.Faith + System.Environment.NewLine + delt.Power + System.Environment.NewLine + delt.ChillToPull;
+			DeltOverviewUI.GetComponent <Image>().color = delt.deltdex.major1.background;
+			if (delt.deltdex.major2.majorName != "NoMajor") {
+				DeltOverviewUI.transform.GetChild (0).gameObject.SetActive (true);
+				DeltOverviewUI.transform.GetChild (0).GetComponent <Image> ().color = delt.deltdex.major2.background;
+			} else {
+				DeltOverviewUI.transform.GetChild (0).gameObject.SetActive (false);
+			}
+
+			stats.text = "Lv. " + delt.level + System.Environment.NewLine + (int)delt.GPA + System.Environment.NewLine + (int)delt.Truth +
+				System.Environment.NewLine + (int)delt.Courage + System.Environment.NewLine + (int)delt.Faith + 
+				System.Environment.NewLine + (int)delt.Power + System.Environment.NewLine + (int)delt.ChillToPull;
 
 			if (gameManager.pork) {
 				frontSprite.sprite = porkSprite;
@@ -798,7 +901,7 @@ public class UIManager : MonoBehaviour {
 				}
 			}
 
-			Transform GiveItemButton = DeltemonUI.transform.GetChild (8).GetChild (9);
+			Transform GiveItemButton = DeltemonUI.transform.GetChild (8).GetChild (10);
 			if (delt.item != null) {
 				GiveItemButton.GetChild (0).GetComponent <Text> ().text = "Swap Item";
 			} else {
@@ -810,18 +913,30 @@ public class UIManager : MonoBehaviour {
 	}
 
 	// Called on button down press on move from Delt's moveset
-	public void MoveTouch(BaseEventData evdata) {
+	public void MoveClick(int index) {
 		Transform MoveOverview;
-		int index = int.Parse (evdata.selectedObject.name);
 		MoveClass move = gameManager.deltPosse[overviewDeltIndex].moveset [index];
 
+		// If move is already displayed, remove it
+		if (firstMoveLoaded == index) {
+			MoveOneOverview.gameObject.SetActive (false);
+			firstMoveLoaded = -1;
+			return;
+		} else if (secondMoveLoaded == index) {
+			MoveTwoOverview.gameObject.SetActive (false);
+			secondMoveLoaded = -1;
+			return;
+		}
+
+		// If first move overview already loaded, load into 2nd move overview
 		if (firstMoveLoaded != -1) {
 			MoveOverview = MoveTwoOverview;
+			secondMoveLoaded = index;
 		} else {
 			MoveOverview = MoveOneOverview;
 			firstMoveLoaded = index;
 		}
-
+			
 		MoveOverview.GetComponent <Image>().color = move.majorType.background;
 		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
 
@@ -841,18 +956,17 @@ public class UIManager : MonoBehaviour {
 		MoveOverview.gameObject.SetActive (true);
 	}
 
-	// Called on release of the move button
-	public void MoveTouchRelease(BaseEventData evdata) {
-		if (int.Parse (evdata.selectedObject.name) == firstMoveLoaded) {
-			MoveOneOverview.gameObject.SetActive (false);
-			firstMoveLoaded = -1;
-		} else {
-			MoveTwoOverview.gameObject.SetActive (false);
-		}
-	}
-
 	// Close deltemon UI
 	public void CloseDeltemon() {
+		
+		// Remove move overviews if are up
+		if (MoveOneOverview.gameObject.activeInHierarchy) {
+			firstMoveLoaded = -1;
+			secondMoveLoaded = -1;
+			MoveOneOverview.gameObject.SetActive (false);
+			MoveTwoOverview.gameObject.SetActive (false);
+		}
+
 		StartCoroutine(AnimateUIClose (DeltemonUI));
 		activeDelt = null;
 		activeItem = null;

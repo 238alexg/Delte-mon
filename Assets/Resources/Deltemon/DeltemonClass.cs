@@ -35,34 +35,55 @@ public class DeltemonClass : MonoBehaviour {
 		string[] text = new string[7];
 
 		// Perform increase to Stats, update levelup text
-		float oldGPA = GPA;
-		GPA = GPA + ((AVs[0] + deltdex.BVs[0])/10);
-		text [1] = oldGPA + " (+" + (GPA - oldGPA) + ")";
+		int oldValue;
+		int newValue;
+		int totalGained;
 
-		float oldTruth = Truth;
-		Truth = Truth + ((AVs[1] + deltdex.BVs[1])/10);
-		text [2] = oldTruth + " (+" + (Truth - oldTruth) + ")";
+		// GPA
+		oldValue = (int)GPA;
+		GPA = GPA + ((deltdex.BVs [0] + AVs [0]) * 0.02f) + 1;
+		newValue = (int)GPA;
+		text [1] = newValue + " (+" + (newValue - oldValue) + ")";
+		totalGained = (newValue - oldValue);
 
-		float oldCourage = Courage;
-		Courage = Courage + ((AVs[2] + deltdex.BVs[2])/10);
-		text [3] = oldCourage + " (+" + (Courage - oldCourage) + ")";
+		// Truth
+		oldValue = (int)Truth;
+		Truth = Truth + ((deltdex.BVs [1] + AVs [1]) * 0.02f) + 1;
+		newValue = (int)Truth;
+		text [2] = newValue + " (+" + (newValue - oldValue) + ")";
+		totalGained += (newValue - oldValue);
 
-		float oldFaith = Faith;
-		Faith = Faith + ((AVs[3] + deltdex.BVs[3])/10);
-		text [4] = oldFaith + " (+" + (Faith - oldFaith) + ")";
+		// Courage
+		oldValue = (int)Courage;
+		Courage = Courage + ((deltdex.BVs [2] + AVs [2]) * 0.02f) + 1;
+		newValue = (int)Courage;
+		text [3] = newValue + " (+" + (newValue - oldValue) + ")";
+		totalGained += (newValue - oldValue);
 
-		float oldPower = Power;
-		Power = Power + ((AVs[4] + deltdex.BVs[4])/10);
-		text [5] = oldPower + " (+" + (Power - oldPower) + ")";
+		// Faith
+		oldValue = (int)Faith;
+		Faith = Faith + ((deltdex.BVs [3] + AVs [3]) * 0.02f) + 1;
+		newValue = (int)Faith;
+		text [4] = newValue + " (+" + (newValue - oldValue) + ")";
+		totalGained += (newValue - oldValue);
 
-		float oldCTP = ChillToPull;
-		ChillToPull = ChillToPull + ((AVs[5] + deltdex.BVs[5])/10);
-		text [6] = oldCTP + " (+" + (ChillToPull - oldCTP) + ")";
+		// Power
+		oldValue = (int)Power;
+		Power = Power + ((deltdex.BVs [4] + AVs [4]) * 0.02f) + 1;
+		newValue = (int)Power;
+		text [5] = newValue + " (+" + (newValue - oldValue) + ")";
+		totalGained += (newValue - oldValue);
+
+		// ChillToPull
+		oldValue = (int)ChillToPull;
+		ChillToPull = ChillToPull + ((deltdex.BVs [5] + AVs [5]) * 0.02f) + 1;
+		newValue = (int)ChillToPull;
+		text [6] = newValue + " (+" + (newValue - oldValue) + ")";
+		totalGained += (newValue - oldValue);
 
 		// Calculate total points gained to display at top
-		float oldTotal = oldGPA + oldTruth + oldCourage + oldFaith + oldPower + oldCTP;
-		float newTotal = GPA + Truth + Courage + Faith + Power + ChillToPull;
-		text [0] = newTotal + " (+" + (newTotal - oldTotal) + ")";
+		int newTotal = (int)(GPA + Truth + Courage + Faith + Power + ChillToPull);
+		text [0] = newTotal + " (+" + totalGained + ")";
 
 		// Update XP needed to level up again
 		updateXPToLevel ();
@@ -80,12 +101,19 @@ public class DeltemonClass : MonoBehaviour {
 
 
 	public void initializeDelt(bool setMoves = true) {
+		int levels = 0;
 		nickname = deltdex.nickname;
 		curStatus = statusType.none;
 		experience = 0;
 		updateXPToLevel ();
 		AVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
 		AVCount = 0;
+		GPA = 0;
+		Truth = 0;
+		Courage = 0;
+		Faith = 0;
+		Power = 0;
+		ChillToPull = 0;
 
 		// If Delt has 1-2 prev evols, set stats a little lower
 		// Note: Compensates for Delt not evolving from lower stat state(s)
@@ -93,6 +121,8 @@ public class DeltemonClass : MonoBehaviour {
 		if (deltdex.prevEvol != null) {
 			// 2 previous evols
 			if (deltdex.prevEvol.prevEvol != null) {
+
+
 				statMod = (int)(statMod * 0.7f);
 			} 
 			// 1 previous evol
@@ -101,12 +131,55 @@ public class DeltemonClass : MonoBehaviour {
 			}
 		}
 
-		GPA = statMod*(deltdex.BVs [0]/10);
-		Truth = statMod*(deltdex.BVs [1]/10);
-		Courage = statMod*(deltdex.BVs [2]/10);
-		Faith = statMod*(deltdex.BVs [3]/10);
-		Power = statMod*(deltdex.BVs [4]/10);
-		ChillToPull = statMod*(deltdex.BVs [5]/10);
+		if (deltdex.prevEvol != null) {
+
+			DeltDexClass prevDex;
+
+			// Add stats for smallest evolution (if exists)
+			if (deltdex.prevEvol.prevEvol != null) {
+
+				// Get prev prev evolution dex
+				prevDex = deltdex.prevEvol.prevEvol;
+				levels = prevDex.evolveLevel;
+
+				// Add previous previous evolution stats
+				GPA += (prevDex.BVs [0] * levels * .02f);
+				Truth += (prevDex.BVs [1] * levels * .02f);
+				Courage += (prevDex.BVs [2] * levels * .02f);
+				Faith += (prevDex.BVs [3] * levels * .02f);
+				Power += (prevDex.BVs [4] * levels * .02f);
+				ChillToPull += (prevDex.BVs [5] * levels * .02f);
+			}
+
+			// Get previous evol dex, calculate number of levels where Delt was that evolution
+			prevDex = deltdex.prevEvol.prevEvol;
+			levels = prevDex.evolveLevel - levels;
+
+			// Add previous evolution stats
+			GPA += (prevDex.BVs [0] * levels * .02f);
+			Truth += (prevDex.BVs [1] * levels * .02f);
+			Courage += (prevDex.BVs [2] * levels * .02f);
+			Faith += (prevDex.BVs [3] * levels * .02f);
+			Power += (prevDex.BVs [4] * levels * .02f);
+			ChillToPull += (prevDex.BVs [5] * levels * .02f);
+
+			// Set number of levels as current evolution
+			levels = level - prevDex.evolveLevel;
+
+		} 
+
+		// Delt was always this evolution, no previous
+		else {
+			levels = level;
+		}
+
+		// Add current evolution stats
+		GPA += 		   (deltdex.BVs [0] * levels * .02f) + 10 + level;
+		Truth +=       (deltdex.BVs [1] * levels * .02f) + 5 + level;
+		Courage +=     (deltdex.BVs [2] * levels * .02f) + 5 + level;
+		Faith +=       (deltdex.BVs [3] * levels * .02f) + 5 + level;
+		Power +=       (deltdex.BVs [4] * levels * .02f) + 5 + level;
+		ChillToPull += (deltdex.BVs [5] * levels * .02f) + 5 + level;
 
 		health = GPA;
 

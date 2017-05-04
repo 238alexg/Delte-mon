@@ -45,42 +45,23 @@ public class NPCInteraction : MonoBehaviour {
 				UIManager.UIMan.StartNPCMessage (message, NPCName);
 			}
 
-			// Dynamically set stats for oppDelts if not customized in inspector
-			if (!customDeltPosse) {
-				foreach (DeltemonClass oppDelt in oppDelts) {
-					setStats (oppDelt);
+			// Set Opp Delt stats
+			foreach (DeltemonClass oppDelt in oppDelts) {
+				
+				// Set stats for oppDelts at runtime if not customized in inspector
+				if (!customDeltPosse) {
+					oppDelt.initializeDelt ();
+				}
+
+				// So opp Delts do not alter move prefabs
+				foreach (MoveClass move in oppDelt.moveset) {
+					Instantiate (move, oppDelt.transform);
 				}
 			}
+
+
+
 			UIManager.UIMan.StartMessage (null, null, () => UIManager.UIMan.StartTrainerBattle (this, isGymLeader));
-		}
-	}
-
-	public void setStats(DeltemonClass oppDelt) {
-		oppDelt.ownedByTrainer = true;
-
-		oppDelt.curStatus = statusType.none;
-		oppDelt.GPA = (1.1f)*oppDelt.level*(oppDelt.deltdex.BVs [0]/10);
-		oppDelt.Truth = (1.1f)*oppDelt.level*(oppDelt.deltdex.BVs [1]/10);
-		oppDelt.Courage = (1.1f)*oppDelt.level*(oppDelt.deltdex.BVs [2]/10);
-		oppDelt.Faith = (1.1f)*oppDelt.level*(oppDelt.deltdex.BVs [3]/10);
-		oppDelt.Power = (1.1f)*oppDelt.level*(oppDelt.deltdex.BVs [4]/10);
-		oppDelt.ChillToPull = (1.1f)*oppDelt.level*(oppDelt.deltdex.BVs [5]/10);
-
-		oppDelt.health = oppDelt.GPA;
-
-		// Set all moves of Delt
-		int movesetIndex = 0;
-		foreach (LevelUpMove lum in oppDelt.deltdex.levelUpMoves) {
-			if (lum.level < oppDelt.level) {
-				if (oppDelt.moveset.Count < 4) {
-					oppDelt.moveset.Add (lum.move);
-				} else {
-					oppDelt.moveset [movesetIndex] = lum.move;
-				}
-				movesetIndex = (movesetIndex + 1) % 4;
-			} else {
-				break;
-			}
 		}
 	}
 

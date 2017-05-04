@@ -1943,12 +1943,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - '"Most hair buns per capita award"'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &46510519
 BoxCollider2D:
@@ -2494,12 +2497,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &53790854
 BoxCollider2D:
@@ -3146,12 +3152,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &62481539
 SpriteRenderer:
@@ -4750,12 +4759,15 @@ MonoBehaviour:
   messages:
   - '"2017 Best House Video Game"'
   - Awarded to DTD Chapter Gamma Rho
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &86508290
 BoxCollider2D:
@@ -5888,12 +5900,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &111853770
 BoxCollider2D:
@@ -6784,12 +6799,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &133994489
 BoxCollider2D:
@@ -7437,12 +7455,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &143823518
 BoxCollider2D:
@@ -7953,12 +7974,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99aae5f5ba0754b7b866a1a430307d16, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &156344445 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114330465960523186, guid: 99aae5f5ba0754b7b866a1a430307d16,
-    type: 2}
-  m_PrefabInternal: {fileID: 156344444}
-  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &157039638
 GameObject:
   m_ObjectHideFlags: 0
@@ -9558,12 +9573,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &181728443
 SpriteRenderer:
@@ -9911,12 +9929,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &191305744
 BoxCollider2D:
@@ -10229,6 +10250,7 @@ MonoBehaviour:
   scrollSpeed: 0
   NPCName: {fileID: 0}
   itemColors: []
+  NPCSlideIn: {fileID: 0}
 --- !u!224 &194801815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10619,12 +10641,15 @@ MonoBehaviour:
   messages:
   - You reach into the pool table pocket...
   - There is something squishy there...
-  item: {fileID: 156344445}
-  nextTile: {fileID: 0}
+  items: []
+  coins: 0
+  nextTile: {fileID: 1201065607268644, guid: 99aae5f5ba0754b7b866a1a430307d16, type: 2}
   index: 2
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &202480746
 BoxCollider2D:
@@ -13543,6 +13568,7 @@ MonoBehaviour:
   scrollSpeed: 0
   NPCName: {fileID: 0}
   itemColors: []
+  NPCSlideIn: {fileID: 0}
 --- !u!1 &257957156
 GameObject:
   m_ObjectHideFlags: 0
@@ -13822,12 +13848,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &261895952
 SpriteRenderer:
@@ -17183,12 +17212,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &306875653
 BoxCollider2D:
@@ -19849,12 +19881,15 @@ MonoBehaviour:
   messages:
   - Geoffrey's laptop is on the table, with some game playing...
   - How meta.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &347435079
 GameObject:
@@ -20038,12 +20073,15 @@ MonoBehaviour:
   messages:
   - TV's out.
   - Better tell Dave to do something about it.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &348523539
 BoxCollider2D:
@@ -21172,12 +21210,15 @@ MonoBehaviour:
   messages:
   - You look at the composite of Delts...
   - Gotta rush 'em all!
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &360824480
 BoxCollider2D:
@@ -22741,11 +22782,14 @@ MonoBehaviour:
   PlayerOverview: {fileID: 596677916}
   MoveMenu: {fileID: 1335288923}
   LevelUpUI: {fileID: 0}
+  EvolveUI: {fileID: 0}
   fullHealth: {r: 0, g: 0.9607844, b: 0.003921569, a: 1}
   halfHealth: {r: 0.966, g: 0.966, b: 0, a: 1}
   quarterHealth: {r: 1, g: 0, b: 0, a: 1}
   noStatus: {fileID: 21300036, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   daStatus: {fileID: 21300060, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  playerBattleAnim: {fileID: 0}
+  oppBattleAnim: {fileID: 0}
   playerDeltSprite: {fileID: 720619328}
   playerHealth: {fileID: 834382377}
   playerHealthBar: {fileID: 601292954}
@@ -22771,7 +22815,6 @@ MonoBehaviour:
   - {fileID: 1181523392}
   - {fileID: 513771246}
   deltBall: {fileID: 114075244929460830, guid: 1f00366b621824b71a951bf8bf246ea1, type: 2}
-  DeltHasSwitched: 1
   isMessageToDisplay: 0
   activeItem: {fileID: 0}
   battleMusic: {fileID: 0}
@@ -23339,12 +23382,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &399402018
 BoxCollider2D:
@@ -23739,6 +23785,57 @@ Transform:
   m_Father: {fileID: 623490712}
   m_RootOrder: 278
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &408722675
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1718246123}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 203
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (8)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &408722676 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 408722675}
 --- !u!1 &412484832
 GameObject:
   m_ObjectHideFlags: 0
@@ -24304,12 +24401,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &417437548
 BoxCollider2D:
@@ -25937,12 +26037,16 @@ MonoBehaviour:
   messages:
   - You search through the mail...
   - One of the boxes is labed to Dorm Kicks...
-  item: {fileID: 114441763721905682, guid: 0050d698e486840d6a8ef8c8680b8eae, type: 2}
+  items:
+  - {fileID: 114441763721905682, guid: 0050d698e486840d6a8ef8c8680b8eae, type: 2}
+  coins: 0
   nextTile: {fileID: 2064550628}
   index: 5
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &441247838
 GameObject:
@@ -26908,12 +27012,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - '"Least likely to have caused the Shasta trash scandal"'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &452880387
 BoxCollider2D:
@@ -26993,6 +27100,57 @@ Transform:
   m_Father: {fileID: 1944778617}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &453520721
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 623490712}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 301
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &453520722 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 453520721}
 --- !u!1 &454260545
 GameObject:
   m_ObjectHideFlags: 0
@@ -38542,6 +38700,8 @@ Transform:
   - {fileID: 1328166954}
   - {fileID: 173296877}
   - {fileID: 404157073}
+  - {fileID: 453520722}
+  - {fileID: 1287033791}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38942,6 +39102,57 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 70
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &627943628
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 817371310}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 491
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &627943629 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 627943628}
 --- !u!1 &628841017
 GameObject:
   m_ObjectHideFlags: 0
@@ -39698,12 +39909,16 @@ MonoBehaviour:
   actionT: 1
   hasBeenViewed: 0
   messages: []
-  item: {fileID: 1258491375}
+  items:
+  - {fileID: 114093577480623426, guid: e01e2dd2c57704e599dcbd970604f7a0, type: 2}
+  coins: 0
   nextTile: {fileID: 0}
   index: 3
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &634749075
 BoxCollider2D:
@@ -40964,12 +41179,15 @@ MonoBehaviour:
   messages:
   - TV's out.
   - Better tell Dave to do something about it.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &660461659
 BoxCollider2D:
@@ -42902,12 +43120,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &683197599
 BoxCollider2D:
@@ -43185,12 +43406,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &684539332
 BoxCollider2D:
@@ -45055,12 +45279,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &707481854
 BoxCollider2D:
@@ -45372,12 +45599,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &712479155
 BoxCollider2D:
@@ -47269,12 +47499,15 @@ MonoBehaviour:
   messages:
   - You go to wash you hands...
   - No soap. Great.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &740110593
 GameObject:
@@ -48275,12 +48508,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &749230635
 BoxCollider2D:
@@ -49929,12 +50165,16 @@ MonoBehaviour:
   messages:
   - You look at Gamma Rho's awards...
   - What's this?
-  item: {fileID: 1726088080}
+  items:
+  - {fileID: 114960370706875628, guid: 05679199240a14c1a8610ee173298188, type: 2}
+  coins: 0
   nextTile: {fileID: 0}
   index: 4
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &777973209
 BoxCollider2D:
@@ -52463,12 +52703,15 @@ MonoBehaviour:
   messages:
   - TV's out.
   - Better tell Dave to do something about it.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &805348392
 BoxCollider2D:
@@ -53043,6 +53286,57 @@ Transform:
   m_Father: {fileID: 287315411}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &810880607
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1448897234}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 260
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &810880608 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 810880607}
 --- !u!1 &811095685
 GameObject:
   m_ObjectHideFlags: 0
@@ -54077,6 +54371,10 @@ Transform:
   - {fileID: 1835713963}
   - {fileID: 918682337}
   - {fileID: 1822457663}
+  - {fileID: 627943629}
+  - {fileID: 1495927839}
+  - {fileID: 976690385}
+  - {fileID: 1611650854}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54743,12 +55041,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4306997111911292, guid: ebe6d17aa629344498dcc0268dc57512,
     type: 2}
   m_PrefabInternal: {fileID: 826764742}
---- !u!114 &826764744 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114177548907228774, guid: ebe6d17aa629344498dcc0268dc57512,
-    type: 2}
-  m_PrefabInternal: {fileID: 826764742}
-  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &828212725
 GameObject:
   m_ObjectHideFlags: 0
@@ -55735,12 +56027,15 @@ MonoBehaviour:
   messages:
   - You go to wash you hands...
   - No soap. Great.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &840164897
 GameObject:
@@ -59342,12 +59637,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &893257586
 BoxCollider2D:
@@ -59486,12 +59784,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &895088505
 SpriteRenderer:
@@ -60367,12 +60668,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &900215192
 SpriteRenderer:
@@ -60447,10 +60751,11 @@ MonoBehaviour:
   GameManager: {fileID: 1943070345}
   playerMovementAnimation: {fileID: 0}
   isMoving: 0
-  movementQueued: 0
   isRunning: 0
   isMale: 0
   repelStepsLeft: 0
+  maleButton: {fileID: 0}
+  femaleButton: {fileID: 0}
   playerSprite: {fileID: 1139739396}
   dpad: {fileID: 0}
   dpadNeutral: {fileID: 21300000, guid: d669c58e495664a8bbe0088fa60fd90f, type: 3}
@@ -60974,12 +61279,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &909537153
 BoxCollider2D:
@@ -62899,12 +63207,15 @@ MonoBehaviour:
   - What do you call Ponch, Cantu, and Becker in the Marines?
   - '...'
   - A meatball sub!
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &948412260
 GameObject:
@@ -63196,7 +63507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -10
+  xCoordinate: -11
   yCoordinate: 0
   sceneName: Hometown
 --- !u!61 &949220642
@@ -64192,6 +64503,57 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 410
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &966176655
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1448897234}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 261
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &966176656 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 966176655}
 --- !u!1 &966670445
 GameObject:
   m_ObjectHideFlags: 0
@@ -64993,7 +65355,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 0
   numberOfItem: 0
   itemName: 
   itemDescription: 
@@ -65087,6 +65448,57 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975527275}
+--- !u!1001 &976690384
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 817371310}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 493
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (6)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &976690385 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 976690384}
 --- !u!1 &978169813
 GameObject:
   m_ObjectHideFlags: 0
@@ -66520,6 +66932,57 @@ Transform:
   m_Father: {fileID: 1448897234}
   m_RootOrder: 255
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1002825147
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1448897234}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1002825148 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1002825147}
 --- !u!1 &1005480734
 GameObject:
   m_ObjectHideFlags: 0
@@ -67378,12 +67841,15 @@ MonoBehaviour:
   messages:
   - As you breathe, you realize something...
   - It smells terrible.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1017404726
 BoxCollider2D:
@@ -67591,12 +68057,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - '"2017 Best House Video Game"'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1020381217
 BoxCollider2D:
@@ -67831,12 +68300,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - The table is covered with unparalleled stickiness
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1021468266
 BoxCollider2D:
@@ -69084,12 +69556,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1039206884
 BoxCollider2D:
@@ -69556,12 +70031,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1049610007
 SpriteRenderer:
@@ -71282,7 +71760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -12
+  xCoordinate: -13
   yCoordinate: 0
   sceneName: Hometown
 --- !u!61 &1079590097
@@ -71558,6 +72036,7 @@ MonoBehaviour:
   scrollSpeed: 0
   NPCName: {fileID: 0}
   itemColors: []
+  NPCSlideIn: {fileID: 0}
 --- !u!1 &1086802025
 GameObject:
   m_ObjectHideFlags: 0
@@ -72068,12 +72547,16 @@ MonoBehaviour:
   messages:
   - The sanitazer shat the bed again.
   - Better tell Dave to do something about it.
-  item: {fileID: 1258491375}
+  items: []
+  coins: 0
   nextTile: {fileID: 1638542162}
   index: 0
   questNum: 1
   needsItem: 1
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 114093577480623426, guid: e01e2dd2c57704e599dcbd970604f7a0,
+    type: 2}
   questCompletionMessages:
   - You dig the wrench into the inner workings of the sanitizer...
   - You hear something click!
@@ -72151,12 +72634,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1092102297
 BoxCollider2D:
@@ -73083,12 +73569,15 @@ MonoBehaviour:
   messages:
   - You search the shelf...
   - You hand touches something sticky and you get grossed out.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1101068825
 SpriteRenderer:
@@ -76023,12 +76512,15 @@ MonoBehaviour:
   - As you look at the chair you hear a faint voice...
   - You've never heard the voice but you know it to be Eugene Tarr saying...
   - '"Gotta rush ''em all..."'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1144951667
 BoxCollider2D:
@@ -76472,12 +76964,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1158076942
 BoxCollider2D:
@@ -77395,12 +77890,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1167273269
 SpriteRenderer:
@@ -82019,12 +82517,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - '"Most likely to take this game seriously award"'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1232110246
 BoxCollider2D:
@@ -82220,12 +82721,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1233857822
 BoxCollider2D:
@@ -84349,12 +84853,6 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 304
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1258491375 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114093577480623426, guid: e01e2dd2c57704e599dcbd970604f7a0,
-    type: 2}
-  m_PrefabInternal: {fileID: 1335469434}
-  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!4 &1258491376 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4964498557374596, guid: e01e2dd2c57704e599dcbd970604f7a0,
@@ -85713,6 +86211,57 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1287033790
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 623490712}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 302
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (11)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1287033791 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1287033790}
 --- !u!1 &1287041720
 GameObject:
   m_ObjectHideFlags: 0
@@ -85855,12 +86404,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1287536688
 BoxCollider2D:
@@ -86142,6 +86694,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1291182433
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1718246123}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (9)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1291182434 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1291182433}
 --- !u!1 &1291538980
 GameObject:
   m_ObjectHideFlags: 0
@@ -91385,12 +91988,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1396341103
 SpriteRenderer:
@@ -91543,12 +92149,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - Zamboni, anyone?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &1396695943
 GameObject:
@@ -95968,6 +96577,10 @@ Transform:
   - {fileID: 1964667502}
   - {fileID: 1563474761}
   - {fileID: 1970375600}
+  - {fileID: 2016865106}
+  - {fileID: 810880608}
+  - {fileID: 966176656}
+  - {fileID: 1002825148}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96651,12 +97264,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You search the shelf...
-  item: {fileID: 826764744}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1462256359
 SpriteRenderer:
@@ -98149,12 +98765,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1493615144
 BoxCollider2D:
@@ -98566,6 +99185,57 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 57
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1495927838
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 817371310}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 492
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (5)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1495927839 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1495927838}
 --- !u!1 &1496330037
 GameObject:
   m_ObjectHideFlags: 0
@@ -99256,12 +99926,15 @@ MonoBehaviour:
   messages:
   - You go to wash you hands...
   - No soap. Great.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &1514597383
 GameObject:
@@ -99310,12 +99983,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1514597386
 BoxCollider2D:
@@ -100040,12 +100716,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1528012624
 SpriteRenderer:
@@ -102786,12 +103465,16 @@ MonoBehaviour:
   messages:
   - There is a little black book here...
   - Might as well take it!
-  item: {fileID: 114689260204098528, guid: d9300c3b503584dbeb7b46a566399105, type: 2}
+  items:
+  - {fileID: 114689260204098528, guid: d9300c3b503584dbeb7b46a566399105, type: 2}
+  coins: 0
   nextTile: {fileID: 0}
   index: 6
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &1584359421
 GameObject:
@@ -102865,12 +103548,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1584359425
 SpriteRenderer:
@@ -104257,12 +104943,57 @@ Transform:
   m_PrefabParentObject: {fileID: 4008186636887532, guid: 0fa27052ab2b8479cb8406409d7c19c3,
     type: 2}
   m_PrefabInternal: {fileID: 1609945830}
---- !u!114 &1609945832 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114714906470643644, guid: 0fa27052ab2b8479cb8406409d7c19c3,
+--- !u!1001 &1611650853
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 817371310}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 494
+      objectReference: {fileID: 0}
+    - target: {fileID: 1025627068152162, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_Name
+      value: DoorStopBlock (7)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1611650854 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
     type: 2}
-  m_PrefabInternal: {fileID: 1609945830}
-  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
+  m_PrefabInternal: {fileID: 1611650853}
 --- !u!1 &1613059634
 GameObject:
   m_ObjectHideFlags: 0
@@ -105866,12 +106597,15 @@ MonoBehaviour:
   messages:
   - What have you done?
   - Something floats out onto the floor...
-  item: {fileID: 114381488708133696, guid: ea086410a0cfb466b950fd4484a25a18, type: 2}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 1
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 40
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1638542164
 BoxCollider2D:
@@ -106548,12 +107282,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1646308867
 BoxCollider2D:
@@ -110065,12 +110802,15 @@ MonoBehaviour:
   - Looks like the minutes from exec...
   - '"Cantu sneezed"'
   - Come on, Brady.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1691975886
 BoxCollider2D:
@@ -110625,12 +111365,15 @@ MonoBehaviour:
   messages:
   - Looks like someone broke the door off.
   - Better tell Dave to do something about it.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &1706558446
 GameObject:
@@ -111597,6 +112340,8 @@ Transform:
   - {fileID: 134122855}
   - {fileID: 1975293224}
   - {fileID: 548047694}
+  - {fileID: 408722676}
+  - {fileID: 1291182434}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111647,12 +112392,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1719044271
 BoxCollider2D:
@@ -112464,12 +113212,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4716051433504880, guid: 05679199240a14c1a8610ee173298188,
     type: 2}
   m_PrefabInternal: {fileID: 1726088078}
---- !u!114 &1726088080 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114960370706875628, guid: 05679199240a14c1a8610ee173298188,
-    type: 2}
-  m_PrefabInternal: {fileID: 1726088078}
-  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &1726107022
 GameObject:
   m_ObjectHideFlags: 0
@@ -115027,12 +115769,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1765327215
 BoxCollider2D:
@@ -115405,12 +116150,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1768679916
 BoxCollider2D:
@@ -117274,12 +118022,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1804206850
 BoxCollider2D:
@@ -117379,12 +118130,15 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - '"Most likely to bring up GPA during rush"'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1804755624
 BoxCollider2D:
@@ -119365,12 +120119,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1833332118
 BoxCollider2D:
@@ -119717,12 +120474,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1837980259
 BoxCollider2D:
@@ -120894,12 +121654,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1847743317
 BoxCollider2D:
@@ -121501,12 +122264,16 @@ MonoBehaviour:
   messages:
   - You plunge your hand into the sink...
   - What's this?
-  item: {fileID: 1609945832}
+  items:
+  - {fileID: 114177548907228774, guid: ebe6d17aa629344498dcc0268dc57512, type: 2}
+  coins: 0
   nextTile: {fileID: 0}
   index: 10
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 1
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &1854910365
 GameObject:
@@ -122686,12 +123453,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1879928142
 BoxCollider2D:
@@ -125000,12 +125770,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1916612929
 BoxCollider2D:
@@ -127226,12 +127999,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1953326209
 BoxCollider2D:
@@ -128919,12 +129695,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &1984937090
 SpriteRenderer:
@@ -129082,12 +129861,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &1986598564
 BoxCollider2D:
@@ -130797,12 +131579,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &2010412915
 BoxCollider2D:
@@ -131351,6 +132136,53 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 343
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2016865105
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1448897234}
+    m_Modifications:
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 259
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &2016865106 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2016865105}
 --- !u!1 &2017157610
 GameObject:
   m_ObjectHideFlags: 0
@@ -131536,12 +132368,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &2018424829
 BoxCollider2D:
@@ -132560,12 +133395,15 @@ MonoBehaviour:
   messages:
   - You scrouge in the recycling can...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!212 &2032260725
 SpriteRenderer:
@@ -133104,7 +133942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: 0
+  xCoordinate: -11
   yCoordinate: 0
   sceneName: Hometown
 --- !u!61 &2041465481
@@ -134408,12 +135246,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &2062338851
 BoxCollider2D:
@@ -134826,12 +135667,15 @@ MonoBehaviour:
   - There is a note here from Houston...
   - '"To whomever stole my shoes..."'
   - '"You''re a goon"'
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &2067120382
 GameObject:
@@ -139811,12 +140655,15 @@ MonoBehaviour:
   messages:
   - You rifle through someone else's stuff...
   - What's this?
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!61 &2132387763
 BoxCollider2D:

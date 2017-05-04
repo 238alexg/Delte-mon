@@ -99,13 +99,16 @@ public class NewGame : MonoBehaviour {
 		starter = emptyDelt;
 		starter.deltdex = selectedStarter;
 		starter.nickname = selectedStarter.nickname;
-		starter.ownedByTrainer = true;
-		starter.initializeDelt ();
 	}
 
 	// When user selects confirm button on starter screen
 	public void SelectStarter() {
 		if (starter != null) {
+
+			// Initialize Delt values
+			starter.ownedByTrainer = true;
+			starter.initializeDelt ();
+
 			// Initialize scene data
 			StartFileSaves ();
 
@@ -153,13 +156,15 @@ public class NewGame : MonoBehaviour {
 
 	// Initialize interactable scene data for all scenes in game
 	void StartFileSaves() {
-		GameMan.InitializeSceneData ("Hometown", 4, new byte [2] {1, 3}, 0);		// Hometown: 4 items, 0 trainers
-		GameMan.InitializeSceneData ("Delta Shelter", 9, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 items, 0 trainers
-		GameMan.InitializeSceneData ("University St", 3, null, 4);					// University St: 3 items, 4 trainers
-		GameMan.InitializeSceneData ("Sigston", 5, null, 0);						// Sigston: 2 items, 0 trainers
-		GameMan.InitializeSceneData ("Delta Sigma", 0, null, 10);					// Delta Sig Gym: 0 items, 10 trainers
-		GameMan.InitializeSceneData ("Sigma Chi", 0, null, 5);						// Sig Chi Gym: 0 items, 5 trainers
-		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 3);					// DA Graveyard: 2 items, 3 trainers
+		GameMan.InitializeSceneData ("Hometown", 4, new byte [2] {1, 3}, 0);		// Hometown: 4 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Delta Shelter", 9, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Onyx St", 5, null, 5);						// Sig Chi Gym: 5 interactables, 5 trainers
+		GameMan.InitializeSceneData ("Chi Town", 2, null, 0);						// Sig Chi Gym: 2 interactables, 5 trainers
+		GameMan.InitializeSceneData ("Sigma Chi", 0, null, 5);						// Sig Chi Gym: 0 interactables, 5 trainers
+		GameMan.InitializeSceneData ("University St", 3, null, 4);					// University St: 3 interactables, 4 trainers
+		GameMan.InitializeSceneData ("Sigston", 5, null, 0);						// Sigston: 2 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Delta Sigma", 0, null, 10);					// Delta Sig Gym: 0 interactables, 10 trainers
+		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 3);					// DA Graveyard: 2 interactables, 3 trainers
 
 		GameMan.discoveredTowns = new bool[15] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 	}

@@ -55,13 +55,14 @@ MonoBehaviour:
   moveDescription: Chance to Indebt. 10% crit.
   majorType: {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809,
     type: 2}
-  status: {fileID: 0}
+  status: {fileID: 21300064, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   movType: 0
+  moveIndex: 0
   PP: 10
   PPLeft: 10
   damage: 80
   hitChance: 100
-  statType: 0
+  statType: 2
   buffs: []
   statusChance: 10
   critChance: 10

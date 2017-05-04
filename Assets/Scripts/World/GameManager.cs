@@ -399,6 +399,12 @@ public class GameManager : MonoBehaviour {
 			SortHouseDelts ();
 		} else {
 			DeltemonClass playerNewDelt = Instantiate (newDelt, this.transform);
+
+			// Instantiate new Delt's moves so prefabs don't get altered
+			foreach (MoveClass move in playerNewDelt.moveset) {
+				Instantiate (move, playerNewDelt.transform);
+			}
+
 			deltPosse.Add (playerNewDelt);
 		}
 	}

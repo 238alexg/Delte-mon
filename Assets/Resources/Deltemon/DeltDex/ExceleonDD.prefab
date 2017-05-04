@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1222617565777780}
+  m_IsPrefabParent: 1
+--- !u!1 &1222617565777780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4925093615288278}
+  - component: {fileID: 114688967447999594}
+  m_Layer: 0
+  m_Name: ExceleonDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4925093615288278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222617565777780}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.691488, y: 22.278727, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114688967447999594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1222617565777780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Exceleon
+  deltName: Jake Zusman
+  description: Contrary to popular belief, Exceleon only has 4 legs.
+  frontImage: {fileID: 21300200, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300202, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1473
+  major1: {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 48645430322e
+  prevEvol: {fileID: 114842331039274934, guid: 2530c6c0915134efabf11ff00706d954, type: 2}
+  nextEvol: {fileID: 114318627183844580, guid: 20d7c8c1f72914ff48a3fdf555ffff6f, type: 2}
+  evolveLevel: 32
+  levelUpMoves:
+  - level: 19
+    move: {fileID: 114693208228102780, guid: ed96cd82bc3b24f0c8c011089d9f1f1a, type: 2}
+  - level: 21
+    move: {fileID: 114134490993350746, guid: 0c1640d8677054aaea99d4922656adf0, type: 2}
+  - level: 23
+    move: {fileID: 114110790872275102, guid: dd332d3b39a544288a909bb69493f588, type: 2}
+  - level: 25
+    move: {fileID: 114575421994037898, guid: fee374a0522004f2cb9a448888e4238d, type: 2}
+  - level: 27
+    move: {fileID: 114375449734525060, guid: 6505f274d85524e89b16655d4b1d1a7b, type: 2}
+  - level: 29
+    move: {fileID: 114750115328961918, guid: 7fc99a17fe01c41faa424dacfa0f60c2, type: 2}
+  - level: 31
+    move: {fileID: 114347177921105570, guid: 0dbe276cd594e4001a2e179bdbecab67, type: 2}
+  rarity: 1
+  AVIndex: 1
+  AVAwardAmount: 2

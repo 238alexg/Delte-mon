@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8b32bdc51865c4f0987935452b8aa3b0
-timeCreated: 1493335487
+timeCreated: 1493850517
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -634,10 +634,10 @@ TextureImporter:
     21301254: DeltemonInside_627
     21301256: DeltemonInside_628
     21301258: DeltemonInside_629
-    21301260: DeltemonInside_630
+    21301260: Sig Nu Crest
     21301262: DeltemonInside_631
     21301264: DeltemonInside_632
-    21301266: DeltemonInside_633
+    21301266: Sig Nu Floor
     21301268: DeltemonInside_634
     21301270: DeltemonInside_635
     21301272: DeltemonInside_636
@@ -9176,46 +9176,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DeltemonInside_630
+      name: Sig Nu Crest
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 16
-        height: 16
+        y: 208
+        width: 48
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DeltemonInside_631
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_632
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_633
+      name: Sig Nu Floor
       rect:
         serializedVersion: 2
         x: 48
@@ -9623,45 +9597,6 @@ TextureImporter:
         serializedVersion: 2
         x: 544
         y: 256
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_665
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 240
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_666
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 240
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_667
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 240
         width: 16
         height: 16
       alignment: 0
@@ -10086,45 +10021,6 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DeltemonInside_700
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_701
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_702
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: DeltemonInside_703
       rect:
         serializedVersion: 2
@@ -10533,45 +10429,6 @@ TextureImporter:
         serializedVersion: 2
         x: 544
         y: 224
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_735
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_736
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 208
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: DeltemonInside_737
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 208
         width: 16
         height: 16
       alignment: 0

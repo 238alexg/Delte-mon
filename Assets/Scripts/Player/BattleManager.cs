@@ -706,20 +706,26 @@ public class BattleManager : MonoBehaviour {
 
 		// Set moves, color, and PP left for each move
 		MoveClass tmpMove;
-		for (int i = 0; i < curPlayerDelt.moveset.Count; i++) {
-			tmpMove = curPlayerDelt.moveset [i];
-			// Pork option case, color = pink, PP = Porks
-			if (gameManager.pork) {
-				MoveOptions [i].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
-				moveText [i].GetComponent<Text> ().text = ("What is pork?!" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+		for (int i = 0; i < 4; i++) {
+			if (i < curPlayerDelt.moveset.Count) {
+				tmpMove = curPlayerDelt.moveset [i];
+				// Pork option case, color = pink, PP = Porks
+				if (gameManager.pork) {
+					MoveOptions [i].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
+					moveText [i].GetComponent<Text> ().text = ("What is pork?!" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+				} else {
+					MoveOptions [i].GetComponent<Image> ().color = tmpMove.majorType.background;
+					moveText [i].GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+				}
+				if (tmpMove.PPLeft <= 0) {
+					MoveOptions [i].interactable = false;
+				} else {
+					MoveOptions [i].interactable = true;
+				}
 			} else {
-				MoveOptions [i].GetComponent<Image> ().color = tmpMove.majorType.background;
-				moveText [i].GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
-			}
-			if (tmpMove.PPLeft <= 0) {
+				MoveOptions [i].GetComponent<Image> ().color = Color.white;
+				moveText [i].GetComponent<Text> ().text = "";
 				MoveOptions [i].interactable = false;
-			} else {
-				MoveOptions [i].interactable = true;
 			}
 		}
 	}
@@ -747,12 +753,13 @@ public class BattleManager : MonoBehaviour {
 			delt = curPlayerDelt;
 		} else {
 			delt = curOppDelt;
+			UIManager.StartMessage (trainerName + " used " + item.itemName + " on " + curOppDelt.nickname + "!");
 		}
 
 		// Heal health
 		if (item.statUpgrades [0] > 0) {
 			delt.health += item.statUpgrades [0];
-			UIManager.StartMessage (null,healDelt (isPlayer));
+			UIManager.StartMessage (null, healDelt (isPlayer));
 			if (delt.health >= delt.GPA) {
 				delt.health = delt.GPA;
 				UIManager.StartMessage (delt.nickname + "'s GPA is now full!");
@@ -1601,6 +1608,8 @@ public class BattleManager : MonoBehaviour {
 		while (gainedSoFar < totalXPGained) {
 			gainedSoFar++;
 			playerXP.value++;
+
+			playerName.text = (curPlayerDelt.nickname + "   lvl. " + curPlayerDelt.level);
 
 			// Animation delay
 			yield return new WaitForSeconds (0.001f);

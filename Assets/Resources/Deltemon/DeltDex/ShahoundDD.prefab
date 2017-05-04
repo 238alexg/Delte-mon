@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1987015909374296}
+  m_IsPrefabParent: 1
+--- !u!1 &1987015909374296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4266455154710460}
+  - component: {fileID: 114842331039274934}
+  m_Layer: 0
+  m_Name: ShahoundDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4266455154710460
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987015909374296}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.691488, y: 22.278727, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114842331039274934
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987015909374296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: ShahoundDD
+  deltName: Shaheen Safari
+  description: Contrary to his last name, Shahound is very domesticated.
+  frontImage: {fileID: 21300200, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300202, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1505
+  major1: {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 384f4520221e
+  prevEvol: {fileID: 0}
+  nextEvol: {fileID: 114688967447999594, guid: a541a03a12a644c74936e83e8fe72bfc, type: 2}
+  evolveLevel: 16
+  levelUpMoves:
+  - level: 0
+    move: {fileID: 114859048426236644, guid: 7a56b1496a65a4fc2a6cead792b63cf5, type: 2}
+  - level: 4
+    move: {fileID: 114845227385616264, guid: f6b57999720654121b7ea91a0bb36982, type: 2}
+  - level: 8
+    move: {fileID: 114685345062691956, guid: 4a783d8741583485f864733231dafc6c, type: 2}
+  - level: 12
+    move: {fileID: 114539024145985162, guid: 210178f860136456abcc8bd02804f96d, type: 2}
+  - level: 15
+    move: {fileID: 114886833077936662, guid: d55c949c9d80c48ffbff1ddb8c44be66, type: 2}
+  rarity: 0
+  AVIndex: 1
+  AVAwardAmount: 1

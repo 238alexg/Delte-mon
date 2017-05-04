@@ -56,7 +56,8 @@ MonoBehaviour:
   majorType: {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809,
     type: 2}
   status: {fileID: 0}
-  movType: 2
+  movType: 0
+  moveIndex: 0
   PP: 15
   PPLeft: 15
   damage: 70

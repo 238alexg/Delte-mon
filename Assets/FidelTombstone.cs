@@ -23,7 +23,7 @@ public class FidelTombstone : MonoBehaviour {
 
 			// Set stats for Fidel's Delts
 			foreach (DeltemonClass fidelt in fidelTrainer.oppDelts) {
-				fidelTrainer.setStats (fidelt);
+				fidelt.initializeDelt ();
 			}
 
 //			SoundEffectManager.SEM.PlaySoundImmediate ("FidelGhost");

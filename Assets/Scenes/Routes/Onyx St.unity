@@ -6961,7 +6961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -6
+  xCoordinate: 6
   yCoordinate: 0
   sceneName: Hometown
 --- !u!61 &233578267
@@ -8442,7 +8442,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 253720146}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16, y: -0.5, z: -1}
+  m_LocalPosition: {x: 15, y: -0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1539295298}
@@ -12643,7 +12643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -6
+  xCoordinate: 6
   yCoordinate: -1
   sceneName: Hometown
 --- !u!61 &355516835
@@ -41319,7 +41319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -6
+  xCoordinate: 6
   yCoordinate: -3
   sceneName: Hometown
 --- !u!61 &1195185444
@@ -42949,7 +42949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -6
+  xCoordinate: 6
   yCoordinate: -2
   sceneName: Hometown
 --- !u!61 &1244611085

@@ -53,3 +53,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Towns/Las Saegas.unity
     guid: f1c7cead9c3ea4a25be2e67940fb326c
+  - enabled: 1
+    path: Assets/Scenes/Indoors/Sigma Nu.unity
+    guid: 1e842be6f6c48426e885549503760573
