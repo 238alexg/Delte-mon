@@ -623,7 +623,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BOOBS
+  m_Text: "Delt\xE9mon"
 --- !u!222 &31506445
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 79119104}
   - component: {fileID: 79119103}
   m_Layer: 5
-  m_Name: Boobs
+  m_Name: "Delt\xE9mon"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1306,14 +1306,16 @@ RectTransform:
   m_Children:
   - {fileID: 31506443}
   - {fileID: 742380669}
+  - {fileID: 820303539}
+  - {fileID: 79119171}
   - {fileID: 434648043}
   m_Father: {fileID: 1901133121}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200.50003, y: -1807}
-  m_SizeDelta: {x: 381, y: 1198}
+  m_AnchoredPosition: {x: 195.50002, y: -1023.5}
+  m_SizeDelta: {x: 391, y: 2047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79119103
 MonoBehaviour:
@@ -1348,6 +1350,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 79119101}
+--- !u!1 &79119170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 79119171}
+  - component: {fileID: 79119173}
+  - component: {fileID: 79119172}
+  m_Layer: 5
+  m_Name: Kumarsh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &79119171
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79119170}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 79119102}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.71864355, y: 0.88833064}
+  m_AnchorMax: {x: 0.8859464, y: 0.9413405}
+  m_AnchoredPosition: {x: 0.09991455, y: -0.5}
+  m_SizeDelta: {x: -0.20000458, y: -0.29999542}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &79119172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79119170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300120, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &79119173
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 79119170}
 --- !u!1 &87077035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4219,7 +4289,7 @@ GameObject:
   - component: {fileID: 298935118}
   - component: {fileID: 298935117}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: Help Menu Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5262,8 +5332,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200.5, y: -609}
-  m_SizeDelta: {x: 381, y: 1198}
+  m_AnchoredPosition: {x: 195.5, y: -662}
+  m_SizeDelta: {x: 391, y: 1324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &332221673
 MonoBehaviour:
@@ -5525,7 +5595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -574.5}
+  m_AnchoredPosition: {x: 197, y: -574.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334903598
@@ -5563,7 +5633,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 334903600}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -5793,7 +5863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -507.5}
+  m_AnchoredPosition: {x: 197, y: -507.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341753945
@@ -5831,7 +5901,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 341753947}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -7700,12 +7770,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 79119102}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.024826378}
-  m_AnchorMax: {x: 1, y: 0.8837848}
-  m_AnchoredPosition: {x: 0.000015258789, y: -2.5}
-  m_SizeDelta: {x: -41, y: -5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.8804959}
+  m_AnchoredPosition: {x: 0.000015258789, y: -3.2498932}
+  m_SizeDelta: {x: -41, y: -6.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &434648044
 MonoBehaviour:
@@ -7739,23 +7809,35 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "First of all thank you for downloading the game. It has taken 3 months
-    of very dedicated and hard work but I am proud to bring it to the App Store.  \n\nDelt\xE9mon
-    is an adventure-style game where you are asked to \"Rush 'em all!\"  \n\nThere
-    are many goals in this game. The most obvious is to \"rush\" or capture all of
-    the Delts that exist in the game. Delts are creatures that take after actual members
-    of Delta Tau Delta, Chapter Gamma Rho at the University of Oregon. \n\nWithin
-    this game, they are your ticket to success. There are 2 ways of getting new Delts:
-    Rushing and Evolving. To learn more visit the \u201CBattle:\u201D Help Menus on
-    the left for Rushing and Leveling Up, respectively.\n\nYou must also visit other
-    places around the map in order to progress in the story. There are hidden places,
-    people, jokes, and items all around the world. You are free to explore and progress
-    through the story at your own pace. However, if you wish to progress through the
-    game, you must battle other fraternities.\n\nThink of fraternities as the \u201Cbosses\u201D
-    of the game. They will put to the test your abilities as a Delt\xE9mon trainer!
-    Be prepared and ready the moment you walk in that door.\n\nDon\u2019t feel overwhelmed
-    by all the help menus. You should be able to figure most of this out by just playing!
-    They are for your reference."
+  m_Text: "Throughout the game you will collect and rush many Delts. You get to pick
+    and choose which ones you keep with you. You can keep up to 6 Delts on you at
+    any time. These 6 Delts are called your Posse. You view and switch the order of
+    your Posse at any time by visiting the Delt\xE9mon menu in your Bag.\n\nTo add
+    and remove Delts from your Posse, you must visit Nurse Valleck in any of the towns.\n\nAs
+    you travel through the world, your Delts will get hurt, has status afflictions,
+    or run out of moves. You can always completely heal your Delts and restore their
+    moves by visiting Nurse Valleck in a Recovery Center in any of the towns.\n\nDelts
+    can have up to 4 moves. Each move allows you to do something in battle. When Delts
+    level up, they may receive new moves. To learn more about moves and leveling up,
+    go to the \u201CBattle: Leveling Up\u201D Help Menu on the left. \n\nEach Delt
+    has 6 statistics, or stats. Each (and what it does) is detailed below.\n- GPA:
+    This is the equivalent of a Delt\u2019s health. Once this reaches 0, the Delt
+    will no longer be able to be used.\n- Truth: This is an attack-based stat. Some
+    moves use this stat as the basis for their damage, and others use the Power stat.
+    A higher Truth attack means heavier hits on Truth-based moves.\n- Courage: This
+    is a defense-based stat. Courage is the complement to the Power stat. It reduces
+    the damage taken from Power-based attack moves.\n- Faith: This is a defense-based
+    stat. Faith is the complement to the Truth stat. It reduces the damage taken from
+    Truth-based attack moves.\n- Power: This is an attack-based stat. Some moves use
+    this stat as the basis for their damage, and others use the Truth stat. A higher
+    Power attack means heavier hits on Power-based moves.\n- ChillToPull: This is
+    the equivalent to a Delt\u2019s speed. The higher this stat, the likelier your
+    Delt is to go first in battle.\n\nEach Delt can also hold a single item. Delts
+    can only hold Holdable and MegaEvolve items. These items have effects that take
+    place in battle. For more information on Items, see the \u201CItems\u201D Help
+    Menu on the left.\n\nDelts can get status afflictions from battle. To remove a
+    status affliction, you must use an Item or visit Nurse Valleck in a Recovery Center
+    in any of the towns."
 --- !u!222 &434648045
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8058,7 +8140,7 @@ RectTransform:
   m_Father: {fileID: 119937693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.20242739}
+  m_AnchorMin: {x: 0, y: 0.40202284}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -8809,10 +8891,10 @@ RectTransform:
   m_Father: {fileID: 332221672}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.024826378}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.8837848}
-  m_AnchoredPosition: {x: 0.000015258789, y: -2.5}
-  m_SizeDelta: {x: -41, y: -5}
+  m_AnchoredPosition: {x: 1.5, y: 0.0058135986}
+  m_SizeDelta: {x: -41, y: -0.011597}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508585057
 MonoBehaviour:
@@ -10067,7 +10149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -306.5}
+  m_AnchoredPosition: {x: 197, y: -306.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &593232718
@@ -10105,7 +10187,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 593232720}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -10880,7 +10962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.000030517578}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
   m_SizeDelta: {x: -8, y: 680}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &622813568
@@ -12942,7 +13024,7 @@ GameObject:
   - component: {fileID: 742380671}
   - component: {fileID: 742380670}
   m_Layer: 5
-  m_Name: DeltBall
+  m_Name: Bibby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12961,10 +13043,10 @@ RectTransform:
   m_Father: {fileID: 79119102}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.4334549, y: 0.897659}
-  m_AnchorMax: {x: 0.5745013, y: 0.9432601}
-  m_AnchoredPosition: {x: -0.031400204, y: 0.20007324}
-  m_SizeDelta: {x: -0.5, y: -1.5999999}
+  m_AnchorMin: {x: 0.11650926, y: 0.8924508}
+  m_AnchorMax: {x: 0.28381214, y: 0.9454607}
+  m_AnchoredPosition: {x: 0.099998474, y: -0.5}
+  m_SizeDelta: {x: -0.19999981, y: -0.3000002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742380670
 MonoBehaviour:
@@ -12985,7 +13067,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 72aaa0262c6884092b6b92f1a47df336, type: 3}
+  m_Sprite: {fileID: 21300032, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -13848,6 +13930,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 815693409}
+--- !u!1 &820303538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 820303539}
+  - component: {fileID: 820303541}
+  - component: {fileID: 820303540}
+  m_Layer: 5
+  m_Name: Dobby
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &820303539
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820303538}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 79119102}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.4126419, y: 0.8919307}
+  m_AnchorMax: {x: 0.6168402, y: 0.9501556}
+  m_AnchoredPosition: {x: 0.10000992, y: -0.29992676}
+  m_SizeDelta: {x: -0.19998, y: -0.60003}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &820303540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820303538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300220, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &820303541
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820303538}
 --- !u!1 &821042376
 GameObject:
   m_ObjectHideFlags: 0
@@ -17235,6 +17385,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: 
   isAllowedToMove: 1
+--- !u!1 &1009011246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1009011247}
+  - component: {fileID: 1009011249}
+  - component: {fileID: 1009011248}
+  m_Layer: 5
+  m_Name: Bibby
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1009011247
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009011246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1368114665}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.11650926, y: 0.8924508}
+  m_AnchorMax: {x: 0.28381214, y: 0.9454607}
+  m_AnchoredPosition: {x: 0.099998474, y: -0.5}
+  m_SizeDelta: {x: -0.19999981, y: -0.3000002}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1009011248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009011246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300032, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1009011249
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1009011246}
 --- !u!1 &1013163117
 GameObject:
   m_ObjectHideFlags: 0
@@ -19807,7 +20025,7 @@ GameObject:
   - component: {fileID: 1197615647}
   - component: {fileID: 1197615646}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: Help Menus View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20804,6 +21022,108 @@ Transform:
   m_Father: {fileID: 398927190}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1255267500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1255267501}
+  - component: {fileID: 1255267503}
+  - component: {fileID: 1255267502}
+  m_Layer: 5
+  m_Name: Body
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1255267501
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255267500}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1368114665}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.8804959}
+  m_AnchoredPosition: {x: 0.000015258789, y: -3.2498932}
+  m_SizeDelta: {x: -41, y: -6.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1255267502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255267500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: df29aceee5636484a9e8003f116fa809, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Throughout the game you will collect and rush many Delts. You get to pick
+    and choose which ones you keep with you. You can keep up to 6 Delts on you at
+    any time. These 6 Delts are called your Posse. You view and switch the order of
+    your Posse at any time by visiting the Delt\xE9mon menu in your Bag.\n\nTo add
+    and remove Delts from your Posse, you must visit Nurse Valleck in any of the towns.\n\nAs
+    you travel through the world, your Delts will get hurt, has status afflictions,
+    or run out of moves. You can always completely heal your Delts and restore their
+    moves by visiting Nurse Valleck in a Recovery Center in any of the towns.\n\nDelts
+    can have up to 4 moves. Each move allows you to do something in battle. When Delts
+    level up, they may receive new moves. To learn more about moves and leveling up,
+    go to the \u201CBattle: Leveling Up\u201D Help Menu on the left. \n\nEach Delt
+    has 6 statistics, or stats. Each (and what it does) is detailed below.\n- GPA:
+    This is the equivalent of a Delt\u2019s health. Once this reaches 0, the Delt
+    will no longer be able to be used.\n- Truth: This is an attack-based stat. Some
+    moves use this stat as the basis for their damage, and others use the Power stat.
+    A higher Truth attack means heavier hits on Truth-based moves.\n- Courage: This
+    is a defense-based stat. Courage is the complement to the Power stat. It reduces
+    the damage taken from Power-based attack moves.\n- Faith: This is a defense-based
+    stat. Faith is the complement to the Truth stat. It reduces the damage taken from
+    Truth-based attack moves.\n- Power: This is an attack-based stat. Some moves use
+    this stat as the basis for their damage, and others use the Truth stat. A higher
+    Power attack means heavier hits on Power-based moves.\n- ChillToPull: This is
+    the equivalent to a Delt\u2019s speed. The higher this stat, the likelier your
+    Delt is to go first in battle.\n\nEach Delt can also hold a single item. Delts
+    can only hold Holdable and MegaEvolve items. These items have effects that take
+    place in battle. For more information on Items, see the \u201CItems\u201D Help
+    Menu on the left.\n\nDelts can get status afflictions from battle. To remove a
+    status affliction, you must use an Item or visit Nurse Valleck in a Recovery Center
+    in any of the towns."
+--- !u!222 &1255267503
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1255267500}
 --- !u!1 &1261706328
 GameObject:
   m_ObjectHideFlags: 0
@@ -22389,7 +22709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -172.5}
+  m_AnchoredPosition: {x: 197, y: -172.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1335179284
@@ -22427,7 +22747,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1335179286}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -22750,7 +23070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -440.5}
+  m_AnchoredPosition: {x: 197, y: -440.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346832889
@@ -22788,7 +23108,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1346832891}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -23079,6 +23399,79 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1365581023}
+--- !u!1 &1368114664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1368114665}
+  - component: {fileID: 1368114667}
+  - component: {fileID: 1368114666}
+  m_Layer: 5
+  m_Name: Moves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1368114665
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368114664}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children:
+  - {fileID: 2018825659}
+  - {fileID: 1009011247}
+  - {fileID: 2058556668}
+  - {fileID: 1987834274}
+  - {fileID: 1255267501}
+  m_Father: {fileID: 1901133121}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 195.49991, y: -1023.5}
+  m_SizeDelta: {x: 391, y: 2047}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1368114666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368114664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1368114667
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368114664}
 --- !u!1 &1373362220
 GameObject:
   m_ObjectHideFlags: 0
@@ -24856,7 +25249,7 @@ GameObject:
   - component: {fileID: 1481212625}
   - component: {fileID: 1481212624}
   m_Layer: 5
-  m_Name: General Help
+  m_Name: Help Info Scroll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25017,7 +25410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.083000004, y: 0.6845597}
   m_AnchorMax: {x: 0.27938628, y: 0.7754753}
-  m_AnchoredPosition: {x: -0.44892883, y: 1.8039551}
+  m_AnchoredPosition: {x: -0.4489746, y: 1.8039551}
   m_SizeDelta: {x: 3, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1484037525
@@ -25150,7 +25543,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1484037528}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -26856,7 +27249,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 447382107}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.79757255
+  m_Size: 0.59797716
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27288,7 +27681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -373.5}
+  m_AnchoredPosition: {x: 197, y: -373.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1619112234
@@ -27326,7 +27719,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1619112236}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -28808,7 +29201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -641.5}
+  m_AnchoredPosition: {x: 197, y: -641.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1725526916
@@ -28846,7 +29239,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1725526918}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -29337,7 +29730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -105.5}
+  m_AnchoredPosition: {x: 197, y: -105.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752993190
@@ -29375,7 +29768,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1752993192}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -31070,7 +31463,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdbe7bde3927468aab577d21f31be1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpMenus: {fileID: 0}
 --- !u!1 &1851481887
 GameObject:
   m_ObjectHideFlags: 0
@@ -31897,7 +32289,7 @@ GameObject:
   - component: {fileID: 1882371747}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32157,13 +32549,14 @@ RectTransform:
   m_Children:
   - {fileID: 332221672}
   - {fileID: 79119102}
+  - {fileID: 1368114665}
   m_Father: {fileID: 1609694152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: -0.000030517578}
-  m_SizeDelta: {x: -8, y: 20}
+  m_AnchoredPosition: {x: -0.000015258789, y: -0.000030517578}
+  m_SizeDelta: {x: -8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1901133122
 MonoBehaviour:
@@ -32190,10 +32583,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
+    m_Left: 0
     m_Right: 0
-    m_Top: 10
-    m_Bottom: 10
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
@@ -33286,6 +33679,74 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1987834273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1987834274}
+  - component: {fileID: 1987834276}
+  - component: {fileID: 1987834275}
+  m_Layer: 5
+  m_Name: Kumarsh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1987834274
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987834273}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 1368114665}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.71864355, y: 0.88833064}
+  m_AnchorMax: {x: 0.8859464, y: 0.9413405}
+  m_AnchoredPosition: {x: 0.09991455, y: -0.5}
+  m_SizeDelta: {x: -0.20000458, y: -0.29999542}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1987834275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987834273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300120, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1987834276
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1987834273}
 --- !u!1 &1988143677
 GameObject:
   m_ObjectHideFlags: 0
@@ -33598,6 +34059,80 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2016673624}
+--- !u!1 &2018825658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2018825659}
+  - component: {fileID: 2018825661}
+  - component: {fileID: 2018825660}
+  m_Layer: 5
+  m_Name: Welcome
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2018825659
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018825658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1368114665}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.93884313}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1.5, y: -0.5}
+  m_SizeDelta: {x: -41, y: -23}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2018825660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018825658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: df29aceee5636484a9e8003f116fa809, type: 3}
+    m_FontSize: 25
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Moves
+--- !u!222 &2018825661
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018825658}
 --- !u!1 &2019640233
 GameObject:
   m_ObjectHideFlags: 0
@@ -34167,6 +34702,74 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &2058556667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2058556668}
+  - component: {fileID: 2058556670}
+  - component: {fileID: 2058556669}
+  m_Layer: 5
+  m_Name: Dobby
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2058556668
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058556667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_Children: []
+  m_Father: {fileID: 1368114665}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.4126419, y: 0.8919307}
+  m_AnchorMax: {x: 0.6168402, y: 0.9501556}
+  m_AnchoredPosition: {x: 0.10000992, y: -0.29992676}
+  m_SizeDelta: {x: -0.19998, y: -0.60003}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2058556669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058556667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300220, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2058556670
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2058556667}
 --- !u!1 &2058743039
 GameObject:
   m_ObjectHideFlags: 0
@@ -35289,7 +35892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 197.00002, y: -239.5}
+  m_AnchoredPosition: {x: 197, y: -239.5}
   m_SizeDelta: {x: 374, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145733224
@@ -35327,7 +35930,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 2145733226}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:

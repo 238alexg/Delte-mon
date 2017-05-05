@@ -28,6 +28,10 @@ public class RecoveryCenter: MonoBehaviour {
 	List<MajorClass> majorQuery;
 	List<DeltemonData> queryResults;
 
+	// Private
+	private int houseMove;
+	private int posseMove;
+
 	// Initialize variables
 	void Start() {
 		UIMan = UIManager.UIMan;
@@ -39,6 +43,8 @@ public class RecoveryCenter: MonoBehaviour {
 		HouseSwitchIn = null;
 		HouseDeltIndex = -1;
 		PosseDeltIndex = -1;
+		houseMove = -1;
+		posseMove = -1;
 		majorQuery = new List<MajorClass> ();
 		queryResults = new List<DeltemonData> ();
 
@@ -58,14 +64,12 @@ public class RecoveryCenter: MonoBehaviour {
 	// When new game sequence triggered
 	IEnumerator OnTriggerEnter2D(Collider2D player) {
 		if (!hasTriggered) {
-			print ("TRIG ENTER: " + player.gameObject.name);
-
 			UIMan.MovementUI.SetActive (false);
 			PlayerMovement.PlayMov.StopMoving ();
 
 			hasTriggered = true;
 
-			// Later: Slide in nurse Valleck
+			// Slide in nurse Valleck
 			nurseValleck.gameObject.SetActive (true);
 			nurseValleck.SetTrigger ("SlideIn");
 
@@ -92,11 +96,13 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Load House Delts into the scroll view
 	public void ShowHouseDelts() {
+		hideMoveOverviews ();
+
 		HouseScrollView.SetActive (true);
 		PosseScrollView.SetActive (false);
 
-		ShowHouseButtonImage.color = new Color (0.494f, 0.847f, 0.322f, 1);
-		ShowPosseButtonImage.color = new Color (0.494f, 0.847f, 0.322f, 0);
+		ShowHouseButtonImage.color = Color.yellow;
+		ShowPosseButtonImage.color = Color.magenta;
 
 		if (!houseDeltsLoaded) {
 			houseDeltsLoaded = true;
@@ -152,20 +158,29 @@ public class RecoveryCenter: MonoBehaviour {
 				i++;
 			}
 		}
-		BankUI.SetActive (true);
-		BankUI.GetComponent <Animator>().SetTrigger ("SlideIn");
-		if (!isSearch) {
-			OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideOut");
+
+		// If BankUI not open, slide it in. 
+		if (!BankUI.activeInHierarchy) {
+			BankUI.SetActive (true);
+			BankUI.GetComponent <Animator> ().SetTrigger ("SlideIn");
+
+			// If not a search query, slide out Option Menu
+			if (!isSearch) {
+				OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideOut");
+			}
 		}
+
 	}
 
 	// Load Posse Delts into the scroll view
 	public void ShowDeltPosse() {
+		hideMoveOverviews ();
+
 		HouseScrollView.SetActive (false);
 		PosseScrollView.SetActive (true);
 
-		ShowHouseButtonImage.color = new Color (0.494f, 0.847f, 0.322f, 0);
-		ShowPosseButtonImage.color = new Color (0.494f, 0.847f, 0.322f, 1);
+		ShowHouseButtonImage.color = Color.magenta;
+		ShowPosseButtonImage.color = Color.yellow;
 
 		if (!posseDeltsLoaded) {
 			posseDeltsLoaded = true;
@@ -285,6 +300,8 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Switches PosseDelt into House, HouseDelt into Posse
 	public void SwitchDelts() {
+		hideMoveOverviews ();
+
 		DeltemonClass posseDelt = GameMan.deltPosse [PosseDeltIndex];
 
 		DeltemonData posseToHouseDelt = GameMan.convertDeltToData (posseDelt);
@@ -343,17 +360,41 @@ public class RecoveryCenter: MonoBehaviour {
 	}
 		
 	// Called on button down press on move from Delt's moveset
-	public void MoveTouch(BaseEventData evdata) {
+	public void MoveClick(BaseEventData evdata) {
 		Transform MoveOverview;
 		MoveClass move;
 		string objName = evdata.selectedObject.name;
+		int moveIndex;
 
+		// Clicked a house move
 		if (objName[0] == 'H') {
 			MoveOverview = HouseMoveOverview;
-			move = HouseSwitchIn.moveset [int.Parse (objName.Substring (1))];
-		} else {
+			moveIndex = int.Parse (objName.Substring (1));
+
+			// If move is already up, remove it
+			if (moveIndex == houseMove) {
+				HouseMoveOverview.gameObject.SetActive (false);
+				houseMove = -1;
+				return;
+			} else {
+				move = HouseSwitchIn.moveset [moveIndex];
+				houseMove = moveIndex;
+			}
+		} 
+		// Clicked a posse move
+		else {
 			MoveOverview = PosseMoveOverview;
-			move = GameMan.deltPosse [PosseDeltIndex].moveset [int.Parse (objName.Substring (1))];
+			moveIndex = int.Parse (objName.Substring (1));
+
+			// If move is already up, remove it
+			if (moveIndex == posseMove) {
+				HouseMoveOverview.gameObject.SetActive (false);
+				posseMove = -1;
+				return;
+			} else {
+				move = GameMan.deltPosse [PosseDeltIndex].moveset [moveIndex];
+				posseMove = moveIndex;
+			}
 		}
 
 		MoveOverview.GetComponent <Image>().color = move.majorType.background;
@@ -373,15 +414,6 @@ public class RecoveryCenter: MonoBehaviour {
 			move.damage + System.Environment.NewLine + move.hitChance + System.Environment.NewLine + move.statType;
 
 		MoveOverview.gameObject.SetActive (true);
-	}
-
-	// Called on release of the move button
-	public void MoveTouchRelease(BaseEventData evdata) {
-		if (evdata.selectedObject.name [0] == 'H') {
-			HouseMoveOverview.gameObject.SetActive (false);
-		} else {
-			PosseMoveOverview.gameObject.SetActive (false);
-		}
 	}
 
 	void OpenSearch () {
@@ -523,8 +555,18 @@ public class RecoveryCenter: MonoBehaviour {
 		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideIn"));
 	}
 
+	// Make move overview inactive if they aren't already
+	void hideMoveOverviews() {
+		HouseMoveOverview.gameObject.SetActive (false);
+		houseMove = -1;
+		PosseMoveOverview.gameObject.SetActive (false);
+		posseMove = -1;
+	}
+
 	// Player presses back button on SwitchUI
 	public void ExitSwitchMenu() {
+		hideMoveOverviews ();
+
 		if (isSearch) {
 			StartCoroutine (AnimateClose (BankUI, false));
 			SearchUI.SetActive (true);
@@ -571,8 +613,7 @@ public class RecoveryCenter: MonoBehaviour {
 	}
 
 	// Allow player to re-enter Recovery Center menu
-	IEnumerator OnTriggerExit2D(Collider2D player) {
-		yield return new WaitForSeconds (0.1f);
+	void OnTriggerExit2D(Collider2D player) {
 		hasTriggered = false;
 		UIMan.EndNPCMessage ();
 	}

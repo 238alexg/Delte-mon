@@ -54923,6 +54923,16 @@ Prefab:
       value: 
       objectReference: {fileID: 21300058, guid: fe3b1e453b9d88047b7d779f8a2ba8c1,
         type: 3}
+    - target: {fileID: 61169542834236898, guid: eed70876da41748738e11fe2bf5ce653,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61169542834236898, guid: eed70876da41748738e11fe2bf5ce653,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eed70876da41748738e11fe2bf5ce653, type: 2}
   m_IsPrefabParent: 0

@@ -343,7 +343,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		// Save item if delt has one
-		if (deltSave.itemName != null) {
+		if ((deltSave.itemName != null) && (deltSave.itemName != "")) {
 			GameObject deltItemObject = (GameObject)Instantiate (Resources.Load("Items/" + deltSave.itemName), tmpDeltObject.transform);
 			ItemClass deltItem = deltItemObject.GetComponent<ItemClass> ();
 			deltItem.numberOfItem = 1;

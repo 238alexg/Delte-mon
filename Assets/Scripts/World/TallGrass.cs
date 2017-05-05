@@ -30,7 +30,9 @@ public class TallGrass : MonoBehaviour {
 
 	// Determine whether Pokemon spawn in grass
 	void OnTriggerEnter2D(Collider2D player) {
-		if (!hasTriggered) {
+
+		if (!hasTriggered && (player.tag == "Player")) {
+
 			if ((PlayerMovement.PlayMov.repelStepsLeft > 0) || (battleStepBuffer > 0)) {
 				return;
 			}

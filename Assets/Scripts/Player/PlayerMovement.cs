@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour {
 	public Sprite dpadWest;
 
 	// COLLISION DETECTION
-	private BoxCollider2D boxCollider;
 	private RaycastHit2D hit;
 	public LayerMask layer;
 
@@ -53,7 +52,6 @@ public class PlayerMovement : MonoBehaviour {
 		inMovementNow = false;
 		movementQueued = false;
 		isRunning = false;
-		boxCollider = GetComponent<BoxCollider2D>();
 	}
 
 	#if UNITY_EDITOR
@@ -138,9 +136,9 @@ public class PlayerMovement : MonoBehaviour {
 				// Decrement repel steps
 				if (repelStepsLeft > 0) {
 					if (repelStepsLeft == 1) {
-						UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
-						UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.");
 						StopMoving ();
+						UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
+						UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.", null, () => ResumeMoving ());
 					}
 					repelStepsLeft--;
 				}
@@ -230,18 +228,13 @@ public class PlayerMovement : MonoBehaviour {
 		// Calculate end position based on the direction parameters passed in when calling Move.
 		Vector2 end = new Vector2(start.x + xDir, start.y + yDir);
 
-		//Disable the boxCollider so that linecast doesn't hit this object's own collider.
-		boxCollider.enabled = false;
-
 		RaycastHit2D hit = Physics2D.Linecast (start, end, layer);
 
 		//Check if anything was hit
 		if (hit) {
-			boxCollider.enabled = true;
 			return false;
 		}
 		else {
-			boxCollider.enabled = true;
 			return true;
 		}
 	}
