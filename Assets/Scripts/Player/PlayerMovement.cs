@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
 	public GameManager GameManager;
 	public Animator playerMovementAnimation;
 
-	public bool isMoving, isRunning, isMale;
+	public bool isMoving, isRunning, isMale, hasDormkicks;
 	public byte repelStepsLeft;
 	public Image maleButton, femaleButton;
 
@@ -382,8 +382,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Functions for pressing and releasing B button to run
 	public void bButtonPress () {
-		isRunning = true;
-		playerMovementAnimation.SetBool ("Run", true);
+		if (hasDormkicks) {
+			isRunning = true;
+			playerMovementAnimation.SetBool ("Run", true);
+		} else {
+			StopMoving ();
+			UIManager.StartMessage ("You look down at your feet. They are bare.");
+			UIManager.StartMessage ("Should probably try and find some shoes in the Delta Shelter...", null, ()=> ResumeMoving ());
+		}
 	}
 	public void bButtonRelease () {
 		isRunning = false;

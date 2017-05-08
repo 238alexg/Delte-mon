@@ -58,7 +58,9 @@ public class UIManager : MonoBehaviour {
 	public List<Color> itemColors;
 	public Animator NPCSlideIn;
 
-	int firstMoveLoaded, secondMoveLoaded;
+
+	int firstMoveLoaded;
+	public int secondMoveLoaded;
 
 	public Coroutine curCoroutine { get; private set; }
 
@@ -266,6 +268,8 @@ public class UIManager : MonoBehaviour {
 		if (curHelpMenu != -1) {
 			helpMenus.GetChild (curHelpMenu).gameObject.SetActive (false);
 		}
+
+		curHelpMenu = i;
 
 		// Get menu, set title to that menu. Set menu to active.
 		GameObject helpMenu = helpMenus.GetChild (i).gameObject;
@@ -487,11 +491,8 @@ public class UIManager : MonoBehaviour {
 	public void OpenItems() {
 
 		// Remove move overviews if are up
-		if (MoveOneOverview.gameObject.activeInHierarchy) {
-			firstMoveLoaded = -1;
-			secondMoveLoaded = -1;
-			MoveOneOverview.gameObject.SetActive (false);
-			MoveTwoOverview.gameObject.SetActive (false);
+		if (CloseMoveOverviews ()) {
+			return;
 		}
 
 		ItemOverviewUI.gameObject.SetActive (false);
@@ -524,18 +525,14 @@ public class UIManager : MonoBehaviour {
 	public void ChooseItem() {
 		ItemClass item = curOverviewItem.transform.GetComponent<ItemClass> ();
 		if (inBattle) {
-			if (item.itemT == itemType.Usable) {
+			if (item.itemT == itemType.Usable || item.itemT == itemType.Ball) {
 				activeItem = item;
+
 				if (activeDelt != null) {
 					UseItem ();
 				} else {
 					OpenDeltemon ();
 				}
-			} else if (item.itemT == itemType.Ball) {
-				DeltemonUI.SetActive (false);
-				ItemsUI.SetActive (false);
-				battleManager.UseItem (true, item);
-				gameManager.RemoveItem (item);
 			} else {
 				StartMessage ("Cannot give " + item.itemName + " to Delts in battle!");
 			}
@@ -559,9 +556,12 @@ public class UIManager : MonoBehaviour {
 
 		if (inBattle) {
 			if (activeDelt == battleManager.curPlayerDelt) {
-				StartMessage ("Used " + activeItem.itemName + " on " + activeDelt.nickname + "!");
+				battleManager.ChooseItem (true, activeItem);
+			} 
+			// LATER: Do animation in Deltemon UI and skip player turn
+			else {
+
 			}
-			battleManager.UseItem (true, activeItem);
 		} else {
 			if ((activeItem.itemT == itemType.Holdable) || (activeItem.itemT == itemType.MegaEvolve)) {
 				activeDelt.item = activeItem;
@@ -672,10 +672,10 @@ public class UIManager : MonoBehaviour {
 		// If in battle and player forced to switch, do not offer back or Give Item button
 		if (isForceSwitchIn) {
 			DeltemonUI.transform.GetChild (7).GetChild (1).gameObject.SetActive (false);
-			DeltemonUI.transform.GetChild (8).GetChild (9).gameObject.SetActive (false);
+			DeltemonUI.transform.GetChild (8).GetChild (8).gameObject.SetActive (false);
 		} else {
 			DeltemonUI.transform.GetChild (7).GetChild (1).gameObject.SetActive (true);
-			DeltemonUI.transform.GetChild (8).GetChild (9).gameObject.SetActive (true);
+			DeltemonUI.transform.GetChild (8).GetChild (8).gameObject.SetActive (true);
 		}
 
 		// Show UI
@@ -689,19 +689,13 @@ public class UIManager : MonoBehaviour {
 
 		overviewDelt.item = null;
 		gameManager.AddItem (removedItem, 1, false);
-
-
 	}
 
 	// Delt Give Item click
 	public void GiveDeltItemButtonPress () {
 
 		// Remove move overviews if are up
-		if (MoveOneOverview.gameObject.activeInHierarchy) {
-			firstMoveLoaded = -1;
-			secondMoveLoaded = -1;
-			MoveOneOverview.gameObject.SetActive (false);
-			MoveTwoOverview.gameObject.SetActive (false);
+		if (CloseMoveOverviews ()) {
 			return;
 		}
 
@@ -732,11 +726,7 @@ public class UIManager : MonoBehaviour {
 	public void SwitchDelt() {
 		
 		// Remove move overviews if are up
-		if (MoveOneOverview.gameObject.activeInHierarchy) {
-			firstMoveLoaded = -1;
-			secondMoveLoaded = -1;
-			MoveOneOverview.gameObject.SetActive (false);
-			MoveTwoOverview.gameObject.SetActive (false);
+		if (CloseMoveOverviews ()) {
 			return;
 		}
 
@@ -814,11 +804,7 @@ public class UIManager : MonoBehaviour {
 	public void loadDeltIntoPlayerOverview(int i) {
 
 		// Remove move overviews if are up
-		if (MoveOneOverview.gameObject.activeInHierarchy) {
-			firstMoveLoaded = -1;
-			secondMoveLoaded = -1;
-			MoveOneOverview.gameObject.SetActive (false);
-			MoveTwoOverview.gameObject.SetActive (false);
+		if (CloseMoveOverviews ()) {
 			return;
 		}
 
@@ -902,7 +888,7 @@ public class UIManager : MonoBehaviour {
 			}
 
 			Transform GiveItemButton = DeltemonUI.transform.GetChild (8).GetChild (10);
-			if (delt.item != null) {
+			if ((delt.item != null) && !inBattle) {
 				GiveItemButton.GetChild (0).GetComponent <Text> ().text = "Swap Item";
 			} else {
 				GiveItemButton.GetChild (0).GetComponent <Text> ().text = "Give Item";
@@ -910,6 +896,16 @@ public class UIManager : MonoBehaviour {
 
 			DeltOverviewUI.SetActive (true);
 		}
+	}
+
+	// Prepare MoveOneOverview with new move info
+	public void SetLevelUpMove(MoveClass newMove, DeltemonClass curPlayerDelt) {
+		overviewDeltIndex = gameManager.deltPosse.IndexOf (curPlayerDelt);
+
+		// Temporarily add new move as 5th move
+		curPlayerDelt.moveset.Add (newMove);
+
+		MoveClick (4);
 	}
 
 	// Called on button down press on move from Delt's moveset
@@ -956,15 +952,24 @@ public class UIManager : MonoBehaviour {
 		MoveOverview.gameObject.SetActive (true);
 	}
 
-	// Close deltemon UI
-	public void CloseDeltemon() {
-		
-		// Remove move overviews if are up
+	// Remove move overviews if are up and return true
+	public bool CloseMoveOverviews() {
 		if (MoveOneOverview.gameObject.activeInHierarchy) {
 			firstMoveLoaded = -1;
 			secondMoveLoaded = -1;
 			MoveOneOverview.gameObject.SetActive (false);
 			MoveTwoOverview.gameObject.SetActive (false);
+			return true;
+		}
+		return false;
+	}
+
+	// Close deltemon UI
+	public void CloseDeltemon() {
+		
+		// Remove move overviews if are up
+		if (CloseMoveOverviews ()) {
+			return;
 		}
 
 		StartCoroutine(AnimateUIClose (DeltemonUI));
@@ -1043,7 +1048,7 @@ public class UIManager : MonoBehaviour {
 		PlayerMovement.PlayMov.StopMoving ();
 		if (!string.IsNullOrEmpty(sceneName))  {
 			// Fade out to black
-			StartMessage (null, fade.fadeOutSceneChange (), ()=>PlayerMovement.PlayMov.ResumeMoving ());
+			StartMessage (null, fade.fadeOutSceneChange ());
 
 			// Change scene, change UI to world, show scene name in TL corner, load scene data
 			StartMessage (null, null, ()=>ChangeSceneFunctions(sceneName));
@@ -1052,7 +1057,7 @@ public class UIManager : MonoBehaviour {
 			StartMessage (null, null, (() => playerMovement.transform.position = new Vector3(x, y, -10f)));
 
 			// Fade in and allow player to move
-			StartMessage (null, fade.fadeInSceneChange (sceneName));
+			StartMessage (null, fade.fadeInSceneChange (sceneName), ()=>PlayerMovement.PlayMov.ResumeMoving ());
 			//StartMessage (null, fade.fadeInSceneChange (sceneName), (() => (PlayerMovement.PlayMov.ResumeMoving())));
 
 			// Wait for scene name to disappear then make gameobject inactive

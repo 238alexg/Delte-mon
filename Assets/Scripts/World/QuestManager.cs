@@ -50,6 +50,18 @@ public class QuestManager : MonoBehaviour {
 		return false;
 	}
 
+	// Called when user picks up an item
+	public void ItemQuest(ItemData item) {
+		if (item.itemName == "DormKicks") {
+			PlayerMovement.PlayMov.hasDormkicks = true;
+			UIManager.UIMan.StartMessage ("You strap the Yeezys to your feet...");
+			UIManager.UIMan.StartMessage ("You shed a tear and praise the almighty Mr. West");
+			UIManager.UIMan.StartMessage ("You can now use the B button to run!");
+		} else if (item.itemName == "Composite") {
+			AchievementManager.AchieveMan.CompositeUpdate (item.numberOfItem);
+		} 
+	}
+
 	// Achievements for trainer battles
 	public void BattleAcheivements(string trainerName) {
 		switch (trainerName) {

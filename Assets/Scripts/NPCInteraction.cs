@@ -24,8 +24,7 @@ public class NPCInteraction : MonoBehaviour {
 
 	[Header("Gym Leader Information")]
 	public bool isGymLeader;
-	public string sceneNameOfObstacleRelease;
-	public int indexOfObstacleRelease;
+	public List<SceneInteractableObstacle> obstacleRemovals;
 
 	// Player walks in field of view of NPC
 	void OnTriggerEnter2D(Collider2D player) {
@@ -87,12 +86,16 @@ public class NPCInteraction : MonoBehaviour {
 		GameManager.GameMan.curSceneData.trainers [index] = true;
 
 		if (isGymLeader) {
-			// Remove obstacle to next town/path/etc.
-			SceneInteractionData sid = GameManager.GameMan.LoadSceneData (sceneNameOfObstacleRelease);
-			sid.interactables [indexOfObstacleRelease] = true;
-			GameManager.GameMan.SaveSceneData (sid);
 
-			// Note: Should never use Find* commands, but this only happens once per gym (pretty safe)
+			// Remove all obstacles
+			foreach (SceneInteractableObstacle sio in obstacleRemovals) {
+				// Remove obstacle to next town/path/etc.
+				SceneInteractionData sid = GameManager.GameMan.LoadSceneData (sio.sceneName);
+				sid.interactables [sio.index] = true;
+				GameManager.GameMan.SaveSceneData (sid);
+			}
+
+			// Note: Should never use Find* commands, but this only happens once per gym battle (pretty safe)
 			GameObject exitDoor = GameObject.FindGameObjectWithTag ("Finish");
 			exitDoor.GetComponent <DoorAction> ().ActivateDoor ();
 		}
@@ -101,4 +104,10 @@ public class NPCInteraction : MonoBehaviour {
 		UIManager.UIMan.StartMessage (null, null, ()=> UIManager.UIMan.EndNPCMessage ());
 		UIManager.UIMan.StartMessage(null, null, ()=>PlayerMovement.PlayMov.ResumeMoving ());
 	}
+}
+
+[System.Serializable]
+public class SceneInteractableObstacle {
+	public string sceneName;
+	public int index;
 }

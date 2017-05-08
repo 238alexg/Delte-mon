@@ -107,11 +107,14 @@ public class GameManager : MonoBehaviour {
 		else {
 			addable.numberOfItem += numberToAdd;
 		}
+
 		if (presentMessage) {
 			// End NPC Message if enabled
 			UIManager.StartMessage (null, null, ()=>UIManager.EndNPCMessage ());
 			UIManager.StartMessage ((playerName + " recieved " + numberToAdd + " " + item.itemName + "!"), null, null);
 		}
+
+		QuestManager.QuestMan.ItemQuest (addable);
 	}
 	// Removes an item from inventory
 	public void RemoveItem(ItemClass item, int numberToRemove = 1) {
@@ -220,6 +223,7 @@ public class GameManager : MonoBehaviour {
 			pork = load.pork;
 			UIManager.scrollSpeed = load.scrollSpeed;
 			PlayerMovement.PlayMov.isMale = load.isMale;
+			PlayerMovement.PlayMov.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
 			MusicManager.Instance.maxVolume = load.musicVolume;
 			MusicManager.Instance.audiosource.volume = load.musicVolume;
 			SoundEffectManager.SEM.source.volume = load.FXVolume;
@@ -314,7 +318,7 @@ public class GameManager : MonoBehaviour {
 		case statusType.roasted:
 			tmpDelt.statusImage = statuses [1];
 			break;
-		case statusType.suspension:
+		case statusType.suspended:
 			tmpDelt.statusImage = statuses [2];
 			break;
 		case statusType.high:
@@ -352,6 +356,7 @@ public class GameManager : MonoBehaviour {
 			tmpDelt.item = null;
 		}
 		foreach (MoveData move in deltSave.moves) {
+			print (move.moveName + "X" + move.major + "X");
 			GameObject newMoveObject = (GameObject)Instantiate(Resources.Load ("Moves/" + move.major + "/" + move.moveName), tmpDeltObject.transform);
 			MoveClass newMove = newMoveObject.GetComponent<MoveClass>();
 			tmpDelt.moveset.Add (newMove);
@@ -589,7 +594,7 @@ public class DeltemonData {
 	public byte[] AVs = new byte [6] { 0, 0, 0, 0, 0, 0 };
 	public byte AVCount;
 	public float experience;
-	public float XPToLevel;
+	public int XPToLevel;
 	public float health;
 	public float[] stats = new float[6] { 0, 0, 0, 0, 0, 0 };
 	public bool ownedByTrainer;

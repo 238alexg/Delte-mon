@@ -7,7 +7,7 @@ public class MusicManager: MonoBehaviour {
 	public static MusicManager Instance { get; private set; }
 	public List<SceneAudioTuple> sceneAudio;
 	public AudioSource audiosource;
-	public float maxVolume;
+	public float maxVolume = 1;
 
 	private void Awake() {
 		if (Instance == null) {

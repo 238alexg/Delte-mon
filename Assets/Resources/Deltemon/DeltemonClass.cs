@@ -13,7 +13,7 @@ public class DeltemonClass : MonoBehaviour {
 	public statusType curStatus;
 	public byte level;
 	public float experience;
-	public float XPToLevel;
+	public int XPToLevel;
 	public float health;
 	public ItemClass item;
 	public List<MoveClass> moveset;
@@ -86,7 +86,7 @@ public class DeltemonClass : MonoBehaviour {
 		text [0] = newTotal + " (+" + totalGained + ")";
 
 		// Update XP needed to level up again
-		updateXPToLevel ();
+		XPToLevel = (level * 10) + (level * level * 5);
 
 		// Completely heal Delt on level up
 		health = GPA;
@@ -105,7 +105,6 @@ public class DeltemonClass : MonoBehaviour {
 		nickname = deltdex.nickname;
 		curStatus = statusType.none;
 		experience = 0;
-		updateXPToLevel ();
 		AVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
 		AVCount = 0;
 		GPA = 0;
@@ -114,6 +113,10 @@ public class DeltemonClass : MonoBehaviour {
 		Faith = 0;
 		Power = 0;
 		ChillToPull = 0;
+		moveset.Clear ();
+
+		// Update XP needed to level up again
+		XPToLevel = (level * 10) + (level * level * 5);
 
 		// If Delt has 1-2 prev evols, set stats a little lower
 		// Note: Compensates for Delt not evolving from lower stat state(s)
@@ -200,37 +203,6 @@ public class DeltemonClass : MonoBehaviour {
 				}
 			}
 		}
-	}
-
-	// Sets the XP needed for the Delt to level up
-	// Note: Scales up for higher levels
-	public void updateXPToLevel() {
-		int levelXP = (level * 10) + (level * level * 10);
-		float mod = 1;
-		if (level < 6) {
-			mod *= 0.5f;
-		} else if (level < 11) {
-			mod *= 1;
-		} else if (level < 20) {
-			mod *= 1.5f;
-		} else if (level < 30) {
-			mod *= 2;
-		} else if (level < 40) {
-			mod *= 2.5f;
-		} else if (level < 50) {
-			mod *= 3.25f;
-		} else if (level < 60) {
-			mod *= 4;
-		} else if (level < 70) {
-			mod *= 4.5f;
-		} else if (level < 80) {
-			mod *= 5;
-		} else if (level < 90) {
-			mod *= 5.5f;
-		} else {
-			mod *= 6;
-		}
-		XPToLevel = (int)(levelXP * mod);
 	}
 
 	// Duplicate values into recipient Delt

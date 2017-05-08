@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4851947378381112}
   - component: {fileID: 114996360122170080}
   m_Layer: 0
-  m_Name: Environmental Studies
+  m_Name: Environmental Science
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c86b3ece660b4f36ae4b50f3ecae424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  majorName: Environmental Studies
+  majorName: Environmental Science
   majorElement: Ice
   majorImage: {fileID: 21300012, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   background: {r: 0.4894031, g: 0.8768106, b: 0.9117647, a: 1}

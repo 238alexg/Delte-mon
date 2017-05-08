@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 49ce9dee259284098b706f936b1cb194
-timeCreated: 1485842408
+timeCreated: 1493955001
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,6 +43,7 @@ TextureImporter:
     21300072: DrunkStatusSprite
     21300074: EnglishSprite
     21300076: NoMajor
+    21300078: All Majors
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -106,6 +107,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -464,6 +473,19 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: All Majors
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 192
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

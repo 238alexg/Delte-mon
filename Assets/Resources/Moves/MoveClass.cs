@@ -77,7 +77,7 @@ public enum statusType {
 	none,
 	plagued, // Poison
 	indebted, // Cursed
-	suspension, // Frozen
+	suspended, // Frozen
 	roasted, // Burned
 	asleep, // Sleep
 	high, // Paralyzed

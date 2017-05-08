@@ -36,28 +36,46 @@ public class AchievementManager : MonoBehaviour {
 		}
 	}
 
-	// When user catches a new delt, update leaderboard
-	public void UpdateDeltDexCount (int count) {
-		Social.ReportScore (count, "DeltDex", (result)=> {
+	// Update amount of Composites collected
+	public void CompositeUpdate(double count) {
+		Social.ReportProgress ("Composites", count, (result) => {
 			if (!result) {
-				Debug.Log ("Failed to post score!");
+				Debug.Log ("Failed to composite achievement!");
+			}
+		});
+	}
+
+	// When user catches a new delt, update leaderboard
+	public void UpdateDeltDexCount (double count) {
+
+		// Score for most DeltDexes caught
+		Social.ReportScore ((long)count, "DeltDex", (result)=> {
+			if (!result) {
+				Debug.Log ("Failed to DeltDex score!");
 			}
 		});
 
 		// Achievements for achieving certain # of dexes
-		if (count == 10) {
-			ReportAchievement ("10Dexes");
-		} else if (count == 25) {
-			ReportAchievement ("25Dexes");
-		} else if (count == 50) {
-			ReportAchievement ("50Dexes");
-		} else if (count == 75) {
-			ReportAchievement ("75Dexes");
-		} else if (count == 100) {
-			ReportAchievement ("100Dexes");
-		} else if (count == 115) {
-			ReportAchievement ("115Dexes");
-		}
+		Social.ReportProgress ("10Dexes", count, (result) => {
+			if (!result) {
+				Debug.Log ("Failed to 10 Dex achievement!");
+			}
+		});
+		Social.ReportProgress ("25Dexes", count, (result) => {
+			if (!result) {
+				Debug.Log ("Failed to 25 Dex achievement!");
+			}
+		});
+		Social.ReportProgress ("50Dexes", count, (result) => {
+			if (!result) {
+				Debug.Log ("Failed to 50 Dex achievement!");
+			}
+		});
+		Social.ReportProgress ("75Dexes", count, (result) => {
+			if (!result) {
+				Debug.Log ("Failed to 75 Dex achievement!");
+			}
+		});
 	}
 
 	public void ShowAchievements() {

@@ -156,11 +156,11 @@ public class NewGame : MonoBehaviour {
 
 	// Initialize interactable scene data for all scenes in game
 	void StartFileSaves() {
-		GameMan.InitializeSceneData ("Hometown", 4, new byte [2] {1, 3}, 0);		// Hometown: 4 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Hometown", 9, new byte [2] {1, 3}, 0);		// Hometown: 4 interactables, 0 trainers
 		GameMan.InitializeSceneData ("Delta Shelter", 9, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 interactables, 0 trainers
-		GameMan.InitializeSceneData ("Onyx St", 5, null, 5);						// Sig Chi Gym: 5 interactables, 5 trainers
-		GameMan.InitializeSceneData ("Chi Town", 2, null, 0);						// Sig Chi Gym: 2 interactables, 5 trainers
-		GameMan.InitializeSceneData ("Sigma Chi", 0, null, 5);						// Sig Chi Gym: 0 interactables, 5 trainers
+		GameMan.InitializeSceneData ("Onyx St", 4, null, 5);						// Onyx St: 5 interactables, 5 trainers
+		GameMan.InitializeSceneData ("Chi Town", 2, null, 0);						// Chi Town: 2 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Sigma Chi", 2, null, 7);						// Sig Chi Gym: 2 interactables, 5 trainers
 		GameMan.InitializeSceneData ("University St", 3, null, 4);					// University St: 3 interactables, 4 trainers
 		GameMan.InitializeSceneData ("Sigston", 5, null, 0);						// Sigston: 2 interactables, 0 trainers
 		GameMan.InitializeSceneData ("Delta Sigma", 0, null, 10);					// Delta Sig Gym: 0 interactables, 10 trainers

@@ -55,14 +55,14 @@ MonoBehaviour:
   moveDescription: You wish it were that simple. 30% crit.
   majorType: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e,
     type: 2}
-  status: {fileID: 21300072, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  status: {fileID: 0}
   movType: 1
   moveIndex: 0
   PP: 30
   PPLeft: 30
   damage: 50
   hitChance: 100
-  statType: 7
+  statType: 0
   buffs: []
-  statusChance: 100
+  statusChance: 0
   critChance: 30
