@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviour {
 			curSceneName = load.sceneName;
 			pork = load.pork;
 			UIManager.scrollSpeed = load.scrollSpeed;
-			PlayerMovement.PlayMov.isMale = load.isMale;
+			PlayerMovement.PlayMov.ChangeGender (load.isMale);
 			PlayerMovement.PlayMov.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
 			MusicManager.Instance.maxVolume = load.musicVolume;
 			MusicManager.Instance.audiosource.volume = load.musicVolume;

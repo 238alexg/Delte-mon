@@ -43,6 +43,7 @@ public class NewGame : MonoBehaviour {
 		GameMan = GameManager.GameMan;
 		backpack = UIMan.MovementUI.transform.GetChild (3).gameObject;
 		backpack.SetActive (false);
+		PlayerMovement.PlayMov.ChangeGender (true);
 	}
 
 	// When new game sequence triggered
@@ -61,9 +62,9 @@ public class NewGame : MonoBehaviour {
 	}
 
 	// Player enters name
-	// LATER: Name validation
 	public void ConfirmNameAndGender (Text playerNameUI) {
 		string playerName = playerNameUI.text;
+
 		// Prohibit empty string
 		if (string.IsNullOrEmpty(playerName)) {
 			playerNameUI.gameObject.transform.GetComponentInParent<Image> ().color = invalidName;
@@ -71,7 +72,7 @@ public class NewGame : MonoBehaviour {
 		}
 		playerName = char.ToUpper(playerName[0]) + playerName.Substring(1);
 		GameManager.GameMan.playerName = playerName;
-		PlayerMovement.PlayMov.isMale = isMale;
+		PlayerMovement.PlayMov.ChangeGender (isMale);
 		NameAndGenderUI.SetActive (false);
 		UIMan.StartNPCMessage("Nice to meet you, " + GameManager.GameMan.playerName + "!", "Professor Cheema");
 

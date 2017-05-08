@@ -151,18 +151,35 @@ public class PlayerMovement : MonoBehaviour {
 				// If player cannot move, set player orientation
 				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
 				playerMovementAnimation.SetInteger ("Move", 0);
+
 				switch (playerFacing) {
 				case Direction.North:
-					playerMovementAnimation.Play ("IdleNorth");
+					if (isMale) {
+						playerMovementAnimation.Play ("IdleNorth");
+					} else {
+						playerMovementAnimation.Play ("IdleNorth 0");
+					}
 					break;
 				case Direction.East:
-					playerMovementAnimation.Play ("IdleEast");
+					if (isMale) {
+						playerMovementAnimation.Play ("IdleEast");
+					} else {
+						playerMovementAnimation.Play ("IdleEast 0");
+					}
 					break;
 				case Direction.South:
-					playerMovementAnimation.Play ("IdleSouth");
+					if (isMale) {
+						playerMovementAnimation.Play ("IdleSouth");
+					} else {
+						playerMovementAnimation.Play ("IdleSouth 0");
+					}
 					break;
 				case Direction.West:
-					playerMovementAnimation.Play ("IdleWest");
+					if (isMale) {
+						playerMovementAnimation.Play ("IdleWest");
+					} else {
+						playerMovementAnimation.Play ("IdleWest 0");
+					}
 					break;
 				}
 				movementQueued = false;
@@ -386,6 +403,10 @@ public class PlayerMovement : MonoBehaviour {
 			isRunning = true;
 			playerMovementAnimation.SetBool ("Run", true);
 		} else {
+			// Do not display message in New Game scene
+			if (GameManager.curSceneName == "New Game") {
+				return;
+			}
 			StopMoving ();
 			UIManager.StartMessage ("You look down at your feet. They are bare.");
 			UIManager.StartMessage ("Should probably try and find some shoes in the Delta Shelter...", null, ()=> ResumeMoving ());
@@ -406,6 +427,11 @@ public class PlayerMovement : MonoBehaviour {
 			maleButton.color = Color.grey;
 		}
 		isMale = male;
+		playerMovementAnimation.SetBool ("isMale", isMale);
+
+		print ("Changing Gender!");
+
+		playerMovementAnimation.Play ("GenderChange");
 	}
 }
 
