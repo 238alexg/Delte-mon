@@ -773,6 +773,25 @@ public class BattleManager : MonoBehaviour {
 		}
 		yield return StartCoroutine (evolMessage (trainerTitle + " used " + item.itemName + " on " + delt.nickname + "!"));
 
+		// If item cures a status
+		if (item.cure != statusType.None) {
+			// If Delt is being cured and didn't need it
+			if (delt.curStatus == item.cure || (item.cure == statusType.All && delt.curStatus != statusType.None)) {
+				if (isPlayer) {
+					playerBattleAnim.SetTrigger ("Cure");
+				} else {
+					oppBattleAnim.SetTrigger ("Cure");
+				}
+				yield return new WaitForSeconds (1);
+
+				StatusChange (true, statusType.None, noStatus);
+
+				yield return StartCoroutine (evolMessage (delt.nickname + " is no longer " + delt.curStatus + "!"));
+			} else if (delt.curStatus != statusType.None) {
+				yield return StartCoroutine (evolMessage (item.itemName + " is not meant to cure " + delt.curStatus + " Delts..."));
+			}
+		}
+
 		// Heal health
 		if (item.statUpgrades [0] > 0) {
 			delt.health += item.statUpgrades [0];
@@ -806,24 +825,7 @@ public class BattleManager : MonoBehaviour {
 			}
 		}
 
-		// If item cures a status
-		if (item.cure != statusType.None) {
-			// If Delt is being cured and didn't need it
-			if (delt.curStatus == item.cure || (item.cure == statusType.All && delt.curStatus != statusType.None)) {
-				if (isPlayer) {
-					playerBattleAnim.SetTrigger ("Cure");
-				} else {
-					oppBattleAnim.SetTrigger ("Cure");
-				}
-				yield return new WaitForSeconds (1);
 
-				StatusChange (true, statusType.None, noStatus);
-
-				yield return StartCoroutine (evolMessage (delt.nickname + " is no longer " + delt.curStatus + "!"));
-			} else if (delt.curStatus != statusType.None) {
-				yield return StartCoroutine (evolMessage (item.itemName + " is not meant to cure " + delt.curStatus + " Delts..."));
-			}
-		}
 	}
 
 	// Player throws a ball at the opposing (hopefully wild) Delt

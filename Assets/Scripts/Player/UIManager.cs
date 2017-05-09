@@ -33,9 +33,9 @@ public class UIManager : MonoBehaviour {
 
 	[Header("Help UI")]
 	public GameObject HelpUI;
-	public Transform helpMenus;
+	public Transform helpMenus, majorTabs;
 	public Text helpUITitle;
-	private int curHelpMenu;
+	private int curHelpMenu, curMajor;
 
 	[Header("Misc")]
 	bool inMessage;
@@ -259,6 +259,8 @@ public class UIManager : MonoBehaviour {
 	public void OpenHelpMenu() {
 		HelpUI.SetActive (true);
 		HelpUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+		curHelpMenu = -1;
+		curMajor = -1;
 	}
 
 	// User clicks on a Menu
@@ -266,6 +268,13 @@ public class UIManager : MonoBehaviour {
 
 		// Remove last menu
 		if (curHelpMenu != -1) {
+
+			// If on the major menu, make current open 
+			if ((curHelpMenu == 3) && (curMajor != -1)) {
+				majorTabs.GetChild (curMajor).gameObject.SetActive (false);
+			}
+
+			HelpUI.transform.GetChild (3).GetChild (1).GetComponent <Scrollbar>().value = 1;
 			helpMenus.GetChild (curHelpMenu).gameObject.SetActive (false);
 		}
 
@@ -277,8 +286,23 @@ public class UIManager : MonoBehaviour {
 		helpMenu.SetActive (true);
 	}
 
+	// Open Major Effectiveness Tab
+	public void MajorButtonClick(int i) {
+
+		// Remove last major menu
+		if (curMajor != -1) {
+			majorTabs.GetChild (curMajor).gameObject.SetActive (false);
+		}
+		majorTabs.GetChild (i + 1).gameObject.SetActive (true);
+		curMajor = i + 1;
+	}
+
 	// Close Help Menu
 	public void CloseHelpMenu() {
+
+		// Reset Help Info to top of scrollable area
+		HelpUI.transform.GetChild (3).GetChild (1).GetComponent <Scrollbar>().value = 1;
+
 		// Remove last open help menu
 		if (curHelpMenu != -1) {
 			helpMenus.GetChild (curHelpMenu).gameObject.SetActive (false);
@@ -659,8 +683,6 @@ public class UIManager : MonoBehaviour {
 			activeDelt.health = activeDelt.GPA;
 		}
 
-		print (activeDelt.nickname + " has the health " + activeDelt.health);
-
 		// If was a full heal, increment faster
 		if (activeDelt.health == activeDelt.GPA) {
 			increment = heal / 30;
@@ -670,8 +692,6 @@ public class UIManager : MonoBehaviour {
 
 		// Animate health decrease
 		while (healthBar.value < activeDelt.health) {
-
-			print ("doing stuff");
 
 			healthBar.value += increment;
 

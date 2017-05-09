@@ -54,7 +54,7 @@ MonoBehaviour:
   majorName: Economics
   majorElement: Flying
   majorImage: {fileID: 21300036, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
-  background: {r: 0.5329801, g: 0.63388914, b: 0.6838235, a: 1}
+  background: {r: 0.63529414, g: 0.7411765, b: 0.7882353, a: 1}
   veryEffective:
   - {fileID: 114394108228007282, guid: 5b660c6f965c841d9bf09166a00d41b6, type: 2}
   - {fileID: 114582865463298880, guid: f68a4243c40204ce8a0b0fb810e1fcda, type: 2}
