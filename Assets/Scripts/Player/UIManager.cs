@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour {
 		currentUI = UIMode.World;
 		SEM = SoundEffectManager.SEM;
 
-		// Set all UI except Movement as inactive
+		// Set All UI except Movement as inactive
 		MessageUI.gameObject.SetActive (false);
 		BattleUI.gameObject.SetActive (false);
 		BagMenuUI.gameObject.SetActive (false);
@@ -290,7 +290,7 @@ public class UIManager : MonoBehaviour {
 	}
 
 
-	// A closing animation for all animating UI's, sets current UI
+	// A closing animation for All animating UI's, sets current UI
 	public IEnumerator AnimateUIClose(GameObject UI) {
 		UI.GetComponent <Animator>().SetTrigger ("SlideOut");
 		yield return new WaitForSeconds (0.5f);
@@ -318,7 +318,7 @@ public class UIManager : MonoBehaviour {
 		}
 	}
 
-	// Animates opening of DeltDex and populates list with all entries
+	// Animates opening of DeltDex and populates list with All entries
 	public void OpenDeltdex () {
 		currentUI = UIMode.DeltDex;
 		if (!allDexesLoaded) { 
@@ -487,7 +487,7 @@ public class UIManager : MonoBehaviour {
 		StartCoroutine(AnimateUIClose (DeltDexUI));
 	}
 
-	// Animates opening up items and populates list with all item entries
+	// Animates opening up items and populates list with All item entries
 	public void OpenItems() {
 
 		// Remove move overviews if are up
@@ -528,7 +528,7 @@ public class UIManager : MonoBehaviour {
 			if (item.itemT == itemType.Usable || item.itemT == itemType.Ball) {
 				activeItem = item;
 
-				if (activeDelt != null) {
+				if ((activeDelt != null) || (item.itemT == itemType.Ball)) {
 					UseItem ();
 				} else {
 					OpenDeltemon ();
@@ -538,11 +538,20 @@ public class UIManager : MonoBehaviour {
 			}
 		} else {
 			activeItem = item;
-			// If item has to be to a Delt
-			if ((activeDelt == null) && ((item.itemT == itemType.Usable) || (item.itemT == itemType.Holdable) || (item.itemT == itemType.MegaEvolve) || (item.itemT == itemType.Move))) {
-				OpenDeltemon ();
-			} else {
+
+			if ((item.itemT == itemType.Usable) || (item.itemT == itemType.Holdable)
+			    || (item.itemT == itemType.MegaEvolve) || (item.itemT == itemType.Move)) {
+
+				// If item has to be to a Delt
+				if (activeDelt == null) {
+					OpenDeltemon ();
+				} else {
+					UseItem ();
+				}
+			} else if (item.itemT == itemType.Repel) {
 				UseItem ();
+			} else {
+				StartMessage (activeItem.itemName + " cannot be given to Delts!");
 			}
 		}
 	}
@@ -555,12 +564,39 @@ public class UIManager : MonoBehaviour {
 		StartCoroutine(AnimateUIClose (ItemsUI));
 
 		if (inBattle) {
-			if (activeDelt == battleManager.curPlayerDelt) {
+			if ((activeDelt == battleManager.curPlayerDelt) || (activeItem.itemT == itemType.Ball)) {
+				StartCoroutine(AnimateUIClose (DeltemonUI));
 				battleManager.ChooseItem (true, activeItem);
 			} 
-			// LATER: Do animation in Deltemon UI and skip player turn
+			// Do animation in Deltemon UI and skip player turn
 			else {
+				StartMessage ("Gave " + activeItem.itemName + " to " + activeDelt.nickname + "!");
 
+				// Check for status improvements
+				if (activeDelt.curStatus != statusType.None) {
+
+					// Cure Delt status
+					if ((activeItem.cure == activeDelt.curStatus) || 
+						((activeItem.cure == statusType.All) && (activeDelt.curStatus != statusType.DA))) {
+						activeDelt.curStatus = statusType.None;
+						activeDelt.statusImage = noStatus;
+						DeltemonUI.transform.GetChild (overviewDeltIndex + 1).GetChild (3).GetComponent<Image> ().sprite = noStatus;
+					} else if (activeItem.statUpgrades[0] == 0)  {
+						StartMessage ("This item accomplished nothing!");
+					}
+				}
+
+				if (activeItem.statUpgrades [0] > 0) {
+
+					if (activeDelt.health == activeDelt.GPA) {
+						StartMessage (activeDelt.nickname + "'s GPA is already full!");
+					} else {
+						activeDelt.health += activeItem.statUpgrades [0];
+
+						StartMessage (null, healDeltemon ());
+					}
+				}
+				StartMessage (null, AnimateUIClose (DeltemonUI), ()=> battleManager.ChooseItem (true, activeItem, false));
 			}
 		} else {
 			if ((activeItem.itemT == itemType.Holdable) || (activeItem.itemT == itemType.MegaEvolve)) {
@@ -579,9 +615,9 @@ public class UIManager : MonoBehaviour {
 				StartMessage ("Gave " + activeItem.itemName + " to " + activeDelt.nickname + "!");
 
 				// If item's cure was useless
-				if ((activeDelt.curStatus != statusType.none) && 
-					(activeItem.cure != statusType.none) &&
-					((activeItem.cure != activeDelt.curStatus) || (activeItem.cure != statusType.all))) {
+				if ((activeDelt.curStatus != statusType.None) && 
+					(activeItem.cure != statusType.None) &&
+					((activeItem.cure != activeDelt.curStatus) || (activeItem.cure != statusType.All))) {
 					StartMessage (activeDelt.nickname + " consumed the " + activeItem.itemName + ", but still has the status " + activeDelt.curStatus);
 				}
 
@@ -594,7 +630,7 @@ public class UIManager : MonoBehaviour {
 			} else if (activeItem.itemT == itemType.Repel) {
 				OpenCloseBackpack ();
 				if (gameManager.pork) {
-					StartMessage ("POOOORRRRK! POOOORK ALL OVER MY BOOODYYY!");
+					StartMessage ("POOOORRRRK! POOOORK All OVER MY BOOODYYY!");
 					StartMessage ("You feel like you'll be just porkin' fine for " + activeItem.statUpgrades [0] + " steporks.");
 				} else {
 					StartMessage ("You smeared " + activeItem.itemName + " on yourself to ward off Delts!");
@@ -603,8 +639,53 @@ public class UIManager : MonoBehaviour {
 				PlayerMovement.PlayMov.repelStepsLeft += activeItem.statUpgrades [0];
 			}
 		}
-		activeDelt = null;
-		activeItem = null;
+		StartMessage (null, null, () => activeDelt = null);
+		StartMessage (null, null, () => activeItem = null);
+	}
+
+	// Heal a Deltemon while in the Deltemon UI (with use of a restorative item)
+	public IEnumerator healDeltemon() {
+		Slider healthBar = DeltemonUI.transform.GetChild (overviewDeltIndex + 1).GetChild (6).GetComponent<Slider> ();
+		Image healthBarFill = healthBar.transform.GetChild (1).GetChild (0).GetComponent <Image> ();
+		float increment;
+		float heal = activeDelt.health - healthBar.value;
+
+		if (activeDelt.health > activeDelt.GPA) {
+			activeDelt.health = activeDelt.GPA;
+		}
+
+		print (activeDelt.nickname + " has the health " + activeDelt.health);
+
+		// If was a full heal, increment faster
+		if (activeDelt.health == activeDelt.GPA) {
+			increment = heal / 30;
+		} else {
+			increment = heal / 50;
+		}
+
+		// Animate health decrease
+		while (healthBar.value < activeDelt.health) {
+
+			print ("doing stuff");
+
+			healthBar.value += increment;
+
+			// Set colors for lower health
+			if ((healthBar.value >= (activeDelt.GPA * 0.5f)) && (healthBarFill.color != battleManager.fullHealth)) {
+				healthBarFill.color = battleManager.fullHealth;
+			} else if ((healthBar.value >= (activeDelt.GPA * 0.25f)) && (healthBarFill.color != battleManager.halfHealth)) {
+				healthBarFill.color = battleManager.halfHealth;
+			}
+
+			// Animation delay
+			yield return new WaitForSeconds (0.01f);
+
+			// So animation doesn't take infinite time
+			if (healthBar.value > activeDelt.health) {
+				healthBar.value = activeDelt.health;
+			}
+			yield return null;
+		}
 	}
 
 	// Close items
@@ -683,6 +764,7 @@ public class UIManager : MonoBehaviour {
 		DeltemonUI.GetComponent <Animator>().SetTrigger ("SlideIn");
 	}
 
+	// User clicks Swap Item
 	public void RemoveDeltItemButtonPress() {
 		DeltemonClass overviewDelt = gameManager.deltPosse [overviewDeltIndex];
 		ItemClass removedItem = overviewDelt.item;
@@ -735,7 +817,7 @@ public class UIManager : MonoBehaviour {
 			// Switch into battle
 			if (inBattle) {
 				activeDelt = gameManager.deltPosse [overviewDeltIndex];
-				if (activeDelt.curStatus == statusType.da) {
+				if (activeDelt.curStatus == statusType.DA) {
 					StartMessage (activeDelt.nickname + " has already DA'd!");
 				} else if (activeDelt == battleManager.curPlayerDelt) {
 					StartMessage (activeDelt.nickname + " is already in battle!");
@@ -792,7 +874,7 @@ public class UIManager : MonoBehaviour {
 			health.transform.GetChild (1).GetChild (0).GetComponent<Image> ().color = battleManager.fullHealth;
 		}
 		// Add status sprite to the info box
-		if (delt.curStatus != statusType.none) {
+		if (delt.curStatus != statusType.None) {
 			statCube.GetChild (3).GetComponent<Image> ().sprite = delt.statusImage;
 		} else {
 			statCube.GetChild (3).GetComponent<Image> ().sprite = noStatus;
@@ -870,7 +952,7 @@ public class UIManager : MonoBehaviour {
 			expBar.value = delt.experience;
 
 			MoveClass tmpMove;
-			// Set color and text of all Delt moves
+			// Set color and text of All Delt moves
 			for (int index = 0; index < 4; index++) {
 				if (index < delt.moveset.Count) {
 					tmpMove = delt.moveset [index];
@@ -936,7 +1018,7 @@ public class UIManager : MonoBehaviour {
 		MoveOverview.GetComponent <Image>().color = move.majorType.background;
 		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
 
-		if (move.statType != statusType.none) {
+		if (move.statType != statusType.None) {
 			MoveOverview.GetChild (1).gameObject.SetActive (true);
 			MoveOverview.GetChild (1).GetComponent <Image> ().sprite = move.status;
 		} else {
@@ -944,10 +1026,11 @@ public class UIManager : MonoBehaviour {
 		}
 
 		MoveOverview.GetChild (2).GetComponent <Text>().text = move.moveName;
-		MoveOverview.GetChild (3).GetComponent <Text>().text = move.moveDescription;
+		MoveOverview.GetChild (3).GetComponent <Text>().text = "" + move.movType;
+		MoveOverview.GetChild (4).GetComponent <Text>().text = move.moveDescription;
 
-		MoveOverview.GetChild (4).GetComponent <Text>().text = move.movType + System.Environment.NewLine + move.PP + System.Environment.NewLine +
-			move.damage + System.Environment.NewLine + move.hitChance + System.Environment.NewLine + move.statType;
+		MoveOverview.GetChild (5).GetComponent <Text>().text = move.PP + System.Environment.NewLine + move.damage + System.Environment.NewLine +
+			move.hitChance + System.Environment.NewLine + move.statType + System.Environment.NewLine + move.statusChance;
 
 		MoveOverview.gameObject.SetActive (true);
 	}

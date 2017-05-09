@@ -10222,6 +10222,9 @@ MonoBehaviour:
   prevEvol: {fileID: 0}
   nextEvol: {fileID: 0}
   rarityColor: []
+  HelpUI: {fileID: 0}
+  helpMenus: {fileID: 0}
+  helpUITitle: {fileID: 0}
   animateMessage: 1
   messageOver: 0
   endMessage: 0
@@ -10251,6 +10254,7 @@ MonoBehaviour:
   NPCName: {fileID: 0}
   itemColors: []
   NPCSlideIn: {fileID: 0}
+  secondMoveLoaded: 0
 --- !u!224 &194801815
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13540,6 +13544,9 @@ MonoBehaviour:
   prevEvol: {fileID: 0}
   nextEvol: {fileID: 0}
   rarityColor: []
+  HelpUI: {fileID: 0}
+  helpMenus: {fileID: 0}
+  helpUITitle: {fileID: 0}
   animateMessage: 1
   messageOver: 0
   endMessage: 0
@@ -13569,6 +13576,7 @@ MonoBehaviour:
   NPCName: {fileID: 0}
   itemColors: []
   NPCSlideIn: {fileID: 0}
+  secondMoveLoaded: 0
 --- !u!1 &257957156
 GameObject:
   m_ObjectHideFlags: 0
@@ -22783,6 +22791,7 @@ MonoBehaviour:
   MoveMenu: {fileID: 1335288923}
   LevelUpUI: {fileID: 0}
   EvolveUI: {fileID: 0}
+  NewMoveUI: {fileID: 0}
   fullHealth: {r: 0, g: 0.9607844, b: 0.003921569, a: 1}
   halfHealth: {r: 0.966, g: 0.966, b: 0, a: 1}
   quarterHealth: {r: 1, g: 0, b: 0, a: 1}
@@ -41905,7 +41914,7 @@ GameObject:
   - component: {fileID: 675978680}
   - component: {fileID: 675978679}
   - component: {fileID: 675978678}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Window_North (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60753,6 +60762,7 @@ MonoBehaviour:
   isMoving: 0
   isRunning: 0
   isMale: 0
+  hasDormkicks: 0
   repelStepsLeft: 0
   maleButton: {fileID: 0}
   femaleButton: {fileID: 0}
@@ -72008,6 +72018,9 @@ MonoBehaviour:
   prevEvol: {fileID: 0}
   nextEvol: {fileID: 0}
   rarityColor: []
+  HelpUI: {fileID: 0}
+  helpMenus: {fileID: 0}
+  helpUITitle: {fileID: 0}
   animateMessage: 1
   messageOver: 0
   endMessage: 0
@@ -72037,6 +72050,7 @@ MonoBehaviour:
   NPCName: {fileID: 0}
   itemColors: []
   NPCSlideIn: {fileID: 0}
+  secondMoveLoaded: 0
 --- !u!1 &1086802025
 GameObject:
   m_ObjectHideFlags: 0
@@ -97264,7 +97278,8 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You search the shelf...
-  items: []
+  items:
+  - {fileID: 114561950686099566, guid: 8cdd102332c5a4bc0b6085b1060f7a5a, type: 2}
   coins: 0
   nextTile: {fileID: 0}
   index: 0
@@ -110796,12 +110811,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 1
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - Looks like the minutes from exec...
-  - '"Cantu sneezed"'
-  - Come on, Brady.
+  - '"Jurban sneezed"'
+  - Come on, Jeff.
   items: []
   coins: 0
   nextTile: {fileID: 0}

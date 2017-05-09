@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1992189074963000}
+  m_IsPrefabParent: 1
+--- !u!1 &1992189074963000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4996237289209134}
+  - component: {fileID: 114196521584538534}
+  m_Layer: 0
+  m_Name: PuffPuffPeterDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4996237289209134
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1992189074963000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 303.9461, y: 124.08055, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114196521584538534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1992189074963000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: PuffPuffPeter
+  deltName: Peter Anderson
+  description: They say if you walk through a PuffPuffPeter your eyes become more
+    red than Mars.
+  frontImage: {fileID: 21300216, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300218, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1416
+  major1: {fileID: 114360536651164410, guid: 57dd3f09a0e0044cfbbc87e6881029e4, type: 2}
+  major2: {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
+  BVs: 327b5d9b8032
+  prevEvol: {fileID: 114428882739891702, guid: 9245dfbe68f9641f4b93b83cd50e760c, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 30
+    move: {fileID: 114809333504901932, guid: fcef5cac27ff94aa7b8cddc00a04ef42, type: 2}
+  - level: 33
+    move: {fileID: 114787738934433074, guid: c48cf3411c71a4ddcba248d0690dd3de, type: 2}
+  - level: 36
+    move: {fileID: 114704783362855572, guid: 16dd34486de904894a8518bf9a6a6f48, type: 2}
+  - level: 39
+    move: {fileID: 114018348460194154, guid: 2e51b28731f4340d2a09c944d3a65f63, type: 2}
+  - level: 42
+    move: {fileID: 114917123655856142, guid: 23f9a0e51b472427885937eb1ffd2b28, type: 2}
+  - level: 45
+    move: {fileID: 114540779874980758, guid: 0a8c44de5fd4742969671be326a16153, type: 2}
+  - level: 48
+    move: {fileID: 114463656432427076, guid: cec7cc507c6f944b38620b7fcd581dca, type: 2}
+  - level: 51
+    move: {fileID: 114092777487467538, guid: 1b06c22aa72df45fab3e0092645c2900, type: 2}
+  - level: 53
+    move: {fileID: 114855920050208846, guid: 3e5ae3a0db96e41e4a7247a3b7bcfb04, type: 2}
+  rarity: 3
+  AVIndex: 3
+  AVAwardAmount: 4

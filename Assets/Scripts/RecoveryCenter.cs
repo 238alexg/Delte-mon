@@ -400,7 +400,7 @@ public class RecoveryCenter: MonoBehaviour {
 		MoveOverview.GetComponent <Image>().color = move.majorType.background;
 		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
 
-		if (move.statType != statusType.none) {
+		if (move.statType != statusType.None) {
 			MoveOverview.GetChild (1).gameObject.SetActive (true);
 			MoveOverview.GetChild (1).GetComponent <Image> ().sprite = move.status;
 		} else {
@@ -535,7 +535,7 @@ public class RecoveryCenter: MonoBehaviour {
 			UIMan.StartNPCMessage ("I think I've got something for that...","Nurse Valleck");
 			foreach (DeltemonClass delt in GameMan.deltPosse) {
 				delt.health = delt.GPA;
-				delt.curStatus = statusType.none;
+				delt.curStatus = statusType.None;
 				delt.statusImage = UIMan.noStatus;
 				foreach (MoveClass move in delt.moveset) {
 					move.PPLeft = move.PP;

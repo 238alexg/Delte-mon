@@ -312,28 +312,28 @@ public class GameManager : MonoBehaviour {
 
 		// Return status image
 		switch (tmpDelt.curStatus) {
-		case statusType.da:
+		case statusType.DA:
 			tmpDelt.statusImage = statuses [0];
 			break;
-		case statusType.roasted:
+		case statusType.Roasted:
 			tmpDelt.statusImage = statuses [1];
 			break;
-		case statusType.suspended:
+		case statusType.Suspended:
 			tmpDelt.statusImage = statuses [2];
 			break;
-		case statusType.high:
+		case statusType.High:
 			tmpDelt.statusImage = statuses [3];
 			break;
-		case statusType.drunk:
+		case statusType.Drunk:
 			tmpDelt.statusImage = statuses [4];
 			break;
-		case statusType.asleep:
+		case statusType.Asleep:
 			tmpDelt.statusImage = statuses [5];
 			break;
-		case statusType.plagued:
+		case statusType.Plagued:
 			tmpDelt.statusImage = statuses [6];
 			break;
-		case statusType.indebted:
+		case statusType.Indebted:
 			tmpDelt.statusImage = statuses [7];
 			break;
 		default:

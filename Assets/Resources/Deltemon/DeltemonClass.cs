@@ -103,7 +103,7 @@ public class DeltemonClass : MonoBehaviour {
 	public void initializeDelt(bool setMoves = true) {
 		int levels = 0;
 		nickname = deltdex.nickname;
-		curStatus = statusType.none;
+		curStatus = statusType.None;
 		experience = 0;
 		AVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
 		AVCount = 0;

@@ -42,6 +42,5 @@ public enum itemType {
 	Quest,
 	MegaEvolve,
 	Repel,
-	Badge,
-	Repellant
+	Badge
 }

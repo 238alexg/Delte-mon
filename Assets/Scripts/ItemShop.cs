@@ -59,7 +59,7 @@ public class ItemShop : MonoBehaviour {
 
 	// Custom sort function for House Delts. Prior 1 = level, prior 2 = alphabetical name
 	public void SortItems() {
-		List<itemType> priorityFilter = new List<itemType> {itemType.Ball, itemType.Usable, itemType.Repellant, 
+		List<itemType> priorityFilter = new List<itemType> {itemType.Ball, itemType.Usable, itemType.Repel, 
 			itemType.Holdable, itemType.MegaEvolve, itemType.Quest, itemType.Move, itemType.Badge};
 		itemsForSale.Sort(delegate(SellableItem itemA, SellableItem itemB) {
 			int indexA = priorityFilter.IndexOf (itemA.item.itemT);
@@ -172,7 +172,7 @@ public class ItemShop : MonoBehaviour {
 				case itemType.Usable:
 					li.GetComponent <Image> ().color = UIMan.itemColors [1];
 					break;
-				case itemType.Repellant:
+				case itemType.Repel:
 					li.GetComponent <Image> ().color = UIMan.itemColors [2];
 					break;
 				case itemType.Holdable:
