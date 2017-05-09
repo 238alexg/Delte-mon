@@ -570,32 +570,8 @@ public class UIManager : MonoBehaviour {
 			} 
 			// Do animation in Deltemon UI and skip player turn
 			else {
-				StartMessage ("Gave " + activeItem.itemName + " to " + activeDelt.nickname + "!");
-
-				// Check for status improvements
-				if (activeDelt.curStatus != statusType.None) {
-
-					// Cure Delt status
-					if ((activeItem.cure == activeDelt.curStatus) || 
-						((activeItem.cure == statusType.All) && (activeDelt.curStatus != statusType.DA))) {
-						activeDelt.curStatus = statusType.None;
-						activeDelt.statusImage = noStatus;
-						DeltemonUI.transform.GetChild (overviewDeltIndex + 1).GetChild (3).GetComponent<Image> ().sprite = noStatus;
-					} else if (activeItem.statUpgrades[0] == 0)  {
-						StartMessage ("This item accomplished nothing!");
-					}
-				}
-
-				if (activeItem.statUpgrades [0] > 0) {
-
-					if (activeDelt.health == activeDelt.GPA) {
-						StartMessage (activeDelt.nickname + "'s GPA is already full!");
-					} else {
-						activeDelt.health += activeItem.statUpgrades [0];
-
-						StartMessage (null, healDeltemon ());
-					}
-				}
+				
+				DeltemonItemOutcome ();
 				StartMessage (null, AnimateUIClose (DeltemonUI), ()=> battleManager.ChooseItem (true, activeItem, false));
 			}
 		} else {
@@ -611,22 +587,10 @@ public class UIManager : MonoBehaviour {
 					DeltemonUI.transform.GetChild (overviewDeltIndex + 1).GetChild (4).GetComponent<Image> ().sprite = activeItem.itemImage;
 				}
 			} else if (activeItem.itemT == itemType.Usable) {
-				StartMessage (null, null, () => OpenDeltemon ());
-				StartMessage ("Gave " + activeItem.itemName + " to " + activeDelt.nickname + "!");
-
-				// If item's cure was useless
-				if ((activeDelt.curStatus != statusType.None) && 
-					(activeItem.cure != statusType.None) &&
-					((activeItem.cure != activeDelt.curStatus) || (activeItem.cure != statusType.All))) {
-					StartMessage (activeDelt.nickname + " consumed the " + activeItem.itemName + ", but still has the status " + activeDelt.curStatus);
+				if (!DeltemonUI.activeInHierarchy) {
+					OpenDeltemon ();
 				}
-
-				// If item's GPA boost was useless
-				if ((activeItem.statUpgrades [0] > 0) && (activeDelt.health == activeDelt.GPA)) {
-					StartMessage (activeDelt.nickname + " consumed the " + activeItem.itemName + ", but his GPA was maxed out already!");
-				}
-
-				// LATER: Animate status removal, heal
+				DeltemonItemOutcome ();
 			} else if (activeItem.itemT == itemType.Repel) {
 				OpenCloseBackpack ();
 				if (gameManager.pork) {
@@ -643,8 +607,49 @@ public class UIManager : MonoBehaviour {
 		StartMessage (null, null, () => activeItem = null);
 	}
 
+	// Applies all affects of items given to Delts in the Deltemon UI
+	void DeltemonItemOutcome() {
+		StartMessage ("Gave " + activeItem.itemName + " to " + activeDelt.nickname + "!");
+
+		// Check for status improvements
+		if (activeDelt.curStatus != statusType.None) {
+
+			// Cure Delt status, occurs if:
+			// 1) Item cure is the same as Delt's ailment
+			// 2) Item cures any ailment (but only DA status if the item ALSO heals GPA)
+			if ((activeItem.cure == activeDelt.curStatus) || 
+				((activeItem.cure == statusType.All) && (activeDelt.curStatus != statusType.DA)) ||
+				((activeItem.cure == statusType.All) && (activeItem.statUpgrades[0] > 0))
+			) {
+				activeDelt.curStatus = statusType.None;
+				activeDelt.statusImage = noStatus;
+				DeltemonUI.transform.GetChild (overviewDeltIndex + 1).GetChild (3).GetComponent<Image> ().sprite = noStatus;
+			} 
+			// If item doesn't heal and doesn't cure Delt's status, it is ineffective
+			else if (activeItem.statUpgrades[0] == 0)  {
+				StartMessage ("This item accomplished nothing!");
+			}
+		}
+
+		// If the item heals GPA
+		if (activeItem.statUpgrades [0] > 0) {
+
+			// If the Delt's health is already full
+			if (activeDelt.health == activeDelt.GPA) {
+				StartMessage (activeDelt.nickname + "'s GPA is already full!");
+			} 
+			// Animate healing the Delt in the Deltemon UI
+			else {
+				activeDelt.health += activeItem.statUpgrades [0];
+				StartMessage (null, healDeltemon ());
+			}
+		}
+	}
+
 	// Heal a Deltemon while in the Deltemon UI (with use of a restorative item)
 	public IEnumerator healDeltemon() {
+		DeltOverviewUI.SetActive (false);
+
 		Slider healthBar = DeltemonUI.transform.GetChild (overviewDeltIndex + 1).GetChild (6).GetComponent<Slider> ();
 		Image healthBarFill = healthBar.transform.GetChild (1).GetChild (0).GetComponent <Image> ();
 		float increment;
@@ -686,6 +691,8 @@ public class UIManager : MonoBehaviour {
 			}
 			yield return null;
 		}
+
+		overviewDeltIndex = -1;
 	}
 
 	// Close items
