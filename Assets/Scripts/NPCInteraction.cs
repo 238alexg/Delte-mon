@@ -100,6 +100,8 @@ public class NPCInteraction : MonoBehaviour {
 				GameManager.GameMan.SaveSceneData (sid);
 			}
 
+
+
 			// Note: Should never use Find* commands, but this only happens once per gym battle (pretty safe)
 			GameObject exitDoor = GameObject.FindGameObjectWithTag ("Finish");
 			exitDoor.GetComponent <DoorAction> ().ActivateDoor ();

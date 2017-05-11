@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -30,6 +31,10 @@ public class GameManager : MonoBehaviour {
 	[Header("Other")]
 	public GameObject emptyDelt;
 	public bool deleteSave;
+
+	string[] mapNames = {"Hometown", "DA Graveyard", "Sigston", "ChiTown", 
+		"Hayward Field", "Atlambdis","Israel", "Las Saegas", "UOregon", "ChiPsi", 
+		"Sig Ep", "Beta", "The Hub", "Autzen", "Shasta"};
 
 	public static GameManager GameMan { get; private set; }
 
@@ -71,6 +76,7 @@ public class GameManager : MonoBehaviour {
 			UIManager.SwitchLocationAndScene (-5, 0, "New Game");
 		}
 	}
+
 
 	// Returns the Recov Location info for the last town visited
 	public TownRecoveryLocation FindTownRecov() {
@@ -554,14 +560,6 @@ public class GameManager : MonoBehaviour {
 		SaveSceneData(sceneDataInit);
 	}
 
-
-	void DeleteAllSceneData() {
-		string[] sceneNames = { "Hometown", "Delta Shelter"};
-		foreach (string sceneName in sceneNames) {
-			File.Delete (Application.persistentDataPath + "/scene_" + sceneName + ".dat");
-		}
-	}
-
 	// Update active game quests/effects when scene changes
 	void activeSceneChanged(Scene past, Scene present) {
 		QuestManager.QuestMan.sceneName = present.name;
@@ -569,6 +567,14 @@ public class GameManager : MonoBehaviour {
 			UpdateSceneData (present.name);
 		}
 		curSceneName = present.name;
+
+		// Discover town if not already discovered
+		for (byte i = 0; i < mapNames.Length; i++) {
+			if (mapNames [i] == present.name) {
+				discoveredTowns [i] = true;
+				return;
+			}
+		}
 	}
 }
 

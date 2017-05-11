@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GymManager : MonoBehaviour {
 
-	public GameObject trainers;	
+	public GameObject trainers;
 
 	// Checks to see if all trainers have been defeated yet. If not, all become active.
 	// This way player must always defeat (and redefeat if they fail) all trainers before getting to the gym leader.
@@ -12,8 +12,8 @@ public class GymManager : MonoBehaviour {
 		bool gymDefeated = true;
 		bool[] sceneTrainerData = GameManager.GameMan.curSceneData.trainers;
 		for (int i = 0; i < sceneTrainerData.Length; i++) {
-			// If a single trainer remains undefeated (including gym leader), gym is undefeated
-			if (!sceneTrainerData [i]) {
+			// If gym leader remains undefeated, gym is undefeated
+			if (!sceneTrainerData [i] && trainers.transform.GetChild (i).GetComponent <NPCInteraction>().isGymLeader) {
 				gymDefeated = false;
 				break;
 			}

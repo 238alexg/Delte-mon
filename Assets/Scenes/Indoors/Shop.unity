@@ -453,12 +453,15 @@ MonoBehaviour:
   messages:
   - The shelf holds many small trinkets
   - Many of them are green.
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &41146564
 GameObject:
@@ -3350,8 +3353,8 @@ Transform:
   - {fileID: 1355183533}
   - {fileID: 1042521556}
   - {fileID: 766567162}
-  - {fileID: 2136921340}
   - {fileID: 1970751739}
+  - {fileID: 2136921340}
   - {fileID: 1806221570}
   - {fileID: 2045992711}
   - {fileID: 1153665943}
@@ -5945,12 +5948,15 @@ MonoBehaviour:
   messages:
   - Oh, neat!
   - Hand warmers!
-  item: {fileID: 0}
+  items: []
+  coins: 0
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
   needsItem: 0
   numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
   questCompletionMessages: []
 --- !u!1 &1489799566
 GameObject:
@@ -7979,7 +7985,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 863412063}
-  m_RootOrder: 41
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1970751740
 SpriteRenderer:
@@ -8079,9 +8085,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -801, y: -0.9998169}
+  m_AnchoredPosition: {x: -538, y: -0.9998169}
   m_SizeDelta: {x: -526, y: 0}
-  m_Pivot: {x: 1, y: 0.00000001520732}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!95 &1989592468
 Animator:
   serializedVersion: 3
