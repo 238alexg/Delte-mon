@@ -175,7 +175,7 @@ public class BattleManager : MonoBehaviour {
 		DeltHasSwitched = false;
 
 		// Choose Opponent Move
-		if (curOppDelt.ownedByTrainer) {
+		if (trainer != null) {
 			ChooseTrainerAction ();
 		} else {
 			ChooseWildMove ();
@@ -578,7 +578,7 @@ public class BattleManager : MonoBehaviour {
 
 	// Player tries to run away
 	public void Run() {
-		if (curOppDelt.ownedByTrainer) {
+		if (trainer != null) {
 			UIManager.StartMessage ("The other trainer looks as you as you prepare to run...");
 			UIManager.StartMessage ("WHADDOYOUDO!?", null, ()=>TurnStart());
 		} else {
@@ -633,7 +633,7 @@ public class BattleManager : MonoBehaviour {
 			spriteAnim.SetTrigger ("SlideOut");
 			yield return new WaitForSeconds (1);
 		} else if (!isPlayer && (curOppDelt != null)) {
-			UIManager.StartMessage (switchIn.nickname + " has been switched in for " + switchOut.nickname, null, null, true);
+			yield return StartCoroutine(evolMessage(switchIn.nickname + " has been switched in for " + switchOut.nickname));
 			spriteAnim.SetTrigger ("SlideOut");
 			yield return new WaitForSeconds (1);
 		} 
@@ -645,6 +645,9 @@ public class BattleManager : MonoBehaviour {
 			curOppDelt = switchIn;
 		}
 
+		// Clear the temporary stats of the Delt
+		ClearStats (isPlayer);
+
 		// Switch out UI name, health bar, and status
 		name.text = (switchIn.nickname + "   lvl. " + switchIn.level);
 		health.maxValue = switchIn.GPA;
@@ -653,7 +656,7 @@ public class BattleManager : MonoBehaviour {
 		// Set player/opp specific info
 		if (isPlayer) {
 			if (gameManager.pork) {
-				healthText.text = ((int)curPlayerDelt.health + "/ PORK");
+				healthText.text = ((int)curPlayerDelt.health + "/PORK");
 			} else {
 				healthText.text = ((int)curPlayerDelt.health + "/" + (int)curPlayerDelt.GPA);
 			}
@@ -694,17 +697,46 @@ public class BattleManager : MonoBehaviour {
 		// Wait for animation to finish
 		yield return new WaitForSeconds (1);
 
-		if (isPlayer && (switchOut != null)) {
-			UIManager.StartMessage (switchIn.nickname + " has been switched in for " + switchOut.nickname, null, null, true);
-		} else if (!isPlayer && (switchOut != null)) {
-			UIManager.StartMessage (switchIn.nickname + " has been switched in for " + switchOut.nickname, null, null, true);
+		if (isPlayer) {
+			// If it is not the first turn's slide in animation
+			if (switchOut != null) {
+				yield return StartCoroutine(evolMessage(switchIn.nickname + " has been switched in for " + switchOut.nickname));
+			}
+
+		} else {
+			if (!isPlayer && (switchOut != null)) {
+				UIManager.StartMessage (switchIn.nickname + " has been switched in for " + switchOut.nickname, null, null, true);
+			}
+		}
+
+		// Add stat upgrades for Delt's item
+		if (switchIn.item != null) {
+			for (int i = 1; i < 6; i++) {
+				if (switchIn.item.statUpgrades [i] > 0) {
+					string stat = "ChillToPull";
+					if (i == 1) {
+						stat = "Truth";
+					} else if (i == 2) {
+						stat = "Courage";
+					} else if (i == 3) {
+						stat = "Faith";
+					} else if (i == 4) {
+						stat = "Power";
+					}
+					if (isPlayer) {
+						playerBattleAnim.SetTrigger ("Buff");
+					} else {
+						oppBattleAnim.SetTrigger ("Buff");
+					}
+					yield return new WaitForSeconds (1);
+
+					yield return StartCoroutine(evolMessage(switchIn.nickname + "'s " + switchIn.item.itemName + " raised it's " + stat + " stat!"));
+				}
+			}
 		}
 
 		// Show player options only when switch has completed
 		PlayerOptions.SetActive (true);
-
-		// Clear the temporary stats of the Delt
-		ClearStats (isPlayer);
 
 		// Set moves, color, and PP left for each move
 		MoveClass tmpMove;
@@ -1559,6 +1591,23 @@ public class BattleManager : MonoBehaviour {
 			}
 		}
 
+		// If Delt's item heals
+		if (!PlayerDA && (curPlayerDelt.item != null) && (curPlayerDelt.item.statUpgrades [0] > 0)) {
+			yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " used it's " + curPlayerDelt.item.itemName + "..."));
+
+			// Heal delt
+			curPlayerDelt.health += curPlayerDelt.item.statUpgrades [0];
+			yield return StartCoroutine (healDelt (true));
+		}
+		if (!OppDA && (curOppDelt.item != null) && (curOppDelt.item.statUpgrades [0] > 0)) {
+			yield return StartCoroutine (evolMessage (curOppDelt.nickname + " used it's " + curOppDelt.item.itemName + "..."));
+
+			// Heal delt
+			curOppDelt.health += curOppDelt.item.statUpgrades [0];
+			yield return StartCoroutine (healDelt (false));
+		}
+
+
 		// DEBUG
 		// UIManager.StartMessage (curPlayerDelt.nickname + "'s health is now " + curPlayerDelt.health + ", " + curOppDelt.nickname + "'s health is now " + curOppDelt.health, null, () => TurnStart());
 
@@ -1721,10 +1770,19 @@ public class BattleManager : MonoBehaviour {
 				if (curPlayerDelt.level == curPlayerDelt.deltdex.evolveLevel) {
 					Image prevEvolImage = EvolveUI.transform.GetChild (1).GetComponent <Image> ();
 					Image nextEvolImage = EvolveUI.transform.GetChild (2).GetComponent <Image> ();
+					DeltDexClass nextEvol = curPlayerDelt.deltdex.nextEvol;
+
+					// If Delt has a second evol and second evol stat is greater than the first
+					// Then the Delt becomes the second evol instead of the first
+					if ((curPlayerDelt.deltdex.secondEvolution.secondEvol != null) && 
+					(curPlayerDelt.AVs [curPlayerDelt.deltdex.secondEvolution.firstEvolStat] <= 
+					curPlayerDelt.AVs [curPlayerDelt.deltdex.secondEvolution.secEvolStat] )) {
+						nextEvol = curPlayerDelt.deltdex.secondEvolution.secondEvol;
+					} 
 
 					// Set images for evolution animation
 					prevEvolImage.sprite = curPlayerDelt.deltdex.frontImage;
-					nextEvolImage.sprite = curPlayerDelt.deltdex.nextEvol.frontImage;
+					nextEvolImage.sprite = nextEvol.frontImage;
 					EvolveUI.SetActive (true);
 
 					// Text for before evolution animation
@@ -1745,18 +1803,18 @@ public class BattleManager : MonoBehaviour {
 						yield return StartCoroutine (evolMessage("A gush of pink bacon-smelling amneotic fluid from the evolution stains the ground."));
 						yield return StartCoroutine (evolMessage("I wish this could have happened somewhere more private."));
 					} else {
-						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has evolved into " + curPlayerDelt.deltdex.nextEvol.nickname + "!"));
+						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has evolved into " + nextEvol.nickname + "!"));
 					}
 					yield return new WaitUntil (() => UIManager.endMessage);
 
 					// If Delt's name is not custom nicknamed by the player, make it the evolution's nickname
 					if (curPlayerDelt.nickname == curPlayerDelt.deltdex.nickname) {
-						curPlayerDelt.nickname = curPlayerDelt.deltdex.nextEvol.nickname;
+						curPlayerDelt.nickname = nextEvol.nickname;
 					}
 
 					// Set the deltdex to the evolution's deltdex
 					// Note: This is how the Delt stays evolved
-					curPlayerDelt.deltdex = curPlayerDelt.deltdex.nextEvol;
+					curPlayerDelt.deltdex = nextEvol;
 
 					// Set battle image to new image
 					playerDeltSprite.sprite = curPlayerDelt.deltdex.backImage;
@@ -2022,7 +2080,7 @@ public class BattleManager : MonoBehaviour {
 			// Update player health text
 			if (isPlayer) {
 				if (gameManager.pork) {
-					healthText.text = ((int)healthBar.value + "/ PORK");
+					healthText.text = ((int)healthBar.value + "/PORK");
 				} else {
 					healthText.text = ((int)healthBar.value + "/" + (int)curPlayerDelt.GPA);
 				}
@@ -2186,7 +2244,7 @@ public class BattleManager : MonoBehaviour {
 	// When opp Delts have no more PP Left
 	void ForceOppLoss() {
 		playerWon = true;
-		if (curOppDelt.ownedByTrainer) {
+		if (trainer != null) {
 			UIManager.StartMessage (trainerName + " looks at you in amazement...");
 			UIManager.StartMessage ("\"My Delts... they have no more moves!\"");
 			UIManager.StartMessage (gameManager.playerName + " has won " + coinsWon + " coins!");

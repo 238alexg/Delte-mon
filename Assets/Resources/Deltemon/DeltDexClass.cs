@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DeltDexClass : MonoBehaviour {
-	public string nickname;
-	public string deltName;
-	public string description;
-	public Sprite frontImage;
-	public Sprite backImage;
+	public string nickname, deltName, description;
+	public Sprite frontImage, backImage;
 	public int pinNumber;
-	public MajorClass major1;
-	public MajorClass major2;
+	public MajorClass major1, major2;
 	public List<byte> BVs;
-	public DeltDexClass prevEvol;
-	public DeltDexClass nextEvol;
+	public DeltDexClass prevEvol, nextEvol;
 	public int evolveLevel;
 	public List<LevelUpMove> levelUpMoves;
 	public Rarity rarity;
-	public byte AVIndex;
-	public byte AVAwardAmount;
+	public byte AVIndex, AVAwardAmount;
+	public otherEvol secondEvolution;
 }
 
 [System.Serializable]
 public class LevelUpMove {
 	public int level;
 	public MoveClass move;
+}
+
+[System.Serializable]
+public class otherEvol {
+	public DeltDexClass secondEvol;
+	public byte firstEvolStat;
+	public byte secEvolStat;
 }
 
 public enum Rarity {

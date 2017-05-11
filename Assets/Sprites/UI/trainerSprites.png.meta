@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: dc4070f8fb68a4be7b78cac85673289d
-timeCreated: 1493957303
+timeCreated: 1494399517
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,12 @@ TextureImporter:
     21300014: MattTrainer
     21300016: DartTrainer
     21300018: DavidTrainer
+    21300020: trainerSprites_3
+    21300022: trainerSprites_4
+    21300024: trainerSprites_5
+    21300026: trainerSprites_6
+    21300028: trainerSprites_7
+    21300030: trainerSprites_8
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -100,7 +106,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 100
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -113,7 +119,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 60
-        y: 100
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -125,8 +131,8 @@ TextureImporter:
       name: Fidel_Trainer
       rect:
         serializedVersion: 2
-        x: 121
-        y: 100
+        x: 120
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -138,8 +144,8 @@ TextureImporter:
       name: trainerSprites_0
       rect:
         serializedVersion: 2
-        x: 181
-        y: 100
+        x: 180
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -151,8 +157,8 @@ TextureImporter:
       name: trainerSprites_1
       rect:
         serializedVersion: 2
-        x: 241
-        y: 100
+        x: 240
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -164,8 +170,8 @@ TextureImporter:
       name: trainerSprites_2
       rect:
         serializedVersion: 2
-        x: 301
-        y: 100
+        x: 300
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -178,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 360
-        y: 100
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -191,7 +197,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 420
-        y: 100
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -203,8 +209,8 @@ TextureImporter:
       name: DartTrainer
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 480
+        y: 500
         width: 60
         height: 100
       alignment: 0
@@ -216,8 +222,86 @@ TextureImporter:
       name: DavidTrainer
       rect:
         serializedVersion: 2
+        x: 540
+        y: 500
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_4
+      rect:
+        serializedVersion: 2
         x: 60
-        y: 0
+        y: 300
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_5
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 300
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 300
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_7
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 300
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: trainerSprites_8
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
         width: 60
         height: 100
       alignment: 0

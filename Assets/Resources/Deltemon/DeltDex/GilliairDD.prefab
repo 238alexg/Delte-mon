@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1617177374126556}
+  m_IsPrefabParent: 1
+--- !u!1 &1617177374126556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4005660506063246}
+  - component: {fileID: 114387814294783300}
+  m_Layer: 0
+  m_Name: GilliairDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4005660506063246
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617177374126556}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.504615, y: 13.460365, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114387814294783300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617177374126556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Gilliair
+  deltName: Jason Gilliam
+  description: Some say Gillairs fly all night without rest.
+  frontImage: {fileID: 21300084, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300086, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1413
+  major1: {fileID: 114612183221797042, guid: 7234da7fb1bb743bc93dec831d557b45, type: 2}
+  major2: {fileID: 114465524613548366, guid: 555162204460743288a9e749529ff5cb, type: 2}
+  BVs: 6085642a8560
+  prevEvol: {fileID: 114819308972524370, guid: 56dbd5d03f100479e8a5b6d7254526d1, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 29
+    move: {fileID: 114874869912700900, guid: ef6de900bb4be4c1a9cd75c19c2c5d8e, type: 2}
+  - level: 32
+    move: {fileID: 114442744139898138, guid: f81e4aff622a54325bf1bfe7c3a9cfe2, type: 2}
+  - level: 35
+    move: {fileID: 114361614610467444, guid: f6e5c59dc88d1424188f2da65523c6bb, type: 2}
+  - level: 38
+    move: {fileID: 114252676036700334, guid: 89cab05e63ad04290aca9f27e6bfbcb9, type: 2}
+  - level: 41
+    move: {fileID: 114252676036700334, guid: 7150082ee9c424d43a37e86552ea6665, type: 2}
+  - level: 43
+    move: {fileID: 114898610720825524, guid: 11c3478ce98d44ecf9a5b6b444a72274, type: 2}
+  - level: 45
+    move: {fileID: 114747735119101650, guid: ad28d03f872994e2e8eba29b68ccc38f, type: 2}
+  - level: 47
+    move: {fileID: 114234986284799124, guid: 6a7c9b5ebf9534af3982267828c33722, type: 2}
+  - level: 50
+    move: {fileID: 114713788899406652, guid: 5e52fa893e982446780ca040de85c5e6, type: 2}
+  - level: 53
+    move: {fileID: 114320180476472302, guid: eaf62d7a2bdad49db9e33580e610ca89, type: 2}
+  rarity: 3
+  AVIndex: 4
+  AVAwardAmount: 4
+  secondEvolution:
+    secondEvol: {fileID: 0}
+    firstEvolStat: 0
+    secEvolStat: 0

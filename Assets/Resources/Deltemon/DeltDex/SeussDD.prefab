@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1773572404129228}
+  m_IsPrefabParent: 1
+--- !u!1 &1773572404129228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4712065187035216}
+  - component: {fileID: 114934090135595076}
+  m_Layer: 0
+  m_Name: SeussDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4712065187035216
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773572404129228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.504615, y: 13.460365, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114934090135595076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773572404129228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Seuss
+  deltName: Zane Karimi
+  description: Seusses sustain a diet purely of things neither green nor ham.
+  frontImage: {fileID: 21300112, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300114, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1406
+  major1: {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 47503b4195b0
+  prevEvol: {fileID: 114363133677982816, guid: e2b64796b6a014159907f72482df0c5f, type: 2}
+  nextEvol: {fileID: 0}
+  evolveLevel: 0
+  levelUpMoves:
+  - level: 29
+    move: {fileID: 114040947228649598, guid: 4db02d534450f41779c55aa679ceceae, type: 2}
+  - level: 32
+    move: {fileID: 114704783362855572, guid: 16dd34486de904894a8518bf9a6a6f48, type: 2}
+  - level: 35
+    move: {fileID: 114888088558206562, guid: 6890e883f9dfc49fbbbaef0dba422441, type: 2}
+  - level: 38
+    move: {fileID: 114917123655856142, guid: 23f9a0e51b472427885937eb1ffd2b28, type: 2}
+  - level: 41
+    move: {fileID: 114661038089016976, guid: 6479a08deaa2e413a8395a8644ccab0c, type: 2}
+  - level: 44
+    move: {fileID: 114894600260853120, guid: 8dc7861413c0e40e4b611b0961a0d608, type: 2}
+  - level: 47
+    move: {fileID: 114546445046483900, guid: 6b61193dbe2644991be363bf66fb89aa, type: 2}
+  - level: 50
+    move: {fileID: 114040488576696122, guid: ad6d5b33d543b4852b7e3e809d7d32e6, type: 2}
+  - level: 53
+    move: {fileID: 114092777487467538, guid: 1b06c22aa72df45fab3e0092645c2900, type: 2}
+  rarity: 2
+  AVIndex: 5
+  AVAwardAmount: 3

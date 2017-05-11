@@ -19,14 +19,8 @@ public class DeltemonClass : MonoBehaviour {
 	public List<MoveClass> moveset;
 	public byte[] AVs = new byte[6] {0,0,0,0,0,0};
 	public byte AVCount;
-	public bool ownedByTrainer;
 	public Sprite statusImage;
-	public float GPA;
-	public float Truth;
-	public float Courage;
-	public float Faith;
-	public float Power;
-	public float ChillToPull;
+	public float GPA, Truth, Courage, Faith, Power, ChillToPull;
 
 	// Level up, checking for evolution
 	public string[] levelUp() {
@@ -216,7 +210,6 @@ public class DeltemonClass : MonoBehaviour {
 		recipient.health = health;
 		recipient.AVs = AVs;
 		recipient.AVCount = AVCount;
-		recipient.ownedByTrainer = ownedByTrainer;
 		recipient.statusImage = statusImage;
 		recipient.GPA = GPA;
 		recipient.Truth = Truth;

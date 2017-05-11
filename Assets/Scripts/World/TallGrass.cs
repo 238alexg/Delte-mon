@@ -78,7 +78,6 @@ public class TallGrass : MonoBehaviour {
 				}
 
 				// Determine stats of the Delt
-				chosenDelt.ownedByTrainer = false;
 				chosenDelt.level = (byte)Random.Range (minLevel, maxLevel);
 				chosenDelt.initializeDelt ();
 

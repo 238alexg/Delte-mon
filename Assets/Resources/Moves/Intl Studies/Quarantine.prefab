@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1363477863895158}
+  m_RootGameObject: {fileID: 1248783408472486}
   m_IsPrefabParent: 1
---- !u!1 &1363477863895158
+--- !u!1 &1248783408472486
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4607777962540828}
-  - component: {fileID: 114308964229650524}
+  - component: {fileID: 4334208264288946}
+  - component: {fileID: 114252676036700334}
   m_Layer: 0
-  m_Name: Border Crossing
+  m_Name: Quarantine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4607777962540828
+--- !u!4 &4334208264288946
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1363477863895158}
+  m_GameObject: {fileID: 1248783408472486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1388.9222, y: 328.4658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,29 +40,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114308964229650524
+--- !u!114 &114252676036700334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1363477863895158}
+  m_GameObject: {fileID: 1248783408472486}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f1bb001a8fc4ee493b43826a470765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: Cross Borders
-  moveDescription: Wall + pogo stick = new citizen. 15% crit.
+  moveName: Quarantine
+  moveDescription: If you can't beat em, isolate em.
   majorType: {fileID: 114612183221797042, guid: 7234da7fb1bb743bc93dec831d557b45,
     type: 2}
-  status: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
-  movType: 1
+  status: {fileID: 21300062, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
+  movType: 4
   moveIndex: 0
-  PP: 20
-  PPLeft: 20
-  damage: 70
-  hitChance: 100
+  PP: 10
+  PPLeft: 10
+  damage: 0
+  hitChance: 85
   statType: 0
   buffs: []
-  statusChance: 0
-  critChance: 15
+  statusChance: 100
+  critChance: 0

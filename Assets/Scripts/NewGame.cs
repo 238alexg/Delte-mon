@@ -107,7 +107,6 @@ public class NewGame : MonoBehaviour {
 		if (starter != null) {
 
 			// Initialize Delt values
-			starter.ownedByTrainer = true;
 			starter.initializeDelt ();
 
 			// Initialize scene data
@@ -135,6 +134,8 @@ public class NewGame : MonoBehaviour {
 			GiveItems ();
 
 			UIMan.StartNPCMessage("I'm excited to see you make a difference on this campus.", "Professor Cheema");
+			UIMan.StartNPCMessage("Remember: if you are confused, tap the Settings Cog in the top left corner of your screen.", "Professor Cheema");
+			UIMan.StartNPCMessage("There is a help menu there with all you need to know!", "Professor Cheema");
 			UIMan.StartNPCMessage ("Best of luck, my friend. And remember, you gotta rush 'em all!", "Professor Cheema");
 			UIMan.StartMessage (null, null, (() => profCheema.SetTrigger ("SlideOut")));
 
