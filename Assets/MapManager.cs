@@ -13,16 +13,12 @@ public class MapManager : MonoBehaviour {
 	public GameObject shasta;
 	public GameObject autzen;
 
-	public bool[] discoveredTowns;
-
 	// Set public static instance of MapManager
 	private void Awake() {
 		if (MapMan != null) {
 			DestroyImmediate(gameObject);
 			return;
 		}
-
-		discoveredTowns = new bool[15] {true, true, true, true, false, true, false, true, true, true, true, true, true, false, false};
 
 		MapMan = this;
 	}
@@ -34,11 +30,11 @@ public class MapManager : MonoBehaviour {
 
 		// Make the button for every discovered town interactable
 		for (byte i = 0; i < mapButtons.Count; i++) {
-			mapButtons [i].interactable = discoveredTowns [i];
+			mapButtons [i].interactable = GameManager.GameMan.discoveredTowns[i];
 		}
 
-		autzen.SetActive (discoveredTowns [13]);
-		shasta.SetActive (discoveredTowns [14]);
+		autzen.SetActive (GameManager.GameMan.discoveredTowns [13]);
+		shasta.SetActive (GameManager.GameMan.discoveredTowns [14]);
 
 		MapUI.GetComponent <Animator>().SetTrigger ("SlideIn");
 	}

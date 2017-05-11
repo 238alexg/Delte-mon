@@ -159,14 +159,15 @@ public class NewGame : MonoBehaviour {
 	// Initialize interactable scene data for all scenes in game
 	void StartFileSaves() {
 		GameMan.InitializeSceneData ("Hometown", 9, new byte [2] {1, 3}, 0);		// Hometown: 4 interactables, 0 trainers
-		GameMan.InitializeSceneData ("Delta Shelter", 9, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 interactables, 0 trainers
-		GameMan.InitializeSceneData ("Onyx St", 4, null, 5);						// Onyx St: 5 interactables, 5 trainers
-		GameMan.InitializeSceneData ("Chi Town", 2, null, 0);						// Chi Town: 2 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Delta Shelter", 10, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Onyx St", 4, null, 6);						// Onyx St: 4 interactables, 6 trainers
+		GameMan.InitializeSceneData ("ChiTown", 3, null, 0);						// ChiTown: 3 interactables, 0 trainers
 		GameMan.InitializeSceneData ("Sigma Chi", 2, null, 7);						// Sig Chi Gym: 2 interactables, 5 trainers
-		GameMan.InitializeSceneData ("University St", 3, null, 4);					// University St: 3 interactables, 4 trainers
-		GameMan.InitializeSceneData ("Sigston", 5, null, 0);						// Sigston: 2 interactables, 0 trainers
-		GameMan.InitializeSceneData ("Delta Sigma", 0, null, 10);					// Delta Sig Gym: 0 interactables, 10 trainers
-		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 3);					// DA Graveyard: 2 interactables, 3 trainers
+		GameMan.InitializeSceneData ("University St", 5, null, 4);					// University St: 5 interactables, 4 trainers
+		GameMan.InitializeSceneData ("Sigston", 5, new byte[1] {1}, 0);				// Sigston: 2 interactables, 0 trainers
+		GameMan.InitializeSceneData ("Delta Sigma", 1, null, 10);					// Delta Sig Gym: 1 interactable, 10 trainers
+		GameMan.InitializeSceneData ("Sigma Nu", 2, null, 9);						// Sig Nu Gym: 0 interactables, 10 trainers
+		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 4);					// DA Graveyard: 2 interactables, 3 trainers
 
 		GameMan.discoveredTowns = new bool[15] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 	}

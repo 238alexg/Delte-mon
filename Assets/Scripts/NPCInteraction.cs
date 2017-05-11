@@ -27,7 +27,7 @@ public class NPCInteraction : MonoBehaviour {
 	public List<SceneInteractableObstacle> obstacleRemovals;
 
 	// Player walks in field of view of NPC
-	void OnTriggerEnter2D(Collider2D player) {
+	public void OnTriggerEnter2D(Collider2D player) {
 		if (!hasTriggered) {
 			Handheld.Vibrate ();
 			hasTriggered = true;
@@ -57,10 +57,15 @@ public class NPCInteraction : MonoBehaviour {
 					Instantiate (move, oppDelt.transform);
 				}
 			}
-
-
-
 			UIManager.UIMan.StartMessage (null, null, () => UIManager.UIMan.StartTrainerBattle (this, isGymLeader));
+			UIManager.UIMan.StartMessage (null, null, () => notificaiton.enabled = false);
+		}
+	}
+
+	// Trigger all end of battle dialogues
+	public void DefeatedDialogue() {
+		foreach (string message in postBattleDialogue) {
+			UIManager.UIMan.StartMessage (message);
 		}
 	}
 

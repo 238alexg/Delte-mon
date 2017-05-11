@@ -317,9 +317,9 @@ public class PlayerMovement : MonoBehaviour {
 					if (ia.coins > 0) {
 						GameManager.coins += ia.coins;
 						UIManager.StartMessage (GameManager.playerName + " received " + ia.coins + " coins!", null,
-							()=> SoundEffectManager.SEM.PlaySoundImmediate ("coinDing"));
+							() => SoundEffectManager.SEM.PlaySoundImmediate ("coinDing"));
 					}
-					UIManager.StartMessage(null, null, (() => destroyQuestAndPresentChild(ia)));
+					UIManager.StartMessage (null, null, (() => destroyQuestAndPresentChild (ia)));
 				} else {
 					UIManager.StartMessage ("There is nothing more of interest here");
 				}
@@ -379,7 +379,16 @@ public class PlayerMovement : MonoBehaviour {
 					UIManager.StartMessage (message);
 				}
 				// Destroy completed quest object, update player quests
-				UIManager.StartMessage(null, null, (() => destroyQuestAndPresentChild(ia)));
+				UIManager.StartMessage (null, null, (() => destroyQuestAndPresentChild (ia)));
+			} else if (ia.actionT == actionType.trainer) {
+				NPCInteraction trainer = ia.transform.parent.GetComponent <NPCInteraction>();
+
+				// If trainer has already been defeated, present with end battle messages
+				if (GameManager.GameMan.curSceneData.trainers [trainer.index]) {
+					trainer.DefeatedDialogue ();
+				} else {
+					trainer.OnTriggerEnter2D (null);
+				}
 			}
 		}
 	}

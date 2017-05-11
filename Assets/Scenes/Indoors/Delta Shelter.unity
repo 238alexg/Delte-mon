@@ -2496,7 +2496,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -3147,11 +3147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -5899,7 +5899,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -6798,7 +6798,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -7454,7 +7454,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -9568,11 +9568,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -9928,7 +9928,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -10224,6 +10224,7 @@ MonoBehaviour:
   rarityColor: []
   HelpUI: {fileID: 0}
   helpMenus: {fileID: 0}
+  majorTabs: {fileID: 0}
   helpUITitle: {fileID: 0}
   animateMessage: 1
   messageOver: 0
@@ -13546,6 +13547,7 @@ MonoBehaviour:
   rarityColor: []
   HelpUI: {fileID: 0}
   helpMenus: {fileID: 0}
+  majorTabs: {fileID: 0}
   helpUITitle: {fileID: 0}
   animateMessage: 1
   messageOver: 0
@@ -13851,11 +13853,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -17219,7 +17221,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -18097,7 +18099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 319398275}
   m_Layer: 0
-  m_Name: QuestAndItemInteractables
+  m_Name: Interactables
   m_TagString: Interactables
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18122,6 +18124,7 @@ Transform:
   - {fileID: 2064550629}
   - {fileID: 1582924974}
   - {fileID: 1854004507}
+  - {fileID: 1462256360}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20080,7 +20083,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - TV's out.
-  - Better tell Dave to do something about it.
+  - Better tell Zack to do something about it.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -22799,6 +22802,8 @@ MonoBehaviour:
   daStatus: {fileID: 21300060, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   playerBattleAnim: {fileID: 0}
   oppBattleAnim: {fileID: 0}
+  backgrounds: []
+  podiums: []
   playerDeltSprite: {fileID: 720619328}
   playerHealth: {fileID: 834382377}
   playerHealthBar: {fileID: 601292954}
@@ -23390,7 +23395,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -24409,7 +24414,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -35193,6 +35198,7 @@ GameObject:
   - component: {fileID: 564173575}
   - component: {fileID: 564173574}
   - component: {fileID: 564173576}
+  - component: {fileID: 564173577}
   m_Layer: 8
   m_Name: Couch Blue (2)
   m_TagString: Untagged
@@ -35278,6 +35284,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &564173577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564173573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionT: 2
+  hasBeenViewed: 0
+  messages:
+  - Etched under the sofa are the words, "Crisis couch"
+  items: []
+  coins: 0
+  nextTile: {fileID: 0}
+  index: 0
+  questNum: 0
+  needsItem: 0
+  numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
+  questCompletionMessages: []
 --- !u!1 &564649036
 GameObject:
   m_ObjectHideFlags: 0
@@ -43128,7 +43159,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -43414,7 +43445,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -45287,7 +45318,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -45607,7 +45638,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -47465,7 +47496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1944778617}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &737192145
 BoxCollider2D:
@@ -48516,7 +48547,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -50024,7 +50055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 53
   yCoordinate: 6
   sceneName: 
@@ -55993,7 +56024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1944778617}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &839849511
 BoxCollider2D:
@@ -59645,7 +59676,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -59788,11 +59819,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -60672,11 +60703,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -61288,7 +61319,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -62595,6 +62626,7 @@ GameObject:
   - component: {fileID: 934457054}
   - component: {fileID: 934457053}
   - component: {fileID: 934457055}
+  - component: {fileID: 934457056}
   m_Layer: 8
   m_Name: Toilet (1)
   m_TagString: Untagged
@@ -62680,6 +62712,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1.0000002}
   m_EdgeRadius: 0
+--- !u!114 &934457056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934457052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionT: 2
+  hasBeenViewed: 0
+  messages:
+  - You stand in front of the 2nd stall.
+  - What do I expect to observe here?
+  - Some poop?
+  - '"You see some poop"'
+  - Are you happy now?
+  - Do you honestly think I would spend my time making poop jokes?
+  - That would just be a shitty use of my time.
+  - Plus the jokes would all be crap.
+  - I bet if a girl made these jokes, you'd sewer.
+  - I know, I know, there's so many you're pissed.
+  - But honestly thats still number 2 on my priorities!
+  - You might say I'm a pun whiz.
+  - Ok, ok I'm gonna call it there.
+  - I'm wiped, anyway.
+  items: []
+  coins: 0
+  nextTile: {fileID: 0}
+  index: 0
+  questNum: 0
+  needsItem: 0
+  numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
+  questCompletionMessages: []
 --- !u!1 &937476191
 GameObject:
   m_ObjectHideFlags: 0
@@ -63516,7 +63586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: -11
   yCoordinate: 0
   sceneName: Hometown
@@ -67846,7 +67916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 1
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - As you breathe, you realize something...
@@ -69565,7 +69635,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -70036,11 +70106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -70592,9 +70662,10 @@ GameObject:
   - component: {fileID: 1060234346}
   - component: {fileID: 1060234345}
   - component: {fileID: 1060234344}
+  - component: {fileID: 1060234347}
   m_Layer: 8
   m_Name: Wall_West (46)
-  m_TagString: Untagged
+  m_TagString: Action
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70677,6 +70748,37 @@ Transform:
   m_Father: {fileID: 817371310}
   m_RootOrder: 187
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1060234347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1060234343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionT: 2
+  hasBeenViewed: 0
+  messages:
+  - You turn the shower on...
+  - The water feels like it's just thawed from ice.
+  - You turn the knob ever so slightly to the left.
+  - The room fills with steam as the water cauterizes your skin.
+  - You hear a toilet flush
+  - The water reverts back and gives you mild hypothermia.
+  - You give up on being hygenic and shut the faucet off.
+  items: []
+  coins: 0
+  nextTile: {fileID: 0}
+  index: 0
+  questNum: 0
+  needsItem: 0
+  numberOfItemsNeeded: 0
+  coinsNeeded: 0
+  questItem: {fileID: 0}
+  questCompletionMessages: []
 --- !u!1 &1064486651
 GameObject:
   m_ObjectHideFlags: 0
@@ -71769,7 +71871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: -13
   yCoordinate: 0
   sceneName: Hometown
@@ -72020,6 +72122,7 @@ MonoBehaviour:
   rarityColor: []
   HelpUI: {fileID: 0}
   helpMenus: {fileID: 0}
+  majorTabs: {fileID: 0}
   helpUITitle: {fileID: 0}
   animateMessage: 1
   messageOver: 0
@@ -72647,7 +72750,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -76977,7 +77080,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -77899,11 +78002,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -80221,7 +80324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 0
   yCoordinate: 41
   sceneName: 
@@ -82734,7 +82837,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -86417,7 +86520,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -89142,7 +89245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 0
   yCoordinate: 0
   sceneName: 
@@ -91997,11 +92100,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -96792,7 +96895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 5
   yCoordinate: -22
   sceneName: 
@@ -97339,8 +97442,8 @@ Transform:
   m_LocalPosition: {x: 14, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1944778617}
-  m_RootOrder: 11
+  m_Father: {fileID: 319398275}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1462256361
 BoxCollider2D:
@@ -98779,7 +98882,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -99898,7 +100001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1944778617}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1513927161
 BoxCollider2D:
@@ -99997,7 +100100,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -100726,11 +100829,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -103558,11 +103661,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -107296,7 +107399,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -111337,7 +111440,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1944778617}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &1706041127
 BoxCollider2D:
@@ -112406,7 +112509,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -115783,7 +115886,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -116164,7 +116267,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -118036,7 +118139,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -120133,7 +120236,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -120488,7 +120591,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -121117,7 +121220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 3
   yCoordinate: 41
   sceneName: 
@@ -121668,7 +121771,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -123467,7 +123570,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -125784,7 +125887,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -127347,7 +127450,6 @@ MonoBehaviour:
   sceneInteractables: 
   statuses: []
   emptyDelt: {fileID: 0}
-  iPhoneBarBackground: {fileID: 0}
   deleteSave: 0
 --- !u!224 &1943070346
 RectTransform:
@@ -127567,7 +127669,6 @@ Transform:
   - {fileID: 452880389}
   - {fileID: 346033097}
   - {fileID: 1101068826}
-  - {fileID: 1462256360}
   - {fileID: 1706041126}
   - {fileID: 1513927160}
   - {fileID: 737192144}
@@ -128013,7 +128114,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -129705,11 +129806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -129875,7 +129976,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -131593,7 +131694,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -131794,7 +131895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: -1
   yCoordinate: 3
   sceneName: 
@@ -131905,7 +132006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70e8522ed8a4f41fa9a0a7e390a4b3b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  open: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 61
   yCoordinate: 10
@@ -132382,7 +132483,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -133405,11 +133506,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
-  - You scrouge in the recycling can...
-  - What's this?
+  - A recycling can!
+  - This house must have an awesome Green Chair.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -133956,7 +134057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: -11
   yCoordinate: 0
   sceneName: Hometown
@@ -135260,7 +135361,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -140669,7 +140770,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
-  - What's this?
+  - All you find are some smelly shorts and Dad's weekend shirt.
   items: []
   coins: 0
   nextTile: {fileID: 0}

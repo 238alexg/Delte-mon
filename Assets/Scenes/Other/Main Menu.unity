@@ -4277,7 +4277,7 @@ MonoBehaviour:
   curSceneName: 
   townRecovs:
   - townName: Hometown
-    RecovX: -9
+    RecovX: -10
     RecovY: -9
     ShopX: 3
     ShopY: 0
@@ -4285,11 +4285,11 @@ MonoBehaviour:
     RecovX: -10
     RecovY: 0
     ShopX: -9
-    ShopY: -18
+    ShopY: -15
   - townName: ChiTown
-    RecovX: 0
-    RecovY: 0
-    ShopX: 0
+    RecovX: 8
+    RecovY: 9
+    ShopX: 9
     ShopY: 0
   - townName: 
     RecovX: 0
@@ -4322,7 +4322,6 @@ MonoBehaviour:
   - {fileID: 21300064, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   - {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   emptyDelt: {fileID: 1500686949510560, guid: 822d5cdb26a3544a0b2c384e838121b8, type: 2}
-  iPhoneBarBackground: {fileID: 0}
   deleteSave: 0
 --- !u!4 &128314436
 Transform:
@@ -14291,7 +14290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23470737}
   m_AnchorMax: {x: 1, y: 0.34656912}
-  m_AnchoredPosition: {x: 22.39, y: -1.0499878}
+  m_AnchoredPosition: {x: 22.39, y: -1.0499859}
   m_SizeDelta: {x: -52.579, y: 3.2999992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416277988
@@ -14950,7 +14949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23470978}
   m_AnchorMax: {x: 1, y: 0.34656996}
-  m_AnchoredPosition: {x: 22.39, y: -1.0500488}
+  m_AnchoredPosition: {x: 22.39, y: -1.0500469}
   m_SizeDelta: {x: -52.579, y: 3.2999992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &442466031
@@ -35497,7 +35496,6 @@ MonoBehaviour:
   - {fileID: 2145278804}
   shasta: {fileID: 1781197279}
   autzen: {fileID: 1209970381}
-  discoveredTowns: 
 --- !u!1 &1046578746
 GameObject:
   m_ObjectHideFlags: 0
@@ -57326,6 +57324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 1724191745}
   musicMan: {fileID: 398927191}
+  playerCamera: {fileID: 1420818186}
 --- !u!114 &1724191747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65964,7 +65963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.2422664}
   m_AnchorMax: {x: 1, y: 0.3465697}
-  m_AnchoredPosition: {x: 22.39, y: -1.5500183}
+  m_AnchoredPosition: {x: 22.39, y: -1.5500164}
   m_SizeDelta: {x: -52.579, y: 4.299999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1986918200
@@ -68292,7 +68291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.24227649}
   m_AnchorMax: {x: 1, y: 0.34658536}
-  m_AnchoredPosition: {x: 22.39, y: -1.5500488}
+  m_AnchoredPosition: {x: 22.39, y: -1.5500507}
   m_SizeDelta: {x: -52.579, y: 4.299999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058743041
@@ -69846,6 +69845,18 @@ MonoBehaviour:
   daStatus: {fileID: 21300060, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   playerBattleAnim: {fileID: 881189781}
   oppBattleAnim: {fileID: 1220225391}
+  backgrounds:
+  - {fileID: 21300000, guid: 91cfbefc14fab4ef3b8bdae6743dbfcf, type: 3}
+  - {fileID: 21300002, guid: 91cfbefc14fab4ef3b8bdae6743dbfcf, type: 3}
+  - {fileID: 21300004, guid: 91cfbefc14fab4ef3b8bdae6743dbfcf, type: 3}
+  - {fileID: 21300006, guid: 91cfbefc14fab4ef3b8bdae6743dbfcf, type: 3}
+  - {fileID: 21300008, guid: 91cfbefc14fab4ef3b8bdae6743dbfcf, type: 3}
+  podiums:
+  - {fileID: 21300000, guid: 89eb70956e31f4cd78678b1c5dde9f60, type: 3}
+  - {fileID: 21300002, guid: 89eb70956e31f4cd78678b1c5dde9f60, type: 3}
+  - {fileID: 21300004, guid: 89eb70956e31f4cd78678b1c5dde9f60, type: 3}
+  - {fileID: 21300006, guid: 89eb70956e31f4cd78678b1c5dde9f60, type: 3}
+  - {fileID: 21300008, guid: 89eb70956e31f4cd78678b1c5dde9f60, type: 3}
   playerDeltSprite: {fileID: 571297236}
   playerHealth: {fileID: 17659428}
   playerHealthBar: {fileID: 224774363}

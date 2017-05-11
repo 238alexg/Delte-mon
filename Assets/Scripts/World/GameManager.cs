@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour {
 	public List<bool> sceneInteractables;
 	public Sprite[] statuses;
 
-	[Header("Test")]
-	public GameObject emptyDelt, iPhoneBarBackground;
+	[Header("Other")]
+	public GameObject emptyDelt;
 	public bool deleteSave;
 
 	public static GameManager GameMan { get; private set; }
@@ -185,6 +185,12 @@ public class GameManager : MonoBehaviour {
 		for (byte i = 0; i < deltPosse.Count; i++) {
 			save.deltPosse [i] = convertDeltToData (deltPosse [i]);
 		}
+
+		// Save all discovered towns
+		for (byte i = 0; i < discoveredTowns.Length; i++) {
+			save.discoveredTowns [i] = discoveredTowns [i];
+		}
+
 		bf.Serialize (file, save);
 		file.Close ();
 	}
@@ -638,6 +644,7 @@ public class PlayerData {
 	public string lastTownName;
 	public bool isMale;
 	public bool pork;
+	public bool[] discoveredTowns = new bool[15] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 
 	public List<DeltemonData> houseDelts = new List<DeltemonData> ();
 	public List<DeltDexData> deltDex = new List<DeltDexData> ();

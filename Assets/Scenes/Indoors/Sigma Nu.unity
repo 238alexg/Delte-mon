@@ -12585,6 +12585,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
+      propertyPath: obstacleRemovals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
       propertyPath: preBattleDialogue.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -12805,6 +12810,16 @@ Prefab:
       propertyPath: oppDelts.Array.data[4]
       value: 
       objectReference: {fileID: 1711894591}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: obstacleRemovals.Array.data[0].sceneName
+      value: University St
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: obstacleRemovals.Array.data[0].index
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0

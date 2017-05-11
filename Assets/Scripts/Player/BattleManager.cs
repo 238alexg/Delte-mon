@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class BattleManager : MonoBehaviour {
 	public Color fullHealth, halfHealth, quarterHealth;
 	public Sprite noStatus, daStatus;
 	public Animator playerBattleAnim, oppBattleAnim;
+	public List<Sprite> backgrounds, podiums;
 
 	[Header("Player Overview UI")]
 	public Image playerDeltSprite;
@@ -62,6 +64,7 @@ public class BattleManager : MonoBehaviour {
 	List<ItemClass> trainerItems;
 	string trainerName;
 	NPCInteraction trainer;
+	string[] fraternityNames = {"Sigma Chi", "Delta Sig", "Sigma Nu"};
 
 	public static BattleManager BattleMan { get; private set; }
 
@@ -85,8 +88,38 @@ public class BattleManager : MonoBehaviour {
 
 	// Function to initialize a new battle, for trainers and wild Delts
 	public void initializeBattle() {
-		// LATER: Set Enemy Podium and background
-		//		BattleUI.transform.GetChild (0).gameObject.transform.GetChild (0).GetComponent<Image> ().sprite = 
+		string sceneName = gameManager.curSceneName;
+		Sprite background;
+		Sprite podium;
+
+		// In a pink pork wonderland
+		if (gameManager.pork) {
+			background = backgrounds [4];
+			podium = podiums [4];
+		} 
+		// Is in the spooky DA graveyard
+		else if (sceneName == "DA Graveyard") {
+			background = backgrounds [3];
+			podium = podiums [3];
+		} 
+		// Is a fraternity
+		else if (fraternityNames.Contains (sceneName)) {
+			background = backgrounds [2];
+			podium = podiums [2];
+		} 
+		// Is a route
+		else {
+			if (Random.Range (0, 2) == 0) {
+				background = backgrounds [1];
+				podium = podiums [1];
+			} else {
+				background = backgrounds [0];
+				podium = podiums [0];
+			}
+		}
+		// Set background and podium
+		BattleUI.GetComponent<Image> ().sprite = background;
+		BattleUI.transform.GetChild (0).gameObject.transform.GetChild (0).GetComponent<Image> ().sprite = podium;
 
 		DeltHasSwitched = true;
 		forcePlayerSwitch = false;
