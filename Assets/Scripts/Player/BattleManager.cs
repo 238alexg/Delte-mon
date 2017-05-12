@@ -1807,7 +1807,7 @@ public class BattleManager : MonoBehaviour {
 			gainedSoFar += increment;
 			playerXP.value += increment;
 
-			playerName.text = (curPlayerDelt.nickname + "   lvl. " + curPlayerDelt.level);
+
 
 			// Animation delay
 			yield return new WaitForSeconds (0.001f);
@@ -1893,16 +1893,8 @@ public class BattleManager : MonoBehaviour {
 				playerHealth.maxValue = curPlayerDelt.GPA;
 				playerHealth.value = curPlayerDelt.GPA;
 				playerHealthBar.color = fullHealth;
-				healthText.text = (int)curPlayerDelt.GPA + " / " + (int)curPlayerDelt.GPA;
-
-				// Bring up Levelup UI
-				LevelUpUI.SetActive (true);
-
-				// Wait until user taps on Levelup UI to continue gaining XP
-				yield return new WaitUntil (() => finishLeveling);
-
-				SoundEffectManager.SEM.PlaySoundBlocking ("ExpGain");
-				finishLeveling = false;
+				healthText.text = (int)curPlayerDelt.GPA + "/" + (int)curPlayerDelt.GPA;
+				playerName.text = (curPlayerDelt.nickname + "   lvl. " + curPlayerDelt.level);
 
 				// If Delt can learn a new move
 				LevelUpMove newMove = curPlayerDelt.deltdex.levelUpMoves.Find (lum => lum.level == curPlayerDelt.level);
@@ -1910,7 +1902,7 @@ public class BattleManager : MonoBehaviour {
 
 					// If the player doesn't have a full moveset yet
 					if (curPlayerDelt.moveset.Count < 4) {
-						
+
 						// Instantiate and learn new move
 						MoveClass move = Instantiate (newMove.move, curPlayerDelt.transform);
 						curPlayerDelt.moveset.Add (move);
@@ -1925,8 +1917,7 @@ public class BattleManager : MonoBehaviour {
 							button.GetComponent <Image>().color = tmp.majorType.background;
 							button.GetChild (0).GetComponent<Text> ().text = (tmp.moveName + System.Environment.NewLine + "PP: " + tmp.PP);
 						}
-
-						// 
+							
 						yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " can learn the move " + newMove.move.moveName + "!"));
 
 						NewMoveUI.SetActive (true);
@@ -1948,7 +1939,14 @@ public class BattleManager : MonoBehaviour {
 					}
 					increment *= 0.02f;
 				}
+				// Bring up Levelup UI
+				LevelUpUI.SetActive (true);
 
+				// Wait until user taps on Levelup UI to continue gaining XP
+				yield return new WaitUntil (() => finishLeveling);
+
+				SoundEffectManager.SEM.PlaySoundBlocking ("ExpGain");
+				finishLeveling = false;
 			}
 			yield return null;
 		}

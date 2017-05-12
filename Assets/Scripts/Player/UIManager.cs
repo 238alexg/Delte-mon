@@ -1123,7 +1123,8 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void StartWildBattle(DeltemonClass wildDelt) {
-		StartMessage (null, fade.fadeOutToBlack(), ()=>playerMovement.StopMoving ());
+		playerMovement.StopMoving ();
+		StartMessage (null, fade.fadeOutToBlack());
 		StartMessage (null, null, ()=>BattleUI.SetActive(true));
 		StartMessage (null, null, () => battleManager.StartWildBattle (wildDelt));
 		StartMessage (null, fade.fadeInSceneChange (), null);
@@ -1132,7 +1133,8 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void StartTrainerBattle(NPCInteraction trainer, bool isGymLeader) {
-		StartMessage (null, fade.fadeOutToBlack(), ()=>playerMovement.StopMoving ());
+		playerMovement.StopMoving ();
+		StartMessage (null, fade.fadeOutToBlack());
 		StartMessage (null, null, ()=>BattleUI.SetActive(true));
 		StartMessage (null, null, ()=>battleManager.StartTrainerBattle(trainer, isGymLeader));
 		StartMessage (null, fade.fadeInSceneChange(), null);

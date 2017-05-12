@@ -341,6 +341,7 @@ public class PlayerMovement : MonoBehaviour {
 						foreach (string message in ia.messages) {
 							UIManager.StartMessage (message, null, null);
 						}
+						UIManager.StartMessage (null, null, () => ResumeMoving ());
 						return;
 					} 
 					// Player doesn't have enough of the item
