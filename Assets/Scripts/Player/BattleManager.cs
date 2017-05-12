@@ -146,12 +146,25 @@ public class BattleManager : MonoBehaviour {
 
 		trainer = oppTrainer;
 
+		// Set opp Delts going into battle
+		oppDelts = trainer.oppDelts;
+
+		// Set number of Delts Opp has
+		Transform trainerBalls = BattleUI.transform.GetChild (2).GetChild (4);
+		for (int i = 0; i < 6; i++) {
+			if (i < oppDelts.Count) {
+				trainerBalls.GetChild (i).GetComponent <Image> ().color = Color.white;
+			} else {
+				trainerBalls.GetChild (i).GetComponent <Image> ().color = new Color(0.25f, 0.25f, 0.25f, 0.5f);
+			}
+		}
+		trainerBalls.gameObject.SetActive (true);
+
 		if (isGymLeader) {
 			// LATER: Gym leader music.
 		}
 	
-		// Set opp Delts going into battle
-		oppDelts = trainer.oppDelts;
+
 
 		// Set victory coins
 		coinsWon = trainer.coins;
@@ -183,6 +196,8 @@ public class BattleManager : MonoBehaviour {
 		// Ensure Delt doesn't start with status affliction
 		oppDeltSpawn.curStatus = statusType.None;
 		oppDeltSpawn.statusImage = noStatus;
+
+		BattleUI.transform.GetChild (2).GetChild (4).gameObject.SetActive (false);
 
 		StartCoroutine(SwitchDelts (oppDeltSpawn, false));
 
@@ -1707,8 +1722,15 @@ public class BattleManager : MonoBehaviour {
 			UIManager.StartMessage(null, awardXP ());
 
 			OppDA = true;
+
 			// If trainer battle, check if all Delts are DA'd
 			if (trainer != null) {
+				
+				// Make corresponding opponent trainer's UI Delt ball red
+				int index = oppDelts.IndexOf (curOppDelt);
+				BattleUI.transform.GetChild (2).GetChild (4).GetChild (index).GetComponent <Image>().color = Color.red;
+
+
 				foreach (DeltemonClass delt in oppDelts) {
 					// If any delts are not DA'd, find a switch in
 					if (delt.curStatus != statusType.DA) {
@@ -1932,7 +1954,7 @@ public class BattleManager : MonoBehaviour {
 		}
 		SoundEffectManager.SEM.source.Stop ();
 		curPlayerDelt.experience = playerXP.value;
-		UIManager.StartMessage (curPlayerDelt.nickname + " gained " + totalXPGained + " XP!", null, null, false);
+		UIManager.StartMessage (curPlayerDelt.nickname + " gained " + (int)totalXPGained + " XP!", null, null, false);
 	}
 
 	// New move button press starts coroutine
@@ -2066,14 +2088,14 @@ public class BattleManager : MonoBehaviour {
 		DeltemonClass defender;
 
 		if (isPlayer) {
-			if (curPlayerDelt.health < 0.3f) {
+			if (curPlayerDelt.health < 1) {
 				curPlayerDelt.health = 0;
 			}
 			healthBar = playerHealth;
 			health = curPlayerDelt.health;
 			defender = curPlayerDelt;
 		} else {
-			if (curOppDelt.health < 0.3f) {
+			if (curOppDelt.health < 1) {
 				curOppDelt.health = 0;
 			}
 			healthBar = oppHealth;
@@ -2247,10 +2269,6 @@ public class BattleManager : MonoBehaviour {
 		UIManager.StartMessage(null, null, ()=>oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
 		UIManager.StartMessage(null, null, ()=>playerBattleAnim.Play ("Idle"));
 		UIManager.StartMessage(null, null, ()=>oppBattleAnim.Play ("Idle"));
-//		playerDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle");
-//		oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle");
-//		playerBattleAnim.Play ("Idle");
-//		oppBattleAnim.Play ("Idle");
 
 		// If trainer battle, allow for dialogue/saving trainer defeat
 		if (trainer != null && playerWon) {
@@ -2268,7 +2286,11 @@ public class BattleManager : MonoBehaviour {
 				delt.health = delt.GPA;
 				delt.curStatus = statusType.None;
 				delt.statusImage = noStatus;
+				foreach (MoveClass move in delt.moveset) {
+					move.PPLeft = move.PP;
+				}
 			}
+			PlayerMovement.PlayMov.StopMoving ();
 			TownRecoveryLocation trl = gameManager.FindTownRecov ();
 			UIManager.StartMessage (null, null, ()=>UIManager.SwitchLocationAndScene (trl.RecovX, trl.RecovY, trl.townName));
 		}

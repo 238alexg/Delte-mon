@@ -163,7 +163,11 @@ public class ItemShop : MonoBehaviour {
 				GameObject li = Instantiate (ListItemObject, contentList);
 				Text[] texts = li.GetComponentsInChildren<Text> ();
 				texts [0].text = item.item.itemName;
-				texts [1].text = "" + item.cost;
+				if (isShop) {
+					texts [1].text = "" + item.cost;
+				} else {
+					texts [1].text = "" + (item.cost * 0.5f);
+				}
 
 				switch (item.item.itemT) {
 				case itemType.Ball:
@@ -363,7 +367,7 @@ public class ItemShop : MonoBehaviour {
 		yield return new WaitForSeconds (0.1f);
 
 		hasTriggered = false;
-		UIMan.NPCMessage = false;
+		UIMan.EndNPCMessage ();
 	}
 }
 

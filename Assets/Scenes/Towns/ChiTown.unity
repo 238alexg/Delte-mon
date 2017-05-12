@@ -2872,7 +2872,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -6079,7 +6079,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -7312,7 +7312,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -9494,7 +9494,6 @@ GameObject:
   m_Component:
   - component: {fileID: 289553991}
   - component: {fileID: 289553993}
-  - component: {fileID: 289553992}
   m_Layer: 8
   m_Name: Light_Grass_1 (81)
   m_TagString: Untagged
@@ -9515,31 +9514,6 @@ Transform:
   m_Father: {fileID: 979091612}
   m_RootOrder: 82
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &289553992
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 289553990}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &289553993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11256,7 +11230,6 @@ Transform:
   - {fileID: 988782198}
   - {fileID: 552247571}
   - {fileID: 234718869}
-  - {fileID: 1565816172}
   - {fileID: 1275368244}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -12530,7 +12503,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -12629,7 +12602,6 @@ GameObject:
   m_Component:
   - component: {fileID: 406919262}
   - component: {fileID: 406919264}
-  - component: {fileID: 406919263}
   m_Layer: 8
   m_Name: Light_Grass_1 (203)
   m_TagString: Untagged
@@ -12650,31 +12622,6 @@ Transform:
   m_Father: {fileID: 979091612}
   m_RootOrder: 278
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &406919263
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 406919261}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!212 &406919264
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16065,7 +16012,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -16403,7 +16350,7 @@ MonoBehaviour:
   open: {fileID: 21303582, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
   shut: {fileID: 21303576, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
   xCoordinate: -2
-  yCoordinate: 11
+  yCoordinate: -11
   sceneName: Sigma Chi
 --- !u!1 &553822228
 GameObject:
@@ -19917,7 +19864,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -33965,7 +33912,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -34152,7 +34099,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 354650104}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1275368245
 SpriteRenderer:
@@ -40628,118 +40575,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
---- !u!1 &1565816168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1565816172}
-  - component: {fileID: 1565816171}
-  - component: {fileID: 1565816170}
-  - component: {fileID: 1565816169}
-  m_Layer: 0
-  m_Name: SigChi Door
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1565816169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1565816168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e8522ed8a4f41fa9a0a7e390a4b3b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -2
-  yCoordinate: -11
-  sceneName: Sigma Chi
---- !u!61 &1565816170
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1565816168}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!212 &1565816171
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1565816168}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21303600, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
---- !u!4 &1565816172
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1565816168}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 354650104}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1571378054
 GameObject:
   m_ObjectHideFlags: 0
@@ -44193,7 +44028,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -44989,7 +44824,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -45483,7 +45318,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -47156,7 +46991,7 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - These empty McPalmer's to go boxes are littered all over the floor.
-  - I guess this lady doesn't leave the hosue much.
+  - I guess this lady doesn't leave the house much.
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -55151,8 +54986,7 @@ MonoBehaviour:
   actionT: 2
   hasBeenViewed: 0
   messages:
-  - Welcome to Hirons!
-  - 50% off your perscription when you mention this game!
+  - Sigma Chi Gym
   items: []
   coins: 0
   nextTile: {fileID: 0}

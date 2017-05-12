@@ -261,6 +261,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (!wasDPadRelease) {
 			QuestManager.QuestMan.isAllowedToMove = false;
 			UIManager.MovementUI.SetActive (false);
+			bButtonRelease ();
 		}
 		movementQueued = false;
 		dpad.sprite = dpadNeutral;
@@ -298,6 +299,7 @@ public class PlayerMovement : MonoBehaviour {
 		ray = Physics2D.Linecast (start, end, LayerMask.GetMask ("StopPlayer"));
 
 		if ((ray.collider != null) && (ray.collider.tag == "Action")) {
+			StopMoving ();
 			InteractAction ia = ray.collider.gameObject.GetComponent<InteractAction> ();
 			if ((ia.actionT == actionType.itemWithNext) || (ia.actionT == actionType.itemWithoutNext)) {
 				if (!ia.hasBeenViewed) {
@@ -319,7 +321,8 @@ public class PlayerMovement : MonoBehaviour {
 						UIManager.StartMessage (GameManager.playerName + " received " + ia.coins + " coins!", null,
 							() => SoundEffectManager.SEM.PlaySoundImmediate ("coinDing"));
 					}
-					UIManager.StartMessage (null, null, (() => destroyQuestAndPresentChild (ia)));
+					UIManager.StartMessage (null, null, () => destroyQuestAndPresentChild (ia));
+
 				} else {
 					UIManager.StartMessage ("There is nothing more of interest here");
 				}
@@ -345,7 +348,7 @@ public class PlayerMovement : MonoBehaviour {
 						foreach (string message in ia.messages) {
 							UIManager.StartMessage (message, null, null);
 						}
-						UIManager.StartMessage ("You need " + (ia.numberOfItemsNeeded - questItem.numberOfItem) + " more of this item!");
+						UIManager.StartMessage ("You need " + (ia.numberOfItemsNeeded - questItem.numberOfItem) + " more of this item!", null, () => ResumeMoving ());
 						return;
 					}
 				}
@@ -355,7 +358,7 @@ public class PlayerMovement : MonoBehaviour {
 						foreach (string message in ia.messages) {
 							UIManager.StartMessage (message, null, null);
 						}
-						UIManager.StartMessage ("You need " + (ia.coinsNeeded - GameManager.coins) + " more coins!");
+						UIManager.StartMessage ("You need " + (ia.coinsNeeded - GameManager.coins) + " more coins!", null, () => ResumeMoving ());
 						return;
 					} 
 					// Player has enough coins
@@ -388,8 +391,10 @@ public class PlayerMovement : MonoBehaviour {
 					trainer.DefeatedDialogue ();
 				} else {
 					trainer.OnTriggerEnter2D (null);
+					return;
 				}
 			}
+			UIManager.StartMessage (null, null, () => ResumeMoving ());
 		}
 	}
 	// Remove top active tile and reveal lower tile

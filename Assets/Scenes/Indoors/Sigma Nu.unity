@@ -3355,7 +3355,7 @@ MonoBehaviour:
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: -2
   yCoordinate: -7
-  sceneName: 
+  sceneName: Sigston
 --- !u!61 &96546635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12820,6 +12820,10 @@ Prefab:
       propertyPath: obstacleRemovals.Array.data[0].index
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -12831,11 +12835,6 @@ Transform:
 --- !u!1 &471463034 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1315139879084978, guid: d12d37e5c633d481f820d4ff9a847651,
-    type: 2}
-  m_PrefabInternal: {fileID: 471463032}
---- !u!1 &471463035 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1654181896418580, guid: d12d37e5c633d481f820d4ff9a847651,
     type: 2}
   m_PrefabInternal: {fileID: 471463032}
 --- !u!114 &471463036
@@ -12862,18 +12861,6 @@ MonoBehaviour:
   coinsNeeded: 0
   questItem: {fileID: 0}
   questCompletionMessages: []
---- !u!114 &471463037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 471463035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa13941598af24d988537f0c6ab1e624, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trainers: {fileID: 2085210974}
 --- !u!1 &472876710
 GameObject:
   m_ObjectHideFlags: 0
@@ -17062,6 +17049,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[1]
       value: 
       objectReference: {fileID: 1564124845}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -17937,6 +17928,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[1]
       value: 
       objectReference: {fileID: 1060734379}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -22423,6 +22418,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[2]
       value: 
       objectReference: {fileID: 62411415}
+    - target: {fileID: 4070556332024330, guid: 927e04706799d4d0caf638defac97a22, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0
@@ -29371,6 +29370,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[2]
       value: 
       objectReference: {fileID: 1234056806}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -39507,6 +39510,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[1]
       value: 
       objectReference: {fileID: 74109509}
+    - target: {fileID: 4070556332024330, guid: 927e04706799d4d0caf638defac97a22, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0
@@ -41541,6 +41548,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[2]
       value: 
       objectReference: {fileID: 79604199}
+    - target: {fileID: 4070556332024330, guid: 927e04706799d4d0caf638defac97a22, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0
@@ -44230,6 +44241,7 @@ GameObject:
   - component: {fileID: 1716003661}
   - component: {fileID: 1716003660}
   - component: {fileID: 1716003659}
+  - component: {fileID: 1716003662}
   m_Layer: 0
   m_Name: ExitArrow (3)
   m_TagString: Untagged
@@ -44331,6 +44343,18 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!114 &1716003662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716003657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa13941598af24d988537f0c6ab1e624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainers: {fileID: 2085210974}
 --- !u!1 &1720080868
 GameObject:
   m_ObjectHideFlags: 0
@@ -45931,6 +45955,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[1]
       value: 
       objectReference: {fileID: 2088441744}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -46768,7 +46796,7 @@ MonoBehaviour:
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 5
-  yCoordinate: 0
+  yCoordinate: -7
   sceneName: Sigston
 --- !u!61 &1800991638
 BoxCollider2D:
@@ -54859,6 +54887,10 @@ Prefab:
       propertyPath: oppDelts.Array.data[1]
       value: 
       objectReference: {fileID: 443138428}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0

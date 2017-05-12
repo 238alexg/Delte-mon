@@ -54,7 +54,7 @@ MonoBehaviour:
   nickname: PaulRyan
   deltName: Andrew Warren
   description: The resemblance is uncanny.
-  frontImage: {fileID: 0}
+  frontImage: {fileID: 21300108, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   backImage: {fileID: 21300110, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   pinNumber: 1510
   major1: {fileID: 114791616684893104, guid: 57eae54195b2045e28126be4acf02671, type: 2}
@@ -85,3 +85,7 @@ MonoBehaviour:
   rarity: 0
   AVIndex: 5
   AVAwardAmount: 1
+  secondEvolution:
+    secondEvol: {fileID: 0}
+    firstEvolStat: 0
+    secEvolStat: 0

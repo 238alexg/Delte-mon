@@ -57,21 +57,30 @@ public class NPCInteraction : MonoBehaviour {
 					Instantiate (move, oppDelt.transform);
 				}
 			}
-			UIManager.UIMan.StartMessage (null, null, () => UIManager.UIMan.StartTrainerBattle (this, isGymLeader));
+			UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut (), () => UIManager.UIMan.StartTrainerBattle (this, isGymLeader));
 			UIManager.UIMan.StartMessage (null, null, () => notificaiton.enabled = false);
 		}
 	}
 
 	// Trigger all end of battle dialogues
 	public void DefeatedDialogue() {
+		
+		PlayerMovement.PlayMov.StopMoving ();
+
+		UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideIn (largeCharacerSprite));
+
+		// Trainer says all messages
 		foreach (string message in postBattleDialogue) {
-			UIManager.UIMan.StartMessage (message);
+			UIManager.UIMan.StartNPCMessage (message, NPCName);
 		}
+
+		UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut ());
 	}
 
 	// Called from BattleManager when player has won the battle
 	public void EndBattleActions() {
-		
+
+
 		// Play congradulatory sound for beating boss
 		if (isGymLeader) {
 			//SoundEffectManager.SEM.PlaySoundImmediate ("BossWin");

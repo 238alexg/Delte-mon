@@ -56,3 +56,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Indoors/Sigma Nu.unity
     guid: 1e842be6f6c48426e885549503760573
+  - enabled: 1
+    path: Assets/Scenes/Indoors/Sigma Chi.unity
+    guid: ffdf91548eceb48b7b7694eb98c454b9

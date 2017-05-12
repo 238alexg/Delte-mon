@@ -80,7 +80,7 @@ public class DeltemonClass : MonoBehaviour {
 		text [0] = newTotal + " (+" + totalGained + ")";
 
 		// Update XP needed to level up again
-		XPToLevel = (level * 10) + (level * level * 5);
+		XPToLevel = (level * 3) + (level * level * 3);
 
 		// Completely heal Delt on level up
 		health = GPA;
@@ -110,7 +110,7 @@ public class DeltemonClass : MonoBehaviour {
 		moveset.Clear ();
 
 		// Update XP needed to level up again
-		XPToLevel = (level * 10) + (level * level * 5);
+		XPToLevel = (level * 3) + (level * level * 3);
 
 		// If Delt has 1-2 prev evols, set stats a little lower
 		// Note: Compensates for Delt not evolving from lower stat state(s)
@@ -118,8 +118,6 @@ public class DeltemonClass : MonoBehaviour {
 		if (deltdex.prevEvol != null) {
 			// 2 previous evols
 			if (deltdex.prevEvol.prevEvol != null) {
-
-
 				statMod = (int)(statMod * 0.7f);
 			} 
 			// 1 previous evol
@@ -149,7 +147,7 @@ public class DeltemonClass : MonoBehaviour {
 			}
 
 			// Get previous evol dex, calculate number of levels where Delt was that evolution
-			prevDex = deltdex.prevEvol.prevEvol;
+			prevDex = deltdex.prevEvol;
 			levels = prevDex.evolveLevel - levels;
 
 			// Add previous evolution stats

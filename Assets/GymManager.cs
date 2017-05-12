@@ -8,7 +8,7 @@ public class GymManager : MonoBehaviour {
 
 	// Checks to see if all trainers have been defeated yet. If not, all become active.
 	// This way player must always defeat (and redefeat if they fail) all trainers before getting to the gym leader.
-	void Start () {
+	void OnTriggerEnter2D (Collider2D player) {
 		bool gymDefeated = true;
 		bool[] sceneTrainerData = GameManager.GameMan.curSceneData.trainers;
 		for (int i = 0; i < sceneTrainerData.Length; i++) {
@@ -18,11 +18,22 @@ public class GymManager : MonoBehaviour {
 				break;
 			}
 		}
+
 		// Reactivate all trainers if gym is undefeated
 		if (!gymDefeated) {
+			print ("Gym not defeated!");
+
 			foreach (Transform child in trainers.transform) {
+				print (child.GetComponent <NPCInteraction> ().hasTriggered);
 				child.GetComponent <NPCInteraction>().hasTriggered = false;
 			}
 		}
+	}
+
+	IEnumerator ResetTrainers() {
+		
+		yield return new WaitForSeconds (0.3f);
+
+
 	}
 }

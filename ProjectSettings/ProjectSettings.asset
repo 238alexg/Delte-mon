@@ -138,6 +138,7 @@ PlayerSettings:
   protectGraphicsMemory: 0
   useHDRDisplay: 0
   applicationIdentifier:
+    Android: com.Geoffrey.Deltemon
     Standalone: "com.Geoffrey.Delt\xE9mon"
     iOS: com.Geoffrey.Deltemon
   buildNumber: {}

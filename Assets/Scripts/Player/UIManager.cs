@@ -150,7 +150,7 @@ public class UIManager : MonoBehaviour {
 		NPCName.SetActive (false);
 	}
 
-	// LATER: Animate character sliding in/out
+	// Animate character sliding in/out
 	public IEnumerator characterSlideIn (Sprite npcSlideIn) {
 		NPCSlideIn.gameObject.SetActive (true);
 		NPCSlideIn.SetTrigger ("SlideIn");
@@ -769,9 +769,7 @@ public class UIManager : MonoBehaviour {
 			Transform statCube = DeltemonUI.transform.GetChild (i + 1);
 			if (i < partySize) {
 				DeltemonClass delt = gameManager.deltPosse [i];
-				if (!allDeltsLoaded) {
-					loadDeltIntoUI (delt, statCube);
-				}
+				loadDeltIntoUI (delt, statCube);
 			} else {
 				statCube.gameObject.SetActive (false);
 			}
@@ -990,7 +988,7 @@ public class UIManager : MonoBehaviour {
 						MoveOptions [index].GetComponent<Image> ().color = tmpMove.majorType.background;
 						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
 					}
-
+					MoveOptions [index].gameObject.SetActive (true);
 				} else {
 					MoveOptions [index].gameObject.SetActive (false);
 				}
@@ -1134,7 +1132,6 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void StartTrainerBattle(NPCInteraction trainer, bool isGymLeader) {
-		StartMessage (null, characterSlideOut());
 		StartMessage (null, fade.fadeOutToBlack(), ()=>playerMovement.StopMoving ());
 		StartMessage (null, null, ()=>BattleUI.SetActive(true));
 		StartMessage (null, null, ()=>battleManager.StartTrainerBattle(trainer, isGymLeader));
@@ -1144,9 +1141,9 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void EndBattle() {
-		StartMessage (null, fade.fadeOutToBlack(), ()=>playerMovement.ResumeMoving ());
+		StartMessage (null, fade.fadeOutToBlack());
 		StartMessage (null, null, ()=>BattleUI.SetActive(false));
-		StartMessage (null, fade.fadeInSceneChange(), null);
+		StartMessage (null, fade.fadeInSceneChange(), ()=>playerMovement.ResumeMoving ());
 		fade.gameObject.SetActive (false);
 		currentUI = UIMode.World;
 		inBattle = false;
@@ -1168,7 +1165,6 @@ public class UIManager : MonoBehaviour {
 
 			// Fade in and allow player to move
 			StartMessage (null, fade.fadeInSceneChange (sceneName), ()=>PlayerMovement.PlayMov.ResumeMoving ());
-			//StartMessage (null, fade.fadeInSceneChange (sceneName), (() => (PlayerMovement.PlayMov.ResumeMoving())));
 
 			// Wait for scene name to disappear then make gameobject inactive
 			StartMessage (null, null, EndSceneChangeUI);

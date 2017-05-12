@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour {
 		location = new Vector3 (0, 0, 0);
 		curSceneData = new SceneInteractionData ();
 		Application.targetFrameRate = 60;
+		discoveredTowns = new bool[15];
 	}
 
 	// When title screen is pressed
@@ -571,6 +572,7 @@ public class GameManager : MonoBehaviour {
 		// Discover town if not already discovered
 		for (byte i = 0; i < mapNames.Length; i++) {
 			if (mapNames [i] == present.name) {
+				print (i);
 				discoveredTowns [i] = true;
 				return;
 			}

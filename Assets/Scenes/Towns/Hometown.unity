@@ -19446,9 +19446,56 @@ Prefab:
       propertyPath: sceneName
       value: Delta Shelter
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4445715153948904, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503965144707340, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503965144707340, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238303618864126, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238303618864126, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
+      propertyPath: m_TagString
+      value: Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 61093681898522046, guid: 379bc1aa4d1914f7ea1a252d7704b3c4,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114572470975556782, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 379bc1aa4d1914f7ea1a252d7704b3c4, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &592672875 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1238303618864126, guid: 379bc1aa4d1914f7ea1a252d7704b3c4,
+    type: 2}
+  m_PrefabInternal: {fileID: 592672874}
+--- !u!114 &592672876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592672875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70e8522ed8a4f41fa9a0a7e390a4b3b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  open: {fileID: 21306752, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
+  shut: {fileID: 21306752, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
+  xCoordinate: 14
+  yCoordinate: 53
+  sceneName: Delta Shelter
 --- !u!1 &601372060
 GameObject:
   m_ObjectHideFlags: 0

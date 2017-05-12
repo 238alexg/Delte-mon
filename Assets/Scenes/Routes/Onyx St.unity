@@ -4098,6 +4098,10 @@ Prefab:
       propertyPath: coins
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -10923,7 +10927,7 @@ MonoBehaviour:
   index: 0
   questNum: 0
   needsItem: 0
-  numberOfItemsNeeded: 3
+  numberOfItemsNeeded: 0
   coinsNeeded: 0
   questItem: {fileID: 0}
   questCompletionMessages: []
@@ -30637,7 +30641,6 @@ MonoBehaviour:
   messages:
   - You try as you might to push these cones out of your way...
   - It's like they are cemented down!
-  - It's like they are cemented down!
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -32496,7 +32499,6 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You try as you might to push these cones out of your way...
-  - It's like they are cemented down!
   - It's like they are cemented down!
   items: []
   coins: 0
@@ -34589,12 +34591,12 @@ Prefab:
         type: 2}
       propertyPath: deltdex
       value: 
-      objectReference: {fileID: 114635822080416000, guid: 27e9364099841419c99a7b81c7b90fce,
+      objectReference: {fileID: 114056644860409280, guid: 74ddbc6bfb00740fa9990d5adedc23c9,
         type: 2}
     - target: {fileID: 114938611354390524, guid: 822d5cdb26a3544a0b2c384e838121b8,
         type: 2}
       propertyPath: nickname
-      value: Frijoles
+      value: Velardass
       objectReference: {fileID: 0}
     - target: {fileID: 114938611354390524, guid: 822d5cdb26a3544a0b2c384e838121b8,
         type: 2}
@@ -35906,7 +35908,7 @@ MonoBehaviour:
   - Curse you!
   postBattleDialogue:
   - I'll get you next time, frat freak!
-  coins: 0
+  coins: 10
   rewardItem: {fileID: 0}
   trainerItems: []
   oppDelts:
@@ -37984,7 +37986,6 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You try as you might to push these cones out of your way...
-  - It's like they are cemented down!
   - It's like they are cemented down!
   items: []
   coins: 0
@@ -41484,7 +41485,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1171752843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalPosition: {x: 0, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1604839158}
@@ -43546,7 +43547,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1239900584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 8, z: 0}
+  m_LocalPosition: {x: 5, y: 10, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1539295298}
@@ -43568,7 +43569,8 @@ MonoBehaviour:
   messages:
   - Smells kind of funky...
   - Hey! Theres... old food in here?
-  items: []
+  items:
+  - {fileID: 114947217199788844, guid: 3d738cdfdd5c549d28065ea533395e67, type: 2}
   coins: 0
   nextTile: {fileID: 0}
   index: 0
@@ -49052,7 +49054,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1405976053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalPosition: {x: 0, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 321883147}
@@ -49172,7 +49174,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1408664884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalPosition: {x: 0, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1201017220}
@@ -55874,12 +55876,12 @@ Prefab:
     - target: {fileID: 114467454219198602, guid: eed70876da41748738e11fe2bf5ce653,
         type: 2}
       propertyPath: maxLevel
-      value: 35
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114467454219198602, guid: eed70876da41748738e11fe2bf5ce653,
         type: 2}
       propertyPath: minLevel
-      value: 35
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eed70876da41748738e11fe2bf5ce653, type: 2}
@@ -58152,6 +58154,14 @@ Prefab:
         type: 2}
       propertyPath: m_Offset.y
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315139879084978, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_TagString
+      value: Action
+      objectReference: {fileID: 0}
+    - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
@@ -66737,7 +66747,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1991308812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -3}
+  m_LocalPosition: {x: 0, y: 1, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1004925476}

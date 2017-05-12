@@ -54,8 +54,8 @@ MonoBehaviour:
   nickname: Exceleon
   deltName: Jake Zusman
   description: Contrary to popular belief, Exceleon only has 4 legs.
-  frontImage: {fileID: 21300200, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
-  backImage: {fileID: 21300202, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  frontImage: {fileID: 21300024, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300026, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   pinNumber: 1473
   major1: {fileID: 114595427294148808, guid: 1a03da849d5914d41be7629fc481e809, type: 2}
   major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
@@ -81,3 +81,7 @@ MonoBehaviour:
   rarity: 1
   AVIndex: 1
   AVAwardAmount: 2
+  secondEvolution:
+    secondEvol: {fileID: 0}
+    firstEvolStat: 0
+    secEvolStat: 0

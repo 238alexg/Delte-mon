@@ -2492,7 +2492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -5895,7 +5895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -6794,7 +6794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -6963,7 +6963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 134122852}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14, y: -23, z: 0}
+  m_LocalPosition: {x: 14, y: -23.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1718246123}
@@ -7170,7 +7170,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 137864827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14, y: 52.99, z: 0}
+  m_LocalPosition: {x: 14, y: 53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
@@ -7280,6 +7280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 139083830}
   - component: {fileID: 139083829}
+  - component: {fileID: 139083831}
   m_Layer: 8
   m_Name: Window_East (9)
   m_TagString: Untagged
@@ -7334,12 +7335,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 139083828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70, y: 2, z: 0}
+  m_LocalPosition: {x: 70, y: 1.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &139083831
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 139083828}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &139249120
 GameObject:
   m_ObjectHideFlags: 0
@@ -7450,7 +7476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -9924,7 +9950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -10646,9 +10672,10 @@ MonoBehaviour:
   messages:
   - You reach into the pool table pocket...
   - There is something squishy there...
-  items: []
+  items:
+  - {fileID: 114330465960523186, guid: 99aae5f5ba0754b7b866a1a430307d16, type: 2}
   coins: 0
-  nextTile: {fileID: 1201065607268644, guid: 99aae5f5ba0754b7b866a1a430307d16, type: 2}
+  nextTile: {fileID: 0}
   index: 2
   questNum: 0
   needsItem: 0
@@ -13008,6 +13035,7 @@ GameObject:
   m_Component:
   - component: {fileID: 251537061}
   - component: {fileID: 251537060}
+  - component: {fileID: 251537062}
   m_Layer: 8
   m_Name: Window_East (8)
   m_TagString: Untagged
@@ -13062,12 +13090,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251537059}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70, y: 6, z: 0}
+  m_LocalPosition: {x: 70, y: 5.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &251537062
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 251537059}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &251919320
 GameObject:
   m_ObjectHideFlags: 0
@@ -13588,6 +13641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 257957158}
   - component: {fileID: 257957157}
+  - component: {fileID: 257957159}
   m_Layer: 8
   m_Name: Window_West (8)
   m_TagString: Untagged
@@ -13642,12 +13696,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 257957156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 32, z: 0}
+  m_LocalPosition: {x: -13, y: 31.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 426
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &257957159
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257957156}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &258429296
 GameObject:
   m_ObjectHideFlags: 0
@@ -17217,7 +17296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -18928,6 +19007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 339091662}
   - component: {fileID: 339091661}
+  - component: {fileID: 339091663}
   m_Layer: 8
   m_Name: Window_West (7)
   m_TagString: Untagged
@@ -18982,12 +19062,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 339091660}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 36, z: 0}
+  m_LocalPosition: {x: -13, y: 35.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 425
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &339091663
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339091660}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &339188723
 GameObject:
   m_ObjectHideFlags: 0
@@ -20599,6 +20704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 352109411}
   - component: {fileID: 352109410}
+  - component: {fileID: 352109412}
   m_Layer: 8
   m_Name: Window_East (6)
   m_TagString: Untagged
@@ -20653,12 +20759,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352109409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19, y: 48, z: 0}
+  m_LocalPosition: {x: 19, y: 47.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 436
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &352109412
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 352109409}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &353252748
 GameObject:
   m_ObjectHideFlags: 0
@@ -21345,7 +21476,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 364903383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: -3, z: 0}
+  m_LocalPosition: {x: -11, y: -3.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -23194,6 +23325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 397763175}
   musicMan: {fileID: 0}
+  playerCamera: {fileID: 0}
 --- !u!114 &397763177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23391,7 +23523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -23812,7 +23944,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -19
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -24410,7 +24542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -27127,7 +27259,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -30243,6 +30375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495889015}
   - component: {fileID: 495889014}
+  - component: {fileID: 495889016}
   m_Layer: 8
   m_Name: Window_East (2)
   m_TagString: Untagged
@@ -30297,12 +30430,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495889013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 36, z: 0}
+  m_LocalPosition: {x: 18, y: 35.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 434
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &495889016
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 495889013}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &496895065
 GameObject:
   m_ObjectHideFlags: 0
@@ -30487,7 +30645,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 499112010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 2, z: 0}
+  m_LocalPosition: {x: 15, y: 1.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -37635,7 +37793,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 606501228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -38314,7 +38472,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 621926172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 45, z: 0}
+  m_LocalPosition: {x: 7, y: 44.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
@@ -39155,7 +39313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -41964,7 +42122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21300086, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  shut: {fileID: 0}
+  shut: {fileID: 21300086, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   xCoordinate: 56
   yCoordinate: 36
   sceneName: 
@@ -42040,7 +42198,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 675978677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61, y: 11, z: 0}
+  m_LocalPosition: {x: 61, y: 10.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
@@ -42863,6 +43021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 682797738}
   - component: {fileID: 682797737}
+  - component: {fileID: 682797739}
   m_Layer: 8
   m_Name: Window_West (11)
   m_TagString: Untagged
@@ -42917,12 +43076,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682797736}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9, y: 52, z: 0}
+  m_LocalPosition: {x: 9, y: 51.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 439
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &682797739
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682797736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &682804079
 GameObject:
   m_ObjectHideFlags: 0
@@ -43155,7 +43339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -43441,7 +43625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -44678,6 +44862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 698801342}
   - component: {fileID: 698801341}
+  - component: {fileID: 698801343}
   m_Layer: 8
   m_Name: Window_East (5)
   m_TagString: Untagged
@@ -44732,12 +44917,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698801340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 42, z: 0}
+  m_LocalPosition: {x: 15, y: 41.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 435
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &698801343
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698801340}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &700823439
 GameObject:
   m_ObjectHideFlags: 0
@@ -45314,7 +45524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -45634,7 +45844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -46383,6 +46593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 722926294}
   - component: {fileID: 722926293}
+  - component: {fileID: 722926295}
   m_Layer: 8
   m_Name: Window_West (16)
   m_TagString: Untagged
@@ -46437,12 +46648,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 722926292}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42, y: 6, z: 0}
+  m_LocalPosition: {x: 42, y: 5.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 144
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &722926295
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 722926292}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &724109850
 GameObject:
   m_ObjectHideFlags: 0
@@ -47134,6 +47370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 732239081}
   - component: {fileID: 732239080}
+  - component: {fileID: 732239082}
   m_Layer: 8
   m_Name: Window_West (15)
   m_TagString: Untagged
@@ -47188,12 +47425,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 732239079}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42, y: 5, z: 0}
+  m_LocalPosition: {x: 42, y: 4.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 111
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &732239082
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 732239079}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &733811308
 GameObject:
   m_ObjectHideFlags: 0
@@ -48543,7 +48805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -53339,7 +53601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -53561,7 +53823,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 811991234}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9, y: 5, z: 0}
+  m_LocalPosition: {x: -9, y: 4.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -58047,6 +58309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870383508}
   - component: {fileID: 870383507}
+  - component: {fileID: 870383509}
   m_Layer: 8
   m_Name: Window_West (10)
   m_TagString: Untagged
@@ -58101,12 +58364,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 870383506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9, y: 48, z: 0}
+  m_LocalPosition: {x: 9, y: 47.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 438
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &870383509
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870383506}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &870667698
 GameObject:
   m_ObjectHideFlags: 0
@@ -59672,7 +59960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -61315,7 +61603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -61553,7 +61841,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 912825156}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 8, z: 0}
+  m_LocalPosition: {x: 7, y: 7.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -62629,7 +62917,7 @@ GameObject:
   - component: {fileID: 934457056}
   m_Layer: 8
   m_Name: Toilet (1)
-  m_TagString: Untagged
+  m_TagString: Action
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64596,7 +64884,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -65541,7 +65829,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -65683,6 +65971,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979627874}
   - component: {fileID: 979627873}
+  - component: {fileID: 979627875}
   m_Layer: 8
   m_Name: Window_North (5)
   m_TagString: Untagged
@@ -65737,12 +66026,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 979627872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57, y: 10, z: 0}
+  m_LocalPosition: {x: 57, y: 9.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 269
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &979627875
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979627872}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &979853341
 GameObject:
   m_ObjectHideFlags: 0
@@ -67025,7 +67339,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -69460,6 +69774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036354728}
   - component: {fileID: 1036354727}
+  - component: {fileID: 1036354729}
   m_Layer: 8
   m_Name: Window_West (9)
   m_TagString: Untagged
@@ -69514,12 +69829,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1036354726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 29, z: 0}
+  m_LocalPosition: {x: -13, y: 28.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 427
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1036354729
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1036354726}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1037038464
 GameObject:
   m_ObjectHideFlags: 0
@@ -69631,7 +69971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -71332,6 +71672,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1074965119}
   - component: {fileID: 1074965118}
+  - component: {fileID: 1074965120}
   m_Layer: 8
   m_Name: Window_North (4)
   m_TagString: Untagged
@@ -71386,12 +71727,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1074965117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48, y: 10, z: 0}
+  m_LocalPosition: {x: 48, y: 9.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 174
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1074965120
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074965117}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1075207515
 GameObject:
   m_ObjectHideFlags: 0
@@ -72746,7 +73112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -77076,7 +77442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -77165,6 +77531,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158771045}
   - component: {fileID: 1158771044}
+  - component: {fileID: 1158771046}
   m_Layer: 8
   m_Name: Window_West (14)
   m_TagString: Untagged
@@ -77219,12 +77586,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1158771043}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42, y: 3, z: 0}
+  m_LocalPosition: {x: 42, y: 2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1158771046
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1158771043}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1163158897
 GameObject:
   m_ObjectHideFlags: 0
@@ -77503,8 +77895,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300144, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: 0
-  yCoordinate: 0
+  xCoordinate: -10
+  yCoordinate: 6
   sceneName: Hometown
 --- !u!212 &1163234167
 SpriteRenderer:
@@ -82833,7 +83225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -83297,6 +83689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1240243546}
   - component: {fileID: 1240243545}
+  - component: {fileID: 1240243547}
   m_Layer: 8
   m_Name: Window_West (6)
   m_TagString: Untagged
@@ -83351,12 +83744,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1240243544}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 40, z: 0}
+  m_LocalPosition: {x: -13, y: 39.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 424
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1240243547
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1240243544}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1241135171
 GameObject:
   m_ObjectHideFlags: 0
@@ -83610,7 +84028,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1244049442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -24, z: 0}
+  m_LocalPosition: {x: -3, y: -24.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1718246123}
@@ -86341,7 +86759,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -86516,7 +86934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -86824,7 +87242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -19
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -89246,8 +89664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: 0
-  yCoordinate: 0
+  xCoordinate: 2
+  yCoordinate: 3
   sceneName: 
 --- !u!61 &1341701039
 BoxCollider2D:
@@ -90366,7 +90784,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1360132221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 44, z: 0}
+  m_LocalPosition: {x: -5, y: 43.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
@@ -96790,7 +97208,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1449258372}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7, y: 9, z: 0}
+  m_LocalPosition: {x: 7, y: 8.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -98878,7 +99296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -99316,7 +99734,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -100096,7 +100514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -101396,7 +101814,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1535554028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: 3, z: 0}
+  m_LocalPosition: {x: -11, y: 2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -102122,7 +102540,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1553017313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66, y: 11, z: 0}
+  m_LocalPosition: {x: 66, y: 10.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
@@ -104738,7 +105156,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1605104543}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 44, z: 0}
+  m_LocalPosition: {x: -7, y: 43.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
@@ -105074,7 +105492,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -106715,12 +107133,13 @@ MonoBehaviour:
   messages:
   - What have you done?
   - Something floats out onto the floor...
-  items: []
+  items:
+  - {fileID: 114381488708133696, guid: ea086410a0cfb466b950fd4484a25a18, type: 2}
   coins: 0
   nextTile: {fileID: 0}
   index: 1
   questNum: 0
-  needsItem: 0
+  needsItem: 1
   numberOfItemsNeeded: 1
   coinsNeeded: 40
   questItem: {fileID: 0}
@@ -107395,7 +107814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -112505,7 +112924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -112594,6 +113013,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1719411198}
   - component: {fileID: 1719411197}
+  - component: {fileID: 1719411199}
   m_Layer: 8
   m_Name: Window_West (5)
   m_TagString: Untagged
@@ -112648,12 +113068,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1719411196}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13, y: 41, z: 0}
+  m_LocalPosition: {x: -13, y: 40.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 423
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1719411199
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719411196}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1719904365
 GameObject:
   m_ObjectHideFlags: 0
@@ -113590,7 +114035,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1727333574}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 6, z: 0}
+  m_LocalPosition: {x: 15, y: 5.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -115882,7 +116327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -116161,6 +116606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1766836050}
   - component: {fileID: 1766836049}
+  - component: {fileID: 1766836051}
   m_Layer: 8
   m_Name: Window_East (10)
   m_TagString: Untagged
@@ -116215,12 +116661,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1766836048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70, y: 4, z: 0}
+  m_LocalPosition: {x: 70, y: 3.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 623490712}
   m_RootOrder: 272
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1766836051
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1766836048}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1768679913
 GameObject:
   m_ObjectHideFlags: 0
@@ -116263,7 +116734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -118135,7 +118606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -118837,6 +119308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812406402}
   - component: {fileID: 1812406401}
+  - component: {fileID: 1812406403}
   m_Layer: 8
   m_Name: Window_East (7)
   m_TagString: Untagged
@@ -118891,12 +119363,37 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1812406400}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19, y: 52, z: 0}
+  m_LocalPosition: {x: 19, y: 51.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
   m_RootOrder: 437
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1812406403
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1812406400}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1813074630
 GameObject:
   m_ObjectHideFlags: 0
@@ -120232,7 +120729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -120587,7 +121084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -121184,7 +121681,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1842407295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11, y: -1, z: 0}
+  m_LocalPosition: {x: -11, y: -1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -121555,7 +122052,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1846165215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -27, z: 0}
+  m_LocalPosition: {x: -3, y: -27.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1718246123}
@@ -121767,7 +122264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -123096,7 +123593,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1862873285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: 44, z: 0}
+  m_LocalPosition: {x: -6, y: 43.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 817371310}
@@ -123566,7 +124063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -125883,7 +126380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -128110,7 +128607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -129241,7 +129738,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1970375597}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 7, z: 0}
+  m_LocalPosition: {x: 5, y: 6.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -129431,7 +129928,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1975293221}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14, y: -25, z: 0}
+  m_LocalPosition: {x: 14, y: -25.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1718246123}
@@ -129972,7 +130469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -131690,7 +132187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -132265,7 +132762,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4832958300006184, guid: e28efd19e70e547c7b993a2a25a5ca5c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -132479,7 +132976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -134058,8 +134555,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
   shut: {fileID: 21300142, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
-  xCoordinate: -11
-  yCoordinate: 0
+  xCoordinate: -10
+  yCoordinate: 6
   sceneName: Hometown
 --- !u!61 &2041465481
 BoxCollider2D:
@@ -135357,7 +135854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -136347,7 +136844,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2071876927}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: 4, z: 0}
+  m_LocalPosition: {x: 15, y: 3.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -138796,7 +139293,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2102317512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 5, z: 0}
+  m_LocalPosition: {x: -7, y: 4.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1448897234}
@@ -140766,7 +141263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a330a0d7dc9b9475f80e802bc532550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionT: 0
+  actionT: 2
   hasBeenViewed: 0
   messages:
   - You rifle through someone else's stuff...
@@ -141567,7 +142064,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2140048262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -21, z: 0}
+  m_LocalPosition: {x: -3, y: -21.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1718246123}
