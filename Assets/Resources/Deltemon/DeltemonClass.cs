@@ -96,6 +96,7 @@ public class DeltemonClass : MonoBehaviour {
 
 	public void initializeDelt(bool setMoves = true) {
 		int levels = 0;
+		byte index = 0;
 		nickname = deltdex.nickname;
 		curStatus = statusType.None;
 		experience = 0;
@@ -144,6 +145,22 @@ public class DeltemonClass : MonoBehaviour {
 				Faith += (prevDex.BVs [3] * levels * .02f);
 				Power += (prevDex.BVs [4] * levels * .02f);
 				ChillToPull += (prevDex.BVs [5] * levels * .02f);
+
+				// If moves need to be set programmatically
+				if (setMoves) {
+					foreach (LevelUpMove lum in prevDex.levelUpMoves) {
+						if (lum.level <= level) {
+							if (moveset.Count < 4) {
+								moveset.Add (lum.move);
+							} else {
+								moveset [index] = lum.move;
+								index++;
+							}
+						} else {
+							break;
+						}
+					}
+				}
 			}
 
 			// Get previous evol dex, calculate number of levels where Delt was that evolution
@@ -160,6 +177,22 @@ public class DeltemonClass : MonoBehaviour {
 
 			// Set number of levels as current evolution
 			levels = level - prevDex.evolveLevel;
+
+			// If moves need to be set programmatically
+			if (setMoves) {
+				foreach (LevelUpMove lum in prevDex.levelUpMoves) {
+					if (lum.level <= level) {
+						if (moveset.Count < 4) {
+							moveset.Add (lum.move);
+						} else {
+							moveset [index] = lum.move;
+							index++;
+						}
+					} else {
+						break;
+					}
+				}
+			}
 
 		} 
 
@@ -180,7 +213,7 @@ public class DeltemonClass : MonoBehaviour {
 
 		// If moves need to be set programmatically
 		if (setMoves) {
-			byte index = 0;
+			index = 0;
 
 			foreach (LevelUpMove lum in deltdex.levelUpMoves) {
 				if (lum.level <= level) {

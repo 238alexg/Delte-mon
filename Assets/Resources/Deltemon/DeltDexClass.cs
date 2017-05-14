@@ -35,6 +35,5 @@ public enum Rarity {
 	Uncommon,
 	Rare,
 	VeryRare,
-	Impossible,
 	Legendary
 }

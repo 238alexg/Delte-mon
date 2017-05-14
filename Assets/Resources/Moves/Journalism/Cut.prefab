@@ -55,8 +55,9 @@ MonoBehaviour:
   moveDescription: Some things better left out. Chance to Indebt. Debuffs Faith.
   majorType: {fileID: 114540014119815600, guid: 644f904836ae3466d9e8497ab649dc96,
     type: 2}
-  status: {fileID: 0}
+  status: {fileID: 21300064, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   movType: 1
+  moveIndex: 0
   PP: 20
   PPLeft: 20
   damage: 50

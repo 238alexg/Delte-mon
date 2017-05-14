@@ -494,7 +494,7 @@ public class BattleManager : MonoBehaviour {
 				score += (move.statusChance * 0.01f * 150);
 			}
 
-			print ("Score of move " + move.moveName + ": " + score);
+			//print ("Score of move " + move.moveName + ": " + score);
 
 			// If this move has the highest score, update top Score and chosenMove
 			if (score > topScore) {
@@ -969,9 +969,6 @@ public class BattleManager : MonoBehaviour {
 		case (Rarity.VeryRare):
 			oppRarity = 5;
 			break;
-		case (Rarity.Impossible):
-			oppRarity = 6;
-			break;
 		case (Rarity.Legendary):
 			oppRarity = 7;
 			break;
@@ -1043,7 +1040,9 @@ public class BattleManager : MonoBehaviour {
 		yield return new WaitForSeconds (yieldTime);
 
 		if (ballRattles == 4) {
-			playerWon = true;
+			PlayerWinBattle ();
+			gameManager.deltsRushed++;
+			AchievementManager.AchieveMan.DeltsRushedUpdate (gameManager.deltsRushed);
 			UIManager.StartMessage (curOppDelt.nickname + " was caught!", null, () => gameManager.AddDelt (curOppDelt));
 			UIManager.StartMessage (null, null, () => EndBattle ());
 		} else {
@@ -1567,7 +1566,7 @@ public class BattleManager : MonoBehaviour {
 		//				 Post-Move Status Effects:					//
 
 		// Opp gets hurt by negative status if not DA'd
-		if (!OppDA && ((curOppDelt.curStatus == statusType.Roasted) || (curOppDelt.curStatus == statusType.Plagued))) {
+		if (!OppDA && ((curOppDelt.curStatus == statusType.Roasted) || (curOppDelt.curStatus == statusType.Plagued) || (curOppDelt.curStatus == statusType.Indebted))) {
 			curOppDelt.health -= (curOppDelt.GPA * 0.125f);
 			if (curOppDelt.health < 0) {
 				curOppDelt.health = 0;
@@ -1585,6 +1584,13 @@ public class BattleManager : MonoBehaviour {
 				oppBattleAnim.SetTrigger ("Plagued");
 				yield return new WaitForSeconds (1);
 				yield return StartCoroutine (evolMessage (curOppDelt.nickname + " is still Plagued!"));
+			}
+
+			// If opp Delt is Plagued
+			else if (curOppDelt.curStatus == statusType.Indebted) {
+				oppBattleAnim.SetTrigger ("Indebted");
+				yield return new WaitForSeconds (1);
+				yield return StartCoroutine (evolMessage (curOppDelt.nickname + " couldn't pay back those student loans!"));
 			}
 
 			// Animate hurting opp Delt
@@ -1605,7 +1611,7 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		// Player gets hurt by negative status if not DA'd
-		if (!PlayerDA && ((curPlayerDelt.curStatus == statusType.Roasted) || (curPlayerDelt.curStatus == statusType.Plagued))) {
+		if (!PlayerDA && ((curPlayerDelt.curStatus == statusType.Roasted) || (curPlayerDelt.curStatus == statusType.Plagued)|| (curOppDelt.curStatus == statusType.Indebted))) {
 			curPlayerDelt.health -= (curPlayerDelt.GPA * 0.125f);
 			if (curPlayerDelt.health < 0) {
 				curPlayerDelt.health = 0;
@@ -1623,6 +1629,13 @@ public class BattleManager : MonoBehaviour {
 				playerBattleAnim.SetTrigger ("Plagued");
 				yield return new WaitForSeconds (1);
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " is still Plagued!"));
+			}
+
+			// If player Delt is Plagued
+			else if (curPlayerDelt.curStatus == statusType.Indebted) {
+				playerBattleAnim.SetTrigger ("Indebted");
+				yield return new WaitForSeconds (1);
+				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " couldn't pay back those student loans!"));
 			}
 
 			// Animate hurting player Delt
@@ -1740,7 +1753,7 @@ public class BattleManager : MonoBehaviour {
 					}
 				}
 				// If exited loop, player wins
-				playerWon = true;
+				PlayerWinBattle ();
 
 				// Give achievements if any
 				if (trainer.isGymLeader) {
@@ -1767,7 +1780,7 @@ public class BattleManager : MonoBehaviour {
 			else {
 				wildPool = curOppDelt;
 				WildDeltCoinReward ();
-				playerWon = true;
+				PlayerWinBattle ();
 
 			}
 		}
@@ -1807,8 +1820,6 @@ public class BattleManager : MonoBehaviour {
 			gainedSoFar += increment;
 			playerXP.value += increment;
 
-
-
 			// Animation delay
 			yield return new WaitForSeconds (0.001f);
 
@@ -1820,6 +1831,9 @@ public class BattleManager : MonoBehaviour {
 
 				// Perform levelup on Delt
 				string[] lvlUpText = curPlayerDelt.levelUp ();
+
+				// Try to update highest level score
+				AchievementManager.AchieveMan.HighestLevelUpdate (curPlayerDelt.level);
 
 				// If the Delt's level causes it to evolve
 				if (curPlayerDelt.level == curPlayerDelt.deltdex.evolveLevel) {
@@ -1870,6 +1884,9 @@ public class BattleManager : MonoBehaviour {
 					// Set the deltdex to the evolution's deltdex
 					// Note: This is how the Delt stays evolved
 					curPlayerDelt.deltdex = nextEvol;
+
+					// Add dex to deltDex if not there already
+					gameManager.AddDeltDex (curPlayerDelt.deltdex);
 
 					// Set battle image to new image
 					playerDeltSprite.sprite = curPlayerDelt.deltdex.backImage;
@@ -1930,14 +1947,6 @@ public class BattleManager : MonoBehaviour {
 
 						finishNewMove = false;
 					}
-
-					// Reset increment speed on level up
-					// If the XP left can level again, increment faster
-					increment = (totalXPGained - gainedSoFar);
-					if (increment > (curPlayerDelt.XPToLevel)) {
-						increment = curPlayerDelt.XPToLevel;
-					}
-					increment *= 0.02f;
 				}
 				// Bring up Levelup UI
 				LevelUpUI.SetActive (true);
@@ -1952,7 +1961,7 @@ public class BattleManager : MonoBehaviour {
 		}
 		SoundEffectManager.SEM.source.Stop ();
 		curPlayerDelt.experience = playerXP.value;
-		UIManager.StartMessage (curPlayerDelt.nickname + " gained " + (int)totalXPGained + " XP!", null, null, false);
+		yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " gained " + (int)totalXPGained + " XP!"));
 	}
 
 	// New move button press starts coroutine
@@ -2207,9 +2216,9 @@ public class BattleManager : MonoBehaviour {
 			// Update player health text
 			if (isPlayer) {
 				if (gameManager.pork) {
-					healthText.text = ((int)healthBar.value + "/ PORK");
+					healthText.text = ((int)healthBar.value + "/PORK");
 				} else {
-					healthText.text = ((int)healthBar.value + "/ " + (int)curPlayerDelt.GPA);
+					healthText.text = ((int)healthBar.value + "/" + (int)curPlayerDelt.GPA);
 				}
 			}
 
@@ -2237,6 +2246,13 @@ public class BattleManager : MonoBehaviour {
 		}
 	}
 
+	// Update battles won
+	void PlayerWinBattle() {
+		playerWon = true;
+		gameManager.battlesWon++;
+		AchievementManager.AchieveMan.BattlesWonUpdate (gameManager.battlesWon);
+	}
+
 	// Ends the battle once a player has lost, stops battle coroutine
 	void EndBattle() {
 		// Clear queue of messages/actions
@@ -2251,7 +2267,11 @@ public class BattleManager : MonoBehaviour {
 
 		// Play music, return to world UI
 		UIManager.StartMessage(null, null, ()=>ReturnToSceneMusic());
-		UIManager.StartMessage (null, null, ()=>UIManager.EndBattle());
+		if (trainer != null) {
+			UIManager.StartMessage (null, null, () => UIManager.EndBattle (true));
+		} else {
+			UIManager.StartMessage (null, null, () => UIManager.EndBattle (false));
+		}
 
 		// Save the game
 		UIManager.StartMessage(null, null, ()=>gameManager.Save());
@@ -2262,18 +2282,12 @@ public class BattleManager : MonoBehaviour {
 		curOppDelt = null;
 		DeltHasSwitched = false;
 
-		// Set up animations to get ready for next slide in
-		UIManager.StartMessage(null, null, ()=>playerDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
-		UIManager.StartMessage(null, null, ()=>oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
-		UIManager.StartMessage(null, null, ()=>playerBattleAnim.Play ("Idle"));
-		UIManager.StartMessage(null, null, ()=>oppBattleAnim.Play ("Idle"));
+		PlayerMovement.PlayMov.StopMoving ();
 
 		// If trainer battle, allow for dialogue/saving trainer defeat
 		if (trainer != null && playerWon) {
 			NPCInteraction tmpTrainer = trainer;
 			UIManager.StartMessage (null, null, () => tmpTrainer.EndBattleActions ());
-			trainer = null;
-			trainerItems = null;
 		} else if (playerWon) {
 			// Wild battle, just start moving
 			PlayerMovement.PlayMov.ResumeMoving ();
@@ -2288,10 +2302,26 @@ public class BattleManager : MonoBehaviour {
 					move.PPLeft = move.PP;
 				}
 			}
-			PlayerMovement.PlayMov.StopMoving ();
+
 			TownRecoveryLocation trl = gameManager.FindTownRecov ();
 			UIManager.StartMessage (null, null, ()=>UIManager.SwitchLocationAndScene (trl.RecovX, trl.RecovY, trl.townName));
 		}
+
+		trainer = null;
+		trainerItems = null;
+
+		// Reset animations back
+		StartCoroutine (ResetAnimations ());
+	}
+
+	// Set up animations to get ready for next slide in
+	IEnumerator ResetAnimations() {
+		yield return new WaitWhile (() => BattleUI.activeInHierarchy);
+
+		UIManager.StartMessage(null, null, ()=>playerDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
+		UIManager.StartMessage(null, null, ()=>oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
+		UIManager.StartMessage(null, null, ()=>playerBattleAnim.Play ("Idle"));
+		UIManager.StartMessage(null, null, ()=>oppBattleAnim.Play ("Idle"));
 	}
 
 	// When opp Delts have no more PP Left

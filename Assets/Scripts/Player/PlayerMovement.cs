@@ -269,6 +269,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	// Allows player movement
 	public void ResumeMoving() {
+		print ("Resuming move");
 		UIManager.MovementUI.SetActive (true);
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}
@@ -443,8 +444,6 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		isMale = male;
 		playerMovementAnimation.SetBool ("isMale", isMale);
-
-		print ("Changing Gender!");
 
 		playerMovementAnimation.Play ("GenderChange");
 	}

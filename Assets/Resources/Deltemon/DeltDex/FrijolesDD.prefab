@@ -59,7 +59,7 @@ MonoBehaviour:
   pinNumber: 1481
   major1: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e, type: 2}
   major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
-  BVs: 5a2a2a2a2a2a
+  BVs: 5a4545454545
   prevEvol: {fileID: 114056644860409280, guid: 74ddbc6bfb00740fa9990d5adedc23c9, type: 2}
   nextEvol: {fileID: 0}
   evolveLevel: 0
@@ -89,3 +89,7 @@ MonoBehaviour:
   rarity: 0
   AVIndex: 0
   AVAwardAmount: 2
+  secondEvolution:
+    secondEvol: {fileID: 0}
+    firstEvolStat: 0
+    secEvolStat: 0

@@ -27,8 +27,8 @@ public class ItemShop : MonoBehaviour {
 			"Hey there... what can I get ya, good lookin'?",
 			"Come here often?",
 			"Guns, ammo, puns. You name it, I'll sell it.",
-			"If you don't like my prices, like me instead",
-			"What's lookin, good cookin'?",
+			"If you don't like my prices, check your privelege",
+			"What's cookin', good lookin?",
 			"I'm buyin' what you're sellin' if you're buyin' what I'm sellin'",
 			"Give me your money, honey!",
 			"I'm selling the goods, if you would sell me your heart.",
@@ -292,6 +292,7 @@ public class ItemShop : MonoBehaviour {
 			isAnimating = true;
 			if (isBuying) {
 				hasBought = true;
+				print ("buying " + (int)numberOfItems.value);
 				UIMan.StartMessage(null, animateCoinsAndNumberOfItem(true), ()=> GameMan.AddItem(curSelectedItem, (int)numberOfItems.value, true));
 			} else {
 				hasSold = true;

@@ -6,19 +6,19 @@ public class TallGrass : MonoBehaviour {
 
 	public static byte battleStepBuffer;
 
-	public List<DeltDexClass> veryCommon;
-	public List<DeltDexClass> common;
-	public List<DeltDexClass> uncommon;
-	public List<DeltDexClass> rare;
-	public List<DeltDexClass> veryRare;
-
 	public DeltemonClass genericDelt;
+	public Sprite steppedOn;
+	public Sprite comingUp;
+	public Sprite untouched;
 
+	[Space]
+	public List<wildDeltSpawn> wildDelts;
+
+	[HideInInspector]
 	public BattleManager battleManager;
+	[HideInInspector]
 	public UIManager UIManager;
 
-	public int minLevel;
-	public int maxLevel;
 	bool hasTriggered;
 
 	void Start() {
@@ -33,6 +33,8 @@ public class TallGrass : MonoBehaviour {
 
 		if (!hasTriggered && (player.tag == "Player")) {
 
+			GetComponent <SpriteRenderer>().sprite = steppedOn;
+
 			if ((PlayerMovement.PlayMov.repelStepsLeft > 0) || (battleStepBuffer > 0)) {
 				return;
 			}
@@ -41,7 +43,7 @@ public class TallGrass : MonoBehaviour {
 			hasTriggered = true;
 
 			// Something spawns
-			if (spawnProb < 29.83) {
+			if (spawnProb < 29.83f) {
 				DeltemonClass chosenDelt;
 				PlayerMovement.PlayMov.StopMoving ();
 
@@ -52,33 +54,41 @@ public class TallGrass : MonoBehaviour {
 					chosenDelt = Instantiate (genericDelt);
 				}
 
+				wildDeltSpawn WDS;
+
 				// Very rare Delts
-				if ((spawnProb < 1.25) && (veryRare.Count > 0)) {
-					chosenDelt.deltdex = veryRare [Random.Range (0, veryRare.Count)];
+				if ((spawnProb < 0.75f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Legendary))) {
+					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Legendary);
 				} 
+				else if ((spawnProb < 1.25f) && (wildDelts.Exists (wd => wd.rarity == Rarity.VeryRare))) {
+					WDS = wildDelts.Find (wd => wd.rarity == Rarity.VeryRare);
+				}
 				// Rare Delts
-				else if ((spawnProb < 4.58) && (rare.Count > 0)) {
-					chosenDelt.deltdex = rare [Random.Range (0, rare.Count)];
+				else if ((spawnProb < 4.58f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Rare))) {
+					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Rare);
 				}
 				// Uncommon Delts
-				else if ((spawnProb < 11.33) && (uncommon.Count > 0)) {
-					chosenDelt.deltdex = uncommon [Random.Range (0, uncommon.Count)];
+				else if ((spawnProb < 11.33f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Uncommon))) {
+					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Uncommon);
 				}
 				// Common Delts
-				else if ((spawnProb < 19.83) && (common.Count > 0)) {
-					chosenDelt.deltdex = common [Random.Range (0, common.Count)];
+				else if ((spawnProb < 19.83f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Common))) {
+					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Common);
 				}
 				// Very Common Delts
-				else if ((spawnProb < 29.83) && (veryCommon.Count > 0)) {
-					chosenDelt.deltdex = veryCommon [Random.Range (0, veryCommon.Count)];
+				else if (wildDelts.Exists (wd => wd.rarity == Rarity.VeryCommon)) {
+					WDS = wildDelts.Find (wd => wd.rarity == Rarity.VeryCommon);
 				} else {
 					// no Delts assigned to this grass tile
 					Debug.Log ("> ERROR: No Delts assigned to this grass tile");
 					return;
 				}
 
+				// Get random delt from list of spawns
+				chosenDelt.deltdex = WDS.spawns [Random.Range (0, WDS.spawns.Count)];
+
 				// Determine stats of the Delt
-				chosenDelt.level = (byte)Random.Range (minLevel, maxLevel);
+				chosenDelt.level = (byte)Random.Range (WDS.minLevel, WDS.maxLevel);
 				chosenDelt.initializeDelt ();
 
 				battleStepBuffer = 5;
@@ -93,9 +103,20 @@ public class TallGrass : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit2D(Collider2D player) {
+	// Undo trigger and animate grass moving
+	IEnumerator OnTriggerExit2D(Collider2D player) {
 		hasTriggered = false;
+		yield return new WaitForSeconds (0.05f);
+		GetComponent <SpriteRenderer>().sprite = comingUp;
+		yield return new WaitForSeconds (0.05f);
+		GetComponent <SpriteRenderer>().sprite = untouched;
 	}
+}
 
-
+[System.Serializable]
+public class wildDeltSpawn {
+	public Rarity rarity;
+	public byte minLevel;
+	public byte maxLevel;
+	public List<DeltDexClass> spawns;
 }

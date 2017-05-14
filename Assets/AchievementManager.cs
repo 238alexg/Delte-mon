@@ -45,35 +45,92 @@ public class AchievementManager : MonoBehaviour {
 		});
 	}
 
+	// Score for most battles won
+	public void GymsDefeatedUpdate() {
+		long count = GameManager.GameMan.allItems.FindAll (item => item.itemName.Contains ("Badge")).Count;
+
+		Social.ReportScore ((long)count, "Gyms", (result)=> {
+			if (!result) {
+				Debug.Log ("Failed to post battles won score!");
+			}
+		});
+	}
+
+	// Update Player's highest level Delt
+	public void HighestLevelUpdate(long level) {
+		foreach (DeltemonClass posseDelt in GameManager.GameMan.deltPosse) {
+			// If level is not heighest in posse
+			if (level < posseDelt.level) {
+				return;
+			}
+		}
+		foreach (DeltemonData houseDelt in GameManager.GameMan.houseDelts) {
+			// If level is not heighest in posse
+			if (level < houseDelt.level) {
+				return;
+			}
+		}
+
+		// If level is the highest player has, report score
+		Social.ReportScore (level, "HighestLevel", (result)=> {
+			if (!result) {
+				Debug.Log ("Failed to post battles won score!");
+			}
+		});
+	}
+
+	// Score for most battles won
+	public void BattlesWonUpdate(long count) {
+		Social.ReportScore (count, "BattlesWon", (result)=> {
+			if (!result) {
+				Debug.Log ("Failed to post battles won score!");
+			}
+		});
+	}
+
+	// Score for most battles won
+	public void DeltsRushedUpdate(long count) {
+		Social.ReportScore (count, "DeltsRushed", (result)=> {
+			if (!result) {
+				Debug.Log ("Failed to post delts rushed score!");
+			}
+		});
+	}
+
 	// When user catches a new delt, update leaderboard
 	public void UpdateDeltDexCount (double count) {
 
 		// Score for most DeltDexes caught
 		Social.ReportScore ((long)count, "DeltDex", (result)=> {
 			if (!result) {
-				Debug.Log ("Failed to DeltDex score!");
+				Debug.Log ("Failed to post DeltDex score!");
 			}
 		});
 
 		// Achievements for achieving certain # of dexes
-		Social.ReportProgress ("10Dexes", count, (result) => {
+		Social.ReportProgress ("10Dexes", (count*10), (result) => {
 			if (!result) {
-				Debug.Log ("Failed to 10 Dex achievement!");
+				Debug.Log ("Failed to post 10 Dex achievement!");
 			}
 		});
-		Social.ReportProgress ("25Dexes", count, (result) => {
+		Social.ReportProgress ("25Dexes", count*4, (result) => {
 			if (!result) {
-				Debug.Log ("Failed to 25 Dex achievement!");
+				Debug.Log ("Failed to post 25 Dex achievement!");
 			}
 		});
-		Social.ReportProgress ("50Dexes", count, (result) => {
+		Social.ReportProgress ("50Dexes", count*2, (result) => {
 			if (!result) {
-				Debug.Log ("Failed to 50 Dex achievement!");
+				Debug.Log ("Failed to post 50 Dex achievement!");
 			}
 		});
-		Social.ReportProgress ("75Dexes", count, (result) => {
+		Social.ReportProgress ("75Dexes", count*(4/3), (result) => {
 			if (!result) {
-				Debug.Log ("Failed to 75 Dex achievement!");
+				Debug.Log ("Failed to post 75 Dex achievement!");
+			}
+		});
+		Social.ReportProgress ("AllDexes", count*0.85f, (result) => {
+			if (!result) {
+				Debug.Log ("Failed to post all Dex achievement!");
 			}
 		});
 	}

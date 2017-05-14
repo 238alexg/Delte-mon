@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour {
 	public string curSceneName;
 	public List<TownRecoveryLocation> townRecovs;
 	public bool[] discoveredTowns;
+	public int battlesWon;
+	public int deltsRushed;
 
 	public List<DeltemonClass> deltPosse;
 	public List<ItemData> allItems;
@@ -102,13 +104,15 @@ public class GameManager : MonoBehaviour {
 	// Adds an item to the players inventory. Defaults adding +1 of item
 	public void AddItem(ItemClass item, int numberToAdd = 1, bool presentMessage = true) {
 		ItemData addable = allItems.Find (myItem => myItem.itemName == item.itemName);
+		UIManager.allItemsLoaded = false;
+
 		// If item doesn't have a copy already
 		if (addable == null) {
 			addable = new ItemData ();
 			addable.itemName = item.itemName;
 			addable.numberOfItem = numberToAdd;
+			addable.itemT = item.itemT;
 			allItems.Add (addable);
-			UIManager.allItemsLoaded = false;
 		}
 		// Else add number of item to the current item count
 		else {
@@ -172,6 +176,8 @@ public class GameManager : MonoBehaviour {
 		save.partySize = (byte)deltPosse.Count;
 		save.coins = coins;
 		save.lastTownName = lastTownName;
+		save.battlesWon = battlesWon;
+		save.deltsRushed = deltsRushed;
 
 		// Save settings
 		save.sceneName = SceneManager.GetActiveScene ().name;
@@ -369,7 +375,6 @@ public class GameManager : MonoBehaviour {
 			tmpDelt.item = null;
 		}
 		foreach (MoveData move in deltSave.moves) {
-			print (move.moveName + "X" + move.major + "X");
 			GameObject newMoveObject = (GameObject)Instantiate(Resources.Load ("Moves/" + move.major + "/" + move.moveName), tmpDeltObject.transform);
 			MoveClass newMove = newMoveObject.GetComponent<MoveClass>();
 			tmpDelt.moveset.Add (newMove);
@@ -386,13 +391,11 @@ public class GameManager : MonoBehaviour {
 		return newDexData;
 	}
 
-	// Add new delt to party/bank, and deltdex if needed
-	public void AddDelt(DeltemonClass newDelt) {
-		// Add to deltdex if it is not present
-		if (!deltDex.Exists (x => x.pin == newDelt.deltdex.pinNumber)) {
-			deltDex.Add (ConvertDexToData (newDelt.deltdex));
+	public void AddDeltDex(DeltDexClass newDex) {
+		if (!deltDex.Exists (x => x.pin == newDex.pinNumber)) {
+			deltDex.Add (ConvertDexToData (newDex));
 
-			UIManager.StartMessage ((newDelt.nickname + " was added to " + playerName + "'s DeltDex!"));
+			UIManager.StartMessage ((newDex.nickname + " was added to " + playerName + "'s DeltDex!"));
 
 			// Update leaderboard
 			AchievementManager.AchieveMan.UpdateDeltDexCount (deltDex.Count);
@@ -409,6 +412,12 @@ public class GameManager : MonoBehaviour {
 				}
 			});
 		}
+	}
+
+	// Add new delt to party/bank, and deltdex if needed
+	public void AddDelt(DeltemonClass newDelt) {
+		// Add to deltdex if it is not present
+		AddDeltDex (newDelt.deltdex);
 
 		// Add to party/bank if party is full
 		if (deltPosse.Count >= 6) {
@@ -494,7 +503,7 @@ public class GameManager : MonoBehaviour {
 							ia.gameObject.SetActive (false);
 						} else {
 							ia.hasBeenViewed = true;
-							if (ia.actionT == actionType.message) {
+							if ((ia.actionT == actionType.message) || (ia.actionT == actionType.itemWithNext)) {
 								ia.gameObject.SetActive (false);
 							}
 						}
@@ -572,7 +581,6 @@ public class GameManager : MonoBehaviour {
 		// Discover town if not already discovered
 		for (byte i = 0; i < mapNames.Length; i++) {
 			if (mapNames [i] == present.name) {
-				print (i);
 				discoveredTowns [i] = true;
 				return;
 			}
@@ -626,6 +634,7 @@ public class MoveData {
 public class ItemData {
 	public string itemName;
 	public int numberOfItem;
+	public itemType itemT;
 }
 
 [System.Serializable]
@@ -646,6 +655,8 @@ public class PlayerData {
 	public byte partySize;
 	public byte deltDexesFound;
 	public int houseSize;
+	public int battlesWon;
+	public int deltsRushed;
 	public long coins;
 	public string playerName;
 	public string sceneName;

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Freudian Slip
   moveDescription: Great name for a lingerie store. Chance to roast, buffs Truth.
+    10% crit.
   majorType: {fileID: 114106646660134524, guid: fe8c460b019a14454a2dc2d13262c2dd,
     type: 2}
   status: {fileID: 21300068, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
@@ -67,5 +68,5 @@ MonoBehaviour:
   - isBuff: 1
     buffT: 2
     buffAmount: 2
-  statusChance: 0
-  critChance: 0
+  statusChance: 15
+  critChance: 10

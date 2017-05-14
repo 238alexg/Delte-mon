@@ -9951,10 +9951,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   open: {fileID: 21303584, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
-  shut: {fileID: 21302366, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
-  xCoordinate: 0
-  yCoordinate: 0
-  sceneName: Sigma Chi
+  shut: {fileID: 21301660, guid: fe3b1e453b9d88047b7d779f8a2ba8c1, type: 3}
+  xCoordinate: -2
+  yCoordinate: -11
+  sceneName: Sigma Nu
 --- !u!1 &360391841
 GameObject:
   m_ObjectHideFlags: 0
@@ -19629,7 +19629,7 @@ MonoBehaviour:
   hour: 23
   nextTile: {fileID: 0}
   itemsWithAmounts:
-  - {fileID: 0}
+  - {fileID: 1573535956}
   incorrectTimeMessages:
   - The Onyx Church
   - '"Where college age people can pursue their relationship with Jesus"'
@@ -19651,7 +19651,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10, y: -5.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1573535955}
   m_Father: {fileID: 1661221963}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -25880,7 +25881,7 @@ GameObject:
   - component: {fileID: 905706052}
   - component: {fileID: 905706051}
   - component: {fileID: 905706050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SigNu_Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39135,8 +39136,8 @@ MonoBehaviour:
   nextTile: {fileID: 0}
   index: 0
   questNum: 0
-  needsItem: 0
-  numberOfItemsNeeded: 0
+  needsItem: 1
+  numberOfItemsNeeded: 1
   coinsNeeded: 0
   questItem: {fileID: 114093577480623426, guid: 7d73ecca969c844579e0cc1686fef8fb,
     type: 2}
@@ -46238,6 +46239,59 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1001 &1573535954
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 665454310}
+    m_Modifications:
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1388.9222
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 328.4658
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e39be0a2e3c794afd81741d03b194a50, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1573535955 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4796211789596718, guid: e39be0a2e3c794afd81741d03b194a50,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573535954}
+--- !u!114 &1573535956 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114357448320487208, guid: e39be0a2e3c794afd81741d03b194a50,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573535954}
+  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &1576243996
 GameObject:
   m_ObjectHideFlags: 0

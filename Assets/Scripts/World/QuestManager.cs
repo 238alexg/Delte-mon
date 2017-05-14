@@ -73,11 +73,12 @@ public class QuestManager : MonoBehaviour {
 	// Achievements for gym leader battles
 	public void GymLeaderBattles(string leaderName) {
 		switch (leaderName) {
-		case "Gym Leader":
+		case "Kane Varon":
 			AchievementManager.AchieveMan.ReportAchievement ("Gym1");
-			// LATER: Save all trainers as false in scene save file
 			break;
 		}
+		// Update number of gyms defeated
+		AchievementManager.AchieveMan.GymsDefeatedUpdate ();
 	}
 
 }

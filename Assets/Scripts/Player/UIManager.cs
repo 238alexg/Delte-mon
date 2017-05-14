@@ -375,7 +375,7 @@ public class UIManager : MonoBehaviour {
 				}
 				Text[] texts = di.GetComponentsInChildren<Text> ();
 
-				if ((dexdata.rarity == Rarity.VeryRare) || (dexdata.rarity == Rarity.Legendary) || (dexdata.rarity == Rarity.Impossible)) {
+				if ((dexdata.rarity == Rarity.VeryRare) || (dexdata.rarity == Rarity.Legendary)) {
 					texts [0].color = Color.white;
 					texts [1].color = Color.white;
 					texts [2].color = Color.white;
@@ -778,10 +778,10 @@ public class UIManager : MonoBehaviour {
 		// If in battle and player forced to switch, do not offer back or Give Item button
 		if (isForceSwitchIn) {
 			DeltemonUI.transform.GetChild (7).GetChild (1).gameObject.SetActive (false);
-			DeltemonUI.transform.GetChild (8).GetChild (8).gameObject.SetActive (false);
+			DeltemonUI.transform.GetChild (8).GetChild (10).gameObject.SetActive (false);
 		} else {
 			DeltemonUI.transform.GetChild (7).GetChild (1).gameObject.SetActive (true);
-			DeltemonUI.transform.GetChild (8).GetChild (8).gameObject.SetActive (true);
+			DeltemonUI.transform.GetChild (8).GetChild (10).gameObject.SetActive (true);
 		}
 
 		// Show UI
@@ -922,7 +922,6 @@ public class UIManager : MonoBehaviour {
 			if (i != overviewDeltIndex) {
 				// Get the Delt to switch positions with
 				DeltemonClass tmp = gameManager.deltPosse [i];
-				print ("Switching " + activeDelt.nickname + " with " + tmp.nickname);
 
 				// Switch positions of the Delts in the posse
 				gameManager.deltPosse [i] = activeDelt;
@@ -1142,14 +1141,21 @@ public class UIManager : MonoBehaviour {
 		inBattle = true;
 	}
 
-	public void EndBattle() {
+	public void EndBattle(bool isTrainer) {
 		StartMessage (null, fade.fadeOutToBlack());
 		StartMessage (null, null, ()=>BattleUI.SetActive(false));
-		StartMessage (null, fade.fadeInSceneChange(), ()=>playerMovement.ResumeMoving ());
+
+		print ("Bool is trainer = " + isTrainer);
+
+		if (isTrainer) {
+			StartMessage (null, fade.fadeInSceneChange ());
+		} else {
+			StartMessage (null, fade.fadeInSceneChange (), () => playerMovement.ResumeMoving ());
+		}
+
 		fade.gameObject.SetActive (false);
 		currentUI = UIMode.World;
 		inBattle = false;
-		MovementUI.SetActive (true);
 	}
 
 	// Change location/scene for entering/exiting door
@@ -1166,7 +1172,7 @@ public class UIManager : MonoBehaviour {
 			StartMessage (null, null, (() => playerMovement.transform.position = new Vector3(x, y, -10f)));
 
 			// Fade in and allow player to move
-			StartMessage (null, fade.fadeInSceneChange (sceneName), ()=>PlayerMovement.PlayMov.ResumeMoving ());
+			StartMessage (null, fade.fadeInSceneChange (sceneName), () => PlayerMovement.PlayMov.ResumeMoving ());
 
 			// Wait for scene name to disappear then make gameobject inactive
 			StartMessage (null, null, EndSceneChangeUI);
