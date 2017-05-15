@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour {
 	public List<TownRecoveryLocation> townRecovs;
 	public bool[] discoveredTowns;
 	public int battlesWon;
-	public int deltsRushed;
 
 	public List<DeltemonClass> deltPosse;
 	public List<ItemData> allItems;
@@ -33,6 +32,7 @@ public class GameManager : MonoBehaviour {
 	[Header("Other")]
 	public GameObject emptyDelt;
 	public bool deleteSave;
+	public float timePlayed;
 
 	string[] mapNames = {"Hometown", "DA Graveyard", "Sigston", "ChiTown", 
 		"Hayward Field", "Atlambdis","Israel", "Las Saegas", "UOregon", "ChiPsi", 
@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour {
 		curSceneData = new SceneInteractionData ();
 		Application.targetFrameRate = 60;
 		discoveredTowns = new bool[15];
+	}
+
+	// Keep track of how long the player has been playing
+	void Update() {
+		timePlayed += Time.deltaTime;
 	}
 
 	// When title screen is pressed
@@ -177,7 +182,6 @@ public class GameManager : MonoBehaviour {
 		save.coins = coins;
 		save.lastTownName = lastTownName;
 		save.battlesWon = battlesWon;
-		save.deltsRushed = deltsRushed;
 
 		// Save settings
 		save.sceneName = SceneManager.GetActiveScene ().name;
@@ -206,6 +210,9 @@ public class GameManager : MonoBehaviour {
 
 		bf.Serialize (file, save);
 		file.Close ();
+
+		// Update how long the player has been playing
+		AchievementManager.AchieveMan.TimeSpentUpdate ();
 	}
 
 	public void doLoad() {
@@ -656,7 +663,7 @@ public class PlayerData {
 	public byte deltDexesFound;
 	public int houseSize;
 	public int battlesWon;
-	public int deltsRushed;
+	public int deltsRushed; // LATER: Remove
 	public long coins;
 	public string playerName;
 	public string sceneName;

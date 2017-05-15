@@ -13606,7 +13606,7 @@ MonoBehaviour:
   customDeltPosse: 0
   numberOfItem: 0
   notificaiton: {fileID: 1405976057}
-  largeCharacerSprite: {fileID: 21300008, guid: dc4070f8fb68a4be7b78cac85673289d,
+  largeCharacerSprite: {fileID: 21300010, guid: dc4070f8fb68a4be7b78cac85673289d,
     type: 3}
   index: 0
   isGymLeader: 0

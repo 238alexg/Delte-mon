@@ -1031,19 +1031,38 @@ public class BattleManager : MonoBehaviour {
 		// Trigger animations
 		oppBattleAnim.SetInteger ("BallRattles", ballRattles);
 		oppBattleAnim.SetTrigger ("ThrowBall");
+		SoundEffectManager.SEM.PlaySoundImmediate ("BallTink");
 
 		yield return new WaitForSeconds (1);
 
 		oppDeltSprite.GetComponent <Animator> ().SetTrigger ("FadeOut");
 
-		// Wait until all shakes are done
-		yield return new WaitForSeconds (yieldTime);
+		yield return new WaitForSeconds (1);
+
+		SoundEffectManager.SEM.PlaySoundImmediate ("BallRattle2");
+
+		yield return new WaitForSeconds (1);
+
+		// Play sounds for ball shakes
+		if (ballRattles > 1) {
+			SoundEffectManager.SEM.PlaySoundImmediate ("BallRattle1");
+			yield return new WaitForSeconds (1);
+
+			if (ballRattles > 2) {
+				SoundEffectManager.SEM.PlaySoundImmediate ("BallRattle2");
+				yield return new WaitForSeconds (1);
+
+				if (ballRattles > 3) {
+					SoundEffectManager.SEM.PlaySoundImmediate ("BallClick");
+					yield return new WaitForSeconds (1);
+				}
+			}
+		}
 
 		if (ballRattles == 4) {
 			PlayerWinBattle ();
-			gameManager.deltsRushed++;
-			AchievementManager.AchieveMan.DeltsRushedUpdate (gameManager.deltsRushed);
 			UIManager.StartMessage (curOppDelt.nickname + " was caught!", null, () => gameManager.AddDelt (curOppDelt));
+			UIManager.StartMessage (null, null, ()=> AchievementManager.AchieveMan.DeltsRushedUpdate ());
 			UIManager.StartMessage (null, null, () => EndBattle ());
 		} else {
 			oppDeltSprite.GetComponent <Animator> ().Play ("BallReleaseFadeIn");
@@ -1300,18 +1319,42 @@ public class BattleManager : MonoBehaviour {
 		///                 Attacker Move Outcome                      ///
 		//////////////////////////////////////////////////////////////////
 
+		float effectiveness = 1;
+
 		// Display attack choice
 		yield return StartCoroutine(evolMessage (attacker.nickname + " used " + move.moveName + "!"));
 
 		// If the first move is a hit
 		if (Random.Range(0,100) <= move.hitChance) {
-			
-			if (isPlayer) {
-				playerDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
-			} else {
-				oppDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
+
+			if (move.damage > 0) {
+				effectiveness = moveTypeEffectivenessCalc (move.majorType, defender.deltdex.major1, defender.deltdex.major2);
+
+				if (isPlayer) {
+					playerDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
+					if (effectiveness > 1) {
+						SoundEffectManager.SEM.PlaySoundImmediate ("PlayerAttackStrong");
+					} else if (effectiveness == 1) {
+						SoundEffectManager.SEM.PlaySoundImmediate ("PlayerAttack");
+					} else if (effectiveness == 0.5f) {
+						SoundEffectManager.SEM.PlaySoundImmediate ("PlayerAttackWeak");
+					} else {
+						SoundEffectManager.SEM.PlaySoundImmediate ("Boing");
+					}
+				} else {
+					oppDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
+					if (effectiveness > 1) {
+						SoundEffectManager.SEM.PlaySoundImmediate ("EnemyAttackStrong");
+					} else if (effectiveness == 1) {
+						SoundEffectManager.SEM.PlaySoundImmediate ("EnemyAttack");
+					} else if (effectiveness == 0.5f) {
+						SoundEffectManager.SEM.PlaySoundImmediate ("EnemyAttackWeak");
+					} else {
+						SoundEffectManager.SEM.PlaySoundImmediate ("Boing");
+					}
+				}
+				yield return new WaitForSeconds (0.4f);
 			}
-			yield return new WaitForSeconds (0.4f);
 
 
 			if (move.movType == moveType.Block) {
@@ -1322,10 +1365,8 @@ public class BattleManager : MonoBehaviour {
 
 			// If move is an attack
 			if (move.damage > 0) {
-				// Is an attack
 				bool isCrit = false;
 				float rawDamage = moveDamage (move, attacker, defender, isPlayer);
-				float effectiveness;
 
 				// If a critical hit
 				if (Random.Range (0, 100) <= move.critChance) {
@@ -1333,7 +1374,7 @@ public class BattleManager : MonoBehaviour {
 					isCrit = true;
 				}
 				// Determine major effectiveness modifier and apply to raw damage
-				effectiveness = moveTypeEffectivenessCalc (move.majorType, defender.deltdex.major1, defender.deltdex.major2);
+
 				rawDamage = rawDamage * effectiveness;
 
 				// Multiply by random number from 0.85-1.00
@@ -1434,6 +1475,7 @@ public class BattleManager : MonoBehaviour {
 							OppStatAdditions [statIndex] += (int)(buff.buffAmount  * 0.02f * attacker.deltdex.BVs[statIndex]) + buff.buffAmount;
 							oppBattleAnim.SetTrigger ("Buff");
 						}
+						SoundEffectManager.SEM.PlaySoundImmediate ("Buff");
 						yield return new WaitForSeconds (0.5f);
 
 						// Prompt message for user
@@ -1454,6 +1496,7 @@ public class BattleManager : MonoBehaviour {
 						PlayerStatAdditions [statIndex] -= (int)(buff.buffAmount  * 0.02f * defender.deltdex.BVs[statIndex]) + buff.buffAmount;
 						playerBattleAnim.SetTrigger ("Debuff");
 					}
+					SoundEffectManager.SEM.PlaySoundImmediate ("Debuff");
 					yield return new WaitForSeconds (0.5f);
 
 					// Prompt message for user

@@ -98,27 +98,40 @@ public class RecoveryCenter: MonoBehaviour {
 	public void ShowHouseDelts() {
 		hideMoveOverviews ();
 
+		print ("Got here 1");
+
 		HouseScrollView.SetActive (true);
 		PosseScrollView.SetActive (false);
+
+		print ("Got here 2");
 
 		ShowHouseButtonImage.color = Color.yellow;
 		ShowPosseButtonImage.color = Color.magenta;
 
+		print ("Got here 3");
+
 		if (!houseDeltsLoaded) {
 			houseDeltsLoaded = true;
 			int i = 0;
+
+			print ("Got here 4");
 
 			// Destroy previous list
 			foreach (Transform child in HouseContentTransform) {
 				Destroy (child.gameObject);
 			}
 
+			print ("Got here 5");
+
 			queryResults.Clear ();
+
+			print ("Got here 6");
 
 			// Load house Delts into UI
 			foreach (DeltemonData houseDelt in GameMan.houseDelts) {
-				DeltDexClass tmpDex = ((GameObject)Resources.Load("Deltemon/DeltDex/" + houseDelt.nickname + "DD")).GetComponent<DeltDexClass>();
-
+				print ("Trying to load: " + houseDelt.nickname);
+				DeltDexClass tmpDex = ((GameObject)Resources.Load("Deltemon/DeltDex/" + houseDelt.deltdexName + "DD")).GetComponent<DeltDexClass>();
+				print ("House Delt: " + tmpDex.nickname);
 				// Do not show Delts that do not match search query
 				if (isSearch) {
 					// Check names, pin, level, item, and majors
@@ -231,8 +244,8 @@ public class RecoveryCenter: MonoBehaviour {
 
 		if (isHouseDelt) {
 			overview = HouseOverview;
-			if (this.transform.childCount != 0) {
-				Destroy (this.transform.GetChild (0).gameObject);
+			if (this.transform.childCount != 1) {
+				Destroy (this.transform.GetChild (1).gameObject);
 			}
 			HouseSwitchIn = GameMan.convertDataToDelt (queryResults [i], this.transform);
 			tmpDelt = HouseSwitchIn;
@@ -252,9 +265,9 @@ public class RecoveryCenter: MonoBehaviour {
 		overview.GetChild (2).GetComponent<Text> ().text = tmpDelt.nickname + ", " + tmpDelt.level;
 		overview.GetChild (3).GetComponent<Text> ().text = tmpDelt.deltdex.deltName;
 		// Set stat text
-		overview.GetChild (4).GetComponent<Text> ().text = total + System.Environment.NewLine + tmpDelt.GPA + System.Environment.NewLine + 
-			tmpDelt.Truth + System.Environment.NewLine + tmpDelt.Courage + System.Environment.NewLine + tmpDelt.Faith + 
-			System.Environment.NewLine + tmpDelt.Power + System.Environment.NewLine + tmpDelt.ChillToPull;
+		overview.GetChild (4).GetComponent<Text> ().text = (int)total + System.Environment.NewLine + (int)tmpDelt.GPA + System.Environment.NewLine + 
+			(int)tmpDelt.Truth + System.Environment.NewLine + (int)tmpDelt.Courage + System.Environment.NewLine + (int)tmpDelt.Faith + 
+			System.Environment.NewLine + (int)tmpDelt.Power + System.Environment.NewLine + (int)tmpDelt.ChillToPull;
 
 		overview.GetChild (5).GetComponent<Image> ().sprite = tmpDelt.deltdex.major1.majorImage;
 		overview.GetChild (6).GetComponent<Image> ().sprite = tmpDelt.deltdex.major2.majorImage;
@@ -388,7 +401,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 			// If move is already up, remove it
 			if (moveIndex == posseMove) {
-				HouseMoveOverview.gameObject.SetActive (false);
+				PosseMoveOverview.gameObject.SetActive (false);
 				posseMove = -1;
 				return;
 			} else {

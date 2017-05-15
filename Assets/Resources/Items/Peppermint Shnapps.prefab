@@ -38,15 +38,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 2
   numberOfItem: 1
   itemName: Peppermint Shnapps
-  itemDescription: A holiday favorite.
+  itemDescription: A holiday favorite. Buffs Courage.
   itemImage: {fileID: 0}
-  itemT: 0
+  itemT: 2
   holdT: 0
   cure: 0
-  statUpgrades: 000000000000
+  statUpgrades: 000005000000
 --- !u!224 &224875865538007446
 RectTransform:
   m_ObjectHideFlags: 1

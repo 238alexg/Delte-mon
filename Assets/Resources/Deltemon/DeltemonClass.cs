@@ -154,7 +154,7 @@ public class DeltemonClass : MonoBehaviour {
 								moveset.Add (lum.move);
 							} else {
 								moveset [index] = lum.move;
-								index++;
+								index = (byte)((index++) % 4);
 							}
 						} else {
 							break;
@@ -186,7 +186,7 @@ public class DeltemonClass : MonoBehaviour {
 							moveset.Add (lum.move);
 						} else {
 							moveset [index] = lum.move;
-							index++;
+							index = (byte)((index++) % 4);
 						}
 					} else {
 						break;
@@ -221,7 +221,7 @@ public class DeltemonClass : MonoBehaviour {
 						moveset.Add (lum.move);
 					} else {
 						moveset [index] = lum.move;
-						index++;
+						index = (byte)((index++) % 4);
 					}
 				} else {
 					return;

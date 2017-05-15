@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nickname: ShahoundDD
+  nickname: Shahound
   deltName: Shaheen Safari
   description: Contrary to his last name, Shahound is very domesticated.
   frontImage: {fileID: 21300200, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
@@ -77,3 +77,7 @@ MonoBehaviour:
   rarity: 0
   AVIndex: 1
   AVAwardAmount: 1
+  secondEvolution:
+    secondEvol: {fileID: 0}
+    firstEvolStat: 0
+    secEvolStat: 0

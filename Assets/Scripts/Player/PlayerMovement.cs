@@ -152,40 +152,47 @@ public class PlayerMovement : MonoBehaviour {
 				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
 				playerMovementAnimation.SetInteger ("Move", 0);
 
-				switch (playerFacing) {
-				case Direction.North:
-					if (isMale) {
-						playerMovementAnimation.Play ("IdleNorth");
-					} else {
-						playerMovementAnimation.Play ("IdleNorth 0");
-					}
-					break;
-				case Direction.East:
-					if (isMale) {
-						playerMovementAnimation.Play ("IdleEast");
-					} else {
-						playerMovementAnimation.Play ("IdleEast 0");
-					}
-					break;
-				case Direction.South:
-					if (isMale) {
-						playerMovementAnimation.Play ("IdleSouth");
-					} else {
-						playerMovementAnimation.Play ("IdleSouth 0");
-					}
-					break;
-				case Direction.West:
-					if (isMale) {
-						playerMovementAnimation.Play ("IdleWest");
-					} else {
-						playerMovementAnimation.Play ("IdleWest 0");
-					}
-					break;
-				}
+				StopAndFace ();
+
 				movementQueued = false;
 			}
 		}
 		inMovementNow = false;
+	}
+	// Called when the player stops so that they are facing the correct direction
+	// Note: This is necessary because otherwise the player might not face
+	//       correct direction after a turn or when NPC triggers, etc.
+	void StopAndFace() {
+		switch (playerFacing) {
+		case Direction.North:
+			if (isMale) {
+				playerMovementAnimation.Play ("IdleNorth");
+			} else {
+				playerMovementAnimation.Play ("IdleNorth 0");
+			}
+			break;
+		case Direction.East:
+			if (isMale) {
+				playerMovementAnimation.Play ("IdleEast");
+			} else {
+				playerMovementAnimation.Play ("IdleEast 0");
+			}
+			break;
+		case Direction.South:
+			if (isMale) {
+				playerMovementAnimation.Play ("IdleSouth");
+			} else {
+				playerMovementAnimation.Play ("IdleSouth 0");
+			}
+			break;
+		case Direction.West:
+			if (isMale) {
+				playerMovementAnimation.Play ("IdleWest");
+			} else {
+				playerMovementAnimation.Play ("IdleWest 0");
+			}
+			break;
+		}
 	}
 
 	// Called by: QUESTMANAGER
@@ -263,6 +270,7 @@ public class PlayerMovement : MonoBehaviour {
 			UIManager.MovementUI.SetActive (false);
 			bButtonRelease ();
 		}
+		StopAndFace ();
 		movementQueued = false;
 		dpad.sprite = dpadNeutral;
 		playerMovementAnimation.SetInteger ("Move", 0);

@@ -8,7 +8,6 @@ public class SoundEffectManager : MonoBehaviour {
 
 	public AudioSource source;
 	public List<SoundEffectTuple> allSounds;
-	public Slider FXSlider;
 
 	public static SoundEffectManager SEM { get; private set; }
 

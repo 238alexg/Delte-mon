@@ -159,7 +159,6 @@ public class NewGame : MonoBehaviour {
 	// Initialize interactable scene data for all scenes in game
 	void StartFileSaves() {
 		GameMan.battlesWon = 0;
-		GameMan.deltsRushed = 1;
 
 		GameMan.InitializeSceneData ("Hometown", 9, new byte [2] {1, 3}, 0);		// Hometown: 4 interactables, 0 trainers
 		GameMan.InitializeSceneData ("Delta Shelter", 10, new byte [2] {1, 6}, 0);	// Delta Shelter: 9 interactables, 0 trainers

@@ -89,8 +89,20 @@ public class AchievementManager : MonoBehaviour {
 	}
 
 	// Score for most battles won
-	public void DeltsRushedUpdate(long count) {
+	public void DeltsRushedUpdate() {
+
+		long count = GameManager.GameMan.deltPosse.Count + GameManager.GameMan.houseDelts.Count;
+
 		Social.ReportScore (count, "DeltsRushed", (result)=> {
+			if (!result) {
+				Debug.Log ("Failed to post delts rushed score!");
+			}
+		});
+	}
+
+	// Update score for time spent in game
+	public void TimeSpentUpdate() {
+		Social.ReportScore ((long)GameManager.GameMan.timePlayed, "Time", (result)=> {
 			if (!result) {
 				Debug.Log ("Failed to post delts rushed score!");
 			}

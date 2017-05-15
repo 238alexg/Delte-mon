@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour {
 	[Header("Bag UI")]
 	public GameObject BagMenuUI;
 	public Text coinText, deltDexText;
+	public Button SaveButton;
 
 	[Header("Items UI")]
 	public GameObject ItemsUI, ListItemObject, curOverviewItem;
@@ -319,7 +320,10 @@ public class UIManager : MonoBehaviour {
 		UI.GetComponent <Animator>().SetTrigger ("SlideOut");
 		yield return new WaitForSeconds (0.5f);
 		UI.SetActive (false);
-		if (UI.name == "BagMenuUI" || UI.name == "Settings UI") {
+		if (UI.name == "BagMenuUI") {
+			currentUI = UIMode.World;
+			SaveButton.interactable = true;
+		} else if (UI.name == "Settings UI") {
 			currentUI = UIMode.World;
 		} else if (inBattle) {
 			currentUI = UIMode.Battle;
@@ -340,6 +344,12 @@ public class UIManager : MonoBehaviour {
 		} else {
 			StartCoroutine(AnimateUIClose (BagMenuUI));
 		}
+	}
+
+
+	public void SaveButtonPress() {
+		SaveButton.interactable = false;
+		gameManager.Save ();
 	}
 
 	// Animates opening of DeltDex and populates list with All entries
@@ -583,21 +593,22 @@ public class UIManager : MonoBehaviour {
 	// Use an item on a delt, called if both have been selected
 	public void UseItem() {
 
+		if (((activeItem.itemT == itemType.Ball) || (activeDelt == battleManager.curPlayerDelt)) && inBattle) {
+			StartCoroutine(AnimateUIClose (DeltemonUI));
+			battleManager.ChooseItem (true, activeItem);
+		} else if ((activeDelt.curStatus == statusType.DA) && (activeItem.itemT == itemType.Usable) && ((activeItem.cure != statusType.DA) || (activeItem.cure != statusType.All))) {
+			StartMessage (activeDelt.nickname + " has DA'd and refuses your " + activeItem.itemName + "!");
+			return;
+		}
+
 		// Remove item from inventory
 		gameManager.RemoveItem (activeItem);
 		StartCoroutine(AnimateUIClose (ItemsUI));
 
 		if (inBattle) {
-			if ((activeDelt == battleManager.curPlayerDelt) || (activeItem.itemT == itemType.Ball)) {
-				StartCoroutine(AnimateUIClose (DeltemonUI));
-				battleManager.ChooseItem (true, activeItem);
-			} 
 			// Do animation in Deltemon UI and skip player turn
-			else {
-				
-				DeltemonItemOutcome ();
-				StartMessage (null, AnimateUIClose (DeltemonUI), ()=> battleManager.ChooseItem (true, activeItem, false));
-			}
+			DeltemonItemOutcome ();
+			StartMessage (null, AnimateUIClose (DeltemonUI), ()=> battleManager.ChooseItem (true, activeItem, false));
 		} else {
 			if ((activeItem.itemT == itemType.Holdable) || (activeItem.itemT == itemType.MegaEvolve)) {
 				activeDelt.item = activeItem;
@@ -850,6 +861,7 @@ public class UIManager : MonoBehaviour {
 					StartCoroutine (AnimateUIClose (DeltemonUI));
 					battleManager.chooseSwitchIn (activeDelt);
 				}
+				activeDelt = null;
 			} 
 			// Select and save first delt for switching
 			else {
