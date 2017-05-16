@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4071700944844914}
   - component: {fileID: 114319417124303942}
   m_Layer: 0
-  m_Name: Deltialyte
+  m_Name: Megaphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfItem: 1
-  itemName: Deltialyte
-  itemDescription: Enough electrolytes to hydrate the Mojave desert. Cures intoxication.
-  itemImage: {fileID: 21300036, guid: 600a487ca8d3843638de1354feca484a, type: 3}
+  itemName: Megaphone
+  itemDescription: '"AAAADDDDDDDDDDDDIIIIIIIIS!!!!" Cures Sleep.'
+  itemImage: {fileID: 21300064, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 3
   holdT: 0
-  cure: 7
+  cure: 5
   statUpgrades: 000000000000

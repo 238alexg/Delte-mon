@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 600a487ca8d3843638de1354feca484a
-timeCreated: 1494902752
+timeCreated: 1494919764
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -35,9 +35,9 @@ TextureImporter:
     21300056: HawaiianTime
     21300058: Composite
     21300060: peppermintShnapps
-    21300062: allItems_31
-    21300064: allItems_32
-    21300066: allItems_33
+    21300062: humility
+    21300064: megaphone
+    21300066: soap
     21300068: allItems_34
     21300070: allItems_35
     21300072: allItems_36
@@ -547,7 +547,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_31
+      name: humility
       rect:
         serializedVersion: 2
         x: 16
@@ -560,7 +560,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_32
+      name: megaphone
       rect:
         serializedVersion: 2
         x: 32
@@ -573,7 +573,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_33
+      name: soap
       rect:
         serializedVersion: 2
         x: 48

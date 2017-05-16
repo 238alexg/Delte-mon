@@ -4880,18 +4880,69 @@ MonoBehaviour:
   - deltDexNumberRequired: 1
     cost: 10
     item: {fileID: 114075244929460830, guid: 1f00366b621824b71a951bf8bf246ea1, type: 2}
-  - deltDexNumberRequired: 10
-    cost: 20
-    item: {fileID: 114967132795471334, guid: 93c306a87f3354d5aa9279573bbc3d84, type: 2}
-  - deltDexNumberRequired: 30
-    cost: 40
-    item: {fileID: 114008541629826416, guid: 0d77c39de5f6e417684af621de678d6c, type: 2}
   - deltDexNumberRequired: 1
     cost: 10
     item: {fileID: 114105914291579544, guid: 112de7804402543aaaa6b8a11b34eb61, type: 2}
   - deltDexNumberRequired: 1
     cost: 10
     item: {fileID: 114986142076577126, guid: 08289cf5d1966476fa2b93cd8ae81146, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114561950686099566, guid: 283b2e8930ce04e81877d8b0a5eab59e, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114319417124303942, guid: 91552d0fa9f7d40a08f2697173001629, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114561950686099566, guid: 8cdd102332c5a4bc0b6085b1060f7a5a, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114561950686099566, guid: 186b0086b2e624f418a641b3476a8280, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114319417124303942, guid: 0eec6d61428a145ae807fe3f441451e4, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114319417124303942, guid: 6b743cbf334a944fe897861c45b74843, type: 2}
+  - deltDexNumberRequired: 5
+    cost: 15
+    item: {fileID: 114319417124303942, guid: 6b675d55bf7cc4794859f3f9fad72274, type: 2}
+  - deltDexNumberRequired: 10
+    cost: 20
+    item: {fileID: 114967132795471334, guid: 93c306a87f3354d5aa9279573bbc3d84, type: 2}
+  - deltDexNumberRequired: 10
+    cost: 35
+    item: {fileID: 114844647484357004, guid: 235b1f46cf588423cb006d2beadf26de, type: 2}
+  - deltDexNumberRequired: 10
+    cost: 20
+    item: {fileID: 114866722010911016, guid: 5c0b5162c0b914d2697f0f226745217b, type: 2}
+  - deltDexNumberRequired: 15
+    cost: 25
+    item: {fileID: 114714906470643644, guid: 0fa27052ab2b8479cb8406409d7c19c3, type: 2}
+  - deltDexNumberRequired: 20
+    cost: 35
+    item: {fileID: 114008541629826416, guid: 0d77c39de5f6e417684af621de678d6c, type: 2}
+  - deltDexNumberRequired: 25
+    cost: 40
+    item: {fileID: 114550388210158040, guid: b36e556e2cd584890ac1c2ccbdbc3f2f, type: 2}
+  - deltDexNumberRequired: 30
+    cost: 50
+    item: {fileID: 114528104804678884, guid: 6808df69bcafa438a8e5768e00619cbc, type: 2}
+  - deltDexNumberRequired: 30
+    cost: 40
+    item: {fileID: 114177548907228774, guid: ebe6d17aa629344498dcc0268dc57512, type: 2}
+  - deltDexNumberRequired: 35
+    cost: 75
+    item: {fileID: 114947217199788844, guid: 3d738cdfdd5c549d28065ea533395e67, type: 2}
+  - deltDexNumberRequired: 40
+    cost: 85
+    item: {fileID: 114732588067097556, guid: ad8e02a6257654cdb9d9d6938a4c2f60, type: 2}
+  - deltDexNumberRequired: 45
+    cost: 120
+    item: {fileID: 114947217199788844, guid: 981abda65661f4fa087f1352f0107195, type: 2}
+  - deltDexNumberRequired: 75
+    cost: 200
+    item: {fileID: 114555181081080618, guid: ee75a596ecf3b4208a26f788548a6016, type: 2}
   TotalItems: {fileID: 855771932}
   Cost: {fileID: 1540554258}
   NumberOfItemInBag: {fileID: 1353859211}
