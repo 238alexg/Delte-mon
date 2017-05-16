@@ -52,9 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfItem: 1
-  itemName: Wrench
-  itemDescription: How handy!
-  itemImage: {fileID: 21300030, guid: 600a487ca8d3843638de1354feca484a, type: 3}
+  itemName: Ticket
+  itemDescription: The solution to FOMO.
+  itemImage: {fileID: 21300054, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 4
   holdT: 0
   cure: 0

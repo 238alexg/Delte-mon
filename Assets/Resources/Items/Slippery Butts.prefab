@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfItem: 1
   itemName: Slippery Butts
-  itemDescription: Still waiting on the sequel.
+  itemDescription: Still waiting on the sequel. Buffs ChillToPull.
   itemImage: {fileID: 21300032, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 2
   holdT: 3

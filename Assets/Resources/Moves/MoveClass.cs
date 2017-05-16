@@ -42,8 +42,6 @@ public class MoveClass : MonoBehaviour {
 		recipient.buffs = buffs;
 		recipient.statusChance = statusChance;
 		recipient.critChance = critChance;
-
-		print ("MOVE NAME " + recipient.moveName);
 	}
 }
 

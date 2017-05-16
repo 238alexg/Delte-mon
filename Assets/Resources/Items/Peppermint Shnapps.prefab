@@ -41,7 +41,7 @@ MonoBehaviour:
   numberOfItem: 1
   itemName: Peppermint Shnapps
   itemDescription: A holiday favorite. Buffs Courage.
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300060, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 2
   holdT: 0
   cure: 0

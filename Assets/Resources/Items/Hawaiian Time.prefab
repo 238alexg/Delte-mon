@@ -53,9 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberOfItem: 1
   itemName: Hawaiian Time
-  itemDescription: Sweet teryaki chicken and rice for days.
-  itemImage: {fileID: 21300044, guid: 600a487ca8d3843638de1354feca484a, type: 3}
+  itemDescription: Sweet teryaki chicken and rice for days. Heals 200.
+  itemImage: {fileID: 21300056, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 3
   holdT: 0
   cure: 0
-  statUpgrades: 4b0000000000
+  statUpgrades: c80000000000

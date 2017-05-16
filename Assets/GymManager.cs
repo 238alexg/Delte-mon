@@ -21,8 +21,6 @@ public class GymManager : MonoBehaviour {
 
 		// Reactivate all trainers if gym is undefeated
 		if (!gymDefeated) {
-			print ("Gym not defeated!");
-
 			foreach (Transform child in trainers.transform) {
 				print (child.GetComponent <NPCInteraction> ().hasTriggered);
 				child.GetComponent <NPCInteraction>().hasTriggered = false;

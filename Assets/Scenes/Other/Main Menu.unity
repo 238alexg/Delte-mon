@@ -28445,7 +28445,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1716539098}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.52795327, y: 0.17775357}
   m_AnchorMax: {x: 0.62688076, y: 0.8497536}
@@ -44171,7 +44171,6 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: a2f1e57ab73b5455aa3a963d6617a2e3, type: 3}
   - name: Boing
     sound: {fileID: 8300000, guid: 54156c871c4534fb0a438d1439f88ee9, type: 3}
-  FXSlider: {fileID: 0}
 --- !u!1 &1320092110
 GameObject:
   m_ObjectHideFlags: 0
@@ -57516,9 +57515,9 @@ RectTransform:
   - {fileID: 943500244}
   - {fileID: 161838000}
   - {fileID: 1014184803}
-  - {fileID: 2146711774}
-  - {fileID: 1013037370}
   - {fileID: 859882624}
+  - {fileID: 1013037370}
+  - {fileID: 2146711774}
   m_Father: {fileID: 977739202}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -69035,6 +69034,81 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2064974868}
+--- !u!1 &2066834546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2066834548}
+  - component: {fileID: 2066834547}
+  m_Layer: 0
+  m_Name: CastoreagleDD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2066834547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066834546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e97793d1f22341348beb91626c6f1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nickname: Castoreagle
+  deltName: Zack Castorina
+  description: Half-man, half-eagle, this patriot fighter is the essence of the American
+    spirit.
+  frontImage: {fileID: 21300096, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  backImage: {fileID: 21300098, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  pinNumber: 1500
+  major1: {fileID: 114394108228007282, guid: 5b660c6f965c841d9bf09166a00d41b6, type: 2}
+  major2: {fileID: 114387208636662664, guid: cf4af3045e5694aa28fed104e428e7ff, type: 2}
+  BVs: 1e244e23af92
+  prevEvol: {fileID: 0}
+  nextEvol: {fileID: 0}
+  evolveLevel: 24
+  levelUpMoves:
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  - level: 0
+    move: {fileID: 0}
+  rarity: 1
+  AVIndex: 4
+  AVAwardAmount: 2
+  secondEvolution:
+    secondEvol: {fileID: 0}
+    firstEvolStat: 0
+    secEvolStat: 0
+--- !u!4 &2066834548
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066834546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2068625854
 GameObject:
   m_ObjectHideFlags: 0
@@ -71280,7 +71354,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1716539098}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84243035, y: 0.17826061}
   m_AnchorMax: {x: 0.94152313, y: 0.8497536}

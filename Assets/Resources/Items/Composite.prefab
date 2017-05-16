@@ -55,7 +55,7 @@ MonoBehaviour:
   itemName: Composite
   itemDescription: Various paddle names and scribbles appear on the back of this composite,
     including one "Shuckinator, 1169"
-  itemImage: {fileID: 21302448, guid: 8b32bdc51865c4f0987935452b8aa3b0, type: 3}
+  itemImage: {fileID: 21300058, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 4
   holdT: 0
   cure: 0

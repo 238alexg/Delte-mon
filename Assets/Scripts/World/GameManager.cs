@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour {
 
 		if (Load()) {
 			// Start game with loaded file
-			print("Loaded!");
+			Debug.Log("Loaded!");
 		} else {
 			// New game
-			print ("New game!");
+			Debug.Log ("New game!");
 			curSceneName = "New Game";
 
 			// Initialize values for beginning of game
@@ -479,7 +479,7 @@ public class GameManager : MonoBehaviour {
 		if (testForReferenceObject != null) {
 			PlayerMovement.PlayMov.transform.SetParent (testForReferenceObject.transform.root);
 		} else {
-			print ("> ERROR: No Ref obj found for player!");
+			Debug.Log ("> ERROR: No Ref obj found for player!");
 		}
 		GameObject testForUI = GameObject.FindGameObjectWithTag ("UI");
 		if (testForUI != null) {
@@ -523,7 +523,7 @@ public class GameManager : MonoBehaviour {
 			for (int i = 0; i < load.trainers.Length; i++) {
 				NPCInteraction trainer = trainers.transform.GetChild (i).GetComponent <NPCInteraction>();
 				if (trainer == null) {
-					print ("NULL TRAINER!"); 
+					Debug.Log ("NULL TRAINER!"); 
 				}
 				trainer.index = i;
 				if (load.trainers [i]) {
@@ -533,7 +533,9 @@ public class GameManager : MonoBehaviour {
 
 			return true;
 		} else {
-			print ("> ERROR: Scene data not present!");
+			// Some scenes do not require scene data
+			// Ex. Main menu, New Game, Recovery Center and Shop
+			//Debug.Log ("> ERROR: Scene data not present!");
 			return false;
 		}
 	}

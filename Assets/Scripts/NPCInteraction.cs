@@ -97,23 +97,22 @@ public class NPCInteraction : MonoBehaviour {
 
 		GameManager.GameMan.curSceneData.trainers [index] = true;
 
+		// Remove all obstacles from defeating trainer
+		foreach (SceneInteractableObstacle sio in obstacleRemovals) {
+			// Remove obstacle to next town/path/etc.
+			SceneInteractionData sid = GameManager.GameMan.LoadSceneData (sio.sceneName);
+			sid.interactables [sio.index] = true;
+			GameManager.GameMan.SaveSceneData (sid);
+		}
+
 		if (isGymLeader) {
 			AchievementManager.AchieveMan.GymsDefeatedUpdate ();
-
-			// Remove all obstacles
-			foreach (SceneInteractableObstacle sio in obstacleRemovals) {
-				// Remove obstacle to next town/path/etc.
-				SceneInteractionData sid = GameManager.GameMan.LoadSceneData (sio.sceneName);
-				sid.interactables [sio.index] = true;
-				GameManager.GameMan.SaveSceneData (sid);
-			}
 
 			// Note: Should never use Find* commands, but this only happens once per gym battle (pretty safe)
 			GameObject exitDoor = GameObject.FindGameObjectWithTag ("Finish");
 			exitDoor.GetComponent <DoorAction> ().ActivateDoor ();
 		}
 
-		UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut ());
 		UIManager.UIMan.StartMessage (null, null, ()=> UIManager.UIMan.EndNPCMessage ());
 		UIManager.UIMan.StartMessage(null, null, ()=>PlayerMovement.PlayMov.ResumeMoving ());
 	}

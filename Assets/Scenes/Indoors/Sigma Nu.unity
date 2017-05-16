@@ -12439,7 +12439,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: afterBattleMessage.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
@@ -12538,12 +12538,12 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: afterBattleMessage.Array.data[1]
-      value: If you even need something, just ask.
+      value: By the way, you might want to visit the DA graveyard.
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: afterBattleMessage.Array.data[2]
-      value: Oh, and here. You've earned this.
+      value: Rumor has it some dark force has been terrorizing the area.
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -12575,7 +12575,7 @@ Prefab:
         type: 2}
       propertyPath: rewardItem
       value: 
-      objectReference: {fileID: 114999268670797326, guid: 682929968028b4f56a493b3cd1422ed2,
+      objectReference: {fileID: 114057009654234810, guid: 299943ca0f66c4888bef1face510db4e,
         type: 2}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -12666,6 +12666,21 @@ Prefab:
     - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: coins
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.data[3]
+      value: Oh, and here. You've earned this.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.data[4]
+      value: Oh, and here. You've earned this.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}

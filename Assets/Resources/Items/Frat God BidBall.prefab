@@ -38,15 +38,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 5
   numberOfItem: 1
   itemName: Frat God BidBall
-  itemDescription: We'd be lucky to have him.
+  itemDescription: Bruh, he's here on a football scholarship with a 4 point. Ball
+    Strength 6.
   itemImage: {fileID: 21300010, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 1
   holdT: 0
   cure: 0
-  statUpgrades: 000000000000
+  statUpgrades: 
 --- !u!224 &224745524725470874
 RectTransform:
   m_ObjectHideFlags: 1

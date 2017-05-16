@@ -593,12 +593,12 @@ public class UIManager : MonoBehaviour {
 	// Use an item on a delt, called if both have been selected
 	public void UseItem() {
 
-		if (((activeItem.itemT == itemType.Ball) || (activeDelt == battleManager.curPlayerDelt)) && inBattle) {
-			StartCoroutine(AnimateUIClose (DeltemonUI));
-			battleManager.ChooseItem (true, activeItem);
-		} else if ((activeDelt.curStatus == statusType.DA) && (activeItem.itemT == itemType.Usable) && ((activeItem.cure != statusType.DA) || (activeItem.cure != statusType.All))) {
-			StartMessage (activeDelt.nickname + " has DA'd and refuses your " + activeItem.itemName + "!");
-			return;
+		// Active delt will be null if item is a ball
+		if (activeItem.itemT != itemType.Ball) {
+			if ((activeDelt.curStatus == statusType.DA) && (activeItem.itemT == itemType.Usable) && ((activeItem.cure != statusType.DA) || (activeItem.cure != statusType.All))) {
+				StartMessage (activeDelt.nickname + " has DA'd and refuses your " + activeItem.itemName + "!");
+				return;
+			}
 		}
 
 		// Remove item from inventory
@@ -606,9 +606,18 @@ public class UIManager : MonoBehaviour {
 		StartCoroutine(AnimateUIClose (ItemsUI));
 
 		if (inBattle) {
+			// If player throwing a ball/using item on current battling Delt
+			if ((activeItem.itemT == itemType.Ball) || (activeDelt == battleManager.curPlayerDelt)) {
+				if (DeltemonUI.activeInHierarchy) {
+					StartCoroutine (AnimateUIClose (DeltemonUI));
+				}
+				battleManager.ChooseItem (true, activeItem);
+			} 
 			// Do animation in Deltemon UI and skip player turn
-			DeltemonItemOutcome ();
-			StartMessage (null, AnimateUIClose (DeltemonUI), ()=> battleManager.ChooseItem (true, activeItem, false));
+			else {
+				DeltemonItemOutcome ();
+				StartMessage (null, AnimateUIClose (DeltemonUI), () => battleManager.ChooseItem (true, activeItem, false));
+			}
 		} else {
 			if ((activeItem.itemT == itemType.Holdable) || (activeItem.itemT == itemType.MegaEvolve)) {
 				activeDelt.item = activeItem;
@@ -709,7 +718,7 @@ public class UIManager : MonoBehaviour {
 			// Set colors for lower health
 			if ((healthBar.value >= (activeDelt.GPA * 0.5f)) && (healthBarFill.color != battleManager.fullHealth)) {
 				healthBarFill.color = battleManager.fullHealth;
-			} else if ((healthBar.value >= (activeDelt.GPA * 0.25f)) && (healthBarFill.color != battleManager.halfHealth)) {
+			} else if ((healthBar.value >= (activeDelt.GPA * 0.25f)) && (healthBarFill.color != battleManager.fullHealth)) {
 				healthBarFill.color = battleManager.halfHealth;
 			}
 
@@ -1154,10 +1163,9 @@ public class UIManager : MonoBehaviour {
 	}
 
 	public void EndBattle(bool isTrainer) {
-		StartMessage (null, fade.fadeOutToBlack());
-		StartMessage (null, null, ()=>BattleUI.SetActive(false));
+		StartMessage (null, fade.fadeOutToBlack(), ()=> battleManager.ResetAnimations ());
 
-		print ("Bool is trainer = " + isTrainer);
+		StartMessage (null, null, ()=>BattleUI.SetActive(false));
 
 		if (isTrainer) {
 			StartMessage (null, fade.fadeInSceneChange ());

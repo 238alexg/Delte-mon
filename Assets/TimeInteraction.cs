@@ -29,10 +29,6 @@ public class TimeInteraction : MonoBehaviour {
 			hasTriggered = true;
 
 			System.DateTime dt = System.DateTime.Now;
-
-			print (dt.Day + " H: " + dt.Hour);
-			print (dt.DayOfWeek); 
-
 			PlayMov.StopMoving ();
 
 			// If player came at the correct time

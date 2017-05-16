@@ -54,9 +54,7 @@ public class MapManager : MonoBehaviour {
 		if (selectedTownText.text != "") {
 			foreach (DeltemonClass delt in GameManager.GameMan.deltPosse) {
 				if (delt.moveset.Exists (move => move.moveName == "Drive")) {
-					print ("Contains Drive!");
 					if ((delt.item != null) && (delt.item.itemName == "Car Keys")) {
-						print ("Contains Key!");
 						canDrive = true;
 						break;
 					}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 600a487ca8d3843638de1354feca484a
-timeCreated: 1491114201
+timeCreated: 1494902752
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -29,12 +29,12 @@ TextureImporter:
     21300044: Papa Souls
     21300046: Onyx Ring
     21300048: Dutch
-    21300050: allItems_25
-    21300052: allItems_26
-    21300054: allItems_27
-    21300056: allItems_28
-    21300058: allItems_29
-    21300060: allItems_30
+    21300050: Keys
+    21300052: Ice
+    21300054: Check
+    21300056: HawaiianTime
+    21300058: Composite
+    21300060: peppermintShnapps
     21300062: allItems_31
     21300064: allItems_32
     21300066: allItems_33
@@ -46,7 +46,7 @@ TextureImporter:
     21300078: allItems_39
     21300080: Sig Chi Badge
     21300082: Delta Sigma Badge
-    21300084: allItems_42
+    21300084: Sigma Nu Badge
     21300086: allItems_43
     21300088: allItems_44
     21300090: allItems_45
@@ -117,6 +117,22 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -453,7 +469,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_25
+      name: Keys
       rect:
         serializedVersion: 2
         x: 80
@@ -466,7 +482,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_26
+      name: Ice
       rect:
         serializedVersion: 2
         x: 96
@@ -479,7 +495,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_27
+      name: Check
       rect:
         serializedVersion: 2
         x: 112
@@ -492,7 +508,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_28
+      name: HawaiianTime
       rect:
         serializedVersion: 2
         x: 128
@@ -505,7 +521,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_29
+      name: Composite
       rect:
         serializedVersion: 2
         x: 144
@@ -518,7 +534,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_30
+      name: peppermintShnapps
       rect:
         serializedVersion: 2
         x: 0
@@ -674,7 +690,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: allItems_42
+      name: Sigma Nu Badge
       rect:
         serializedVersion: 2
         x: 32

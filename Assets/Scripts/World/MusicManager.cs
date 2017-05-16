@@ -42,8 +42,6 @@ public class MusicManager: MonoBehaviour {
 		if (selectedMusic != null) {
 			audiosource.clip = selectedMusic;
 
-			print (maxVolume); 
-
 			while (audiosource.volume < maxVolume) {
 				audiosource.volume += 0.01f;
 				yield return new WaitForSeconds (0.01f);

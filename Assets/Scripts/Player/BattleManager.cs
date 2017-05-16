@@ -247,13 +247,10 @@ public class BattleManager : MonoBehaviour {
 		float stayInScore = 100;
 		if (chosenMove != null) {
 			stayInScore = CalculateStayScore (chosenMove);
-			print ("Stay in score: " + stayInScore);
 		}
 
 		int bestSwitchScore;
 		DeltemonClass switchIn = FindSwitchIn (out bestSwitchScore);
-
-		print ("Switch score: " + bestSwitchScore);
 
 		if (switchIn == null && chosenMove == null) {
 			ForceOppLoss ();
@@ -494,8 +491,6 @@ public class BattleManager : MonoBehaviour {
 				score += (move.statusChance * 0.01f * 150);
 			}
 
-			//print ("Score of move " + move.moveName + ": " + score);
-
 			// If this move has the highest score, update top Score and chosenMove
 			if (score > topScore) {
 				chosenMove = move;
@@ -641,7 +636,7 @@ public class BattleManager : MonoBehaviour {
 		
 		// If forcePlayerSwitch true, it is a forced switch (Delt has DA'd)
 		if (DeltHasSwitched || forcePlayerSwitch) {
-			StartCoroutine (SwitchDelts (switchIn, true));
+			StartCoroutine (SwitchDelts (switchIn, true, true));
 			forcePlayerSwitch = false;
 		} else {
 			DeltHasSwitched = true;
@@ -652,7 +647,7 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Switching out Delts, loading into Battle UI, clearing temporary battle stats
-	IEnumerator SwitchDelts(DeltemonClass switchIn, bool isPlayer) {
+	IEnumerator SwitchDelts(DeltemonClass switchIn, bool isPlayer, bool isForced = false) {
 		DeltemonClass switchOut;
 		Text name;
 		Slider health;
@@ -779,12 +774,14 @@ public class BattleManager : MonoBehaviour {
 					yield return new WaitForSeconds (1);
 
 					yield return StartCoroutine(evolMessage(switchIn.nickname + "'s " + switchIn.item.itemName + " raised it's " + stat + " stat!"));
-				}
+				} 
 			}
 		}
 
 		// Show player options only when switch has completed
-		PlayerOptions.SetActive (true);
+		if (isForced) {
+			PlayerOptions.SetActive (true);
+		}
 
 		// Set moves, color, and PP left for each move
 		MoveClass tmpMove;
@@ -977,7 +974,6 @@ public class BattleManager : MonoBehaviour {
 		// High enemy level lower catch chance (level*rarity range is 1 - 700)
 		if (curOppDelt.level < 26) { // Range of (level * rarity) is 1 - 175
 			catchChance = (175 - (curOppDelt.level * oppRarity)) / 175;
-			print ("OG: " + catchChance);
 		} else if (curOppDelt.level < 51) { // Range of (level * rarity) is 25 - 350
 			catchChance = ((350 - (curOppDelt.level * oppRarity)) / 350) - 0.07f;
 		} else {
@@ -1005,27 +1001,19 @@ public class BattleManager : MonoBehaviour {
 
 		float random = Random.Range (0, 100);
 		int ballRattles = 0;
-		float yieldTime = 0;
-
-		// DEBUG ONLY
-		print ("Catch Chance: " + catchChance + ", Random: " + random);
 
 		if (random > catchChance) {
 			if (random > (2 * catchChance)) {
 				ballRattles = 1;
-				yieldTime = 2.75f;
 			} else if (random > (1.5 * catchChance)) {
 				ballRattles = 2;
-				yieldTime = 3.75f;
 			} else {
 				ballRattles = 3;
-				yieldTime = 4.75f;
 			}
 		} 
 		// Catch success
 		else {
 			ballRattles = 4;
-			yieldTime = 5.25f;
 		}
 
 		// Trigger animations
@@ -2352,19 +2340,14 @@ public class BattleManager : MonoBehaviour {
 
 		trainer = null;
 		trainerItems = null;
-
-		// Reset animations back
-		StartCoroutine (ResetAnimations ());
 	}
 
 	// Set up animations to get ready for next slide in
-	IEnumerator ResetAnimations() {
-		yield return new WaitWhile (() => BattleUI.activeInHierarchy);
-
-		UIManager.StartMessage(null, null, ()=>playerDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
-		UIManager.StartMessage(null, null, ()=>oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle"));
-		UIManager.StartMessage(null, null, ()=>playerBattleAnim.Play ("Idle"));
-		UIManager.StartMessage(null, null, ()=>oppBattleAnim.Play ("Idle"));
+	public void ResetAnimations() {
+		playerDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle");
+		oppDeltSprite.gameObject.GetComponent<Animator> ().Play ("Idle");
+		playerBattleAnim.Play ("Idle");
+		oppBattleAnim.Play ("Idle");
 	}
 
 	// When opp Delts have no more PP Left
