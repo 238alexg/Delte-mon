@@ -61,7 +61,7 @@ MonoBehaviour:
   PP: 10
   PPLeft: 10
   damage: 0
-  hitChance: 0
+  hitChance: 100
   statType: 0
   buffs: []
   statusChance: 0

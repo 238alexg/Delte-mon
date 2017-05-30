@@ -65,6 +65,7 @@ public class FidelTombstone : MonoBehaviour {
 		UIManager.UIMan.StartNPCMessage ("You! You let this happen to me!", "Dead Fidel");
 		UIManager.UIMan.StartNPCMessage ("I'm was just a hamster...", "Sad Dead Fidel");
 		UIManager.UIMan.StartNPCMessage ("AND NOW I AM DEAD", "Angry Dead Fidel");
+		UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut ());
 		UIManager.UIMan.StartTrainerBattle (fidelTrainer, false);
 		UIManager.UIMan.StartMessage (null, null, ()=> EndInteraction());
 	}

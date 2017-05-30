@@ -3045,7 +3045,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: afterBattleMessage.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3149,7 +3149,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: afterBattleMessage.Array.data[2]
-      value: Here, you deserve this.
+      value: You should take your skill to Sig Nu
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -3228,6 +3228,21 @@ Prefab:
     - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.data[3]
+      value: Beat the crap outta those guys for me!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.data[4]
+      value: Maybe that'll get this town back to where it was...
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.data[5]
+      value: Anyways, you've earned this.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}

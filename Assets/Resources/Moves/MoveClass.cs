@@ -73,13 +73,13 @@ public enum buffType {
 
 public enum statusType {
 	None,
-	Plagued, // Poison
-	Indebted, // Cursed
-	Suspended, // Frozen
-	Roasted, // Burned
-	Asleep, // Sleep
-	High, // Paralyzed
-	Drunk, // Confused
+	Plagued, // Poison -> Soap
+	Indebted, // Cursed -> Daddy Check
+	Suspended, // Frozen -> Humility
+	Roasted, // Burned -> Ice
+	Asleep, // Sleep -> Airhorn
+	High, // Paralyzed -> Dutch
+	Drunk, // Confused -> Deltialyte
 	DA, // Fainted
 	All // Just for items to cure all statuses
 }

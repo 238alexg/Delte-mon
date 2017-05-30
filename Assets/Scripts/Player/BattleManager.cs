@@ -53,7 +53,7 @@ public class BattleManager : MonoBehaviour {
 	private bool DeltHasSwitched, forcePlayerSwitch;
 	public bool isMessageToDisplay = false;
 	public ItemClass activeItem;
-	public AudioClip battleMusic;
+	public AudioClip battleMusic, bossWin;
 	public Text levelupText;
 	public Sprite porkBack;
 
@@ -64,7 +64,7 @@ public class BattleManager : MonoBehaviour {
 	List<ItemClass> trainerItems;
 	string trainerName;
 	NPCInteraction trainer;
-	string[] fraternityNames = {"Sigma Chi", "Delta Sig", "Sigma Nu"};
+	string[] fraternityNames = {"Sigma Chi", "Delta Sigma", "Sigma Nu"};
 
 	public static BattleManager BattleMan { get; private set; }
 
@@ -215,8 +215,6 @@ public class BattleManager : MonoBehaviour {
 	void TurnStart() {
 		PlayerOptions.SetActive (true);
 
-		playerBlocked = false;
-		oppBlocked = false;
 		PlayerDA = false;
 		OppDA = false;
 		actionsComplete = false;
@@ -238,6 +236,7 @@ public class BattleManager : MonoBehaviour {
 		if (chosenItem != null) {
 			oppChoice.IENum = UseItem (false, chosenItem);
 			oppChoice.type = actionT.Item;
+			oppBlocked = false;
 			return;
 		}
 
@@ -629,6 +628,7 @@ public class BattleManager : MonoBehaviour {
 			UIManager.StartMessage ("The wild-eyed Delt blankly stares at you...");
 			UIManager.StartMessage ("You sure showed him.", null, ()=>EndBattle ());
 		}
+		playerBlocked = false;
 	}
 
 	// Player tries to switch in Delt
@@ -663,12 +663,14 @@ public class BattleManager : MonoBehaviour {
 			health = playerHealth;
 			barColor = playerHealthBar;
 			spriteAnim = playerDeltSprite.gameObject.GetComponent<Animator> ();
+			playerBlocked = false;
 		} else {
 			switchOut = curOppDelt;
 			name = oppName;
 			health = oppHealth;
 			barColor = oppHealthBar;
 			spriteAnim = oppDeltSprite.gameObject.GetComponent<Animator> ();
+			oppBlocked = false;
 		}
 
 		// Only do if not the first turn of battle
@@ -844,9 +846,11 @@ public class BattleManager : MonoBehaviour {
 		if (isPlayer) {
 			delt = curPlayerDelt;
 			trainerTitle = gameManager.playerName;
+			playerBlocked = false;
 		} else {
 			delt = curOppDelt;
 			trainerTitle = trainerName;
+			oppBlocked = false;
 		}
 		yield return StartCoroutine (evolMessage (trainerTitle + " used " + item.itemName + " on " + delt.nickname + "!"));
 
@@ -1205,11 +1209,21 @@ public class BattleManager : MonoBehaviour {
 			defender = curOppDelt;
 			attackerStatus = playerBattleAnim;
 			defenderStatus = oppBattleAnim;
+
+			// Allow player to block next turn
+			if (move.movType != moveType.Block) {
+				playerBlocked = false;
+			}
 		} else {
 			attacker = curOppDelt;
 			defender = curPlayerDelt;
 			attackerStatus = oppBattleAnim;
 			defenderStatus = playerBattleAnim;
+
+			// Allow player to block next turn
+			if (move.movType != moveType.Block) {
+				oppBlocked = false;
+			}
 		}
 
 		//////////////////////////////////////////////////////////////////
@@ -1222,6 +1236,7 @@ public class BattleManager : MonoBehaviour {
 			// LATER: Drunk ANIMATION in null slot	----------------------------v
 			yield return StartCoroutine (evolMessage (attacker.nickname + " is Drunk..."));
 			attackerStatus.SetTrigger ("Drunk");
+			SoundEffectManager.SEM.PlaySoundImmediate ("Drunk");
 			yield return new WaitForSeconds (1);
 
 			// If Delt hurts himself
@@ -1258,6 +1273,7 @@ public class BattleManager : MonoBehaviour {
 			
 			yield return StartCoroutine (evolMessage (attacker.nickname + " is fast Asleep."));
 			attackerStatus.SetTrigger ("Sleep");
+			SoundEffectManager.SEM.PlaySoundImmediate ("Sleep");
 			yield return new WaitForSeconds (1);
 
 			// Delt wakes up
@@ -1274,6 +1290,7 @@ public class BattleManager : MonoBehaviour {
 			
 			yield return StartCoroutine (evolMessage (attacker.nickname + " is High..."));
 			attackerStatus.SetTrigger ("High");
+			SoundEffectManager.SEM.PlaySoundImmediate ("High");
 			yield return new WaitForSeconds (1);
 
 			// If Delt comes down
@@ -1291,6 +1308,7 @@ public class BattleManager : MonoBehaviour {
 
 			yield return StartCoroutine (evolMessage (attacker.nickname + " is Suspended..."));
 			attackerStatus.SetTrigger ("Suspended");
+			SoundEffectManager.SEM.PlaySoundImmediate ("Suspended");
 			yield return new WaitForSeconds (1);
 
 			// If Delt comes down
@@ -1504,24 +1522,31 @@ public class BattleManager : MonoBehaviour {
 				switch (move.statType) {
 				case (statusType.Drunk):
 					defenderStatus.SetTrigger ("Drunk");
+					SoundEffectManager.SEM.PlaySoundImmediate ("Drunk");
 					break;
 				case (statusType.Asleep):
 					defenderStatus.SetTrigger ("Sleep");
+					SoundEffectManager.SEM.PlaySoundImmediate ("Sleep");
 					break;
 				case (statusType.High):
 					defenderStatus.SetTrigger ("High");
+					SoundEffectManager.SEM.PlaySoundImmediate ("High");
 					break;
 				case (statusType.Indebted):
 					defenderStatus.SetTrigger ("Indebted");
+					SoundEffectManager.SEM.PlaySoundImmediate ("Indebted");
 					break;
 				case (statusType.Plagued):
 					defenderStatus.SetTrigger ("Plagued");
+					SoundEffectManager.SEM.PlaySoundImmediate ("Plagued");
 					break;
 				case (statusType.Roasted):
 					defenderStatus.SetTrigger ("Roasted");
+					SoundEffectManager.SEM.PlaySoundImmediate ("Roasted");
 					break;
 				case (statusType.Suspended):
 					defenderStatus.SetTrigger ("Suspended");
+					SoundEffectManager.SEM.PlaySoundImmediate ("Suspended");
 					break;
 				}
 
@@ -1606,6 +1631,7 @@ public class BattleManager : MonoBehaviour {
 			// If opp Delt is Roasted
 			if (curOppDelt.curStatus == statusType.Roasted) {
 				oppBattleAnim.SetTrigger ("Roasted");
+				SoundEffectManager.SEM.PlaySoundImmediate ("Roasted");
 				yield return new WaitForSeconds (1.2f);
 				yield return StartCoroutine (evolMessage (curOppDelt.nickname + " is still feelin that burn!"));
 			} 
@@ -1613,6 +1639,7 @@ public class BattleManager : MonoBehaviour {
 			// If opp Delt is Plagued
 			else if (curOppDelt.curStatus == statusType.Plagued) {
 				oppBattleAnim.SetTrigger ("Plagued");
+				SoundEffectManager.SEM.PlaySoundImmediate ("Plagued");
 				yield return new WaitForSeconds (1);
 				yield return StartCoroutine (evolMessage (curOppDelt.nickname + " is still Plagued!"));
 			}
@@ -1620,6 +1647,7 @@ public class BattleManager : MonoBehaviour {
 			// If opp Delt is Plagued
 			else if (curOppDelt.curStatus == statusType.Indebted) {
 				oppBattleAnim.SetTrigger ("Indebted");
+				SoundEffectManager.SEM.PlaySoundImmediate ("Indebted");
 				yield return new WaitForSeconds (1);
 				yield return StartCoroutine (evolMessage (curOppDelt.nickname + " couldn't pay back those student loans!"));
 			}
@@ -1651,6 +1679,7 @@ public class BattleManager : MonoBehaviour {
 			// If player Delt is Roasted
 			if (curPlayerDelt.curStatus == statusType.Roasted) {
 				playerBattleAnim.SetTrigger ("Roasted");
+				SoundEffectManager.SEM.PlaySoundImmediate ("Roasted");
 				yield return new WaitForSeconds (1.2f);
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " is still feelin that burn!"));
 			} 
@@ -1658,6 +1687,7 @@ public class BattleManager : MonoBehaviour {
 			// If player Delt is Plagued
 			else if (curPlayerDelt.curStatus == statusType.Plagued) {
 				playerBattleAnim.SetTrigger ("Plagued");
+				SoundEffectManager.SEM.PlaySoundImmediate ("Plagued");
 				yield return new WaitForSeconds (1);
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " is still Plagued!"));
 			}
@@ -1665,6 +1695,7 @@ public class BattleManager : MonoBehaviour {
 			// If player Delt is Plagued
 			else if (curPlayerDelt.curStatus == statusType.Indebted) {
 				playerBattleAnim.SetTrigger ("Indebted");
+				SoundEffectManager.SEM.PlaySoundImmediate ("Indebted");
 				yield return new WaitForSeconds (1);
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " couldn't pay back those student loans!"));
 			}
@@ -1788,7 +1819,7 @@ public class BattleManager : MonoBehaviour {
 
 				// Give achievements if any
 				if (trainer.isGymLeader) {
-					QuestManager.QuestMan.GymLeaderBattles (trainerName);
+					AchievementManager.AchieveMan.GymLeaderBattles (trainerName);
 
 					// Heal all player Delts after defeating gym
 					foreach (DeltemonClass delt in playerDelts) {
@@ -2297,10 +2328,15 @@ public class BattleManager : MonoBehaviour {
 		StopCoroutine ("fight");
 
 		// Play music, return to world UI
-		UIManager.StartMessage(null, null, ()=>ReturnToSceneMusic());
 		if (trainer != null) {
+			if (trainer.isGymLeader) {
+				UIManager.StartMessage (null, null, () => ReturnToSceneMusic (true));
+			} else {
+				UIManager.StartMessage (null, null, () => ReturnToSceneMusic (false));
+			}
 			UIManager.StartMessage (null, null, () => UIManager.EndBattle (true));
 		} else {
+			UIManager.StartMessage(null, null, ()=>ReturnToSceneMusic());
 			UIManager.StartMessage (null, null, () => UIManager.EndBattle (false));
 		}
 
@@ -2312,6 +2348,8 @@ public class BattleManager : MonoBehaviour {
 		curPlayerDelt = null;
 		curOppDelt = null;
 		DeltHasSwitched = false;
+		playerBlocked = false;
+		oppBlocked = false;
 
 		PlayerMovement.PlayMov.StopMoving ();
 
@@ -2368,9 +2406,14 @@ public class BattleManager : MonoBehaviour {
 
 	// Return to the music playing when player entered battle
 	// LATER: Fade out battle music and play scene music
-	public void ReturnToSceneMusic () {
+	public void ReturnToSceneMusic (bool isGymLeader = false) {
 		AudioSource source = MusicManager.Instance.audiosource;
-		source.clip = sceneMusic;
+		if (isGymLeader) {
+			source.clip = bossWin;
+		} else {
+			source.clip = sceneMusic;
+		}
+
 		source.Play ();
 	}
 }

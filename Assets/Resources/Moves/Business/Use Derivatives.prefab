@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveName: Use Derivatives
   moveDescription: Now subtract one from the exponent and... or is it the other way
-    around?
+    around? Chance to Intoxicate. 15% Crit.
   majorType: {fileID: 114491395186843492, guid: fd700cb22f55c435ab4a3825ee27513e,
     type: 2}
   status: {fileID: 21300072, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
@@ -65,5 +65,5 @@ MonoBehaviour:
   hitChance: 100
   statType: 7
   buffs: []
-  statusChance: 0
+  statusChance: 15
   critChance: 15

@@ -152,6 +152,8 @@ public class PlayerMovement : MonoBehaviour {
 				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
 				playerMovementAnimation.SetInteger ("Move", 0);
 
+				SoundEffectManager.SEM.PlaySoundImmediate ("Bump");
+
 				StopAndFace ();
 
 				movementQueued = false;
@@ -277,7 +279,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	// Allows player movement
 	public void ResumeMoving() {
-		print ("Resuming move");
 		UIManager.MovementUI.SetActive (true);
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}

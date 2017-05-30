@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	public string curSceneName;
 	public List<TownRecoveryLocation> townRecovs;
 	public bool[] discoveredTowns;
-	public int battlesWon;
+	public int battlesWon, saveIndex;
 
 	public List<DeltemonClass> deltPosse;
 	public List<ItemData> allItems;
@@ -62,29 +62,6 @@ public class GameManager : MonoBehaviour {
 	void Update() {
 		timePlayed += Time.deltaTime;
 	}
-
-	// When title screen is pressed
-	public void StartGame() {
-
-		// DEBUG TO TRIGGER NEW GAME SCENARIO
-		if (deleteSave) {
-			DeleteSave ();
-		}
-
-		if (Load()) {
-			// Start game with loaded file
-			Debug.Log("Loaded!");
-		} else {
-			// New game
-			Debug.Log ("New game!");
-			curSceneName = "New Game";
-
-			// Initialize values for beginning of game
-			coins = 10;
-			UIManager.SwitchLocationAndScene (-5, 0, "New Game");
-		}
-	}
-
 
 	// Returns the Recov Location info for the last town visited
 	public TownRecoveryLocation FindTownRecov() {
@@ -168,7 +145,7 @@ public class GameManager : MonoBehaviour {
 	// Save the game
 	public void Save() {
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/playerData.dat");
+		FileStream file = File.Create (Application.persistentDataPath + "/playerData" + saveIndex + ".dat");
 		PlayerData save = new PlayerData ();
 
 		// Save the status of all objects player has interacted with
@@ -182,6 +159,7 @@ public class GameManager : MonoBehaviour {
 		save.coins = coins;
 		save.lastTownName = lastTownName;
 		save.battlesWon = battlesWon;
+		save.timePlayed = timePlayed;
 
 		// Save settings
 		save.sceneName = SceneManager.GetActiveScene ().name;
@@ -215,58 +193,54 @@ public class GameManager : MonoBehaviour {
 		AchievementManager.AchieveMan.TimeSpentUpdate ();
 	}
 
-	public void doLoad() {
-		Load ();
-	}
-
 	// Load the game from save (ONLY CALLED ON STARTUP! Player cannot choose to load the game)
-	public bool Load() {
-		if (File.Exists (Application.persistentDataPath + "/playerData.dat")) {
+	public PlayerData Load(byte save) {
+		if (File.Exists (Application.persistentDataPath + "/playerData" + save + ".dat")) {
 			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open	(Application.persistentDataPath + "/playerData.dat", FileMode.Open);
+			FileStream file = File.Open	(Application.persistentDataPath + "/playerData" + save + ".dat", FileMode.Open);
 			PlayerData load = (PlayerData)bf.Deserialize (file);
 			file.Close ();
 
-			deltPosse.Clear ();
-
-			for (byte i = 0; i < load.partySize; i++) {
-				deltPosse.Add(convertDataToDelt (load.deltPosse [i], this.transform));
-			}
-
-			// If deltPosse is 0, the user quit during New Game: Start New Game again
-			if (deltPosse.Count == 0) {
-				return false;
-			}
-
-			currentStartingDelt = deltPosse [0];
-			UIManager.SwitchLocationAndScene(Mathf.Floor (load.xLoc), Mathf.Floor (load.yLoc), load.sceneName);
-			coins = load.coins;
-			playerName = load.playerName;
-			lastTownName = load.lastTownName;
-
-			// Load player settings
-			curSceneName = load.sceneName;
-			pork = load.pork;
-			UIManager.scrollSpeed = load.scrollSpeed;
-			PlayerMovement.PlayMov.ChangeGender (load.isMale);
-			PlayerMovement.PlayMov.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
-			MusicManager.Instance.maxVolume = load.musicVolume;
-			MusicManager.Instance.audiosource.volume = load.musicVolume;
-			SoundEffectManager.SEM.source.volume = load.FXVolume;
-
-			// Load lists back
-			allItems = new List<ItemData> (load.allItems);
-			houseDelts = new List<DeltemonData> (load.houseDelts);
-			deltDex = new List<DeltDexData> (load.deltDex);
-
-			return true;
+			return load;
 		} else {
-			return false;
+			return null;
 		}
 	}
 
-	public void DeleteSave() {
-		File.Delete (Application.persistentDataPath + "/playerData.dat");
+	public void SelectLoadFile(PlayerData load) {
+		deltPosse.Clear ();
+
+		// Load all discovered towns
+		for (byte i = 0; i < discoveredTowns.Length; i++) {
+			discoveredTowns [i] = load.discoveredTowns [i];
+		}
+
+		for (byte i = 0; i < load.partySize; i++) {
+			deltPosse.Add(convertDataToDelt (load.deltPosse [i], this.transform));
+		}
+
+		currentStartingDelt = deltPosse [0];
+		UIManager.SwitchLocationAndScene(Mathf.Floor (load.xLoc), Mathf.Floor (load.yLoc), load.sceneName);
+		coins = load.coins;
+		playerName = load.playerName;
+		lastTownName = load.lastTownName;
+		timePlayed = load.timePlayed;
+		battlesWon = load.battlesWon;
+
+		// Load player settings
+		curSceneName = load.sceneName;
+		pork = load.pork;
+		UIManager.scrollSpeed = load.scrollSpeed;
+		PlayerMovement.PlayMov.ChangeGender (load.isMale);
+		PlayerMovement.PlayMov.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
+		MusicManager.Instance.maxVolume = load.musicVolume;
+		MusicManager.Instance.audiosource.volume = load.musicVolume;
+		SoundEffectManager.SEM.source.volume = load.FXVolume;
+
+		// Load lists back
+		allItems = new List<ItemData> (load.allItems);
+		houseDelts = new List<DeltemonData> (load.houseDelts);
+		deltDex = new List<DeltDexData> (load.deltDex);
 	}
 
 	// Convert DeltClass to serializable data
@@ -661,8 +635,10 @@ public class PlayerData {
 	public float scrollSpeed;
 	public float musicVolume;
 	public float FXVolume;
+	public float timePlayed;
 	public byte partySize;
 	public byte deltDexesFound;
+	public byte saveFile; // # of save file (player can have multiple)
 	public int houseSize;
 	public int battlesWon;
 	public int deltsRushed; // LATER: Remove

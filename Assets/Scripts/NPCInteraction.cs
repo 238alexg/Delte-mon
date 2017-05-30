@@ -80,9 +80,11 @@ public class NPCInteraction : MonoBehaviour {
 	// Called from BattleManager when player has won the battle
 	public void EndBattleActions() {
 
+		UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideIn (largeCharacerSprite));
+
 		// Play congradulatory sound for beating boss
 		if (isGymLeader) {
-			//SoundEffectManager.SEM.PlaySoundImmediate ("BossWin");
+			SoundEffectManager.SEM.PlaySoundImmediate ("BossWin");
 		}
 
 		// Trainer says something after being beaten
@@ -95,6 +97,8 @@ public class NPCInteraction : MonoBehaviour {
 			GameManager.GameMan.AddItem (rewardItem, numberOfItem, true);
 		}
 
+		UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut (), ()=>UIManager.UIMan.EndNPCMessage ());
+
 		GameManager.GameMan.curSceneData.trainers [index] = true;
 
 		// Remove all obstacles from defeating trainer
@@ -106,14 +110,11 @@ public class NPCInteraction : MonoBehaviour {
 		}
 
 		if (isGymLeader) {
-			AchievementManager.AchieveMan.GymsDefeatedUpdate ();
-
 			// Note: Should never use Find* commands, but this only happens once per gym battle (pretty safe)
 			GameObject exitDoor = GameObject.FindGameObjectWithTag ("Finish");
 			exitDoor.GetComponent <DoorAction> ().ActivateDoor ();
 		}
 
-		UIManager.UIMan.StartMessage (null, null, ()=> UIManager.UIMan.EndNPCMessage ());
 		UIManager.UIMan.StartMessage(null, null, ()=>PlayerMovement.PlayMov.ResumeMoving ());
 	}
 }

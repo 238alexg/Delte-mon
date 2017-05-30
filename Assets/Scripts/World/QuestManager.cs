@@ -70,15 +70,6 @@ public class QuestManager : MonoBehaviour {
 			break;
 		}
 	}
-	// Achievements for gym leader battles
-	public void GymLeaderBattles(string leaderName) {
-		switch (leaderName) {
-		case "Kane Varon":
-			AchievementManager.AchieveMan.ReportAchievement ("Gym1");
-			break;
-		}
-		// Update number of gyms defeated
-		AchievementManager.AchieveMan.GymsDefeatedUpdate ();
-	}
+
 
 }

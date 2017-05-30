@@ -38,6 +38,10 @@ public class UIManager : MonoBehaviour {
 	public Text helpUITitle;
 	private int curHelpMenu, curMajor;
 
+	[Header("Credits UI")]
+	public GameObject CreditsUI;
+	public Scrollbar CreditsScroll;
+
 	[Header("Misc")]
 	bool inMessage;
 	public bool animateMessage, messageOver, endMessage, isMessageToDisplay, isFading, NPCMessage, allItemsLoaded, allDexesLoaded, allDeltsLoaded, inBattle;
@@ -241,7 +245,7 @@ public class UIManager : MonoBehaviour {
 		}
 
 		SettingsUI.SetActive (true);
-		SettingsUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+		SettingsUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 		playerMovement.StopMoving ();
 	}
 
@@ -259,7 +263,7 @@ public class UIManager : MonoBehaviour {
 	// Animates Open of Help Menu
 	public void OpenHelpMenu() {
 		HelpUI.SetActive (true);
-		HelpUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+		HelpUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 		curHelpMenu = -1;
 		curMajor = -1;
 	}
@@ -314,10 +318,45 @@ public class UIManager : MonoBehaviour {
 		StartCoroutine (AnimateUIClose (HelpUI));
 	}
 
+	// Open the credits UI
+	public void OpenCredits() {
+		CreditsUI.SetActive (true);
+		StartCoroutine (animateCredits ());
+	}
+
+	// Animates credits downwards and plays credits music
+	IEnumerator animateCredits() {
+		CreditsUI.GetComponent <Animator>().SetBool ("SlideIn", true);
+
+
+		yield return StartCoroutine (MusicManager.Instance.fadeOutAudio ());
+		yield return StartCoroutine (MusicManager.Instance.fadeInAudio ("Credits"));
+		yield return new WaitForSeconds (1.5f);
+
+		// Scroll credits down
+		while (CreditsScroll.value > 0) {
+			CreditsScroll.value -= 0.00018f;
+			yield return new WaitForSeconds (0.00018f);
+		}
+	}
+
+	// Closes Credits Screen
+	public void CloseCredits() {
+		// Reset Credits to top of scrollable area
+		CreditsScroll.value = 1;
+
+		// Close credits
+		StartMessage (null, AnimateUIClose (CreditsUI));
+
+		// Fade out of music and resume scene music
+		StartMessage (null, MusicManager.Instance.fadeOutAudio ());
+		StartMessage (null, MusicManager.Instance.fadeInAudio (gameManager.curSceneName));
+	}
+
 
 	// A closing animation for All animating UI's, sets current UI
 	public IEnumerator AnimateUIClose(GameObject UI) {
-		UI.GetComponent <Animator>().SetTrigger ("SlideOut");
+		UI.GetComponent <Animator>().SetBool ("SlideIn", false);
 		yield return new WaitForSeconds (0.5f);
 		UI.SetActive (false);
 		if (UI.name == "BagMenuUI") {
@@ -340,7 +379,7 @@ public class UIManager : MonoBehaviour {
 			coinText.text = "" + gameManager.coins;
 			deltDexText.text = "" + gameManager.deltDex.Count;
 			BagMenuUI.SetActive (true);
-			BagMenuUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+			BagMenuUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 		} else {
 			StartCoroutine(AnimateUIClose (BagMenuUI));
 		}
@@ -410,7 +449,7 @@ public class UIManager : MonoBehaviour {
 		}
 		DeltDexUI.SetActive (true);
 		DeltDexOverviewUI.gameObject.SetActive (false);
-		DeltDexUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+		DeltDexUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 	}
 
 	// When dex list item pressed, loads that delt into dex overview UI
@@ -550,7 +589,7 @@ public class UIManager : MonoBehaviour {
 				allItemsLoaded = true;
 			}
 			ItemsUI.SetActive (true);
-			ItemsUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+			ItemsUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 		}
 	}
 
@@ -594,7 +633,7 @@ public class UIManager : MonoBehaviour {
 	public void UseItem() {
 
 		// Active delt will be null if item is a ball
-		if (activeItem.itemT != itemType.Ball) {
+		if ((activeItem.itemT != itemType.Ball) && (activeItem.itemT != itemType.Repel)) {
 			if ((activeDelt.curStatus == statusType.DA) && (activeItem.itemT == itemType.Usable) && ((activeItem.cure != statusType.DA) || (activeItem.cure != statusType.All))) {
 				StartMessage (activeDelt.nickname + " has DA'd and refuses your " + activeItem.itemName + "!");
 				return;
@@ -806,7 +845,7 @@ public class UIManager : MonoBehaviour {
 
 		// Show UI
 		DeltemonUI.SetActive (true);
-		DeltemonUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+		DeltemonUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 	}
 
 	// User clicks Swap Item

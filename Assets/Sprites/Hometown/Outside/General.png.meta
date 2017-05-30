@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe3b1e453b9d88047b7d779f8a2ba8c1
-timeCreated: 1494488236
+timeCreated: 1495002116
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -738,7 +738,7 @@ TextureImporter:
     21301462: General_731
     21301464: General_732
     21301466: General_733
-    21301468: General_734
+    21301468: Whole Shop
     21301470: Hirons_Top
     21301472: General_736
     21301474: General_737
@@ -944,7 +944,7 @@ TextureImporter:
     21301874: General_937
     21301876: General_938
     21301878: General_939
-    21301880: General_940
+    21301880: Whole Recov Center
     21301882: General_941
     21301884: General_942
     21301886: General_943
@@ -2508,7 +2508,7 @@ TextureImporter:
     21305002: General_731
     21305004: General_732
     21305006: General_733
-    21305008: General_734
+    21305008: Whole Shop
     21305010: Hirons_Top
     21305012: General_736
     21305014: General_737
@@ -2704,7 +2704,7 @@ TextureImporter:
     21305394: General_937
     21305396: General_938
     21305398: General_939
-    21305400: General_940
+    21305400: Whole Recov Center
     21305402: General_941
     21305404: General_942
     21305406: General_943
@@ -3417,6 +3417,9 @@ TextureImporter:
     21306820: DSigOpenDoor
     21306822: SigChiOpenDoor
     21306824: SigNuOpenDoor
+    21306826: General_940
+    21306828: General_734
+    21306830: Whole Fraternity
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -3488,6 +3491,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 0
@@ -12755,13 +12766,13 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_734
+      name: Whole Shop
       rect:
         serializedVersion: 2
-        x: 400
-        y: 464
-        width: 16
-        height: 16
+        x: 416
+        y: 400
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -15303,13 +15314,13 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_940
+      name: Whole Recov Center
       rect:
         serializedVersion: 2
-        x: 368
-        y: 384
-        width: 16
-        height: 16
+        x: 416
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -45628,6 +45639,19 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Whole Fraternity
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 432
+        width: 112
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

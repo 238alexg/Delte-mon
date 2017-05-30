@@ -22,16 +22,9 @@ public class GymManager : MonoBehaviour {
 		// Reactivate all trainers if gym is undefeated
 		if (!gymDefeated) {
 			foreach (Transform child in trainers.transform) {
-				print (child.GetComponent <NPCInteraction> ().hasTriggered);
+//				print (child.GetComponent <NPCInteraction> ().hasTriggered);
 				child.GetComponent <NPCInteraction>().hasTriggered = false;
 			}
 		}
-	}
-
-	IEnumerator ResetTrainers() {
-		
-		yield return new WaitForSeconds (0.3f);
-
-
 	}
 }

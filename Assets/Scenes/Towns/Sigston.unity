@@ -8648,6 +8648,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4402259517660618, guid: 5c0b5162c0b914d2697f0f226745217b,
     type: 2}
   m_PrefabInternal: {fileID: 294264930}
+--- !u!114 &294264932 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114866722010911016, guid: 5c0b5162c0b914d2697f0f226745217b,
+    type: 2}
+  m_PrefabInternal: {fileID: 294264930}
+  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &296617499
 GameObject:
   m_ObjectHideFlags: 0
@@ -11608,7 +11614,10 @@ MonoBehaviour:
   actionT: 2
   hasBeenViewed: 0
   messages:
-  - '"I swear to Christ I locked my bike right here..."'
+  - '"I stay by this church because it''s the only place I feel like is safe"'
+  - '"This whole town has been in a funk"'
+  - '"Fraternities constantly shouting at each other..."'
+  - '"Please help us!"'
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -12609,7 +12618,9 @@ MonoBehaviour:
   actionT: 2
   hasBeenViewed: 0
   messages:
-  - '"Damn these some nice flowers."'
+  - '"I can hear those stupid Sigmas shouting at each other all over here"'
+  - '"I was just coming to enjoy these flowers"'
+  - '"Swear it''s something evil that''s plaguing this town!"'
   items: []
   coins: 0
   nextTile: {fileID: 0}
@@ -14360,6 +14371,74 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1 &496073521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 496073522}
+  - component: {fileID: 496073524}
+  - component: {fileID: 496073523}
+  m_Layer: 5
+  m_Name: Fog Circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &496073522
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496073521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 567097958}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &496073523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496073521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.5364514, g: 0.051903125, b: 0.58823526, a: 0.141}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 3768ee07a1a424aaa837795dadc22e12, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &496073524
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496073521}
 --- !u!1 &503510894
 GameObject:
   m_ObjectHideFlags: 0
@@ -16845,6 +16924,101 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1 &567097954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 567097958}
+  - component: {fileID: 567097957}
+  - component: {fileID: 567097956}
+  - component: {fileID: 567097955}
+  m_Layer: 5
+  m_Name: UI
+  m_TagString: UI
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &567097955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567097954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &567097956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567097954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!223 &567097957
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567097954}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &567097958
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 567097954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1001057241}
+  - {fileID: 496073522}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &568842233
 GameObject:
   m_ObjectHideFlags: 0
@@ -18650,6 +18824,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224471294612257136, guid: 0d77c39de5f6e417684af621de678d6c,
     type: 2}
   m_PrefabInternal: {fileID: 634307926}
+--- !u!114 &634307928 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114008541629826416, guid: 0d77c39de5f6e417684af621de678d6c,
+    type: 2}
+  m_PrefabInternal: {fileID: 634307926}
+  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &634536546
 GameObject:
   m_ObjectHideFlags: 0
@@ -19337,7 +19517,10 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - You raid the Church's mailbox...
-  items: []
+  items:
+  - {fileID: 634307928}
+  - {fileID: 1902813215}
+  - {fileID: 294264932}
   coins: 0
   nextTile: {fileID: 1893251425}
   index: 0
@@ -28736,6 +28919,74 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!1 &1001057240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1001057241}
+  - component: {fileID: 1001057243}
+  - component: {fileID: 1001057242}
+  m_Layer: 5
+  m_Name: Dark Filter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1001057241
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001057240}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 567097958}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1001057242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001057240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.378}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1001057243
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1001057240}
 --- !u!1 &1001600739
 GameObject:
   m_ObjectHideFlags: 0
@@ -55823,6 +56074,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4691743536879954, guid: 235b1f46cf588423cb006d2beadf26de,
     type: 2}
   m_PrefabInternal: {fileID: 1902813213}
+--- !u!114 &1902813215 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114844647484357004, guid: 235b1f46cf588423cb006d2beadf26de,
+    type: 2}
+  m_PrefabInternal: {fileID: 1902813213}
+  m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
 --- !u!1 &1913766378
 GameObject:
   m_ObjectHideFlags: 0
@@ -58560,8 +58817,9 @@ MonoBehaviour:
   hasBeenViewed: 0
   messages:
   - '"I crashed my car oh my god..."'
+  - '"Shouldn''t have been texting in this weird purple fog!"'
   - '"My parents are gonna FREAK!"'
-  - 'Remember kids: don''t text and drive!'
+  - Remember kids, NEVER text and drive.
   items: []
   coins: 0
   nextTile: {fileID: 0}

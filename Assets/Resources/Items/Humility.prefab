@@ -54,7 +54,7 @@ MonoBehaviour:
   numberOfItem: 1
   itemName: Humility
   itemDescription: A little goes a long way. Cures Suspension.
-  itemImage: {fileID: 21300064, guid: 600a487ca8d3843638de1354feca484a, type: 3}
+  itemImage: {fileID: 21300062, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 3
   holdT: 0
   cure: 3

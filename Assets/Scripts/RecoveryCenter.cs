@@ -78,7 +78,7 @@ public class RecoveryCenter: MonoBehaviour {
 			UIMan.StartNPCMessage ("Nurse Valleck here!", "Nurse Valleck");
 			UIMan.StartNPCMessage ("How can I help you, sweetie?", "Nurse Valleck");
 			UIMan.StartMessage(null, null, ()=>OptionMenuUI.SetActive(true));
-			UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideIn"));
+			UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", true));
 		}
 	}
 
@@ -98,40 +98,26 @@ public class RecoveryCenter: MonoBehaviour {
 	public void ShowHouseDelts() {
 		hideMoveOverviews ();
 
-		print ("Got here 1");
-
 		HouseScrollView.SetActive (true);
 		PosseScrollView.SetActive (false);
-
-		print ("Got here 2");
 
 		ShowHouseButtonImage.color = Color.yellow;
 		ShowPosseButtonImage.color = Color.magenta;
 
-		print ("Got here 3");
-
 		if (!houseDeltsLoaded) {
 			houseDeltsLoaded = true;
 			int i = 0;
-
-			print ("Got here 4");
 
 			// Destroy previous list
 			foreach (Transform child in HouseContentTransform) {
 				Destroy (child.gameObject);
 			}
 
-			print ("Got here 5");
-
 			queryResults.Clear ();
-
-			print ("Got here 6");
 
 			// Load house Delts into UI
 			foreach (DeltemonData houseDelt in GameMan.houseDelts) {
-				print ("Trying to load: " + houseDelt.nickname);
 				DeltDexClass tmpDex = ((GameObject)Resources.Load("Deltemon/DeltDex/" + houseDelt.deltdexName + "DD")).GetComponent<DeltDexClass>();
-				print ("House Delt: " + tmpDex.nickname);
 				// Do not show Delts that do not match search query
 				if (isSearch) {
 					// Check names, pin, level, item, and majors
@@ -175,11 +161,11 @@ public class RecoveryCenter: MonoBehaviour {
 		// If BankUI not open, slide it in. 
 		if (!BankUI.activeInHierarchy) {
 			BankUI.SetActive (true);
-			BankUI.GetComponent <Animator> ().SetTrigger ("SlideIn");
+			BankUI.GetComponent <Animator> ().SetBool ("SlideIn", true);
 
 			// If not a search query, slide out Option Menu
 			if (!isSearch) {
-				OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideOut");
+				OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", false);
 			}
 		}
 
@@ -441,8 +427,8 @@ public class RecoveryCenter: MonoBehaviour {
 			i++;
 		}
 		SearchUI.SetActive (true);
-		SearchUI.GetComponent <Animator>().SetTrigger ("SlideIn");
-		OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideOut");
+		SearchUI.GetComponent <Animator>().SetBool ("SlideIn", true);
+		OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", false);
 	}
 
 	void AddMajorButtonListener(Button b, int i) {
@@ -515,13 +501,13 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Animates close of a UI object
 	public IEnumerator AnimateClose(GameObject UI, bool onMenu) {
-		UI.GetComponent <Animator>().SetTrigger ("SlideOut");
+		UI.GetComponent <Animator>().SetBool ("SlideIn", false);
 		yield return new WaitForSeconds (0.5f);
 		UI.SetActive (false);
 		if (onMenu) {
 			OptionMenuUI.SetActive (true);
 			UIMan.StartNPCMessage ("Is there anything else I can do for you today?", "Nurse Valleck");
-			UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideIn"));
+			UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", true));
 		}
 	}
 
@@ -541,7 +527,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Heal Delts, remove status, restore move PP
 	void Heal() {
-		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideOut"));
+		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", false));
 		if (!hasHealed) {
 			hasHealed = true;
 			UIMan.StartNPCMessage ("Looks like your Delts aren't looking so hot!","Nurse Valleck");
@@ -565,7 +551,7 @@ public class RecoveryCenter: MonoBehaviour {
 		UIMan.StartNPCMessage ("That should do it!","Nurse Valleck");
 		UIMan.StartNPCMessage ("Tell those boys to study a little harder next time!","Nurse Valleck");
 		UIMan.StartNPCMessage ("Is there anything else I can do for you today?", "Nurse Valleck");
-		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideIn"));
+		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", true));
 	}
 
 	// Make move overview inactive if they aren't already
@@ -583,7 +569,7 @@ public class RecoveryCenter: MonoBehaviour {
 		if (isSearch) {
 			StartCoroutine (AnimateClose (BankUI, false));
 			SearchUI.SetActive (true);
-			SearchUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+			SearchUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 		} else {
 			StartCoroutine (AnimateClose (BankUI, true));
 		}
@@ -616,7 +602,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Return to movement UI and save
 	public void EndInteraction() {
-		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetTrigger ("SlideOut"));
+		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", false));
 		UIMan.StartNPCMessage ("Come back anytime!", "Nurse Valleck");
 		UIMan.StartMessage (null, null, ()=>nurseValleck.SetTrigger ("SlideOut"));
 		UIMan.StartMessage (null, wait(1), ()=>UIMan.MovementUI.SetActive (true));

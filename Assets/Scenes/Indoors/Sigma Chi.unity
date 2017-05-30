@@ -34395,9 +34395,18 @@ MonoBehaviour:
   afterBattleMessage:
   - Good on ya, kid.
   - You might just make a formidable chapter.
-  - Here, you deserve this.
+  - I guess your next step should be to head to Sigston.
+  - It's back on the road you just came from.
+  - If you go North on Onyx St, you should find it.
+  - But... be careful.
+  - Rumor has it that town has been cursed
+  - And the two Sigmas there have been at each other's throats!
+  - Anyways, you seem like the kind of guy to solve the problem.
+  - Oh and here, you deserve this.
   postBattleDialogue:
   - 'Good on ya, kid. '
+  - The next town, Sigston is where you should go.
+  - But be careful, I hear it's cursed!
   coins: 15
   rewardItem: {fileID: 114057009654234810, guid: 4d56f11101b264244a737e02c53b350f,
     type: 2}

@@ -36,7 +36,7 @@ public class MapManager : MonoBehaviour {
 		autzen.SetActive (GameManager.GameMan.discoveredTowns [13]);
 		shasta.SetActive (GameManager.GameMan.discoveredTowns [14]);
 
-		MapUI.GetComponent <Animator>().SetTrigger ("SlideIn");
+		MapUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 	}
 
 	public void mapButtonClick(int index) {

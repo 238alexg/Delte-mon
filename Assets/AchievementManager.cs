@@ -45,8 +45,20 @@ public class AchievementManager : MonoBehaviour {
 		});
 	}
 
-	// Score for most battles won
-	public void GymsDefeatedUpdate() {
+	// Achievements for gym leader battles
+	public void GymLeaderBattles(string leaderName) {
+		switch (leaderName) {
+		case "Kane Varon": // Sigma Chi
+			ReportAchievement ("Gym1");
+			break;
+		case "Brayden Figueroa": // Delta Sig
+			ReportAchievement ("Gym2");
+			break;
+		case "Nick Scrivens": // Sigma Nu
+			ReportAchievement ("Gym3");
+			break;
+		}
+		// Update number of gyms defeated
 		long count = GameManager.GameMan.allItems.FindAll (item => item.itemName.Contains ("Badge")).Count;
 
 		Social.ReportScore ((long)count, "Gyms", (result)=> {

@@ -107,7 +107,7 @@ public class ItemShop : MonoBehaviour {
 
 			// Present Store UI
 			UIMan.StartMessage (null, null, () => OpenStoreMenu (true));
-			UIMan.StartMessage (null, null, () => ItemSelectionUI.GetComponent <Animator>().SetTrigger ("SlideIn"));
+			UIMan.StartMessage (null, null, () => ItemSelectionUI.GetComponent <Animator>().SetBool ("SlideIn", true));
 		}
 	}
 
@@ -166,7 +166,7 @@ public class ItemShop : MonoBehaviour {
 				if (isShop) {
 					texts [1].text = "" + item.cost;
 				} else {
-					texts [1].text = "" + (item.cost * 0.5f);
+					texts [1].text = "" + (int)(item.cost * 0.5f);
 				}
 
 				switch (item.item.itemT) {
@@ -235,11 +235,16 @@ public class ItemShop : MonoBehaviour {
 		}
 		UIMan.StartMessage (null, null, () => Bergie.SetTrigger ("SlideOut"));
 		hasBought = false;
-		UIMan.StartMessage (null, null, ()=>PlayerMovement.PlayMov.ResumeMoving());
+		UIMan.StartMessage (null, ResumeMoving ());
+	}
+
+	IEnumerator ResumeMoving() {
+		yield return new WaitForSeconds (1);
+		PlayerMovement.PlayMov.ResumeMoving ();
 	}
 
 	IEnumerator AnimateStoreClose() {
-		ItemSelectionUI.GetComponent <Animator>().SetTrigger ("SlideOut");
+		ItemSelectionUI.GetComponent <Animator>().SetBool ("SlideIn", false);
 		yield return new WaitForSeconds (0.5f);
 		ItemSelectionUI.SetActive (false);
 	}
@@ -292,8 +297,7 @@ public class ItemShop : MonoBehaviour {
 			isAnimating = true;
 			if (isBuying) {
 				hasBought = true;
-				print ("buying " + (int)numberOfItems.value);
-				UIMan.StartMessage(null, animateCoinsAndNumberOfItem(true), ()=> GameMan.AddItem(curSelectedItem, (int)numberOfItems.value, true));
+				UIMan.StartMessage(null, animateCoinsAndNumberOfItem(true));
 			} else {
 				hasSold = true;
 				UIMan.StartMessage(null, animateCoinsAndNumberOfItem(false));
@@ -314,6 +318,7 @@ public class ItemShop : MonoBehaviour {
 			GameMan.coins -= (long)(numberOfItems.value * curItemPrice);
 			newItemNum = oldItemNum + (int)numberOfItems.value;
 			changeValue = -1;
+			allSellItemsLoaded = false;
 		} else {
 			GameMan.RemoveItem (curSelectedItem, (int)numberOfItems.value);
 			GameMan.coins += (long)(numberOfItems.value * curItemPrice);
