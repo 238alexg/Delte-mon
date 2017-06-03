@@ -171,6 +171,5 @@ public class NewGame : MonoBehaviour {
 		GameMan.InitializeSceneData ("Sigma Nu", 2, null, 9);						// Sig Nu Gym: 0 interactables, 10 trainers
 		GameMan.InitializeSceneData ("DA Graveyard", 2, null, 4);					// DA Graveyard: 2 interactables, 3 trainers
 
-		GameMan.discoveredTowns = new bool[15] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 	}
 }

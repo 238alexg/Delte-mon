@@ -1254,7 +1254,6 @@ public class UIManager : MonoBehaviour {
 
 		gameManager.changeScene (sceneName);
 		currentUI = UIMode.World;
-		//MovementUI.SetActive (true);
 
 		SceneChangeUI.gameObject.SetActive (true);
 		SceneChangeText.text = sceneName;

@@ -83,15 +83,22 @@ public class MainMenuManager : MonoBehaviour {
 			deleteBut.interactable = false;
 			newGameBut.interactable = false;
 			loadBut.interactable = false;
-		} 
+		}
 
 		// User pressed a save file slot
 		else {
 			saveIndex = (byte)index;
-			deleteBut.interactable = true;
-			newGameBut.interactable = true;
-			loadBut.interactable = true;
 
+			// If there is a save file
+			if (saveFileButs [saveIndex].transform.GetChild (1).gameObject.activeInHierarchy) {
+				deleteBut.interactable = true;
+				newGameBut.interactable = false;
+				loadBut.interactable = true;
+			} else {
+				deleteBut.interactable = false;
+				newGameBut.interactable = true;
+				loadBut.interactable = false;
+			}
 			saveFileButs [saveIndex].GetComponent <Image> ().color = Color.white;
 		}
 	}

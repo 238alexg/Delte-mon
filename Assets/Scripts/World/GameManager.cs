@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour {
 	public DeltemonClass currentStartingDelt;
 	public string curSceneName;
 	public List<TownRecoveryLocation> townRecovs;
-	public bool[] discoveredTowns;
 	public int battlesWon, saveIndex;
 
 	public List<DeltemonClass> deltPosse;
@@ -25,8 +24,8 @@ public class GameManager : MonoBehaviour {
 	public List<DeltDexData> deltDex;
 	public List<DeltemonData> houseDelts;
 	public SceneInteractionData curSceneData;
+	public List<SceneInteractionData> sceneInteractions;
 
-	public List<bool> sceneInteractables;
 	public Sprite[] statuses;
 
 	[Header("Other")]
@@ -53,9 +52,7 @@ public class GameManager : MonoBehaviour {
 	void Start() {
 		houseDelts = new List<DeltemonData> ();
 		location = new Vector3 (0, 0, 0);
-		curSceneData = new SceneInteractionData ();
 		Application.targetFrameRate = 60;
-		discoveredTowns = new bool[15];
 	}
 
 	// Keep track of how long the player has been playing
@@ -78,8 +75,6 @@ public class GameManager : MonoBehaviour {
 		if (townRecovs.Exists (trl => trl.townName == sceneName)) {
 			lastTownName = sceneName;
 		}
-		// Save scene data for current scene
-		SaveSceneData (curSceneData);
 		SceneManager.LoadScene (sceneName);
 	}
 
@@ -148,9 +143,6 @@ public class GameManager : MonoBehaviour {
 		FileStream file = File.Create (Application.persistentDataPath + "/playerData" + saveIndex + ".dat");
 		PlayerData save = new PlayerData ();
 
-		// Save the status of all objects player has interacted with
-		SaveSceneData (curSceneData);
-
 		// Save basic game data
 		save.playerName = playerName;
 		save.xLoc = Mathf.Round (PlayerMovement.PlayMov.transform.position.x);
@@ -169,21 +161,18 @@ public class GameManager : MonoBehaviour {
 		save.pork = pork;
 		save.scrollSpeed = UIManager.scrollSpeed;
 
-		// All items saved
+		// All lists saved
 		save.allItems = new List<ItemData> (allItems);
 		save.houseDelts = new List<DeltemonData> (houseDelts);
 		save.deltDex = new List<DeltDexData> (deltDex);
+		save.sceneInteractions = new List<SceneInteractionData> (sceneInteractions);
+
 		save.deltDexesFound = (byte)deltDex.Count;
 		save.houseSize = houseDelts.Count;
 
 		// Convert Delt classes in posse to Serializable form
 		for (byte i = 0; i < deltPosse.Count; i++) {
 			save.deltPosse [i] = convertDeltToData (deltPosse [i]);
-		}
-
-		// Save all discovered towns
-		for (byte i = 0; i < discoveredTowns.Length; i++) {
-			save.discoveredTowns [i] = discoveredTowns [i];
 		}
 
 		bf.Serialize (file, save);
@@ -209,11 +198,6 @@ public class GameManager : MonoBehaviour {
 
 	public void SelectLoadFile(PlayerData load) {
 		deltPosse.Clear ();
-
-		// Load all discovered towns
-		for (byte i = 0; i < discoveredTowns.Length; i++) {
-			discoveredTowns [i] = load.discoveredTowns [i];
-		}
 
 		for (byte i = 0; i < load.partySize; i++) {
 			deltPosse.Add(convertDataToDelt (load.deltPosse [i], this.transform));
@@ -241,6 +225,7 @@ public class GameManager : MonoBehaviour {
 		allItems = new List<ItemData> (load.allItems);
 		houseDelts = new List<DeltemonData> (load.houseDelts);
 		deltDex = new List<DeltDexData> (load.deltDex);
+		sceneInteractions = new List<SceneInteractionData> (load.sceneInteractions);
 	}
 
 	// Convert DeltClass to serializable data
@@ -283,9 +268,9 @@ public class GameManager : MonoBehaviour {
 			newMove.major = deltClass.moveset [i].majorType.majorName;
 			tempSave.moves.Add (newMove);
 		}
-
 		return tempSave;
 	}
+
 	// Convert serializable data to DeltClass
 	public DeltemonClass convertDataToDelt (DeltemonData deltSave, Transform parentObject) {
 		GameObject tmpDeltObject = Instantiate (emptyDelt, parentObject);
@@ -437,14 +422,6 @@ public class GameManager : MonoBehaviour {
 		});
 	}
 
-	// Save the scene interactable data
-	public void SaveSceneData(SceneInteractionData save) {
-		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/scene_" + save.sceneName + ".dat");
-		bf.Serialize (file, save);
-		file.Close ();
-	}
-
 	// Load the scene interactable data
 	public bool UpdateSceneData(string sceneName) {
 
@@ -460,13 +437,14 @@ public class GameManager : MonoBehaviour {
 			UIManager.EntireUI.SetParent (testForUI.transform);
 		}
 
-		SceneInteractionData load = LoadSceneData (sceneName);
+		SceneInteractionData load = sceneInteractions.Find(si => si.sceneName == sceneName);
+
+		print ("Cur scene data load!");
 
 		if (load != null) {
 			// Set current scene interaction data
-			curSceneData.trainers = load.trainers;
-			curSceneData.interactables = load.interactables;
-			curSceneData.sceneName = load.sceneName;
+			curSceneData = load;
+			print ("Cur scene data set!");
 
 			// Find GameObjects containing scene interactables, trainers
 			GameObject interactables = GameObject.FindGameObjectWithTag ("Interactables");
@@ -514,30 +492,15 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	// Returns the SceneInteractionData instance for that scene
-	public SceneInteractionData LoadSceneData (string sceneName) {
-		if (File.Exists (Application.persistentDataPath + "/scene_" + sceneName + ".dat")) {
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open	(Application.persistentDataPath + "/scene_" + sceneName + ".dat", FileMode.Open);
-			SceneInteractionData load = (SceneInteractionData)bf.Deserialize (file);
-			file.Close ();
-
-			return load;
-		} else {
-			return null;
-		}
-	}
-
 	// Save new scene data for a scene
-	public void InitializeSceneData(string initSceneName, byte numOfInteractables, byte[] childInteracts, byte numOfTrainers) {
-		if (File.Exists (Application.persistentDataPath + "/scene_" + initSceneName + ".dat")) {
-			//print ("Scene data exists, it is being overwritten!");
-		}
+	public void InitializeSceneData(string initSceneName, byte numOfInteractables, byte[] childInteracts, byte numOfTrainers, bool discovered = false) {
+		
 		SceneInteractionData sceneDataInit = new SceneInteractionData ();
 
 		sceneDataInit.sceneName = initSceneName;
 		sceneDataInit.interactables = new bool[numOfInteractables];
 		sceneDataInit.trainers = new bool[numOfTrainers];
+		sceneDataInit.discovered = discovered;
 
 		for (byte i = 0; i < numOfInteractables; i++) {
 			sceneDataInit.interactables[i] = false;
@@ -550,24 +513,26 @@ public class GameManager : MonoBehaviour {
 		for (byte i = 0; i < numOfTrainers; i++) {
 			sceneDataInit.trainers[i] = false;
 		}
-		SaveSceneData(sceneDataInit);
+
+		SceneInteractionData prevSI = sceneInteractions.Find (si => si.sceneName == initSceneName);
+		if (prevSI == null) {
+			sceneInteractions.Add (sceneDataInit);
+		} else {
+			prevSI = sceneDataInit;
+		}
 	}
 
 	// Update active game quests/effects when scene changes
 	void activeSceneChanged(Scene past, Scene present) {
 		QuestManager.QuestMan.sceneName = present.name;
+
 		if (present.name != "Main Menu") {
 			UpdateSceneData (present.name);
 		}
+
 		curSceneName = present.name;
 
-		// Discover town if not already discovered
-		for (byte i = 0; i < mapNames.Length; i++) {
-			if (mapNames [i] == present.name) {
-				discoveredTowns [i] = true;
-				return;
-			}
-		}
+		curSceneData.discovered = true;
 	}
 }
 
@@ -583,6 +548,7 @@ public class TownRecoveryLocation {
 [System.Serializable]
 public class SceneInteractionData {
 	public string sceneName;
+	public bool discovered;
 	public bool[] interactables;
 	public bool[] trainers;
 }
@@ -648,8 +614,8 @@ public class PlayerData {
 	public string lastTownName;
 	public bool isMale;
 	public bool pork;
-	public bool[] discoveredTowns = new bool[15] {false, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 
+	public List<SceneInteractionData> sceneInteractions = new List<SceneInteractionData>();
 	public List<DeltemonData> houseDelts = new List<DeltemonData> ();
 	public List<DeltDexData> deltDex = new List<DeltDexData> ();
 	public DeltemonData[] deltPosse = new DeltemonData[6];

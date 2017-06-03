@@ -28,13 +28,19 @@ public class MapManager : MonoBehaviour {
 		MapUI.SetActive (true);
 		selectedTownText.text = "";
 
-		// Make the button for every discovered town interactable
-		for (byte i = 0; i < mapButtons.Count; i++) {
-			mapButtons [i].interactable = GameManager.GameMan.discoveredTowns[i];
+		// Make map button interactable for discovered scene interactions
+		foreach (SceneInteractionData si in GameManager.GameMan.sceneInteractions) {
+			Button curMapBut = mapButtons.Find (but => but.name == si.sceneName);
+			curMapBut.interactable = si.discovered;
 		}
 
-		autzen.SetActive (GameManager.GameMan.discoveredTowns [13]);
-		shasta.SetActive (GameManager.GameMan.discoveredTowns [14]);
+		if (GameManager.GameMan.sceneInteractions.Exists (si => si.sceneName == "Autzen")) {
+			autzen.SetActive (GameManager.GameMan.sceneInteractions.Find (si => si.sceneName == "Autzen").discovered);
+		}
+		if (GameManager.GameMan.sceneInteractions.Exists (si => si.sceneName == "Shasta")) {
+			shasta.SetActive (GameManager.GameMan.sceneInteractions.Find (si => si.sceneName == "Shasta").discovered);
+		}
+
 
 		MapUI.GetComponent <Animator>().SetBool ("SlideIn", true);
 	}

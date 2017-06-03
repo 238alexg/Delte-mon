@@ -104,9 +104,9 @@ public class NPCInteraction : MonoBehaviour {
 		// Remove all obstacles from defeating trainer
 		foreach (SceneInteractableObstacle sio in obstacleRemovals) {
 			// Remove obstacle to next town/path/etc.
-			SceneInteractionData sid = GameManager.GameMan.LoadSceneData (sio.sceneName);
-			sid.interactables [sio.index] = true;
-			GameManager.GameMan.SaveSceneData (sid);
+			SceneInteractionData sceneWithObstacle = GameManager.GameMan.sceneInteractions.Find (si => si.sceneName == sio.sceneName);
+
+			sceneWithObstacle.interactables [sio.index] = true;
 		}
 
 		if (isGymLeader) {
