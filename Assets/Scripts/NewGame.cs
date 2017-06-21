@@ -28,7 +28,7 @@ public class NewGame : MonoBehaviour {
 	void Start() {
 		isMale = true;
 		dialogues1 = new string[] { 
-			"Hello there! Welcome to the world of Deltémon!",
+			"Hello there! Welcome to the world of Battle Delts!",
 			"My name is Professor Cheema. I don't think we've met before!",
 			"Please, tell me about yourself!"
 		};
@@ -134,9 +134,10 @@ public class NewGame : MonoBehaviour {
 			GiveItems ();
 
 			UIMan.StartNPCMessage("I'm excited to see you make a difference on this campus.", "Professor Cheema");
-			UIMan.StartNPCMessage("Remember: if you are confused, tap the Settings Cog in the top left corner of your screen.", "Professor Cheema");
+			UIMan.StartNPCMessage("Remember: if you are confused, there is a help menu available to you!", "Professor Cheema");
+			UIMan.StartNPCMessage("Just tap the BACKPACK icon on your screen, then the SETTINGS COG...", "Professor Cheema");
 			UIMan.StartNPCMessage("There is a help menu there with all you need to know!", "Professor Cheema");
-			UIMan.StartNPCMessage ("Best of luck, my friend. And remember, you gotta rush 'em all!", "Professor Cheema");
+			UIMan.StartNPCMessage ("Best of luck, my friend. And remember, recruitment is an obligation!", "Professor Cheema");
 			UIMan.StartMessage (null, null, (() => profCheema.SetTrigger ("SlideOut")));
 
 			// Change to normal world settings

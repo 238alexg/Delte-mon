@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe3b1e453b9d88047b7d779f8a2ba8c1
-timeCreated: 1495002116
+timeCreated: 1497316007
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -117,7 +117,7 @@ TextureImporter:
     21300220: Fence_TC
     21300222: Fence_TR
     21300224: Mailbox_Closed
-    21300226: General_113
+    21300226: Sand_1
     21300228: General_114
     21300230: White Truck
     21300232: General_116
@@ -133,8 +133,8 @@ TextureImporter:
     21300252: Road Path Top
     21300254: General_127
     21300256: General_128
-    21300258: General_129
-    21300260: DirtTrack_8
+    21300258: Sand_Grass_Trans
+    21300260: Sand_Grass_Corner
     21300262: DirtTrack_9
     21300264: DirtTrack_10
     21300266: General_133
@@ -166,7 +166,7 @@ TextureImporter:
     21300318: Fence_ML
     21300320: Grass_Flowers
     21300322: Fence_MR
-    21300324: General_162
+    21300324: Sand_Cactus
     21300326: General_163
     21300328: General_164
     21300330: General_165
@@ -216,10 +216,10 @@ TextureImporter:
     21300418: Fence_BL
     21300420: Fence_BC
     21300422: Fence_BR
-    21300424: General_212
-    21300426: General_213
-    21300428: General_214
-    21300430: General_215
+    21300424: Sand_2
+    21300426: Tall_Grass_Sand_Untouched
+    21300428: Tall_Grass_Sand_Middle
+    21300430: Tall_Grass_Sand_Stepped
     21300432: General_216
     21300434: General_217
     21300436: General_218
@@ -1897,7 +1897,7 @@ TextureImporter:
     21303780: Fence_TC
     21303782: Fence_TR
     21303784: Mailbox_Closed
-    21303786: General_113
+    21303786: Sand_1
     21303788: General_114
     21303790: White Truck
     21303792: Blue Car
@@ -1909,8 +1909,8 @@ TextureImporter:
     21303804: Road Path Top
     21303806: General_127
     21303808: General_128
-    21303810: General_129
-    21303812: DirtTrack_8
+    21303810: Sand_Grass_Trans
+    21303812: Sand_Grass_Corner
     21303814: DirtTrack_9
     21303816: DirtTrack_10
     21303818: General_133
@@ -1942,7 +1942,7 @@ TextureImporter:
     21303870: Fence_ML
     21303872: Grass_Flowers
     21303874: Fence_MR
-    21303876: General_162
+    21303876: Sand_Cactus
     21303878: General_163
     21303880: General_164
     21303882: General_171
@@ -1986,10 +1986,10 @@ TextureImporter:
     21303958: Fence_BL
     21303960: Fence_BC
     21303962: Fence_BR
-    21303964: General_212
-    21303966: General_213
-    21303968: General_214
-    21303970: General_215
+    21303964: Sand_2
+    21303966: Tall_Grass_Sand_Untouched
+    21303968: Tall_Grass_Sand_Middle
+    21303970: Tall_Grass_Sand_Stepped
     21303972: General_216
     21303974: General_217
     21303976: General_218
@@ -3420,6 +3420,14 @@ TextureImporter:
     21306826: General_940
     21306828: General_734
     21306830: Whole Fraternity
+    21306832: General_113
+    21306834: General_129
+    21306836: DirtTrack_8
+    21306838: General_162
+    21306840: General_212
+    21306842: General_213
+    21306844: General_214
+    21306846: General_215
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -4823,10 +4831,10 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_113
+      name: Sand_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 80
         y: 800
         width: 16
         height: 16
@@ -4979,7 +4987,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_129
+      name: Sand_Grass_Trans
       rect:
         serializedVersion: 2
         x: 352
@@ -4992,7 +5000,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: DirtTrack_8
+      name: Sand_Grass_Corner
       rect:
         serializedVersion: 2
         x: 368
@@ -5408,7 +5416,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_162
+      name: Sand_Cactus
       rect:
         serializedVersion: 2
         x: 80
@@ -5980,7 +5988,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_212
+      name: Sand_2
       rect:
         serializedVersion: 2
         x: 80
@@ -5993,7 +6001,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_213
+      name: Tall_Grass_Sand_Untouched
       rect:
         serializedVersion: 2
         x: 96
@@ -6006,7 +6014,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_214
+      name: Tall_Grass_Sand_Middle
       rect:
         serializedVersion: 2
         x: 112
@@ -6019,7 +6027,7 @@ TextureImporter:
       outline: []
       tessellationDetail: -1
     - serializedVersion: 2
-      name: General_215
+      name: Tall_Grass_Sand_Stepped
       rect:
         serializedVersion: 2
         x: 128
@@ -45651,7 +45659,7 @@ TextureImporter:
         width: 112
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

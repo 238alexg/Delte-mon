@@ -15,10 +15,12 @@ public class MainMenuManager : MonoBehaviour {
 	GameManager GameMan;
 	byte saveIndex;
 	bool saveExists;
+	float totalTime;
 
 	void Start() {
 		GameMan = GameManager.GameMan;
 		saveIndex = 0;
+		totalTime = 0;
 	}
 
 	public void MainManuTouch() {
@@ -44,13 +46,17 @@ public class MainMenuManager : MonoBehaviour {
 			loadOverview.GetChild (1).GetComponent <Text>().text = "Dexes found: " + load.deltDexesFound;
 
 			// Number of gym badges earned
-			int count = GameMan.allItems.FindAll (item => item.itemName.Contains ("Badge")).Count;
-			loadOverview.GetChild (2).GetComponent <Text>().text = "Gyms Defeated: " + count;
+			loadOverview.GetChild (2).GetComponent <Text>().text = "Gyms Defeated: " + load.allItems.FindAll (item => item.itemName.Contains ("Badge")).Count;
 
 			// Set highest level
+			totalTime += load.timePlayed;
 			int hours = (int)(load.timePlayed / 3600);
 			int minutes = (int)((load.timePlayed / 60) - (hours * 60));
-			loadOverview.GetChild (3).GetComponent <Text>().text = "Time played: " + hours + ":" + minutes;
+			if (minutes < 10) {
+				loadOverview.GetChild (3).GetComponent <Text> ().text = "Time played: " + hours + ":0" + minutes;
+			} else {
+				loadOverview.GetChild (3).GetComponent <Text> ().text = "Time played: " + hours + ":" + minutes;
+			}
 
 			// Set coin count
 			loadOverview.GetChild (4).GetComponent <Text>().text = "" + load.coins;
@@ -70,6 +76,11 @@ public class MainMenuManager : MonoBehaviour {
 		else {
 			loadOverview.gameObject.SetActive (false);
 			loadOverview.parent.GetChild (0).gameObject.SetActive (true);
+		}
+
+		// If it is the last save, submit total time played score
+		if (saveNum == 2) {
+			AchievementManager.AchieveMan.TimeSpentUpdate ((long)totalTime);
 		}
 	}
 

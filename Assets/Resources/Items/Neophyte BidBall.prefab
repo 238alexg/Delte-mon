@@ -39,8 +39,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfItem: 1
-  itemName: Neophyte BidBall. Ball Strength 3.
-  itemDescription: Some of the guys claim to like him...
+  itemName: Neophyte BidBall
+  itemDescription: Some of the guys claim to like him... Ball Strength 3.
   itemImage: {fileID: 21300004, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 1
   holdT: 0

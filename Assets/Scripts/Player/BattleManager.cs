@@ -64,6 +64,8 @@ public class BattleManager : MonoBehaviour {
 	List<ItemClass> trainerItems;
 	string trainerName;
 	NPCInteraction trainer;
+
+	// ON UPDATES: PUT FRATERNITY NAMES HERE
 	string[] fraternityNames = {"Sigma Chi", "Delta Sigma", "Sigma Nu"};
 
 	public static BattleManager BattleMan { get; private set; }
@@ -163,8 +165,6 @@ public class BattleManager : MonoBehaviour {
 		if (isGymLeader) {
 			// LATER: Gym leader music.
 		}
-	
-
 
 		// Set victory coins
 		coinsWon = trainer.coins;
@@ -175,11 +175,6 @@ public class BattleManager : MonoBehaviour {
 
 		// Select current battling Delts, update UI
 		StartCoroutine(SwitchDelts (oppDelts[0], false));
-
-		// Opening trainer dialogue when battle starts
-		foreach (string message in trainer.beforeBattleMessage) {
-			UIManager.StartMessage (message);
-		}
 
 		// End NPC Messages and start turn
 		UIManager.StartMessage (null, null, ()=>UIManager.EndNPCMessage());
@@ -213,7 +208,11 @@ public class BattleManager : MonoBehaviour {
 
 	// Pull up BattleMenu UI for beginning of turn
 	void TurnStart() {
-		PlayerOptions.SetActive (true);
+
+		// If player hasn't been forced to switch, show moves
+		if (!forcePlayerSwitch) {
+			
+		}
 
 		PlayerDA = false;
 		OppDA = false;
@@ -620,9 +619,12 @@ public class BattleManager : MonoBehaviour {
 
 	// Player tries to run away
 	public void Run() {
+		PlayerOptions.SetActive (false);
+
 		if (trainer != null) {
 			UIManager.StartMessage ("The other trainer looks as you as you prepare to run...");
 			UIManager.StartMessage ("WHADDOYOUDO!?", null, ()=>TurnStart());
+			UIManager.StartMessage (null, null, ()=> PlayerOptions.SetActive (true));
 		} else {
 			playerWon = true;
 			UIManager.StartMessage ("The wild-eyed Delt blankly stares at you...");
@@ -634,10 +636,9 @@ public class BattleManager : MonoBehaviour {
 	// Player tries to switch in Delt
 	public void chooseSwitchIn(DeltemonClass switchIn) {
 		
-		// If forcePlayerSwitch true, it is a forced switch (Delt has DA'd)
+		// If forcePlayerSwitch true, it is a forced switch (Delt has DA'd) in middle of fight
 		if (DeltHasSwitched || forcePlayerSwitch) {
-			StartCoroutine (SwitchDelts (switchIn, true, true));
-			forcePlayerSwitch = false;
+			StartCoroutine (SwitchDelts (switchIn, true));
 		} else {
 			DeltHasSwitched = true;
 			playerChoice.type = actionT.Switch;
@@ -647,7 +648,7 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Switching out Delts, loading into Battle UI, clearing temporary battle stats
-	IEnumerator SwitchDelts(DeltemonClass switchIn, bool isPlayer, bool isForced = false) {
+	IEnumerator SwitchDelts(DeltemonClass switchIn, bool isPlayer) {
 		DeltemonClass switchOut;
 		Text name;
 		Slider health;
@@ -678,7 +679,6 @@ public class BattleManager : MonoBehaviour {
 			spriteAnim.SetTrigger ("SlideOut");
 			yield return new WaitForSeconds (1);
 		} else if (!isPlayer && (curOppDelt != null)) {
-			yield return StartCoroutine(evolMessage(switchIn.nickname + " has been switched in for " + switchOut.nickname));
 			spriteAnim.SetTrigger ("SlideOut");
 			yield return new WaitForSeconds (1);
 		} 
@@ -742,17 +742,12 @@ public class BattleManager : MonoBehaviour {
 		// Wait for animation to finish
 		yield return new WaitForSeconds (1);
 
-		if (isPlayer) {
-			// If it is not the first turn's slide in animation
-			if (switchOut != null) {
-				yield return StartCoroutine(evolMessage(switchIn.nickname + " has been switched in for " + switchOut.nickname));
-			}
-
-		} else {
-			if (!isPlayer && (switchOut != null)) {
-				UIManager.StartMessage (switchIn.nickname + " has been switched in for " + switchOut.nickname, null, null, true);
-			}
+		// If it is not first turn, do slide in animation
+		if (switchOut != null) {
+			yield return StartCoroutine(evolMessage(switchIn.nickname + " has been switched in for " + switchOut.nickname));
 		}
+
+		yield return new WaitUntil (() => UIManager.endMessage);
 
 		// Add stat upgrades for Delt's item
 		if (switchIn.item != null) {
@@ -781,7 +776,10 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		// Show player options only when switch has completed
-		if (isForced) {
+		if (forcePlayerSwitch) {
+			forcePlayerSwitch = false;
+			PlayerOptions.SetActive (true);
+		} else if ((switchOut == null) && (isPlayer)) {
 			PlayerOptions.SetActive (true);
 		}
 
@@ -1053,7 +1051,14 @@ public class BattleManager : MonoBehaviour {
 
 		if (ballRattles == 4) {
 			PlayerWinBattle ();
-			UIManager.StartMessage (curOppDelt.nickname + " was caught!", null, () => gameManager.AddDelt (curOppDelt));
+
+			yield return StartCoroutine(evolMessage (curOppDelt.nickname + " was caught!"));
+
+			if (gameManager.deltPosse.Count == 6) {
+				yield return StartCoroutine(evolMessage ("Posse full, " + curOppDelt.nickname + " has been added to your house."));
+			}
+
+			UIManager.StartMessage (null, null, () => gameManager.AddDelt (curOppDelt));
 			UIManager.StartMessage (null, null, ()=> AchievementManager.AchieveMan.DeltsRushedUpdate ());
 			UIManager.StartMessage (null, null, () => EndBattle ());
 		} else {
@@ -1568,8 +1573,6 @@ public class BattleManager : MonoBehaviour {
 			checkLoss (true);
 		}
 
-		Debug.Log ("Opp health" + curOppDelt.health);
-
 		// Opponent loses/selects another Delt
 		if (curOppDelt.health <= 0) { 
 			checkLoss (false);
@@ -1610,6 +1613,12 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	IEnumerator PostMoveEffects(bool blocked, bool playerFirst) {
+
+		if (forcePlayerSwitch) {
+			// Wait until player has finished force switchin of Delt
+			yield return new WaitWhile (() => forcePlayerSwitch);
+		}
+
 		if (blocked) {
 			if (playerFirst) {
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " blocked, but " + curOppDelt.nickname + " already went!"));
@@ -1735,6 +1744,7 @@ public class BattleManager : MonoBehaviour {
 		// UIManager.StartMessage (curPlayerDelt.nickname + "'s health is now " + curPlayerDelt.health + ", " + curOppDelt.nickname + "'s health is now " + curOppDelt.health, null, () => TurnStart());
 
 		UIManager.StartMessage (null, null, () => TurnStart());
+		UIManager.StartMessage (null, null, () => PlayerOptions.SetActive (true));
 	}
 
 	// Change status sprites
@@ -1873,9 +1883,14 @@ public class BattleManager : MonoBehaviour {
 		// If the XP left to level is less than expereince gained
 		// then make increment faster
 		float increment = totalXPGained * 0.02f;
-		if (totalXPGained > (curPlayerDelt.XPToLevel - curPlayerDelt.experience)) {
-			increment = (curPlayerDelt.XPToLevel - curPlayerDelt.experience) * 0.05f;
+		float expLeftToLevel = curPlayerDelt.XPToLevel - curPlayerDelt.experience;
+		if (totalXPGained > expLeftToLevel) {
+			increment = expLeftToLevel * 0.05f;
 		}
+
+		Image XPFill = playerXP.transform.GetChild (1).GetChild (0).GetComponent <Image> ();
+		Color fillColor = XPFill.color;
+		StartCoroutine ("FlashXP");
 
 		// Animate health decrease
 		while (gainedSoFar < totalXPGained) {
@@ -2018,12 +2033,36 @@ public class BattleManager : MonoBehaviour {
 
 				SoundEffectManager.SEM.PlaySoundBlocking ("ExpGain");
 				finishLeveling = false;
+
+				increment = totalXPGained * 0.05f;
 			}
 			yield return null;
 		}
+
+		// Stop XPBar from flashing
+		StopCoroutine ("FlashXP");
+		XPFill.color = fillColor;
+
 		SoundEffectManager.SEM.source.Stop ();
 		curPlayerDelt.experience = playerXP.value;
 		yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " gained " + (int)totalXPGained + " XP!"));
+	}
+
+	// Flashes XP bar while recieving XP in battle
+	IEnumerator FlashXP() {
+		Image XPFill = playerXP.transform.GetChild (1).GetChild (0).GetComponent <Image>();
+		Color normalColor = XPFill.color;
+
+		// Do until Coroutine is stopped
+		while (true) {
+			XPFill.color = Color.white;
+
+			yield return new WaitForSeconds (0.3f);
+
+			XPFill.color = normalColor;
+
+			yield return new WaitForSeconds (0.3f);
+		}
 	}
 
 	// New move button press starts coroutine
@@ -2340,9 +2379,6 @@ public class BattleManager : MonoBehaviour {
 			UIManager.StartMessage (null, null, () => UIManager.EndBattle (false));
 		}
 
-		// Save the game
-		UIManager.StartMessage(null, null, ()=>gameManager.Save());
-
 		// Set values to null for start of next battle
 		activeItem = null;
 		curPlayerDelt = null;
@@ -2378,6 +2414,10 @@ public class BattleManager : MonoBehaviour {
 
 		trainer = null;
 		trainerItems = null;
+
+
+		// Save the game
+		UIManager.StartMessage(null, null, ()=>gameManager.Save());
 	}
 
 	// Set up animations to get ready for next slide in

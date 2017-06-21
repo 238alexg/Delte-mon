@@ -51,12 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adf222cda49984602b017cba56419323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 10
   numberOfItem: 1
   itemName: Bid Card
-  itemDescription: Accept and become a member! Revives from DA status.
+  itemDescription: Accept and become a member! Revives from DA status with 200 health.
   itemImage: {fileID: 21300034, guid: 600a487ca8d3843638de1354feca484a, type: 3}
   itemT: 3
   holdT: 0
   cure: 8
-  statUpgrades: 000000000000
+  statUpgrades: c80000000000

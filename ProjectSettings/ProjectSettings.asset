@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Geoffrey
-  productName: "Delt\xE9mon"
+  productName: Battle Delts
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.4666667, g: 0.454902, b: 0.83921576, a: 1}
@@ -20,7 +20,7 @@ PlayerSettings:
   m_SplashScreenOverlayOpacity: 1
   m_SplashScreenAnimation: 1
   m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 1
+  m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
@@ -37,9 +37,7 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos:
-  - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
-    duration: 2
+  m_SplashScreenLogos: []
   m_SplashScreenBackgroundLandscape: {fileID: 0}
   m_SplashScreenBackgroundPortrait: {fileID: 0}
   m_VirtualRealitySplashScreen: {fileID: 0}
@@ -140,7 +138,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.Geoffrey.Deltemon
     Standalone: "com.Geoffrey.Delt\xE9mon"
-    iOS: com.Geoffrey.Deltemon
+    iOS: com.Geoffrey.BattleDelts
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
@@ -230,7 +228,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: ea23a3bf8826f454e8e97ebe51ad5148, type: 3}
+      m_Icon: {fileID: 2800000, guid: 7d94a9bef919644a59a52a78850befd6, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []

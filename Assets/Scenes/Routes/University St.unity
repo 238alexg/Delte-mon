@@ -311,9 +311,11 @@ MonoBehaviour:
   preBattleDialogue:
   - Hey! Kid!
   - Come over here, ya freak!
-  beforeBattleMessage:
   - I put the train in trainer!
   - You're about to get railed!
+  beforeBattleMessage:
+  - 
+  - 
   afterBattleMessage:
   - It seems like my train has left the station
   postBattleDialogue:
@@ -26743,8 +26745,9 @@ MonoBehaviour:
   NPCName: GDI Underling
   preBattleDialogue:
   - Team GDI will take over!
-  beforeBattleMessage:
   - Prepare to face the wrath of anti-Greek sentiment!
+  beforeBattleMessage:
+  - 
   afterBattleMessage:
   - Team GDI is larger than you know!
   - For every Delt you rush, 3 more join us!
@@ -59443,8 +59446,9 @@ MonoBehaviour:
   - Hey whaddaya know?
   - It's me again!
   - I'm everywhere and nowhere!
-  beforeBattleMessage:
   - Doubt you've ever battled Delts like these!
+  beforeBattleMessage:
+  - 
   afterBattleMessage:
   - I'm on the brink of success!
   postBattleDialogue:
@@ -78165,8 +78169,9 @@ MonoBehaviour:
   NPCName: Jennifer Walden
   preBattleDialogue:
   - Battle me, frat dude!
-  beforeBattleMessage:
   - You're going down!
+  beforeBattleMessage:
+  - 
   afterBattleMessage:
   - You cheated!
   postBattleDialogue:

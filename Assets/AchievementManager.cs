@@ -59,9 +59,9 @@ public class AchievementManager : MonoBehaviour {
 			break;
 		}
 		// Update number of gyms defeated
-		long count = GameManager.GameMan.allItems.FindAll (item => item.itemName.Contains ("Badge")).Count;
+		List<ItemData> allBadges = GameManager.GameMan.allItems.FindAll (item => item.itemT == itemType.Badge);
 
-		Social.ReportScore ((long)count, "Gyms", (result)=> {
+		Social.ReportScore ((long)allBadges.Count, "Gyms", (result)=> {
 			if (!result) {
 				Debug.Log ("Failed to post battles won score!");
 			}
@@ -113,10 +113,13 @@ public class AchievementManager : MonoBehaviour {
 	}
 
 	// Update score for time spent in game
-	public void TimeSpentUpdate() {
-		Social.ReportScore ((long)GameManager.GameMan.timePlayed, "Time", (result)=> {
+	public void TimeSpentUpdate(long timePlayed) {
+
+		print ("Minutes played: " + timePlayed / 60);
+
+		Social.ReportScore (timePlayed, "Time", (result)=> {
 			if (!result) {
-				Debug.Log ("Failed to post delts rushed score!");
+				Debug.Log ("Failed to post time score!");
 			}
 		});
 	}

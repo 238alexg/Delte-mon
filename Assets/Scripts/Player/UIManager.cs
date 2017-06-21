@@ -579,6 +579,34 @@ public class UIManager : MonoBehaviour {
 				foreach (ItemData item in gameManager.allItems) {
 					GameObject li = Instantiate (ListItemObject, ItemListContent);
 					Text[] texts = li.GetComponentsInChildren<Text> ();
+
+					switch (item.itemT) {
+					case itemType.Ball:
+						li.GetComponent <Image> ().color = itemColors [0];
+						break;
+					case itemType.Usable:
+						li.GetComponent <Image> ().color = itemColors [1];
+						break;
+					case itemType.Repel:
+						li.GetComponent <Image> ().color = itemColors [2];
+						break;
+					case itemType.Holdable:
+						li.GetComponent <Image> ().color = itemColors [3];
+						break;
+					case itemType.MegaEvolve:
+						li.GetComponent <Image> ().color = itemColors [4];
+						break;
+					case itemType.Quest:
+						li.GetComponent <Image> ().color = itemColors [5];
+						break;
+					case itemType.Move:
+						li.GetComponent <Image> ().color = itemColors [6];
+						break;
+					case itemType.Badge:
+						li.GetComponent <Image> ().color = itemColors [7];
+						break;
+					}
+
 					texts [0].text = item.itemName;
 					texts [1].text = "X" + item.numberOfItem;
 					Button b = li.transform.GetChild(2).gameObject.GetComponent<Button>();
@@ -634,7 +662,7 @@ public class UIManager : MonoBehaviour {
 
 		// Active delt will be null if item is a ball
 		if ((activeItem.itemT != itemType.Ball) && (activeItem.itemT != itemType.Repel)) {
-			if ((activeDelt.curStatus == statusType.DA) && (activeItem.itemT == itemType.Usable) && ((activeItem.cure != statusType.DA) || (activeItem.cure != statusType.All))) {
+			if ((activeDelt.curStatus == statusType.DA) && (activeItem.itemT == itemType.Usable) && ((activeItem.cure != statusType.DA) && (activeItem.cure != statusType.All))) {
 				StartMessage (activeDelt.nickname + " has DA'd and refuses your " + activeItem.itemName + "!");
 				return;
 			}
@@ -1121,7 +1149,7 @@ public class UIManager : MonoBehaviour {
 
 	// Remove move overviews if are up and return true
 	public bool CloseMoveOverviews() {
-		if (MoveOneOverview.gameObject.activeInHierarchy) {
+		if ((firstMoveLoaded != -1) || (secondMoveLoaded != -1)) {
 			firstMoveLoaded = -1;
 			secondMoveLoaded = -1;
 			MoveOneOverview.gameObject.SetActive (false);

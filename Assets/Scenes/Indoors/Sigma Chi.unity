@@ -3681,7 +3681,7 @@ Prefab:
     - target: {fileID: 114335300073939866, guid: 40aa344c7e5434f6498f05f3cf70358f,
         type: 2}
       propertyPath: preBattleDialogue.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4527129820437236, guid: 40aa344c7e5434f6498f05f3cf70358f, type: 2}
       propertyPath: m_LocalPosition.x
@@ -3767,7 +3767,7 @@ Prefab:
     - target: {fileID: 114335300073939866, guid: 40aa344c7e5434f6498f05f3cf70358f,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Get ready to get frustrated and cry!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114335300073939866, guid: 40aa344c7e5434f6498f05f3cf70358f,
         type: 2}
@@ -10699,6 +10699,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4886176175897742, guid: 5078f3ef3e3cd46fd99db36adb0ee57a, type: 2}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -10778,7 +10783,7 @@ Prefab:
     - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: This is our house, not yours.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
         type: 2}
@@ -10808,6 +10813,11 @@ Prefab:
     - target: {fileID: 4179131094651926, guid: 5078f3ef3e3cd46fd99db36adb0ee57a, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: This is our house, not yours.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5078f3ef3e3cd46fd99db36adb0ee57a, type: 2}
@@ -12932,7 +12942,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: How good was that pun doe?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -26919,6 +26929,11 @@ Prefab:
       propertyPath: preBattleDialogue.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4886176175897742, guid: 5078f3ef3e3cd46fd99db36adb0ee57a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 13
@@ -27008,12 +27023,12 @@ Prefab:
     - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: It's heads!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
         type: 2}
       propertyPath: afterBattleMessage.Array.data[0]
-      value: The fates have betrayed me!
+      value: It's heads...
       objectReference: {fileID: 0}
     - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
         type: 2}
@@ -27038,6 +27053,11 @@ Prefab:
     - target: {fileID: 4179131094651926, guid: 5078f3ef3e3cd46fd99db36adb0ee57a, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114678762407249036, guid: 5078f3ef3e3cd46fd99db36adb0ee57a,
+        type: 2}
+      propertyPath: afterBattleMessage.Array.data[1]
+      value: The fates have betrayed me!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5078f3ef3e3cd46fd99db36adb0ee57a, type: 2}
@@ -28479,7 +28499,7 @@ Prefab:
     - target: {fileID: 114335300073939866, guid: 40aa344c7e5434f6498f05f3cf70358f,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Hurry up, I'm hungry.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114335300073939866, guid: 40aa344c7e5434f6498f05f3cf70358f,
         type: 2}
@@ -30788,6 +30808,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -30872,7 +30897,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Well if I haven't I guess I have now!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -30902,6 +30927,11 @@ Prefab:
     - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: Well if I haven't I guess I have now!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
@@ -34390,8 +34420,9 @@ MonoBehaviour:
   - Ah, a member of Delta Tau Delta comes to challenge me!
   - Even if you do beat me, I'm just the first gym!
   - It's SUPPOSED to be easy!
-  beforeBattleMessage:
   - Let's go!
+  beforeBattleMessage:
+  - 
   afterBattleMessage:
   - Good on ya, kid.
   - You might just make a formidable chapter.

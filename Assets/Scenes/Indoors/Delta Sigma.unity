@@ -2539,6 +2539,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
       propertyPath: postBattleDialogue.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2620,17 +2625,17 @@ Prefab:
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: '*Christian looks up from his phone*'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[1]
-      value: Aww, shoot. Another one.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[2]
-      value: Ok, let's go.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
@@ -2676,6 +2681,21 @@ Prefab:
       value: 
       objectReference: {fileID: 21300028, guid: dc4070f8fb68a4be7b78cac85673289d,
         type: 3}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: '*Christian looks up from his phone*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[2]
+      value: Aww, shoot. Another one.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[3]
+      value: Ok, let's go.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0
@@ -3040,7 +3060,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: preBattleDialogue.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -3124,12 +3144,12 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: preBattleDialogue.Array.data[2]
-      value: I won't go easy on you like Sig Nu
+      value: Let's go!
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Let's go!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -15433,6 +15453,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
       propertyPath: postBattleDialogue.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -15509,7 +15534,7 @@ Prefab:
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: You might wanna turn Baca-round
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
@@ -15550,6 +15575,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300028, guid: dc4070f8fb68a4be7b78cac85673289d,
         type: 3}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: You might wanna turn Baca-round
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0
@@ -17883,6 +17913,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
       value: 20
@@ -17961,7 +17996,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Our house is a maze-ing. Get it?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -17997,6 +18032,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300028, guid: dc4070f8fb68a4be7b78cac85673289d,
         type: 3}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: Our house is a maze-ing. Get it?
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
   m_IsPrefabParent: 0
@@ -23988,7 +24028,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: preBattleDialogue.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
@@ -24069,12 +24109,12 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: preBattleDialogue.Array.data[1]
-      value: 
+      value: It's because my moles were appraised one time
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: It's because my moles were appraised one time
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -35742,7 +35782,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: preBattleDialogue.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -35882,7 +35922,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: It's yellow so we don't notice when you pee yourself in fear.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -35912,6 +35952,11 @@ Prefab:
     - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[3]
+      value: It's yellow so we don't notice when you pee yourself in fear.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
@@ -38644,6 +38689,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4849025143713314, guid: 927e04706799d4d0caf638defac97a22, type: 2}
       propertyPath: m_LocalPosition.x
       value: 21
@@ -38717,7 +38767,7 @@ Prefab:
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: You need to go South.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
@@ -38788,6 +38838,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300028, guid: dc4070f8fb68a4be7b78cac85673289d,
         type: 3}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: You need to go South.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0
@@ -42874,6 +42929,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -42953,7 +43013,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Let's see what you got!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -42983,6 +43043,11 @@ Prefab:
     - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: Let's see what you got!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
@@ -50171,6 +50236,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4180819565928910, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.x
       value: 7
@@ -50250,7 +50320,7 @@ Prefab:
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: At least that's what the creator of the game thinks
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
         type: 2}
@@ -50279,6 +50349,11 @@ Prefab:
     - target: {fileID: 4311094726211994, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
       propertyPath: m_LocalPosition.z
       value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299022133388778, guid: d12d37e5c633d481f820d4ff9a847651,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: At least that's what the creator of the game thinks
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d12d37e5c633d481f820d4ff9a847651, type: 2}
@@ -52677,6 +52752,11 @@ Prefab:
       propertyPath: oppDelts.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4849025143713314, guid: 927e04706799d4d0caf638defac97a22, type: 2}
       propertyPath: m_LocalPosition.x
       value: 21
@@ -52750,7 +52830,7 @@ Prefab:
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
       propertyPath: beforeBattleMessage.Array.data[0]
-      value: Let's battle!
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
         type: 2}
@@ -52786,6 +52866,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300028, guid: dc4070f8fb68a4be7b78cac85673289d,
         type: 3}
+    - target: {fileID: 114179626907017022, guid: 927e04706799d4d0caf638defac97a22,
+        type: 2}
+      propertyPath: preBattleDialogue.Array.data[1]
+      value: Let's battle!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 927e04706799d4d0caf638defac97a22, type: 2}
   m_IsPrefabParent: 0

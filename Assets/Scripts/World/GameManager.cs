@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour {
 	public bool deleteSave;
 	public float timePlayed;
 
-	string[] mapNames = {"Hometown", "DA Graveyard", "Sigston", "ChiTown", 
-		"Hayward Field", "Atlambdis","Israel", "Las Saegas", "UOregon", "ChiPsi", 
-		"Sig Ep", "Beta", "The Hub", "Autzen", "Shasta"};
+//	string[] mapNames = {"Hometown", "DA Graveyard", "Sigston", "ChiTown", 
+//		"Hayward Field", "Atlambdis","Israel", "Las Saegas", "UOregon", "ChiPsi", 
+//		"Sig Ep", "Beta", "The Hub", "Autzen", "Shasta"};
 
 	public static GameManager GameMan { get; private set; }
 
@@ -179,7 +179,8 @@ public class GameManager : MonoBehaviour {
 		file.Close ();
 
 		// Update how long the player has been playing
-		AchievementManager.AchieveMan.TimeSpentUpdate ();
+		AchievementManager.AchieveMan.TimeSpentUpdate ((long)timePlayed);
+		AchievementManager.AchieveMan.GymLeaderBattles ("");
 	}
 
 	// Load the game from save (ONLY CALLED ON STARTUP! Player cannot choose to load the game)
@@ -387,8 +388,13 @@ public class GameManager : MonoBehaviour {
 
 		// Add to party/bank if party is full
 		if (deltPosse.Count >= 6) {
-			UIManager.StartMessage ("Party full, " + newDelt.nickname + " has been added to the house.", null, null);
-			houseDelts.Add (convertDeltToData (newDelt));
+
+			// Convert Delt to data and heal
+			DeltemonData houseDelt = convertDeltToData (newDelt);
+			houseDelt.health = houseDelt.stats [0];
+			houseDelt.status = statusType.None;
+
+			houseDelts.Add (houseDelt);
 			SortHouseDelts ();
 		} else {
 			DeltemonClass playerNewDelt = Instantiate (newDelt, this.transform);
@@ -439,12 +445,9 @@ public class GameManager : MonoBehaviour {
 
 		SceneInteractionData load = sceneInteractions.Find(si => si.sceneName == sceneName);
 
-		print ("Cur scene data load!");
-
 		if (load != null) {
 			// Set current scene interaction data
 			curSceneData = load;
-			print ("Cur scene data set!");
 
 			// Find GameObjects containing scene interactables, trainers
 			GameObject interactables = GameObject.FindGameObjectWithTag ("Interactables");

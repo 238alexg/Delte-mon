@@ -6,8 +6,7 @@ public class NPCInteraction : MonoBehaviour {
 	public string NPCName;
 
 	[Header("Dialogues")]
-	public List<string> preBattleDialogue;
-	public List<string> beforeBattleMessage; // Trainer pops in and says this before first attack
+	public List<string> preBattleDialogue;  // Trainer pops in and says this before battle
 	public List<string> afterBattleMessage;	// Trainer says immediately following battle
 	public List<string> postBattleDialogue; // Trainer says if the player comes up to them again
 

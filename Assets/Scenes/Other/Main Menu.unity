@@ -1338,7 +1338,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: dc02a1f9539364abdbacb34db0695808, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2c40fd4e40384b7886e902ca563517f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4396,7 +4396,6 @@ MonoBehaviour:
     RecovY: 9
     ShopX: 9
     ShopY: 0
-  discoveredTowns: 
   battlesWon: 0
   saveIndex: 0
   deltPosse: []
@@ -4405,9 +4404,10 @@ MonoBehaviour:
   houseDelts: []
   curSceneData:
     sceneName: 
+    discovered: 0
     interactables: 
     trainers: 
-  sceneInteractables: 
+  sceneInteractions: []
   statuses:
   - {fileID: 21300060, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   - {fileID: 21300068, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
@@ -7622,8 +7622,8 @@ RectTransform:
   m_Father: {fileID: 1213965803}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1278854, y: 0.492641}
-  m_AnchorMax: {x: 0.5828854, y: 0.699726}
+  m_AnchorMin: {x: 0.08387763, y: 0.50220835}
+  m_AnchorMax: {x: 0.5388776, y: 0.70929337}
   m_AnchoredPosition: {x: -1.0000916, y: -1.0000305}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8560,8 +8560,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Delt\xE9mon: Here is where you can view your Delts, their moves, and change
-    the order of your Delt Posse."
+  m_Text: 'Delts: Here is where you can view your Delts, their moves, and change the
+    order of your Delt Posse.'
 --- !u!222 &254742308
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8598,8 +8598,8 @@ RectTransform:
   m_Father: {fileID: 1213965803}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12788528, y: 0.2855558}
-  m_AnchorMax: {x: 0.5828854, y: 0.492641}
+  m_AnchorMin: {x: 0.08387758, y: 0.29273134}
+  m_AnchorMax: {x: 0.53887767, y: 0.49981654}
   m_AnchoredPosition: {x: -1.0001221, y: -1.0000916}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10643,7 +10643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: -0.0011829138, y: 0.24764802}
   m_AnchorMax: {x: 0.99881697, y: 0.3385098}
-  m_AnchoredPosition: {x: 22.400002, y: -1.6129131}
+  m_AnchoredPosition: {x: 22.400002, y: -1.612915}
   m_SizeDelta: {x: -52.6, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312428158
@@ -10903,7 +10903,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Delt\xE9mon"
+  m_Text: Delts
 --- !u!222 &318408786
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14955,8 +14955,8 @@ RectTransform:
   m_Father: {fileID: 1193012846}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12788528, y: 0.2855558}
-  m_AnchorMax: {x: 0.5828854, y: 0.492641}
+  m_AnchorMin: {x: 0.08373046, y: 0.2855558}
+  m_AnchorMax: {x: 0.53873056, y: 0.492641}
   m_AnchoredPosition: {x: -1.0001221, y: -1.0000916}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15462,7 +15462,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Delt\xE9mon"
+  m_Text: Delts
 --- !u!222 &419668032
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15614,9 +15614,9 @@ MonoBehaviour:
     other actions in the world.
 
 
-    The red number is the number of DeltDexes you have caught. This is not the number
-    of Delts in your House. This is the number of distinct Delts that are saved in
-    your DeltDex.'
+    The red number is the number of Deltapedia entries you have caught. This is not
+    the number of total Delts you have rushed. This is the number of distinct kinds
+    of Delts you have logged in the Deltapedia.'
 --- !u!222 &424575146
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16017,14 +16017,15 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "A Delt can have up to 4 moves. Below are the types of move, with descriptions
-    of each type:\n- Truth Attack: Attack whose damage increases the higher your Delt\u2019s
-    Truth stat is\n- Power Attack: Attack whose damage increases the higher your Delt\u2019s
-    Power stat is\n- Buff/Debuff: These moves deal no damage, but can heal you, increase
-    your stats, and/or decrease your opponent\u2019s stats.\n- Status: Move intended
-    solely to inflict a status affliction.\n- Block: Move that stops any move your
-    opponent tries. Cannot be used consecutively.\n\nThe attack moves can also perform
-    buffs, debuffs, and status afflictions. However, they are not generally as powerful
-    at doing so as the other types of moves.\n\nHere is an example of a move: "
+    of each type:\n\n- Truth Attack: Attack whose damage increases the higher your
+    Delt\u2019s Truth stat is\n- Power Attack: Attack whose damage increases the higher
+    your Delt\u2019s Power stat is\n- Buff/Debuff: These moves deal no damage, but
+    can heal you, increase your stats, and/or decrease your opponent\u2019s stats.\n-
+    Status: Move intended solely to inflict a status affliction.\n- Block: Move that
+    stops any move your opponent tries. Cannot be used consecutively.\n\nThe attack
+    moves can also perform buffs, debuffs, and status afflictions. However, they are
+    not generally as powerful at doing so as the other types of moves.\n\nHere is
+    an example of a move: "
 --- !u!222 &437665003
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16219,7 +16220,7 @@ RectTransform:
   m_Father: {fileID: 119937693}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.26297188}
+  m_AnchorMin: {x: 0, y: 0.4014241}
   m_AnchorMax: {x: 1, y: 0.9999999}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -17163,8 +17164,8 @@ RectTransform:
   m_Father: {fileID: 1193012846}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12476623, y: 0.07858942}
-  m_AnchorMax: {x: 0.5828854, y: 0.2855558}
+  m_AnchorMin: {x: 0.08388214, y: 0.07858942}
+  m_AnchorMax: {x: 0.5420013, y: 0.2855558}
   m_AnchoredPosition: {x: -1.0001526, y: -1.0001221}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -17760,7 +17761,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DeltDex
+  m_Text: Deltapedia
 --- !u!222 &479435671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17876,7 +17877,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.046328515, y: 0.6748436}
   m_AnchorMax: {x: 0.9676604, y: 0.9752744}
-  m_AnchoredPosition: {x: -0.000076293945, y: 0}
+  m_AnchoredPosition: {x: 0.00009584427, y: 0}
   m_SizeDelta: {x: -0.00024414, y: 0.0000076294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &481230462
@@ -18806,19 +18807,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "First of all thank you for downloading the game. It has taken 3 months
-    of very dedicated and hard work but I am proud to bring it to the App Store.  \n\nDelt\xE9mon
-    is an adventure-style game where you are asked to \"Rush 'em all!\"  \n\nThere
-    are many goals in this game. The most obvious is to \"rush\" or capture all of
-    the Delts that exist in the game. Delts are creatures that take after actual members
-    of Delta Tau Delta, Chapter Gamma Rho at the University of Oregon. \n\nWithin
-    this game, they are your ticket to success. There are 2 ways of getting new Delts:
-    Rushing and Evolving. To learn more visit the \u201CBattle:\u201D Help Menus on
-    the left for Rushing and Leveling Up, respectively.\n\nYou must also visit other
-    places around the map in order to progress in the story. There are hidden places,
-    people, jokes, and items all around the world. You are free to explore and progress
-    through the story at your own pace. However, if you wish to progress through the
-    game, you must battle other fraternities.\n\nThink of fraternities as the \u201Cbosses\u201D
-    of the game. They will put to the test your abilities as a Delt\xE9mon trainer!
+    of very dedicated and hard work but I am proud to bring it to the App Store.  \n\nBattle
+    Delts is an adventure game where you must rush, train and battle all of your favorite
+    Delts from Delta Tau Delta Chapter Gamma Rho!\n\nThere are many goals in this
+    game. The most obvious is to \"rush\" or capture all of the Delts that exist in
+    the game. Delts are creatures that take after actual members of Delta Tau Delta,
+    Chapter Gamma Rho at the University of Oregon. \n\nWithin this game, they are
+    your ticket to success. There are 2 ways of getting new Delts: Rushing and Evolving.
+    To learn more visit the \u201CBattle:\u201D Help Menus on the left for Rushing
+    and Leveling Up, respectively.\n\nYou must also visit other places around the
+    map in order to progress in the story. There are hidden places, people, jokes,
+    and items all around the world. You are free to explore and progress through the
+    story at your own pace. However, if you wish to progress through the game, you
+    must battle other fraternities.\n\nThink of fraternities as the \u201Cbosses\u201D
+    of the game. They will put to the test your abilities as a Battle Delts trainer!
     Be prepared and ready the moment you walk in that door.\n\nDon\u2019t feel overwhelmed
     by all the help menus. You should be able to figure most of this out by just playing!
     They are for your reference."
@@ -22506,8 +22508,8 @@ MonoBehaviour:
   m_Text: "Throughout the game you will collect and rush many Delts. You get to pick
     and choose which ones you keep with you. You can keep up to 6 Delts on you at
     any time. These 6 Delts are called your Posse. You view and switch the order of
-    your Posse at any time by visiting the Delt\xE9mon menu in your Bag.\n\nTo add
-    and remove Delts from your Posse, you must visit Nurse Valleck in any of the towns.\n\nAs
+    your Posse at any time by visiting the Delts menu in your Bag.\n\nTo add and remove
+    Delts from your Posse, you must visit Nurse Valleck in any of the towns.\n\nAs
     you travel through the world, your Delts will get hurt, has status afflictions,
     or run out of moves. You can always completely heal your Delts and restore their
     moves by visiting Nurse Valleck in a Recovery Center in any of the towns.\n\nDelts
@@ -23315,7 +23317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00018310547}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0.00015258789}
   m_SizeDelta: {x: -8, y: 680}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &622813568
@@ -24245,8 +24247,8 @@ RectTransform:
   m_Father: {fileID: 382118143}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12788528, y: 0.2855558}
-  m_AnchorMax: {x: 0.5828854, y: 0.492641}
+  m_AnchorMin: {x: 0.081784114, y: 0.28555554}
+  m_AnchorMax: {x: 0.53678423, y: 0.49264073}
   m_AnchoredPosition: {x: -1.0001221, y: -1.0000916}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27391,8 +27393,8 @@ RectTransform:
   m_Father: {fileID: 1193012846}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.699726}
-  m_AnchorMax: {x: 0.44937757, y: 1}
+  m_AnchorMin: {x: 0, y: 0.7057125}
+  m_AnchorMax: {x: 0.58913547, y: 1}
   m_AnchoredPosition: {x: -1, y: -1}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29646,7 +29648,7 @@ GameObject:
   - component: {fileID: 792612970}
   - component: {fileID: 792612969}
   m_Layer: 5
-  m_Name: DeltDex Button
+  m_Name: Deltapedia Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36963,7 +36965,6 @@ GameObject:
   - component: {fileID: 969257275}
   - component: {fileID: 969257274}
   - component: {fileID: 969257273}
-  - component: {fileID: 969257276}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -37069,17 +37070,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 969257271}
---- !u!114 &969257276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 969257271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06765ea1d4dbe4c349341951f942738d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &969315304
 GameObject:
   m_ObjectHideFlags: 0
@@ -40453,8 +40443,8 @@ RectTransform:
   m_Father: {fileID: 382118143}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1278854, y: 0.492641}
-  m_AnchorMax: {x: 0.5828854, y: 0.699726}
+  m_AnchorMin: {x: 0.08182926, y: 0.4909813}
+  m_AnchorMax: {x: 0.53682923, y: 0.6980663}
   m_AnchoredPosition: {x: -1.0000916, y: -1.0000305}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45473,7 +45463,7 @@ GameObject:
   - component: {fileID: 1229928393}
   - component: {fileID: 1229928392}
   m_Layer: 5
-  m_Name: "Delt\xE9mon"
+  m_Name: Battle Delts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46102,8 +46092,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Fraternities:\nYou can think of Fraternities as the \u201Cbosses\u201D
     of the game. They are full of trainers and a single leader that you must defeat
-    consecutively in order to defeat the gym. Once a gym is defeated, often the story
-    will be able to progress further."
+    consecutively in order to defeat the gym. Once a gym is defeated, the story will
+    be able to progress further."
 --- !u!222 &1236618177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46610,9 +46600,9 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Scores: Here is where you can view all of your high scores amongst friends
-    on GameCenter. Scores recorded are the number of gyms you have defeated and the
-    number of Delts you have captured.  In addition, this is where you can find all
-    of the achievements you have unlocked during gameplay!'
+    on GameCenter. Scores include the number of gyms you''ve defeated, number of Delts
+    rushed, number of wins, largest Deltapedia, etc.  In addition, this is where you
+    can find all of the achievements you have unlocked during gameplay!'
 --- !u!222 &1250542840
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -50230,8 +50220,8 @@ RectTransform:
   m_Father: {fileID: 382118143}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.699726}
-  m_AnchorMax: {x: 0.44937757, y: 1}
+  m_AnchorMin: {x: 0, y: 0.7057125}
+  m_AnchorMax: {x: 0.58913547, y: 1}
   m_AnchoredPosition: {x: -1, y: -1}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -50770,7 +50760,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Delt\xE9mon"
+  m_Text: Battle Delts
 --- !u!222 &1357549706
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -51831,8 +51821,8 @@ RectTransform:
   m_Father: {fileID: 382118143}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12476623, y: 0.07858942}
-  m_AnchorMax: {x: 0.5828854, y: 0.2855558}
+  m_AnchorMin: {x: 0.08006198, y: 0.07395778}
+  m_AnchorMax: {x: 0.5381812, y: 0.28092417}
   m_AnchoredPosition: {x: -1.0001526, y: -1.0001221}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -52540,8 +52530,8 @@ RectTransform:
   m_Father: {fileID: 1193012846}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1278854, y: 0.492641}
-  m_AnchorMax: {x: 0.5828854, y: 0.699726}
+  m_AnchorMin: {x: 0.08291275, y: 0.492641}
+  m_AnchorMax: {x: 0.5379127, y: 0.699726}
   m_AnchoredPosition: {x: -1.0000916, y: -1.0000305}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -52831,8 +52821,8 @@ MonoBehaviour:
     Items in battle to restore a Delt\u2019s GPA, cure a status, or both. Only Usable
     Items can be used during battle. To use an item, select a valid Usable item from
     the Items menu and then select the Delt you would like to use it on. Conversely,
-    you can go to the Delt\xE9mon menu, select \u201CGive Item\u201D and then select
-    a valid Usable Item for that Delt."
+    you can go to the Delts menu, select \u201CGive Item\u201D and then select a valid
+    Usable Item for that Delt."
 --- !u!222 &1410028098
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53365,7 +53355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Welcome to Delt\xE9mon!"
+  m_Text: Welcome to Battle Delts!
 --- !u!222 &1424014900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56008,8 +55998,8 @@ RectTransform:
   m_Father: {fileID: 1213965803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.699726}
-  m_AnchorMax: {x: 0.44937757, y: 1}
+  m_AnchorMin: {x: 0, y: 0.7057125}
+  m_AnchorMax: {x: 0.58913547, y: 1}
   m_AnchoredPosition: {x: -1, y: -1}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -56316,7 +56306,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: dc02a1f9539364abdbacb34db0695808, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2c40fd4e40384b7886e902ca563517f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -56984,8 +56974,8 @@ RectTransform:
   m_Father: {fileID: 1213965803}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12476623, y: 0.07858942}
-  m_AnchorMax: {x: 0.5828854, y: 0.2855558}
+  m_AnchorMin: {x: 0.08364423, y: 0.08098123}
+  m_AnchorMax: {x: 0.54176337, y: 0.28794762}
   m_AnchoredPosition: {x: -1.0001526, y: -1.0001221}
   m_SizeDelta: {x: -1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -57898,7 +57888,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Delt\xE9mon"
+  m_Text: Battle Delts
 --- !u!222 &1535474687
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -59798,8 +59788,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 447382108}
   m_HandleRect: {fileID: 447382107}
   m_Direction: 2
-  m_Value: 0.999999
-  m_Size: 0.7370281
+  m_Value: 0.9999995
+  m_Size: 0.5985754
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -59980,12 +59970,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Delt\xE9mon: View your Posse and their moves, and switch in a Delt.\n\nIf
-    you would like to switch out a Delt for another in your Posse, you can do so.
-    Just go to the Delt\xE9mon menu, select the Delt you would like to switch in,
-    and then press \u201CSwitch.\u201D The Delt will then be switched in. Beware,
-    the opponent will still use the move they were planning to use on the Delt you
-    just switched in!"
+  m_Text: "Delts: View your Posse and their moves, and switch in a Delt.\n\nIf you
+    would like to switch out a Delt for another in your Posse, you can do so. Just
+    go to the Delts menu, select the Delt you would like to switch in, and then press
+    \u201CSwitch.\u201D The Delt will then be switched in. Beware, the opponent will
+    still use the move they were planning to use on the Delt you just switched in!"
 --- !u!222 &1605984820
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -68759,7 +68748,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: dc02a1f9539364abdbacb34db0695808, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e2c40fd4e40384b7886e902ca563517f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -72230,7 +72219,7 @@ GameObject:
   - component: {fileID: 1895939518}
   - component: {fileID: 1895939517}
   m_Layer: 5
-  m_Name: Deltemon Button
+  m_Name: Delts Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72250,8 +72239,8 @@ RectTransform:
   m_Father: {fileID: 523316407}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.27534395, y: 0.68032014}
-  m_AnchorMax: {x: 0.7240889, y: 0.71988785}
+  m_AnchorMin: {x: 0.27534395, y: 0.6758519}
+  m_AnchorMax: {x: 0.7240889, y: 0.7154196}
   m_AnchoredPosition: {x: 1.5, y: 0.5}
   m_SizeDelta: {x: -5, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -72540,7 +72529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000015258789, y: -0.000015258789}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: -8, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1901133122
@@ -73573,7 +73562,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DeltDex
+  m_Text: Deltapedia
 --- !u!222 &1925192610
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -75076,7 +75065,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1655719427}
   m_HandleRect: {fileID: 1655719426}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
