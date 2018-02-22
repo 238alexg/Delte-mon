@@ -1,6 +1,5 @@
 ﻿
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,14 +37,14 @@ public class PlayerMovement : MonoBehaviour {
 	private RaycastHit2D hit;
 	public LayerMask layer;
 
-	public static PlayerMovement PlayMov { get; private set; }
+	public static PlayerMovement Inst { get; private set; }
 
 	private void Awake() {
-		if (PlayMov != null) {
+		if (Inst != null) {
 			DestroyImmediate(gameObject);
 			return;
 		}
-		PlayMov = this;
+		Inst = this;
 	}
 
 	void Start() {
@@ -56,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	#if UNITY_EDITOR
 	void Update() {
-		if (UIManager.MovementUI.activeInHierarchy) {
+		if (UIManager.MovementUI.gameObject.activeInHierarchy) {
 			if (Input.GetKeyDown (KeyCode.W)) {
 				Move (0);
 			} else if (Input.GetKeyDown (KeyCode.A)) {
@@ -137,8 +136,8 @@ public class PlayerMovement : MonoBehaviour {
 				if (repelStepsLeft > 0) {
 					if (repelStepsLeft == 1) {
 						StopMoving ();
-						UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
-						UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.", null, () => ResumeMoving ());
+						UIManager.Inst.StartMessage ("You stop and whiff yourself...");
+						UIManager.Inst.StartMessage ("You no longer smell like Meathook's finest.", null, () => ResumeMoving ());
 					}
 					repelStepsLeft--;
 				}
@@ -152,7 +151,7 @@ public class PlayerMovement : MonoBehaviour {
 				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
 				playerMovementAnimation.SetInteger ("Move", 0);
 
-				SoundEffectManager.SEM.PlaySoundImmediate ("Bump");
+				SoundEffectManager.Inst.PlaySoundImmediate ("Bump");
 
 				StopAndFace ();
 
@@ -268,8 +267,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Stops player movement
 	public void StopMoving (bool wasDPadRelease = false) {
 		if (!wasDPadRelease) {
-			QuestManager.QuestMan.isAllowedToMove = false;
-			UIManager.MovementUI.SetActive (false);
+			UIManager.MovementUI.Close();
 			bButtonRelease ();
 		}
 		StopAndFace ();
@@ -279,7 +277,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	// Allows player movement
 	public void ResumeMoving() {
-		UIManager.MovementUI.SetActive (true);
+        UIManager.MovementUI.Close();
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}
 
@@ -329,7 +327,7 @@ public class PlayerMovement : MonoBehaviour {
 					if (ia.coins > 0) {
 						GameManager.coins += ia.coins;
 						UIManager.StartMessage (GameManager.playerName + " received " + ia.coins + " coins!", null,
-							() => SoundEffectManager.SEM.PlaySoundImmediate ("coinDing"));
+							() => SoundEffectManager.Inst.PlaySoundImmediate ("coinDing"));
 					}
 					UIManager.StartMessage (null, null, () => destroyQuestAndPresentChild (ia));
 
@@ -375,7 +373,7 @@ public class PlayerMovement : MonoBehaviour {
 					// Player has enough coins
 					else {
 						GameManager.coins -= ia.coinsNeeded;
-						SoundEffectManager.SEM.PlaySoundImmediate ("coinDing");
+						SoundEffectManager.Inst.PlaySoundImmediate ("coinDing");
 					}
 				}
 
@@ -398,7 +396,7 @@ public class PlayerMovement : MonoBehaviour {
 				NPCInteraction trainer = ia.transform.parent.GetComponent <NPCInteraction>();
 
 				// If trainer has already been defeated, present with end battle messages
-				if (GameManager.GameMan.curSceneData.trainers [trainer.index]) {
+				if (GameManager.Inst.curSceneData.trainers [trainer.index]) {
 					trainer.DefeatedDialogue ();
 				} else {
 					trainer.OnTriggerEnter2D (null);

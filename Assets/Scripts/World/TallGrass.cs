@@ -24,8 +24,8 @@ public class TallGrass : MonoBehaviour {
 	void Start() {
 		hasTriggered = false;
 		battleStepBuffer = 2;
-		battleManager = BattleManager.BattleMan;
-		UIManager = UIManager.UIMan;
+		battleManager = BattleManager.Inst;
+		UIManager = UIManager.Inst;
 	}
 
 	// Determine whether Pokemon spawn in grass
@@ -35,7 +35,7 @@ public class TallGrass : MonoBehaviour {
 
 			GetComponent <SpriteRenderer>().sprite = steppedOn;
 
-			if ((PlayerMovement.PlayMov.repelStepsLeft > 0) || (battleStepBuffer > 0)) {
+			if ((PlayerMovement.Inst.repelStepsLeft > 0) || (battleStepBuffer > 0)) {
 				return;
 			}
 
@@ -45,7 +45,7 @@ public class TallGrass : MonoBehaviour {
 			// Something spawns
 			if (spawnProb < 29.83f) {
 				DeltemonClass chosenDelt;
-				PlayerMovement.PlayMov.StopMoving ();
+				PlayerMovement.Inst.StopMoving ();
 
 				// Remove from pool if instantiated Delt exists
 				if (battleManager.wildPool != null) {

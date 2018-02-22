@@ -19,7 +19,7 @@ public class QuestManager : MonoBehaviour {
 	}
 
 	void Start() {
-		playerMovement = PlayerMovement.PlayMov;
+		playerMovement = PlayerMovement.Inst;
 		DrunkShastaWalk = false;
 		isAllowedToMove = true;
 	}
@@ -53,10 +53,10 @@ public class QuestManager : MonoBehaviour {
 	// Called when user picks up an item
 	public void ItemQuest(ItemData item) {
 		if (item.itemName == "DormKicks") {
-			PlayerMovement.PlayMov.hasDormkicks = true;
-			UIManager.UIMan.StartMessage ("You strap the Yeezys to your feet...");
-			UIManager.UIMan.StartMessage ("You shed a tear and praise the almighty Mr. West");
-			UIManager.UIMan.StartMessage ("You can now use the B button to run!");
+			PlayerMovement.Inst.hasDormkicks = true;
+			UIManager.Inst.StartMessage ("You strap the Yeezys to your feet...");
+			UIManager.Inst.StartMessage ("You shed a tear and praise the almighty Mr. West");
+			UIManager.Inst.StartMessage ("You can now use the B button to run!");
 		} else if (item.itemName == "Composite") {
 			AchievementManager.AchieveMan.CompositeUpdate (item.numberOfItem);
 		} 

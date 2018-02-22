@@ -13,7 +13,6 @@ public class NewGame : MonoBehaviour {
 	public Button male;
 	public Button female;
 	DeltemonClass starter;
-	UIManager UIMan;
 	GameManager GameMan;
 	GameObject backpack;
 	public ItemClass[] items;
@@ -39,26 +38,24 @@ public class NewGame : MonoBehaviour {
 			"But must first choose a Delt to accompany you on this journey!",
 			"I have a few potential candidates here that you can choose from!"
 		};
-		UIMan = UIManager.UIMan;
-		GameMan = GameManager.GameMan;
-		backpack = UIMan.MovementUI.transform.GetChild (3).gameObject;
+		GameMan = GameManager.Inst;
+		backpack = UIManager.Inst.MovementUI.transform.GetChild (3).gameObject;
 		backpack.SetActive (false);
-		PlayerMovement.PlayMov.ChangeGender (true);
+		PlayerMovement.Inst.ChangeGender (true);
 	}
 
 	// When new game sequence triggered
 	IEnumerator OnTriggerEnter2D(Collider2D player) {
-		UIMan.MovementUI.SetActive (false);
-		PlayerMovement.PlayMov.StopMoving ();
+        UIManager.Inst.MovementUI.Close();
 
 		profCheema.gameObject.SetActive (true);
 		profCheema.SetTrigger ("SlideIn");
 		yield return new WaitForSeconds(1);
 
 		foreach (string message in dialogues1) {
-			UIMan.StartNPCMessage (message, "Professor Cheema");
+            UIManager.Inst.StartNPCMessage (message, "Professor Cheema");
 		}
-		UIMan.StartMessage (null, null, (() => NameAndGenderUI.SetActive (true)));
+        UIManager.Inst.StartMessage (null, null, (() => NameAndGenderUI.SetActive (true)));
 	}
 
 	// Player enters name
@@ -71,15 +68,15 @@ public class NewGame : MonoBehaviour {
 			return;
 		}
 		playerName = char.ToUpper(playerName[0]) + playerName.Substring(1);
-		GameManager.GameMan.playerName = playerName;
-		PlayerMovement.PlayMov.ChangeGender (isMale);
+		GameManager.Inst.playerName = playerName;
+		PlayerMovement.Inst.ChangeGender (isMale);
 		NameAndGenderUI.SetActive (false);
-		UIMan.StartNPCMessage("Nice to meet you, " + GameManager.GameMan.playerName + "!", "Professor Cheema");
+        UIManager.Inst.StartNPCMessage("Nice to meet you, " + GameManager.Inst.playerName + "!", "Professor Cheema");
 
 		foreach (string message in dialogues2) {
-			UIMan.StartNPCMessage (message, "Professor Cheema");
+            UIManager.Inst.StartNPCMessage (message, "Professor Cheema");
 		}
-		UIMan.StartMessage (null, null, (() => StarterUI.SetActive (true)));
+        UIManager.Inst.StartMessage (null, null, (() => StarterUI.SetActive (true)));
 	}
 
 	// Button to choose gendered sprite
@@ -115,37 +112,37 @@ public class NewGame : MonoBehaviour {
 			// Remove starter selection screen
 			StarterUI.SetActive (false);
 
-			// Add starter to party & deltdex, set as current starting delt
-			UIMan.EndNPCMessage ();
+            // Add starter to party & deltdex, set as current starting delt
+            UIManager.Inst.EndNPCMessage ();
 			GameMan.AddDelt(starter);
 			GameMan.currentStartingDelt = GameMan.deltPosse[0];
 
-			// Messages for each starter
-			UIMan.StartNPCMessage("Ah, " + starter.nickname + "! An excellent choice.", "Professor Cheema");
+            // Messages for each starter
+            UIManager.Inst.StartNPCMessage("Ah, " + starter.nickname + "! An excellent choice.", "Professor Cheema");
 			if (starter.nickname == "Dobby") {
-				UIMan.StartNPCMessage("While quite average I think his well-roundedness will suit you perfectly.", "Professor Cheema");
+                UIManager.Inst.StartNPCMessage("While quite average I think his well-roundedness will suit you perfectly.", "Professor Cheema");
 			} else if (starter.nickname == "Bibby") {
-				UIMan.StartNPCMessage("He's quick and a hard-hitter from Jersey. I think he will do just fine.", "Professor Cheema");
+                UIManager.Inst.StartNPCMessage("He's quick and a hard-hitter from Jersey. I think he will do just fine.", "Professor Cheema");
 			} else if (starter.nickname == "Kumar") {
-				UIMan.StartNPCMessage("He's quite a tank! I think he is an excellent choice.", "Professor Cheema");
+                UIManager.Inst.StartNPCMessage("He's quite a tank! I think he is an excellent choice.", "Professor Cheema");
 			}
 
-			UIMan.StartNPCMessage("Oh! And before I forget your mother sent some items to you! Here they are.", "Professor Cheema");
+            UIManager.Inst.StartNPCMessage("Oh! And before I forget your mother sent some items to you! Here they are.", "Professor Cheema");
 			GiveItems ();
 
-			UIMan.StartNPCMessage("I'm excited to see you make a difference on this campus.", "Professor Cheema");
-			UIMan.StartNPCMessage("Remember: if you are confused, there is a help menu available to you!", "Professor Cheema");
-			UIMan.StartNPCMessage("Just tap the BACKPACK icon on your screen, then the SETTINGS COG...", "Professor Cheema");
-			UIMan.StartNPCMessage("There is a help menu there with all you need to know!", "Professor Cheema");
-			UIMan.StartNPCMessage ("Best of luck, my friend. And remember, recruitment is an obligation!", "Professor Cheema");
-			UIMan.StartMessage (null, null, (() => profCheema.SetTrigger ("SlideOut")));
+            UIManager.Inst.StartNPCMessage("I'm excited to see you make a difference on this campus.", "Professor Cheema");
+            UIManager.Inst.StartNPCMessage("Remember: if you are confused, there is a help menu available to you!", "Professor Cheema");
+            UIManager.Inst.StartNPCMessage("Just tap the BACKPACK icon on your screen, then the SETTINGS COG...", "Professor Cheema");
+            UIManager.Inst.StartNPCMessage("There is a help menu there with all you need to know!", "Professor Cheema");
+            UIManager.Inst.StartNPCMessage ("Best of luck, my friend. And remember, recruitment is an obligation!", "Professor Cheema");
+            UIManager.Inst.StartMessage (null, null, (() => profCheema.SetTrigger ("SlideOut")));
 
-			// Change to normal world settings
-			UIMan.StartMessage (null, null, (() => UIMan.EndNPCMessage ()));
-			UIMan.StartMessage (null, null, (() => backpack.SetActive(true)));
+            // Change to normal world settings
+            UIManager.Inst.StartMessage (null, null, (() => UIManager.Inst.EndNPCMessage ()));
+            UIManager.Inst.StartMessage (null, null, (() => backpack.SetActive(true)));
 
-			// Switch scene to beginning bedroom in Delts
-			UIMan.SwitchLocationAndScene (11, 48, "Delta Shelter");
+            // Switch scene to beginning bedroom in Delts
+            UIManager.Inst.SwitchLocationAndScene (11, 48, "Delta Shelter");
 		}
 	}
 
@@ -154,7 +151,7 @@ public class NewGame : MonoBehaviour {
 		GameMan.AddItem(items[0],10);
 		GameMan.AddItem(items[1],5);
 		GameMan.AddItem(items[2],10);
-		UIMan.StartMessage (null, null, ()=>UIMan.StartNPCMessage ());
+        UIManager.Inst.StartMessage (null, null, ()=> UIManager.Inst.StartNPCMessage ());
 	}
 
 	// Initialize interactable scene data for all scenes in game

@@ -20,7 +20,7 @@ public class DoorAction : MonoBehaviour {
 
 	// Seperate so other objects that have a reference to this door can activate it
 	public void ActivateDoor() {
-		UIManager.UIMan.SwitchLocationAndScene(xCoordinate, yCoordinate, sceneName);
+		UIManager.Inst.SwitchLocationAndScene(xCoordinate, yCoordinate, sceneName);
 	}
 
 	// Player leaves

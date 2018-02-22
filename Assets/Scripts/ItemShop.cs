@@ -35,8 +35,8 @@ public class ItemShop : MonoBehaviour {
 			"Look at this PYT... Price You Treasure",
 			"I'll price you digits if you give me yours"
 		};
-		UIMan = UIManager.UIMan;
-		GameMan = GameManager.GameMan;
+		UIMan = UIManager.Inst;
+		GameMan = GameManager.Inst;
 		allItemsLoaded = false;
 		hasTriggered = false;
 		hasBought = false;
@@ -85,8 +85,7 @@ public class ItemShop : MonoBehaviour {
 	// When store clerk sequence triggered
 	IEnumerator OnTriggerEnter2D(Collider2D player) {
 		if (!hasTriggered) {
-			UIMan.MovementUI.SetActive (false);
-			PlayerMovement.PlayMov.StopMoving ();
+            UIMan.MovementUI.Close();
 			hasTriggered = true;
 			isBuying = true;
 
@@ -240,7 +239,7 @@ public class ItemShop : MonoBehaviour {
 
 	IEnumerator ResumeMoving() {
 		yield return new WaitForSeconds (1);
-		PlayerMovement.PlayMov.ResumeMoving ();
+		PlayerMovement.Inst.ResumeMoving ();
 	}
 
 	IEnumerator AnimateStoreClose() {
@@ -340,13 +339,13 @@ public class ItemShop : MonoBehaviour {
 			CurrentPlayerCoins.text = "" + oldCoins;
 			yield return new WaitForSeconds (spendtime);
 		}
-		SoundEffectManager.SEM.PlaySoundImmediate ("coinDing");
+		SoundEffectManager.Inst.PlaySoundImmediate ("coinDing");
 		while (oldItemNum != newItemNum) {
 			oldItemNum -= changeValue;
 			NumberOfItemInBag.text = "" + oldItemNum;
 			yield return new WaitForSeconds (0.01f);
 		}
-		SoundEffectManager.SEM.PlaySoundImmediate ("coinDing");
+		SoundEffectManager.Inst.PlaySoundImmediate ("coinDing");
 
 		isAnimating = false;
 

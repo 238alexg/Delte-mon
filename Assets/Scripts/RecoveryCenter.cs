@@ -34,8 +34,8 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Initialize variables
 	void Start() {
-		UIMan = UIManager.UIMan;
-		GameMan = GameManager.GameMan;
+		UIMan = UIManager.Inst;
+		GameMan = GameManager.Inst;
 		hasHealed = false;
 		posseDeltsLoaded = false;
 		majorSelected = false;
@@ -64,8 +64,7 @@ public class RecoveryCenter: MonoBehaviour {
 	// When new game sequence triggered
 	IEnumerator OnTriggerEnter2D(Collider2D player) {
 		if (!hasTriggered) {
-			UIMan.MovementUI.SetActive (false);
-			PlayerMovement.PlayMov.StopMoving ();
+            UIMan.MovementUI.Close();
 
 			hasTriggered = true;
 
@@ -584,7 +583,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 	// Shorthand function to wait for a number of seconds
 	IEnumerator healDeskAnimation() {
-		SoundEffectManager.SEM.PlaySoundImmediate ("ExpGain");
+		SoundEffectManager.Inst.PlaySoundImmediate ("ExpGain");
 		for (byte i = 0; i < 3; i++) {
 			Handheld.Vibrate ();
 			healDesk.sprite = healDeskYellow;
@@ -593,7 +592,7 @@ public class RecoveryCenter: MonoBehaviour {
 			healDesk.sprite = healDeskPurp;
 			yield return new WaitForSeconds (0.5f);
 		}
-		SoundEffectManager.SEM.source.Stop ();
+		SoundEffectManager.Inst.source.Stop ();
 	}
 
 	public IEnumerator wait(byte seconds) {
@@ -605,9 +604,8 @@ public class RecoveryCenter: MonoBehaviour {
 		UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", false));
 		UIMan.StartNPCMessage ("Come back anytime!", "Nurse Valleck");
 		UIMan.StartMessage (null, null, ()=>nurseValleck.SetTrigger ("SlideOut"));
-		UIMan.StartMessage (null, wait(1), ()=>UIMan.MovementUI.SetActive (true));
+		UIMan.StartMessage (null, wait(1), ()=>UIMan.MovementUI.Open());
 		UIMan.StartMessage(null, null, ()=>UIMan.EndNPCMessage ());
-		UIMan.StartMessage (null, null, ()=>PlayerMovement.PlayMov.ResumeMoving());
 		GameMan.Save ();
 	}
 

@@ -37,14 +37,14 @@ public class GameManager : MonoBehaviour {
 //		"Hayward Field", "Atlambdis","Israel", "Las Saegas", "UOregon", "ChiPsi", 
 //		"Sig Ep", "Beta", "The Hub", "Autzen", "Shasta"};
 
-	public static GameManager GameMan { get; private set; }
+	public static GameManager Inst { get; private set; }
 
 	private void Awake() {
-		if (GameMan != null) {
+		if (Inst != null) {
 			DestroyImmediate(gameObject);
 			return;
 		}
-		GameMan = this;
+		Inst = this;
 		SceneManager.activeSceneChanged += activeSceneChanged;
 	}
 
@@ -145,8 +145,8 @@ public class GameManager : MonoBehaviour {
 
 		// Save basic game data
 		save.playerName = playerName;
-		save.xLoc = Mathf.Round (PlayerMovement.PlayMov.transform.position.x);
-		save.yLoc = Mathf.Round (PlayerMovement.PlayMov.transform.position.y);
+		save.xLoc = Mathf.Round (PlayerMovement.Inst.transform.position.x);
+		save.yLoc = Mathf.Round (PlayerMovement.Inst.transform.position.y);
 		save.partySize = (byte)deltPosse.Count;
 		save.coins = coins;
 		save.lastTownName = lastTownName;
@@ -155,9 +155,9 @@ public class GameManager : MonoBehaviour {
 
 		// Save settings
 		save.sceneName = SceneManager.GetActiveScene ().name;
-		save.isMale = PlayerMovement.PlayMov.isMale;
-		save.musicVolume = MusicManager.Instance.maxVolume;
-		save.FXVolume = SoundEffectManager.SEM.source.volume;
+		save.isMale = PlayerMovement.Inst.isMale;
+		save.musicVolume = MusicManager.Inst.maxVolume;
+		save.FXVolume = SoundEffectManager.Inst.source.volume;
 		save.pork = pork;
 		save.scrollSpeed = UIManager.scrollSpeed;
 
@@ -216,11 +216,11 @@ public class GameManager : MonoBehaviour {
 		curSceneName = load.sceneName;
 		pork = load.pork;
 		UIManager.scrollSpeed = load.scrollSpeed;
-		PlayerMovement.PlayMov.ChangeGender (load.isMale);
-		PlayerMovement.PlayMov.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
-		MusicManager.Instance.maxVolume = load.musicVolume;
-		MusicManager.Instance.audiosource.volume = load.musicVolume;
-		SoundEffectManager.SEM.source.volume = load.FXVolume;
+		PlayerMovement.Inst.ChangeGender (load.isMale);
+		PlayerMovement.Inst.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
+		MusicManager.Inst.maxVolume = load.musicVolume;
+		MusicManager.Inst.audiosource.volume = load.musicVolume;
+		SoundEffectManager.Inst.source.volume = load.FXVolume;
 
 		// Load lists back
 		allItems = new List<ItemData> (load.allItems);
@@ -434,7 +434,7 @@ public class GameManager : MonoBehaviour {
 		// Put player and UI in the scene
 		GameObject testForReferenceObject = GameObject.FindGameObjectWithTag ("EditorOnly");
 		if (testForReferenceObject != null) {
-			PlayerMovement.PlayMov.transform.SetParent (testForReferenceObject.transform.root);
+			PlayerMovement.Inst.transform.SetParent (testForReferenceObject.transform.root);
 		} else {
 			Debug.Log ("> ERROR: No Ref obj found for player!");
 		}

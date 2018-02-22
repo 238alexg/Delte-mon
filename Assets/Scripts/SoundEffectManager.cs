@@ -9,14 +9,14 @@ public class SoundEffectManager : MonoBehaviour {
 	public AudioSource source;
 	public List<SoundEffectTuple> allSounds;
 
-	public static SoundEffectManager SEM { get; private set; }
+	public static SoundEffectManager Inst { get; private set; }
 
 	private void Awake() {
-		if (SEM != null) {
+		if (Inst != null) {
 			DestroyImmediate(gameObject);
 			return;
 		}
-		SEM = this;
+		Inst = this;
 	}
 
 	public AudioClip FindAudioClip(string name) {
