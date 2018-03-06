@@ -35,7 +35,7 @@ public class CreditsUI : UIScreen {
         CreditsScroll.value = 1;
 
         // Close credits
-        UIManager.Inst.StartMessage(null, AnimateUIClose(root));
+        UIManager.Inst.StartMessage(null, AnimateUIClose());
 
         // Fade out of music and resume scene music
         UIManager.Inst.StartMessage(null, MusicManager.Inst.fadeOutAudio());

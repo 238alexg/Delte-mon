@@ -178,9 +178,11 @@ public class GameManager : MonoBehaviour {
 		bf.Serialize (file, save);
 		file.Close ();
 
-		// Update how long the player has been playing
-		AchievementManager.AchieveMan.TimeSpentUpdate ((long)timePlayed);
-		AchievementManager.AchieveMan.GymLeaderBattles ("");
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+        // Update how long the player has been playing
+        AchievementManager.Inst.TimeSpentUpdate ((long)timePlayed);
+		AchievementManager.Inst.GymLeaderBattles ("");
+#endif
 	}
 
 	// Load the game from save (ONLY CALLED ON STARTUP! Player cannot choose to load the game)
@@ -364,8 +366,10 @@ public class GameManager : MonoBehaviour {
 
 			UIManager.StartMessage ((newDex.nickname + " was added to " + playerName + "'s DeltDex!"));
 
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
 			// Update leaderboard
-			AchievementManager.AchieveMan.UpdateDeltDexCount (deltDex.Count);
+			AchievementManager.Inst.UpdateDeltDexCount (deltDex.Count);
+#endif
 
 			// Update DeltDexUI on next load
 			UIManager.allDexesLoaded = false;

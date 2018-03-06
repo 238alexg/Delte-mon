@@ -31,11 +31,11 @@ public class UIScreen : MonoBehaviour
 
     public virtual void Close()
     {
-        DisableUI();
+        StartCoroutine(AnimateUIClose());
     }
 
     // A closing animation for All animating UI's, sets current UI
-    public IEnumerator AnimateUIClose(GameObject UI)
+    public IEnumerator AnimateUIClose()
     {
         Animator.SetBool("SlideIn", false);
         yield return new WaitForSeconds(0.5f);

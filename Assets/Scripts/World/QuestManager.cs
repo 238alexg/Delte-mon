@@ -57,10 +57,13 @@ public class QuestManager : MonoBehaviour {
 			UIManager.Inst.StartMessage ("You strap the Yeezys to your feet...");
 			UIManager.Inst.StartMessage ("You shed a tear and praise the almighty Mr. West");
 			UIManager.Inst.StartMessage ("You can now use the B button to run!");
-		} else if (item.itemName == "Composite") {
-			AchievementManager.AchieveMan.CompositeUpdate (item.numberOfItem);
-		} 
-	}
+		}
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+        else if (item.itemName == "Composite") {
+			AchievementManager.Inst.CompositeUpdate (item.numberOfItem);
+        }
+#endif
+}
 
 	// Achievements for trainer battles
 	public void BattleAcheivements(string trainerName) {

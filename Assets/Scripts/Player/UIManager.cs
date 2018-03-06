@@ -256,7 +256,7 @@ public class UIManager : MonoBehaviour {
 	public void StartWildBattle(DeltemonClass wildDelt) {
 		playerMovement.StopMoving ();
 		StartMessage (null, fade.fadeOutToBlack());
-		StartMessage (null, null, ()=>BattleUI.SetActive(true));
+		StartMessage (null, null, ()=>BattleUI.SetActiveIfChanged(true));
 		StartMessage (null, null, () => battleManager.StartWildBattle (wildDelt));
 		StartMessage (null, fade.fadeInSceneChange (), null);
 		currentUI = UIMode.Battle;
@@ -266,7 +266,7 @@ public class UIManager : MonoBehaviour {
 	public void StartTrainerBattle(NPCInteraction trainer, bool isGymLeader) {
 		playerMovement.StopMoving ();
 		StartMessage (null, fade.fadeOutToBlack());
-		StartMessage (null, null, ()=>BattleUI.SetActive(true));
+		StartMessage (null, null, ()=>BattleUI.SetActiveIfChanged(true));
 		StartMessage (null, null, ()=>battleManager.StartTrainerBattle(trainer, isGymLeader));
 		StartMessage (null, fade.fadeInSceneChange(), null);
 		currentUI = UIMode.Battle;
@@ -276,7 +276,7 @@ public class UIManager : MonoBehaviour {
 	public void EndBattle(bool isTrainer) {
 		StartMessage (null, fade.fadeOutToBlack(), ()=> battleManager.ResetAnimations ());
 
-		StartMessage (null, null, ()=>BattleUI.SetActive(false));
+		StartMessage (null, null, ()=>BattleUI.SetActiveIfChanged(false));
 
 		if (isTrainer) {
 			StartMessage (null, fade.fadeInSceneChange ());

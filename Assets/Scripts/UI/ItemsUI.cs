@@ -8,7 +8,7 @@ public class ItemsUI : UIScreen {
     public GameObject ListItemObject, curOverviewItem;
     public Transform ItemOverviewUI, ItemListContent;
     bool allItemsLoaded;
-    Color[] itemColors;
+    public Color[] itemColors;
 
     public ItemClass activeItem;
     DeltemonClass activeDelt;
@@ -22,7 +22,7 @@ public class ItemsUI : UIScreen {
             return;
         }
 
-        ItemOverviewUI.gameObject.SetActive(false);
+        ItemOverviewUI.gameObject.SetActiveIfChanged(false);
 
         // REFACTOR_TODO: Find a better way to reference state of items
         if (UIManager.Inst.BagMenuUI.gameObject.activeInHierarchy || UIManager.Inst.currentUI == UIMode.Deltemon || UIManager.Inst.inBattle)
@@ -35,19 +35,26 @@ public class ItemsUI : UIScreen {
                     Destroy(child.gameObject);
                 }
                 int i = 0;
-                foreach (ItemData item in GameManager.Inst.allItems)
+                try
                 {
-                    GameObject li = Instantiate(ListItemObject, ItemListContent);
-                    Text[] texts = li.GetComponentsInChildren<Text>();
+                    foreach (ItemData item in GameManager.Inst.allItems)
+                    {
+                        GameObject li = Instantiate(ListItemObject, ItemListContent);
+                        Text[] texts = li.GetComponentsInChildren<Text>();
 
-                    li.GetComponent<Image>().color = GetItemTypeColor(item.itemT);
+                        li.GetComponent<Image>().color = GetItemTypeColor(item.itemT);
 
-                    texts[0].text = item.itemName;
-                    texts[1].text = "X" + item.numberOfItem;
-                    Button b = li.transform.GetChild(2).gameObject.GetComponent<Button>();
-                    AddListener(b, i);
-                    li.transform.localScale = Vector3.one;
-                    i++;
+                        texts[0].text = item.itemName;
+                        texts[1].text = "X" + item.numberOfItem;
+                        Button b = li.transform.GetChild(2).gameObject.GetComponent<Button>();
+                        AddListener(b, i);
+                        li.transform.localScale = Vector3.one;
+                        i++;
+                    }
+                }
+                catch (System.Exception e)
+                {
+                    print(e);
                 }
                 allItemsLoaded = true;
             }
@@ -161,7 +168,7 @@ public class ItemsUI : UIScreen {
         // Show Overview if not active
         if (!ItemOverviewUI.gameObject.activeInHierarchy)
         {
-            ItemOverviewUI.gameObject.SetActive(true);
+            ItemOverviewUI.gameObject.SetActiveIfChanged(true);
         }
     }
 

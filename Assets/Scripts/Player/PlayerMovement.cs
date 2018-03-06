@@ -277,7 +277,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	// Allows player movement
 	public void ResumeMoving() {
-        UIManager.MovementUI.Close();
+        UIManager.MovementUI.Open();
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}
 

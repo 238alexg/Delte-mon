@@ -3616,7 +3616,6 @@ GameObject:
   - component: {fileID: 2208}
   - component: {fileID: 1253}
   - component: {fileID: 3241}
-  - component: {fileID: 3240}
   m_Layer: 5
   m_Name: Delts
   m_TagString: Untagged
@@ -4194,7 +4193,6 @@ GameObject:
   - component: {fileID: 2242}
   - component: {fileID: 1284}
   - component: {fileID: 3278}
-  - component: {fileID: 3277}
   m_Layer: 5
   m_Name: Run
   m_TagString: Untagged
@@ -5417,7 +5415,6 @@ GameObject:
   - component: {fileID: 2313}
   - component: {fileID: 1349}
   - component: {fileID: 3362}
-  - component: {fileID: 3361}
   m_Layer: 5
   m_Name: Bag
   m_TagString: Untagged
@@ -8648,7 +8645,6 @@ GameObject:
   - component: {fileID: 1519}
   - component: {fileID: 1044}
   - component: {fileID: 3570}
-  - component: {fileID: 4148}
   m_Layer: 5
   m_Name: MapUI
   m_TagString: Untagged
@@ -28284,7 +28280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.046328515, y: 0.6748436}
   m_AnchorMax: {x: 0.9676604, y: 0.9752744}
-  m_AnchoredPosition: {x: 0.00009584427, y: 0}
+  m_AnchoredPosition: {x: 0.00009536743, y: 0}
   m_SizeDelta: {x: -0.00024414, y: 0.0000076294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2227
@@ -40582,7 +40578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.42520693}
-  m_AnchoredPosition: {x: 0.12200165, y: -0.8796387}
+  m_AnchoredPosition: {x: 0.12200165, y: -0.8796234}
   m_SizeDelta: {x: -0.2400055, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2871
@@ -41100,7 +41096,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.05783844, y: 0.04827419}
   m_AnchorMax: {x: 0.33544388, y: 0.21494314}
-  m_AnchoredPosition: {x: 1.9999695, y: 0.5}
+  m_AnchoredPosition: {x: 2, y: 0.5}
   m_SizeDelta: {x: 2, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2899
@@ -44782,7 +44778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -45843,7 +45839,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -46551,7 +46547,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4155}
         m_MethodName: MoveClick
         m_Mode: 3
         m_Arguments:
@@ -47362,7 +47358,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -47888,7 +47884,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4155}
         m_MethodName: MoveClick
         m_Mode: 3
         m_Arguments:
@@ -48653,7 +48649,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -48859,7 +48855,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -50702,58 +50698,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &3240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3241}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: OpenItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &3241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51957,58 +51901,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &3277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3278}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: OpenItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &3278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52866,7 +52758,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -53197,7 +53089,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -54619,58 +54511,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &3361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 3362}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: OpenItems
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &3362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55951,7 +55791,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -58151,7 +57991,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4155}
         m_MethodName: MoveClick
         m_Mode: 3
         m_Arguments:
@@ -58998,7 +58838,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3570}
-        m_MethodName: OpenMap
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -59257,7 +59097,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -60350,7 +60190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -61302,9 +61142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8f78c6b30da49ee8609b82f1b886e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapUI: {fileID: 506}
-  selectedTownText: {fileID: 3380}
-  mapButtons:
+  root: {fileID: 506}
+  Animator: {fileID: 1044}
+  UIMode: 8
+  SelectedTownText: {fileID: 3380}
+  MapButtons:
   - {fileID: 4050}
   - {fileID: 3739}
   - {fileID: 3255}
@@ -61318,8 +61160,8 @@ MonoBehaviour:
   - {fileID: 3821}
   - {fileID: 3677}
   - {fileID: 4142}
-  shasta: {fileID: 857}
-  autzen: {fileID: 573}
+  Shasta: {fileID: 857}
+  Autzen: {fileID: 573}
 --- !u!114 &3571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63101,7 +62943,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4148}
+      - m_Target: {fileID: 3570}
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:
@@ -63336,7 +63178,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -64638,7 +64480,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -65662,8 +65504,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: OpenSettings
+      - m_Target: {fileID: 4156}
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65861,7 +65703,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -66147,7 +65989,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -66603,7 +66445,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -67093,7 +66935,7 @@ MonoBehaviour:
   DeltDexUI: {fileID: 4154}
   helpUI: {fileID: 4153}
   CreditsUI: {fileID: 4152}
-  MapUI: {fileID: 4148}
+  MapUI: {fileID: 0}
   MovementUI: {fileID: 4151}
   animateMessage: 1
   messageOver: 0
@@ -67397,7 +67239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -68644,7 +68486,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -69481,7 +69323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4155}
         m_MethodName: MoveClick
         m_Mode: 3
         m_Arguments:
@@ -70829,7 +70671,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -71551,7 +71393,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -72185,7 +72027,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -72432,7 +72274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -72761,7 +72603,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -73409,7 +73251,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -76390,7 +76232,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -77100,7 +76942,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -77179,7 +77021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -78972,7 +78814,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: MajorButtonClick
         m_Mode: 3
         m_Arguments:
@@ -79722,7 +79564,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
+      - m_Target: {fileID: 4153}
         m_MethodName: HelpMenuButtonClick
         m_Mode: 3
         m_Arguments:
@@ -79810,20 +79652,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &4148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10fa0042108bc1849ac53d5de530ed73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 506}
-  Animator: {fileID: 1044}
-  UIMode: 8
 --- !u!114 &4149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79842,6 +79670,15 @@ MonoBehaviour:
   curOverviewItem: {fileID: 135}
   ItemOverviewUI: {fileID: 2603}
   ItemListContent: {fileID: 2408}
+  itemColors:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
   activeItem: {fileID: 0}
 --- !u!114 &4150
 MonoBehaviour:
@@ -79975,6 +79812,13 @@ MonoBehaviour:
   root: {fileID: 400}
   Animator: {fileID: 1041}
   UIMode: 7
+  PlayerName: {fileID: 0}
+  ScrollSpeed: {fileID: 0}
+  MusicVolume: {fileID: 0}
+  FXVolume: {fileID: 0}
+  PorkToggle: {fileID: 0}
+  MaleImage: {fileID: 0}
+  FemaleImage: {fileID: 0}
 --- !u!1 &84332828
 GameObject:
   m_ObjectHideFlags: 0

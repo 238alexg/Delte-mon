@@ -1059,7 +1059,9 @@ public class BattleManager : MonoBehaviour {
 			}
 
 			UIManager.StartMessage (null, null, () => gameManager.AddDelt (curOppDelt));
-			UIManager.StartMessage (null, null, ()=> AchievementManager.AchieveMan.DeltsRushedUpdate ());
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+			UIManager.StartMessage (null, null, ()=> AchievementManager.Inst.DeltsRushedUpdate ());
+#endif
 			UIManager.StartMessage (null, null, () => EndBattle ());
 		} else {
 			oppDeltSprite.GetComponent <Animator> ().Play ("BallReleaseFadeIn");
@@ -1829,7 +1831,10 @@ public class BattleManager : MonoBehaviour {
 
 				// Give achievements if any
 				if (trainer.isGymLeader) {
-					AchievementManager.AchieveMan.GymLeaderBattles (trainerName);
+
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+					AchievementManager.Inst.GymLeaderBattles (trainerName);
+#endif
 
 					// Heal all player Delts after defeating gym
 					foreach (DeltemonClass delt in playerDelts) {
@@ -1909,8 +1914,10 @@ public class BattleManager : MonoBehaviour {
 				// Perform levelup on Delt
 				string[] lvlUpText = curPlayerDelt.levelUp ();
 
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
 				// Try to update highest level score
-				AchievementManager.AchieveMan.HighestLevelUpdate (curPlayerDelt.level);
+				AchievementManager.Inst.HighestLevelUpdate (curPlayerDelt.level);
+#endif
 
 				// If the Delt's level causes it to evolve
 				if (curPlayerDelt.level == curPlayerDelt.deltdex.evolveLevel) {
@@ -2351,7 +2358,10 @@ public class BattleManager : MonoBehaviour {
 	void PlayerWinBattle() {
 		playerWon = true;
 		gameManager.battlesWon++;
-		AchievementManager.AchieveMan.BattlesWonUpdate (gameManager.battlesWon);
+
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+		AchievementManager.Inst.BattlesWonUpdate (gameManager.battlesWon);
+#endif
 	}
 
 	// Ends the battle once a player has lost, stops battle coroutine

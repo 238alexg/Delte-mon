@@ -139,7 +139,7 @@ public class NewGame : MonoBehaviour {
 
             // Change to normal world settings
             UIManager.Inst.StartMessage (null, null, (() => UIManager.Inst.EndNPCMessage ()));
-            UIManager.Inst.StartMessage (null, null, (() => backpack.SetActive(true)));
+            UIManager.Inst.StartMessage (null, null, (() => backpack.SetActiveIfChanged(true)));
 
             // Switch scene to beginning bedroom in Delts
             UIManager.Inst.SwitchLocationAndScene (11, 48, "Delta Shelter");

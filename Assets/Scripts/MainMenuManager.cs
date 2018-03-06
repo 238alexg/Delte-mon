@@ -78,11 +78,14 @@ public class MainMenuManager : MonoBehaviour {
 			loadOverview.parent.GetChild (0).gameObject.SetActive (true);
 		}
 
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
 		// If it is the last save, submit total time played score
 		if (saveNum == 2) {
-			AchievementManager.AchieveMan.TimeSpentUpdate ((long)totalTime);
-		}
-	}
+            AchievementManager.Inst.TimeSpentUpdate ((long)totalTime);
+        }
+#endif
+
+    }  
 
 	public void selectSave(int index) {
 		// Reset color of last pressed button

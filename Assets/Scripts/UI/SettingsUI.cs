@@ -4,13 +4,13 @@ using UnityEngine.UI;
 
 public class SettingsUI : UIScreen {
 
-    InputField PlayerName;
-    Slider ScrollSpeed;
-    Slider MusicVolume;
-    Slider FXVolume;
-    Toggle PorkToggle;
+    [SerializeField] InputField PlayerName;
+    [SerializeField] Slider ScrollSpeed;
+    [SerializeField] Slider MusicVolume;
+    [SerializeField] Slider FXVolume;
+    [SerializeField] Toggle PorkToggle;
 
-    Image MaleImage, FemaleImage;
+    [SerializeField] Image MaleImage, FemaleImage;
 
     // Open settings menu on settings button push
     public override void Open()

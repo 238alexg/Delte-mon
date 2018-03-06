@@ -76,7 +76,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 			UIMan.StartNPCMessage ("Nurse Valleck here!", "Nurse Valleck");
 			UIMan.StartNPCMessage ("How can I help you, sweetie?", "Nurse Valleck");
-			UIMan.StartMessage(null, null, ()=>OptionMenuUI.SetActive(true));
+			UIMan.StartMessage(null, null, ()=>OptionMenuUI.SetActiveIfChanged(true));
 			UIMan.StartMessage (null, null, ()=>OptionMenuUI.GetComponent <Animator>().SetBool ("SlideIn", true));
 		}
 	}
@@ -279,12 +279,12 @@ public class RecoveryCenter: MonoBehaviour {
 		for (int index = 0; index < 4; index++) {
 			moveButton = overview.GetChild (9).GetChild (index);
 			if (index < tmpDelt.moveset.Count) {
-				moveButton.gameObject.SetActive(true);
+				moveButton.gameObject.SetActiveIfChanged(true);
 				tmpMove = tmpDelt.moveset [index];
 				moveButton.GetComponent<Image> ().color = tmpMove.majorType.background;
 				moveButton.transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PP);
 			} else {
-				moveButton.gameObject.SetActive(false);
+				moveButton.gameObject.SetActiveIfChanged(false);
 			}
 		}
 		overview.gameObject.SetActive (true);

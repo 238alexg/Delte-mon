@@ -26,11 +26,11 @@ public class HelpUI : UIScreen {
             // If on the major menu, make current open 
             if ((curHelpMenu == 3) && (curMajor != -1))
             {
-                majorTabs.GetChild(curMajor).gameObject.SetActive(false);
+                majorTabs.GetChild(curMajor).gameObject.SetActiveIfChanged(false);
             }
 
             root.transform.GetChild(3).GetChild(1).GetComponent<Scrollbar>().value = 1;
-            helpMenus.GetChild(curHelpMenu).gameObject.SetActive(false);
+            helpMenus.GetChild(curHelpMenu).gameObject.SetActiveIfChanged(false);
         }
 
         curHelpMenu = i;
@@ -38,7 +38,7 @@ public class HelpUI : UIScreen {
         // Get menu, set title to that menu. Set menu to active.
         GameObject helpMenu = helpMenus.GetChild(i).gameObject;
         helpUITitle.text = helpMenu.name;
-        helpMenu.SetActive(true);
+        helpMenu.SetActiveIfChanged(true);
     }
 
     // Open Major Effectiveness Tab
@@ -48,9 +48,9 @@ public class HelpUI : UIScreen {
         // Remove last major menu
         if (curMajor != -1)
         {
-            majorTabs.GetChild(curMajor).gameObject.SetActive(false);
+            majorTabs.GetChild(curMajor).gameObject.SetActiveIfChanged(false);
         }
-        majorTabs.GetChild(i + 1).gameObject.SetActive(true);
+        majorTabs.GetChild(i + 1).gameObject.SetActiveIfChanged(true);
         curMajor = i + 1;
     }
 
@@ -63,7 +63,7 @@ public class HelpUI : UIScreen {
         // Remove last open help menu
         if (curHelpMenu != -1)
         {
-            helpMenus.GetChild(curHelpMenu).gameObject.SetActive(false);
+            helpMenus.GetChild(curHelpMenu).gameObject.SetActiveIfChanged(false);
             curHelpMenu = -1;
             helpUITitle.text = "Select A Category";
         }

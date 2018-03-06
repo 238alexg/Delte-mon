@@ -6,12 +6,14 @@ using UnityEngine.SocialPlatforms.GameCenter;
 
 public class AchievementManager : MonoBehaviour {
 
-	public static AchievementManager AchieveMan;
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+
+	public static AchievementManager Inst;
 
 	void Awake() {
-		if (AchieveMan == null) {
-			AchieveMan = this;
-		} else if (AchieveMan != this) {
+		if (Inst == null) {
+			Inst = this;
+		} else if (Inst != this) {
 			Destroy (this.gameObject);
 		}
 	}
@@ -191,4 +193,5 @@ public class AchievementManager : MonoBehaviour {
 			Debug.Log ("Got " + achievements.Length + " achievements");
 		}
 	}
+#endif
 }

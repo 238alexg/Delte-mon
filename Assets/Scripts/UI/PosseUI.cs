@@ -12,12 +12,12 @@ public class PosseUI : UIScreen {
     DeltemonClass activeDelt;
     public Sprite noStatus;
     List<Color> rarityColor;
-
+    
     // Load deltPosse into Deltemon UI
-    public void OpenDeltemon(bool isForceSwitchIn = false)
+    public void Open(bool forceSwitchIn)
     {
         UIManager.Inst.currentUI = UIMode.Deltemon;
-        DeltOverviewUI.SetActive(false);
+        DeltOverviewUI.SetActiveIfChanged(false);
         firstMoveLoaded = -1;
 
         int partySize = GameManager.Inst.deltPosse.Count;
@@ -32,25 +32,23 @@ public class PosseUI : UIScreen {
             }
             else
             {
-                statCube.gameObject.SetActive(false);
+                statCube.gameObject.SetActiveIfChanged(false);
             }
         }
 
         // If in battle and player forced to switch, do not offer back or Give Item button
-        if (isForceSwitchIn)
+        if (forceSwitchIn)
         {
-            root.transform.GetChild(7).GetChild(1).gameObject.SetActive(false);
-            root.transform.GetChild(8).GetChild(10).gameObject.SetActive(false);
+            root.transform.GetChild(7).GetChild(1).gameObject.SetActiveIfChanged(false);
+            root.transform.GetChild(8).GetChild(10).gameObject.SetActiveIfChanged(false);
         }
         else
         {
-            root.transform.GetChild(7).GetChild(1).gameObject.SetActive(true);
-            root.transform.GetChild(8).GetChild(10).gameObject.SetActive(true);
+            root.transform.GetChild(7).GetChild(1).gameObject.SetActiveIfChanged(true);
+            root.transform.GetChild(8).GetChild(10).gameObject.SetActiveIfChanged(true);
         }
 
-        // Show UI
-        root.SetActive(true);
-        root.GetComponent<Animator>().SetBool("SlideIn", true);
+        base.Open();
     }
 
     // User clicks Swap Item
@@ -95,7 +93,7 @@ public class PosseUI : UIScreen {
         }
         else
         {
-            StartCoroutine(AnimateUIClose(root));
+            StartCoroutine(AnimateUIClose());
             UIManager.Inst.ItemsUI.Open();
         }
     }
@@ -127,7 +125,7 @@ public class PosseUI : UIScreen {
                 }
                 else
                 {
-                    StartCoroutine(AnimateUIClose(root));
+                    StartCoroutine(AnimateUIClose());
                     BattleManager.Inst.chooseSwitchIn(activeDelt);
                 }
                 activeDelt = null;
@@ -206,7 +204,7 @@ public class PosseUI : UIScreen {
         {
             statCube.GetChild(3).GetComponent<Image>().sprite = noStatus;
         }
-        statCube.gameObject.SetActive(true);
+        statCube.gameObject.SetActiveIfChanged(true);
     }
 
     // Load delt information into the overview panel
@@ -258,12 +256,12 @@ public class PosseUI : UIScreen {
             DeltOverviewUI.GetComponent<Image>().color = delt.deltdex.major1.background;
             if (delt.deltdex.major2.majorName != "NoMajor")
             {
-                DeltOverviewUI.transform.GetChild(0).gameObject.SetActive(true);
+                DeltOverviewUI.transform.GetChild(0).gameObject.SetActiveIfChanged(true);
                 DeltOverviewUI.transform.GetChild(0).GetComponent<Image>().color = delt.deltdex.major2.background;
             }
             else
             {
-                DeltOverviewUI.transform.GetChild(0).gameObject.SetActive(false);
+                DeltOverviewUI.transform.GetChild(0).gameObject.SetActiveIfChanged(false);
             }
 
             stats.text = "Lv. " + delt.level + System.Environment.NewLine + (int)delt.GPA + System.Environment.NewLine + (int)delt.Truth +
@@ -305,11 +303,11 @@ public class PosseUI : UIScreen {
                         MoveOptions[index].GetComponent<Image>().color = tmpMove.majorType.background;
                         MoveOptions[index].transform.GetChild(0).gameObject.GetComponent<Text>().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
                     }
-                    MoveOptions[index].gameObject.SetActive(true);
+                    MoveOptions[index].gameObject.SetActiveIfChanged(true);
                 }
                 else
                 {
-                    MoveOptions[index].gameObject.SetActive(false);
+                    MoveOptions[index].gameObject.SetActiveIfChanged(false);
                 }
             }
 
@@ -323,7 +321,7 @@ public class PosseUI : UIScreen {
                 GiveItemButton.GetChild(0).GetComponent<Text>().text = "Give Item";
             }
 
-            DeltOverviewUI.SetActive(true);
+            DeltOverviewUI.SetActiveIfChanged(true);
         }
     }
 
@@ -347,13 +345,13 @@ public class PosseUI : UIScreen {
         // If move is already displayed, remove it
         if (firstMoveLoaded == index)
         {
-            MoveOneOverview.gameObject.SetActive(false);
+            MoveOneOverview.gameObject.SetActiveIfChanged(false);
             firstMoveLoaded = -1;
             return;
         }
         else if (secondMoveLoaded == index)
         {
-            MoveTwoOverview.gameObject.SetActive(false);
+            MoveTwoOverview.gameObject.SetActiveIfChanged(false);
             secondMoveLoaded = -1;
             return;
         }
@@ -375,12 +373,12 @@ public class PosseUI : UIScreen {
 
         if (move.statType != statusType.None)
         {
-            MoveOverview.GetChild(1).gameObject.SetActive(true);
+            MoveOverview.GetChild(1).gameObject.SetActiveIfChanged(true);
             MoveOverview.GetChild(1).GetComponent<Image>().sprite = move.status;
         }
         else
         {
-            MoveOverview.GetChild(1).gameObject.SetActive(false);
+            MoveOverview.GetChild(1).gameObject.SetActiveIfChanged(false);
         }
 
         MoveOverview.GetChild(2).GetComponent<Text>().text = move.moveName;
@@ -390,7 +388,7 @@ public class PosseUI : UIScreen {
         MoveOverview.GetChild(5).GetComponent<Text>().text = move.PP + System.Environment.NewLine + move.damage + System.Environment.NewLine +
             move.hitChance + System.Environment.NewLine + move.statType + System.Environment.NewLine + move.statusChance;
 
-        MoveOverview.gameObject.SetActive(true);
+        MoveOverview.gameObject.SetActiveIfChanged(true);
     }
 
     // Remove move overviews if are up and return true
@@ -400,8 +398,8 @@ public class PosseUI : UIScreen {
         {
             firstMoveLoaded = -1;
             secondMoveLoaded = -1;
-            MoveOneOverview.gameObject.SetActive(false);
-            MoveTwoOverview.gameObject.SetActive(false);
+            MoveOneOverview.gameObject.SetActiveIfChanged(false);
+            MoveTwoOverview.gameObject.SetActiveIfChanged(false);
             return true;
         }
         return false;
@@ -417,7 +415,7 @@ public class PosseUI : UIScreen {
             return;
         }
 
-        StartCoroutine(AnimateUIClose(root));
+        StartCoroutine(AnimateUIClose());
         activeDelt = null;
         UIManager.Inst.ItemsUI.activeItem = null;
     }

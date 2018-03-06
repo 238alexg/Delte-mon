@@ -58,7 +58,7 @@ public class DeltDexUI : UIScreen {
             allDexesLoaded = true;
         }
         base.Open();
-        DeltDexOverviewUI.gameObject.SetActive(false);
+        DeltDexOverviewUI.gameObject.SetActiveIfChanged(false);
     }
 
     // When dex list item pressed, loads that delt into dex overview UI
@@ -78,12 +78,12 @@ public class DeltDexUI : UIScreen {
         DeltDexOverviewUI.GetComponent<Image>().color = dex.major1.background;
         if (dex.major2.majorName == "NoMajor")
         {
-            DeltDexOverviewUI.GetChild(0).gameObject.SetActive(false);
+            DeltDexOverviewUI.GetChild(0).gameObject.SetActiveIfChanged(false);
         }
         else
         {
             DeltDexOverviewUI.GetChild(0).gameObject.GetComponent<Image>().color = dex.major2.background;
-            DeltDexOverviewUI.GetChild(0).gameObject.SetActive(true);
+            DeltDexOverviewUI.GetChild(0).gameObject.SetActiveIfChanged(true);
         }
 
         if (GameManager.Inst.pork)
@@ -129,7 +129,7 @@ public class DeltDexUI : UIScreen {
         // Set evolution buttons, onclick to load that evolution's dex to overview
         if (dex.prevEvol != null)
         {
-            prevEvol.gameObject.SetActive(true);
+            prevEvol.gameObject.SetActiveIfChanged(true);
             int dexIndex = GameManager.Inst.deltDex.FindIndex(dd => dd.actualName == dex.prevEvol.deltName);
             if (dexIndex != -1)
             {
@@ -150,11 +150,11 @@ public class DeltDexUI : UIScreen {
         }
         else
         {
-            prevEvol.gameObject.SetActive(false);
+            prevEvol.gameObject.SetActiveIfChanged(false);
         }
         if (dex.nextEvol != null)
         {
-            nextEvol.gameObject.SetActive(true);
+            nextEvol.gameObject.SetActiveIfChanged(true);
             int dexIndex = GameManager.Inst.deltDex.FindIndex(dd => dd.actualName == dex.nextEvol.deltName);
             if (dexIndex != -1)
             {
@@ -175,13 +175,13 @@ public class DeltDexUI : UIScreen {
         }
         else
         {
-            nextEvol.gameObject.SetActive(false);
+            nextEvol.gameObject.SetActiveIfChanged(false);
         }
 
         // Present UI when loaded
         if (!DeltDexOverviewUI.gameObject.activeInHierarchy)
         {
-            DeltDexOverviewUI.gameObject.SetActive(true);
+            DeltDexOverviewUI.gameObject.SetActiveIfChanged(true);
         }
     }
 
