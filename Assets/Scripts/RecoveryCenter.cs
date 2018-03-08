@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using BattleDelts.UI;
 
 public class RecoveryCenter: MonoBehaviour {
 

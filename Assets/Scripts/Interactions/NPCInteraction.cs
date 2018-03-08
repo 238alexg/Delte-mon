@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BattleDelts.UI;
 
 public class NPCInteraction : MonoBehaviour {
 	public string NPCName;

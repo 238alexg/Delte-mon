@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using BattleDelts.UI;
 
 public class MainMenuManager : MonoBehaviour {
 
