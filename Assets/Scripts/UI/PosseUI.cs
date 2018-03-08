@@ -8,7 +8,7 @@ public class PosseUI : UIScreen {
     public GameObject DeltOverviewUI;
     public Transform MoveOneOverview, MoveTwoOverview;
     public List<Button> MoveOptions;
-    public int overviewDeltIndex, firstMoveLoaded, secondMoveLoaded;
+    [System.NonSerialized] public int overviewDeltIndex, firstMoveLoaded = -1, secondMoveLoaded = -1;
     DeltemonClass activeDelt;
     public Sprite noStatus;
     List<Color> rarityColor;

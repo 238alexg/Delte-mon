@@ -370,7 +370,7 @@ public class ItemsUI : UIScreen {
             UIManager.Inst.PosseUI.loadDeltIntoPlayerOverview(UIManager.Inst.PosseUI.overviewDeltIndex);
         }
 
-        base.Open();
+        base.Close();
     }
     
     void AddListener(Button b, int i)

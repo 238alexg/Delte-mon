@@ -92,7 +92,10 @@ public class TallGrass : MonoBehaviour {
 				chosenDelt.initializeDelt ();
 
 				battleStepBuffer = 5;
-				Handheld.Vibrate ();
+
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+                Handheld.Vibrate ();
+#endif
 
 				// Start wild Delt battle
 				UIManager.StartWildBattle (chosenDelt);

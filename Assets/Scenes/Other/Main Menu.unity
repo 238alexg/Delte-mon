@@ -34086,7 +34086,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.22613285}
   m_AnchorMax: {x: 1, y: 0.36242282}
-  m_AnchoredPosition: {x: 22.400002, y: -1.6129131}
+  m_AnchoredPosition: {x: 22.400002, y: -1.6129093}
   m_SizeDelta: {x: -52.6, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2530
@@ -40578,7 +40578,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.42520693}
-  m_AnchoredPosition: {x: 0.12200165, y: -0.8796234}
+  m_AnchoredPosition: {x: 0.12200165, y: -0.8796158}
   m_SizeDelta: {x: -0.2400055, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &2871
@@ -55190,8 +55190,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: OpenItems
+      - m_Target: {fileID: 4149}
+        m_MethodName: Open
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -69960,8 +69960,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: CloseHelpMenu
+      - m_Target: {fileID: 4153}
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -76708,9 +76708,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3752}
-        m_MethodName: OpenDeltemon
-        m_Mode: 6
+      - m_Target: {fileID: 4155}
+        m_MethodName: Open
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -79794,9 +79794,6 @@ MonoBehaviour:
   - {fileID: 3528}
   - {fileID: 3353}
   - {fileID: 4026}
-  overviewDeltIndex: 0
-  firstMoveLoaded: 0
-  secondMoveLoaded: 0
   noStatus: {fileID: 21300134, guid: 69ef2c69aa07d4bc8a5c7e3169c15cde, type: 3}
 --- !u!114 &4156
 MonoBehaviour:
@@ -79812,13 +79809,13 @@ MonoBehaviour:
   root: {fileID: 400}
   Animator: {fileID: 1041}
   UIMode: 7
-  PlayerName: {fileID: 0}
-  ScrollSpeed: {fileID: 0}
-  MusicVolume: {fileID: 0}
-  FXVolume: {fileID: 0}
-  PorkToggle: {fileID: 0}
-  MaleImage: {fileID: 0}
-  FemaleImage: {fileID: 0}
+  PlayerName: {fileID: 3330}
+  ScrollSpeed: {fileID: 3673}
+  MusicVolume: {fileID: 3365}
+  FXVolume: {fileID: 3446}
+  PorkToggle: {fileID: 3148}
+  MaleImage: {fileID: 3700}
+  FemaleImage: {fileID: 3182}
 --- !u!1 &84332828
 GameObject:
   m_ObjectHideFlags: 0
