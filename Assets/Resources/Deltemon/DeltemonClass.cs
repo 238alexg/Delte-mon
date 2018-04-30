@@ -5,93 +5,130 @@ using UnityEngine;
 [System.Serializable]
 public class DeltemonClass : MonoBehaviour {
 
-	[Header("Static Info")]
-	public DeltDexClass deltdex;
+    [Header("Static Info")]
+    public DeltDexClass deltdex;
 
-	[Header("Dynamic Info")]
-	public string nickname;
-	public statusType curStatus;
-	public byte level;
-	public float experience;
-	public int XPToLevel;
-	public float health;
-	public ItemClass item;
-	public List<MoveClass> moveset;
-	public byte[] AVs = new byte[6] {0,0,0,0,0,0};
-	public byte AVCount;
-	public Sprite statusImage;
-	public float GPA, Truth, Courage, Faith, Power, ChillToPull;
+    [Header("Dynamic Info")]
+    public string nickname;
+    public statusType curStatus;
+    public byte level;
+    public float experience;
+    public int XPToLevel;
+    public float health;
+    public ItemClass item;
+    public List<MoveClass> moveset;
+    public byte[] AVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
+    public byte AVCount;
+    public Sprite statusImage;
+    public float GPA, Truth, Courage, Faith, Power, ChillToPull;
 
-	// Level up, checking for evolution
-	public string[] levelUp() {
-		level++;
-		experience = 0;
-		string[] text = new string[7];
+    public float GetStat(DeltStat stat)
+    {
+        switch (stat)
+        {
+            case DeltStat.GPA:
+                return GPA;
+            case DeltStat.Truth:
+                return Truth;
+            case DeltStat.Courage:
+                return Courage;
+            case DeltStat.Faith:
+                return Faith;
+            case DeltStat.Power:
+                return Power;
+            case DeltStat.ChillToPull:
+                return ChillToPull;
+            default:
+                throw new System.NotImplementedException();
+        }
+    }
 
-		// Perform increase to Stats, update levelup text
-		int oldValue;
-		int newValue;
-		int totalGained;
+    // Level up, checking for evolution
+    public string[] GetLevelUpText() {
+        level++;
+        experience = 0;
+        string[] text = new string[7];
 
-		// GPA
-		oldValue = (int)GPA;
-		GPA = GPA + ((deltdex.BVs [0] + AVs [0]) * 0.02f) + 1;
-		newValue = (int)GPA;
-		text [1] = newValue + " (+" + (newValue - oldValue) + ")";
-		totalGained = (newValue - oldValue);
+        // Perform increase to Stats, update levelup text
+        int oldValue;
+        int newValue;
+        int totalGained;
 
-		// Truth
-		oldValue = (int)Truth;
-		Truth = Truth + ((deltdex.BVs [1] + AVs [1]) * 0.02f) + 1;
-		newValue = (int)Truth;
-		text [2] = newValue + " (+" + (newValue - oldValue) + ")";
-		totalGained += (newValue - oldValue);
+        // REFACTOR_TODO: Jesus man make this a for loop/function or something!
 
-		// Courage
-		oldValue = (int)Courage;
-		Courage = Courage + ((deltdex.BVs [2] + AVs [2]) * 0.02f) + 1;
-		newValue = (int)Courage;
-		text [3] = newValue + " (+" + (newValue - oldValue) + ")";
-		totalGained += (newValue - oldValue);
+        // GPA
+        oldValue = (int)GPA;
+        GPA = GPA + ((deltdex.BVs[0] + AVs[0]) * 0.02f) + 1;
+        newValue = (int)GPA;
+        text[1] = newValue + " (+" + (newValue - oldValue) + ")";
+        totalGained = (newValue - oldValue);
 
-		// Faith
-		oldValue = (int)Faith;
-		Faith = Faith + ((deltdex.BVs [3] + AVs [3]) * 0.02f) + 1;
-		newValue = (int)Faith;
-		text [4] = newValue + " (+" + (newValue - oldValue) + ")";
-		totalGained += (newValue - oldValue);
+        // Truth
+        oldValue = (int)Truth;
+        Truth = Truth + ((deltdex.BVs[1] + AVs[1]) * 0.02f) + 1;
+        newValue = (int)Truth;
+        text[2] = newValue + " (+" + (newValue - oldValue) + ")";
+        totalGained += (newValue - oldValue);
 
-		// Power
-		oldValue = (int)Power;
-		Power = Power + ((deltdex.BVs [4] + AVs [4]) * 0.02f) + 1;
-		newValue = (int)Power;
-		text [5] = newValue + " (+" + (newValue - oldValue) + ")";
-		totalGained += (newValue - oldValue);
+        // Courage
+        oldValue = (int)Courage;
+        Courage = Courage + ((deltdex.BVs[2] + AVs[2]) * 0.02f) + 1;
+        newValue = (int)Courage;
+        text[3] = newValue + " (+" + (newValue - oldValue) + ")";
+        totalGained += (newValue - oldValue);
 
-		// ChillToPull
-		oldValue = (int)ChillToPull;
-		ChillToPull = ChillToPull + ((deltdex.BVs [5] + AVs [5]) * 0.02f) + 1;
-		newValue = (int)ChillToPull;
-		text [6] = newValue + " (+" + (newValue - oldValue) + ")";
-		totalGained += (newValue - oldValue);
+        // Faith
+        oldValue = (int)Faith;
+        Faith = Faith + ((deltdex.BVs[3] + AVs[3]) * 0.02f) + 1;
+        newValue = (int)Faith;
+        text[4] = newValue + " (+" + (newValue - oldValue) + ")";
+        totalGained += (newValue - oldValue);
 
-		// Calculate total points gained to display at top
-		int newTotal = (int)(GPA + Truth + Courage + Faith + Power + ChillToPull);
-		text [0] = newTotal + " (+" + totalGained + ")";
+        // Power
+        oldValue = (int)Power;
+        Power = Power + ((deltdex.BVs[4] + AVs[4]) * 0.02f) + 1;
+        newValue = (int)Power;
+        text[5] = newValue + " (+" + (newValue - oldValue) + ")";
+        totalGained += (newValue - oldValue);
 
-		// Update XP needed to level up again
-		XPToLevel = (level * 3) + (level * level * 3);
+        // ChillToPull
+        oldValue = (int)ChillToPull;
+        ChillToPull = ChillToPull + ((deltdex.BVs[5] + AVs[5]) * 0.02f) + 1;
+        newValue = (int)ChillToPull;
+        text[6] = newValue + " (+" + (newValue - oldValue) + ")";
+        totalGained += (newValue - oldValue);
 
-		// Completely heal Delt on level up
-		health = GPA;
+        // Calculate total points gained to display at top
+        int newTotal = (int)(GPA + Truth + Courage + Faith + Power + ChillToPull);
+        text[0] = newTotal + " (+" + totalGained + ")";
 
-		return text;
-	}
+        // Update XP needed to level up again
+        XPToLevel = (level * 3) + (level * level * 3);
 
-	public void learnNewMove(MoveClass newMove, int indexToRemove) {
-		newMove.PPLeft = newMove.PP;
-		moveset [indexToRemove] = newMove;
-	}
+        // Completely heal Delt on level up
+        health = GPA;
+
+        return text;
+    }
+
+    public void learnNewMove(MoveClass newMove, int indexToRemove) {
+        newMove.PPLeft = newMove.PP;
+        moveset[indexToRemove] = newMove;
+    }
+
+    public DeltDexClass GetNextEvolution()
+    {
+        // If Delt has a second evol and second evol stat is greater than the first
+        // Then the Delt becomes the second evol instead of the first
+        // REFACTOR_TODO: Refactor deltemon class to have references to only adjascent evolutions
+        if (deltdex.secondEvolution.secondEvol != null &&
+            AVs[deltdex.secondEvolution.firstEvolStat] <=
+            AVs[deltdex.secondEvolution.secEvolStat])
+        {
+            return deltdex.secondEvolution.secondEvol;
+        }
+        return deltdex.nextEvol;
+    }
 
 
 	public void initializeDelt(bool setMoves = true) {
@@ -230,6 +267,15 @@ public class DeltemonClass : MonoBehaviour {
 		}
 	}
 
+    public bool HasNoMovesLeft()
+    {
+        for (int i = 0; i < moveset.Count; i++)
+        {
+            if (moveset[i].PPLeft > 0) return true;
+        }
+        return false;
+    }
+
 	// Duplicate values into recipient Delt
 	public DeltemonClass dulplicateValues(DeltemonClass recipient) {
 		recipient.deltdex = deltdex;
@@ -251,4 +297,14 @@ public class DeltemonClass : MonoBehaviour {
 
 		return recipient;
 	}
+}
+
+public enum DeltStat
+{
+    GPA = 0,
+    Truth = 1,
+    Courage = 2,
+    Faith = 3,
+    Power = 4,
+    ChillToPull = 5
 }

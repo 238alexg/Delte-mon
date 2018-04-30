@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BattleDelts.UI;
+using BattleDelts.Battle;
 
 public class TallGrass : MonoBehaviour {
 

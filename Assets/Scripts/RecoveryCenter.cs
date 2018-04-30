@@ -399,7 +399,7 @@ public class RecoveryCenter: MonoBehaviour {
 		MoveOverview.GetComponent <Image>().color = move.majorType.background;
 		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
 
-		if (move.statType != statusType.None) {
+		if (move.statusType != statusType.None) {
 			MoveOverview.GetChild (1).gameObject.SetActive (true);
 			MoveOverview.GetChild (1).GetComponent <Image> ().sprite = move.status;
 		} else {
@@ -410,7 +410,7 @@ public class RecoveryCenter: MonoBehaviour {
 		MoveOverview.GetChild (3).GetComponent <Text>().text = move.moveDescription;
 
 		MoveOverview.GetChild (4).GetComponent <Text>().text = move.movType + System.Environment.NewLine + move.PP + System.Environment.NewLine +
-			move.damage + System.Environment.NewLine + move.hitChance + System.Environment.NewLine + move.statType;
+			move.damage + System.Environment.NewLine + move.hitChance + System.Environment.NewLine + move.statusType;
 
 		MoveOverview.gameObject.SetActive (true);
 	}

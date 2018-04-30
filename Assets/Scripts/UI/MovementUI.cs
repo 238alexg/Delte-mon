@@ -1,20 +1,17 @@
 ﻿
-namespace BattleDelts
+namespace BattleDelts.UI
 {
-    namespace UI
+    public class MovementUI : UIScreen
     {
-        public class MovementUI : UIScreen
+
+        public override void Open()
         {
+            root.SetActiveIfChanged(true);
+        }
 
-            public override void Open()
-            {
-                root.SetActiveIfChanged(true);
-            }
-
-            public override void Close()
-            {
-                root.SetActiveIfChanged(false);
-            }
+        public override void Close()
+        {
+            root.SetActiveIfChanged(false);
         }
     }
-} 
+}

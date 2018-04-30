@@ -113,6 +113,22 @@ public class GameManager : MonoBehaviour {
 		UIManager.allItemsLoaded = false;
 	}
 
+    public void HealAndResetPosse()
+    {
+        // Heal all player Delts after defeating gym
+        foreach (DeltemonClass delt in deltPosse)
+        {
+            delt.health = delt.GPA;
+            delt.curStatus = statusType.None;
+            // REFACTOR_TODO: Take image storage out of delt class
+            delt.statusImage = null;
+            foreach (MoveClass move in delt.moveset)
+            {
+                move.PPLeft = move.PP;
+            }
+        }
+    }
+
 	// Add new DeltDex Data entry to player
 	DeltDexData newDeltDexData (DeltDexClass deltDex) {
 		DeltDexData ddd = new DeltDexData ();
