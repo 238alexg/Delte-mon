@@ -35,14 +35,15 @@ namespace BattleDelts.Battle
             }
         }
 
-        protected override IEnumerator ForceOppLoss()
+        protected override void ForceOppLoss()
         {
             // REFACTOR_TODO: Run away sound in null slot
-            BattleManager.Inst.playerWon = true;
-            UIManager.Inst.StartMessage("Wild " + State.OpponentState.DeltInBattle.nickname + " has run out of moves and ran away!");
             BattleManager.Inst.wildPool = State.OpponentState.DeltInBattle;
-            BattleManager.AddToBattleQueue(() => BattleManager.Inst.EndBattle(true));
-            yield return null;
+
+            BattleManager.AddToBattleQueue(
+                "Wild " + State.OpponentState.DeltInBattle.nickname + " has run out of moves and ran away!", 
+                () => BattleManager.Inst.EndBattle(true)
+            );
         }
 
         // Calculates and message prompts user with coins won from wild battle

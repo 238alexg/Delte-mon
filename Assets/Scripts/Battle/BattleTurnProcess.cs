@@ -23,7 +23,6 @@ namespace BattleDelts.Battle
         // Calls animations and yeilds to them at appropiate times
 
         BattleState State;
-        bool NextActionRequested = false;
 
         List<Action> ActionQueue;
 
@@ -38,7 +37,7 @@ namespace BattleDelts.Battle
         public void StartTurn()
         {
             // REFACTOR_TODO: Does anything else need to happen here?
-            BattleManager.AddToBattleQueue(() => BattleManager.Inst.BattleUI.PresentMoveOptions());
+            BattleManager.AddToBattleQueue(action: () => BattleManager.Inst.BattleUI.PresentMoveOptions());
         }
 
         public void StartBattleExecution()
@@ -237,8 +236,10 @@ namespace BattleDelts.Battle
             else if (isPlayer)
             {
                 // Player must choose available Delt for switch in
-                BattleManager.AddToBattleQueue(State.GetPlayerName(isPlayer) + " must choose another Delt!");
-                BattleManager.AddToBattleQueue(() => UIManager.Inst.PosseUI.Open()); // REFACTOR_TODO: Should this call happen here?
+                BattleManager.AddToBattleQueue(
+                    State.GetPlayerName(isPlayer) + " must choose another Delt!",
+                    () => UIManager.Inst.PosseUI.Open()
+                ); // REFACTOR_TODO: Should this call happen here?
             }
             else
             {
@@ -248,7 +249,7 @@ namespace BattleDelts.Battle
 
                 if (switchIn != null)
                 {
-                    BattleManager.AddToBattleQueue(new SwitchDeltAction(State, switchIn).ExecuteAction());
+                    BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, switchIn).ExecuteAction());
                 }
                 else
                 {
@@ -437,7 +438,7 @@ namespace BattleDelts.Battle
             DeltDexClass nextEvol = evolvingDelt.GetNextEvolution();
 
             // Open Evolve UI
-            BattleManager.AddToBattleQueue(() => BattleManager.Inst.BattleUI.PresentEvolveUI(evolvingDelt, nextEvol));
+            BattleManager.AddToBattleQueue(action: () => BattleManager.Inst.BattleUI.PresentEvolveUI(evolvingDelt, nextEvol));
 
             // Text for before evolution animation
             if (GameManager.Inst.pork)

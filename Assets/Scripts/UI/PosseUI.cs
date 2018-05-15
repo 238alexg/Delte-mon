@@ -123,14 +123,14 @@ namespace BattleDelts.UI
                     {
                         UIManager.Inst.StartMessage(activeDelt.nickname + " has already DA'd!");
                     }
-                    else if (activeDelt == BattleManager.Inst.curPlayerDelt)
+                    else if (activeDelt == BattleManager.Inst.State.PlayerState.DeltInBattle)
                     {
                         UIManager.Inst.StartMessage(activeDelt.nickname + " is already in battle!");
                     }
                     else
                     {
                         StartCoroutine(AnimateUIClose());
-                        BattleManager.AddToBattleQueue(new SwitchDeltAction(BattleManager.Inst.State, activeDelt).ExecuteAction());
+                        BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(BattleManager.Inst.State, activeDelt).ExecuteAction());
                     }
                     activeDelt = null;
                 }
@@ -163,7 +163,7 @@ namespace BattleDelts.UI
             if (GameManager.Inst.pork)
             {
                 statCube.transform.GetChild(1).GetComponent<Text>().text = delt.nickname + " Pork, " + delt.level;
-                statCube.transform.GetChild(2).GetComponent<Image>().sprite = Pork.PorkSprite;
+                statCube.transform.GetChild(2).GetComponent<Image>().sprite = PorkManager.Inst.PorkSprite;
             }
             else
             {
@@ -274,7 +274,7 @@ namespace BattleDelts.UI
 
                 if (GameManager.Inst.pork)
                 {
-                    frontSprite.sprite = Pork.PorkSprite;
+                    frontSprite.sprite = PorkManager.Inst.PorkSprite;
                     nickname.text = "What is " + delt.nickname + " !?";
                     actualName.text = "Loinel " + delt.deltdex.deltName + " Baconius";
                 }

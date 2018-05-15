@@ -13,16 +13,18 @@ using UnityEngine.UI;
 
 namespace BattleDelts.Battle
 {
-	public class BattleAnimator : MonoBehaviour
+	public class BattleAnimator
 	{
         public Animator PlayerDeltSprite;
         public Animator OpponentDeltSprite;
 
         BattleState State;
-
-        public void Initialize(BattleState state)
+        
+        public BattleAnimator(BattleState state, Animator playerDeltAnim, Animator oppDeltAnim)
         {
             State = state;
+            PlayerDeltSprite = playerDeltAnim;
+            OpponentDeltSprite = oppDeltAnim;
         }
 
         public void TriggerDeltAnimation(string animationKey, bool isPlayer)

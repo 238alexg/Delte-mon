@@ -10,57 +10,10 @@ namespace BattleDelts.Battle
 {
     public class BattleManager : MonoBehaviour
     {
-        [Header("Battling Delts Info")]
-        public DeltemonClass wildPool;
-        public List<DeltemonClass> playerDelts;
-        public List<DeltemonClass> oppDelts;
-        public DeltemonClass curPlayerDelt;
-        public DeltemonClass curOppDelt;
-        int[] PlayerStatAdditions;
-        int[] OppStatAdditions;
-        public bool playerBlocked, oppBlocked, PlayerDA, OppDA, actionsComplete,
-            playerWon, finishLeveling, finishNewMove;
-        
-        [Header("Player Overview UI")]
-        public Image playerDeltSprite;
-        public Slider playerHealth;
-        public Image playerHealthBar;
-        public Slider playerXP;
-        public Text playerName;
-        public Image playerStatus;
-        public Text healthText;
-
-        [Header("Opp Overview UI")]
-        public Image oppDeltSprite;
-        public Slider oppHealth;
-        public Image oppHealthBar;
-        public Text oppName;
-        public Image oppStatus;
-        public GameObject isCaught;
-
-        [Header("Player Options")]
-        public GameObject PlayerOptions;
-        public List<Button> MoveOptions;
-        public List<Text> moveText;
-
-        [Header("Misc")]
-        public ItemClass deltBall;
-        public int coinsWon;
-        public bool DeltHasSwitched, forcePlayerSwitch;
-        public bool isMessageToDisplay = false;
-        public ItemClass activeItem;
-        public AudioClip battleMusic, bossWin;
-        public Text levelupText;
-        public Sprite porkBack;
-
-        // Non-public
-        public AudioClip sceneMusic;
-
-        BattleAction playerChoice;
-        public List<ItemClass> trainerItems;
-        public string trainerName;
-        public NPCInteraction trainer;
-
+        [NonSerialized] public DeltemonClass wildPool;
+        [NonSerialized] public AudioClip sceneMusic;
+        public AudioClip BattleMusic, bossWin;
+        public Animator PlayerDeltAnim, OppDeltAnim;
 
         #region BATTLE DELTS REFACTOR
         BattleSetUp SetUp;
@@ -87,18 +40,11 @@ namespace BattleDelts.Battle
 
         void Start()
         {
-            PlayerStatAdditions = new int[6] { 0, 0, 0, 0, 0, 0 };
-            OppStatAdditions = new int[6] { 0, 0, 0, 0, 0, 0 };
-            trainer = null;
-            playerWon = false;
-            forcePlayerSwitch = false;
-
             State = new BattleState();
             SetUp = new BattleSetUp(State);
             TurnProcess = new BattleTurnProcess(State);
             MoveSelection = new BattleMoveSelection(State);
-
-            Animator.Initialize(State);
+            Animator = new BattleAnimator(State, PlayerDeltAnim, OppDeltAnim);
         }
 
         public void StatusChange(bool isPlayer, statusType status)
@@ -124,22 +70,9 @@ namespace BattleDelts.Battle
         }
 
         // REFACTOR_TODO: This should be overloaded with text, action, and IEnumerators
-        public static void AddToBattleQueue(string item)
+        public static void AddToBattleQueue(string message = null, Action action = null, IEnumerator enumerator = null)
         {
-            // REFACTOR_TODO: Refactor UIManager and have 1 consolidated place to process items
-            throw new System.NotImplementedException("Consolidated queue doesn't exist yet!");
-        }
-
-        public static void AddToBattleQueue(IEnumerator item)
-        {
-            // REFACTOR_TODO: Refactor UIManager and have 1 consolidated place to process items
-            throw new System.NotImplementedException("Consolidated queue doesn't exist yet!");
-        }
-
-        public static void AddToBattleQueue(Action item)
-        {
-            // REFACTOR_TODO: Refactor UIManager and have 1 consolidated place to process items
-            throw new System.NotImplementedException("Consolidated queue doesn't exist yet!");
+            GameQueue.BattleAdd(message, action, enumerator);
         }
 
         public static void AddToBattleQueueImmediate(object item)
@@ -170,7 +103,6 @@ namespace BattleDelts.Battle
         // Update battles won
         public void PlayerWinBattle()
         {
-            playerWon = true;
             GameManager.Inst.battlesWon++;
 
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
@@ -181,22 +113,24 @@ namespace BattleDelts.Battle
             if (State.Type == BattleType.GymLeader)
             {
 #if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-				AchievementManager.Inst.GymLeaderBattles (trainerName);
+				AchievementManager.Inst.GymLeaderBattles (State.GetPlayerName(false));
 #endif
                 GameManager.Inst.HealAndResetPosse();
             }
             else
             {
-                QuestManager.QuestMan.BattleAcheivements(trainerName);
+                QuestManager.QuestMan.BattleAcheivements(State.GetPlayerName(false));
             }
 
             int coinsWon = State.OpponentAI.GetCoinsWon();
-
-            // Give player coins
-            AddToBattleQueue(State.GetPlayerName(true) + " has won " + coinsWon + " coins!");
-            AddToBattleQueue(() => SoundEffectManager.Inst.PlaySoundImmediate("coinDing"));
             GameManager.Inst.coins += coinsWon;
 
+            // Give player coins
+            AddToBattleQueue(
+                State.GetPlayerName(true) + " has won " + coinsWon + " coins!", 
+                () => SoundEffectManager.Inst.PlaySoundImmediate("coinDing")
+            );
+            
             EndBattle(true);
         }
 
@@ -224,8 +158,7 @@ namespace BattleDelts.Battle
             // If trainer battle, allow for dialogue/saving trainer defeat
             if (State.IsTrainer && playerWon)
             {
-                NPCInteraction tmpTrainer = trainer;
-                tmpTrainer.EndBattleActions();
+                ((TrainerAI)State.OpponentAI).Trainer.EndBattleActions();
             }
             else if (playerWon)
             {
@@ -239,15 +172,11 @@ namespace BattleDelts.Battle
                 GameManager.Inst.HealAndResetPosse();
 
                 TownRecoveryLocation trl = GameManager.Inst.FindTownRecov();
-                AddToBattleQueue(() => UIManager.Inst.SwitchLocationAndScene(trl.RecovX, trl.RecovY, trl.townName));
+                AddToBattleQueue(action: () => UIManager.Inst.SwitchLocationAndScene(trl.RecovX, trl.RecovY, trl.townName));
             }
 
-            trainer = null;
-            trainerItems = null;
-
-
             // Save the game
-            AddToBattleQueue(()=> GameManager.Inst.Save());
+            AddToBattleQueue(action: ()=> GameManager.Inst.Save());
         }
 
         void ReturnToWorld()
@@ -278,15 +207,7 @@ namespace BattleDelts.Battle
         public void ReturnToSceneMusic(bool isGymLeader = false)
         {
             AudioSource source = MusicManager.Inst.audiosource;
-            if (isGymLeader)
-            {
-                source.clip = bossWin;
-            }
-            else
-            {
-                source.clip = sceneMusic;
-            }
-
+            source.clip = isGymLeader ? bossWin : sceneMusic;
             source.Play();
         }
     }

@@ -16,13 +16,9 @@ namespace BattleDelts.UI
 {
 	public class BattleUI : MonoBehaviour
 	{
-        [Header("UI Info")]
-        public UIManager UIManager;
-        public GameManager gameManager;
         public GameObject MessageUI, PlayerOverview, MoveMenu, LevelUpUI, EvolveUI, NewMoveUI, PlayerOptions;
         public Color fullHealth, halfHealth, quarterHealth;
         public Sprite noStatus, daStatus, porkSprite, porkBack;
-        public Animator playerBattleAnim, oppBattleAnim;
         
         #region REFACTOR
         // REFACTOR_TODO: Organize these by themed header
@@ -30,11 +26,14 @@ namespace BattleDelts.UI
         public Slider PlayerHealthBar, OppHealthBar; // REFACTOR_TODO: make this private (used in heal/hurt coroutine)
         [SerializeField] Text HealthText, LevelUpText;
         public Slider ExperienceSlider; // REFACTOR_TODO: make this private (used in awarding XP coroutine)
-        [SerializeField] Image ExperienceBarBackground, PrevEvolveImage, NewEvolveImage, PlayerDeltSprite, PlayerHealthBarBackground, OppHealthBarBackground;
+        [SerializeField] Image ExperienceBarBackground, PlayerHealthBarBackground, OppHealthBarBackground;
+        
         [SerializeField] GameObject IsCaught;
         [SerializeField] MoveOption[] MoveOptions;
         [SerializeField] Sprite[] backgrounds;
         [SerializeField] Sprite[] podiums;
+
+        Image PrevEvolveImage, NewEvolveImage, PlayerDeltSprite;
 
         BattleTurnProcess TurnProcess;
         BattleState State;
@@ -132,7 +131,7 @@ namespace BattleDelts.UI
             }
             else
             {
-                IsCaught.SetActiveIfChanged(gameManager.deltDex.Exists(dd => dd.nickname == State.OpponentState.DeltInBattle.deltdex.nickname));
+                IsCaught.SetActiveIfChanged(GameManager.Inst.deltDex.Exists(dd => dd.nickname == State.OpponentState.DeltInBattle.deltdex.nickname));
             }
 
             deltInfo.HealthBarBackground.color = GetHealthBarColor(switchIn.health / switchIn.GPA);
@@ -242,7 +241,7 @@ namespace BattleDelts.UI
                 {
 
                     // Save index of move being forgotten
-                    int forgetMoveIndex = UIManager.secondMoveLoaded;
+                    int forgetMoveIndex = UIManager.Inst.secondMoveLoaded;
 
                     // Set move overviews and new move ui to inactive
                     NewMoveUI.SetActive(false);

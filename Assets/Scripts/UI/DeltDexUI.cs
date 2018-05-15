@@ -72,7 +72,7 @@ namespace BattleDelts.UI
         }
 
         // Loads DeltDex information into Dex Overview UI
-        public void LoadIntoDeltdexOverview(int i) // REFACTOR_TODO: 
+        public void LoadIntoDeltdexOverview(int i) // REFACTOR_TODO: Make this function not terrible and get references to all of these
         {
             DeltDexData ddd = GameManager.Inst.deltDex[i];
             curOverviewDex = (GameObject)Resources.Load("Deltemon/DeltDex/" + ddd.nickname + "DD");
@@ -94,7 +94,7 @@ namespace BattleDelts.UI
             {
                 // Set front and back image, respectively
                 DeltDexOverviewUI.GetChild(1).gameObject.GetComponent<Image>().sprite = PorkSprite;
-                DeltDexOverviewUI.GetChild(2).gameObject.GetComponent<Image>().sprite = BattleManager.Inst.porkBack;
+                DeltDexOverviewUI.GetChild(2).gameObject.GetComponent<Image>().sprite = PorkManager.Inst.PorkSprite;
                 // Set names and description
                 DeltDexOverviewUI.GetChild(5).gameObject.GetComponent<Text>().text = "What is " + dex.nickname + "!?";
                 DeltDexOverviewUI.GetChild(6).gameObject.GetComponent<Text>().text = "Ribbert " + dex.deltName + " Rinderson"; ;

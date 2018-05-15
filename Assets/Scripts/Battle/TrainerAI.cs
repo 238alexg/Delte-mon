@@ -6,9 +6,11 @@ namespace BattleDelts.Battle
 {
     public class TrainerAI : BattleAI
     {
-        List<DeltemonClass> oppDelts;
-        List<ItemClass> trainerItems;
+        public List<DeltemonClass> oppDelts;
+        public List<ItemClass> trainerItems;
         public string TrainerName;
+        public NPCInteraction Trainer;
+        public int CoinReward;
 
         int[] OppStatAdditions;
         int[] PlayerStatAdditions;
@@ -16,6 +18,11 @@ namespace BattleDelts.Battle
         public TrainerAI(BattleState state)
         {
             State = state;
+        }
+
+        public void Initialize(NPCInteraction trainer)
+        {
+            Trainer = trainer;
         }
 
         // Trainer AI chooses Action for battle. Actions include using item, using move, or switching Delts
@@ -68,7 +75,6 @@ namespace BattleDelts.Battle
                 return new SwitchDeltAction(State, switchIn);
             }
             throw new System.Exception("Battle AI reached no possible battle actions!");
-            return null;
         }
 
         // Decides if item should be used by the Trainer AI
@@ -296,7 +302,7 @@ namespace BattleDelts.Battle
                     }
 
                     // Cannot use block twice in a row
-                    if (BattleManager.Inst.oppBlocked)
+                    if (State.OpponentState.LastMove.movType == moveType.Block)
                     {
                         score = 0;
                     }
@@ -335,11 +341,6 @@ namespace BattleDelts.Battle
                     chosenMove = move;
                     topScore = score;
                 }
-            }
-
-            if (chosenMove != null && chosenMove.movType == moveType.Block)
-            {
-                BattleManager.Inst.oppBlocked = true;
             }
             return chosenMove;
         }
@@ -501,19 +502,17 @@ namespace BattleDelts.Battle
             return switchIn;
         }
 
-        protected override IEnumerator ForceOppLoss()
+        protected override void ForceOppLoss()
         {
-            BattleManager.Inst.playerWon = true;
-
             int coinsWon = GetCoinsWon();
-            UIManager.Inst.StartMessage(State.GetPlayerName(false) + " looks at you in amazement...");
-            UIManager.Inst.StartMessage("\"My Delts... they have no more moves!\"");
-            UIManager.Inst.StartMessage(GameManager.Inst.playerName + " has won " + coinsWon + " coins!");
-            GameManager.Inst.coins += coinsWon; 
+            GameManager.Inst.coins += coinsWon;
 
-            BattleManager.AddToBattleQueue(() => BattleManager.Inst.EndBattle(true));
-
-            yield return null;
+            BattleManager.AddToBattleQueue(State.GetPlayerName(false) + " looks at you in amazement...");
+            BattleManager.AddToBattleQueue("\"My Delts... they have no more moves!\"");
+            BattleManager.AddToBattleQueue(
+                State.GetPlayerName(true) + " has won " + coinsWon + " coins!", 
+                () => BattleManager.Inst.EndBattle(true)
+            );
         }
 
         public override int GetCoinsWon()

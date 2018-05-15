@@ -1,15 +1,34 @@
 ﻿using UnityEngine;
 
-public static class Pork
+namespace BattleDelts
 {
-    public static Sprite PorkSprite;
-
-    public static ItemClass Porkify(ItemClass item)
+    public class PorkManager : MonoBehaviour
     {
-        item.itemDescription = "What is pork!?";
-        item.itemImage = PorkSprite;
-        item.itemName = item.itemName + " Pork";
+        public static PorkManager Inst;
 
-        return item;
+        public static bool PorkActive = false;
+
+        public Sprite PorkSprite, BackSprite;
+
+        void Awake()
+        {
+            if (Inst != null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Inst = this;
+            }
+        }
+        
+        public static ItemClass Porkify(ItemClass item)
+        {
+            item.itemDescription = "What is pork!?";
+            //item.itemImage = PorkSprite;
+            item.itemName = item.itemName + " Pork";
+
+            return item;
+        }
     }
 }

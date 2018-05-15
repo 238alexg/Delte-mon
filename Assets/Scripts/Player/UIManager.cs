@@ -12,23 +12,12 @@ namespace BattleDelts.UI
         public Transform EntireUI;
         public GameObject SettingsUI, MessageUI, BattleUI;
         public RectTransform MessageSize;
-
-        [Header("Bag UI")]
+        
         public BagUI BagMenuUI;
-
-        [Header("Items UI")]
         public ItemsUI ItemsUI;
-
-        [Header("Deltemon UI")]
         public PosseUI PosseUI;
-
-        [Header("DeltDex UI")]
         public DeltDexUI DeltDexUI;
-
-        [Header("Help UI")]
         public HelpUI helpUI;
-
-        [Header("Credits UI")]
         public CreditsUI CreditsUI;
 
         public MapUI MapUI;
@@ -44,7 +33,7 @@ namespace BattleDelts.UI
         public PlayerMovement playerMovement;
         public MusicManager musicMan;
         public Fader fade;
-        public Sprite noStatus, porkSprite;
+        public Sprite noStatus;
         public Animator SceneChangeUI;
         public Text MessageText, SceneChangeText;
         public UIQueueItem queueHead;
@@ -392,8 +381,6 @@ namespace BattleDelts.UI
             yield return new WaitForSeconds(4.5f);
             SceneChangeUI.gameObject.SetActive(false);
         }
-
-
     }
 
     public enum UIMode
@@ -410,6 +397,7 @@ namespace BattleDelts.UI
         Help,
         Credits
     }
+
     [System.Serializable]
     public class UIQueueItem
     {

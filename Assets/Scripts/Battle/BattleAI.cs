@@ -12,7 +12,7 @@ namespace BattleDelts.Battle
         public abstract BattleAction ChooseNextAction();
 
         // When opp Delts have no more PP Left
-        protected abstract IEnumerator ForceOppLoss();
+        protected abstract void ForceOppLoss();
 
         public abstract int GetCoinsWon();
     }

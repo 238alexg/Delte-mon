@@ -157,7 +157,7 @@ namespace BattleDelts.UI
             if (GameManager.Inst.pork)
             {
                 ItemOverviewUI.GetChild(0).gameObject.GetComponent<Text>().text = "What is pork!?";
-                ItemOverviewUI.GetChild(1).gameObject.GetComponent<Image>().sprite = Pork.PorkSprite;
+                ItemOverviewUI.GetChild(1).gameObject.GetComponent<Image>().sprite = PorkManager.Inst.PorkSprite;
                 ItemOverviewUI.GetChild(2).gameObject.GetComponent<Text>().text = dispItem.itemName + "Pork";
                 ItemOverviewUI.GetChild(3).gameObject.GetComponent<Text>().text = dispItem.itemT + " Pork";
             }
@@ -197,7 +197,7 @@ namespace BattleDelts.UI
             if (UIManager.Inst.inBattle)
             {
                 // If player throwing a ball/using item on current battling Delt
-                if ((activeItem.itemT == itemType.Ball) || (activeDelt == BattleManager.Inst.curPlayerDelt))
+                if ((activeItem.itemT == itemType.Ball) || (activeDelt == BattleManager.Inst.State.PlayerState.DeltInBattle))
                 {
                     if (UIManager.Inst.PosseUI.gameObject.activeInHierarchy)
                     {

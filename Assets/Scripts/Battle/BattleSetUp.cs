@@ -47,84 +47,67 @@ namespace BattleDelts.Battle
         }
         
         // Function to initialize a new battle, for trainers and wild Delts
-        public void initializeBattle()
+        public void InitializeBattle()
         {
             BattleManager.Inst.BattleUI.LoadBackgroundAndPodium();
-
-            // REFACTOR_TODO: Remove these
-            BattleManager.Inst.DeltHasSwitched = true;
-            BattleManager.Inst.forcePlayerSwitch = false;
-            BattleManager.Inst.playerWon = false;
-            BattleManager.Inst.finishLeveling = false;
-            BattleManager.Inst.finishNewMove = false;
-
+            
             PlayBattleMusic();
 
             // Clear temp battle stats for player and opponent
             State.PlayerState.ResetStatAdditions();
             State.OpponentState.ResetStatAdditions();
-
-            // Set player delts
-            BattleManager.Inst.playerDelts = GameManager.Inst.deltPosse;
+            
+            State.PlayerState.Delts = GameManager.Inst.deltPosse;
 
             // Select current battling Delts, update UI
-            DeltemonClass startingPlayerDelt = BattleManager.Inst.playerDelts.Find(delt => delt.curStatus != statusType.DA);
-            BattleManager.AddToBattleQueue(new SwitchDeltAction(State, startingPlayerDelt).ExecuteAction()); 
+            State.PlayerState.DeltInBattle = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
+            BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, State.PlayerState.DeltInBattle).ExecuteAction()); 
         }
 
 
         // Initializes battle for a player vs. NPC battle
         public void StartTrainerBattle(NPCInteraction oppTrainer, bool isGymLeader)
         {
-            initializeBattle();
+            InitializeBattle();
 
-            BattleManager.Inst.trainer = oppTrainer;
+            InitializeTrainerAI(oppTrainer);
 
-            // Set opp Delts going into battle
-            BattleManager.Inst.oppDelts = BattleManager.Inst.trainer.oppDelts;
-
-            // Set number of Delts Opp has
-            Transform trainerBalls = BattleManager.Inst.BattleUI.transform.GetChild(2).GetChild(4);
-            for (int i = 0; i < 6; i++)
-            {
-                if (i < BattleManager.Inst.oppDelts.Count)
-                {
-                    trainerBalls.GetChild(i).GetComponent<Image>().color = Color.white;
-                }
-                else
-                {
-                    trainerBalls.GetChild(i).GetComponent<Image>().color = new Color(0.25f, 0.25f, 0.25f, 0.5f);
-                }
-            }
-            trainerBalls.gameObject.SetActive(true);
-
-            if (isGymLeader)
-            {
-                // LATER: Gym leader music.
-            }
-
-            // Set victory coins
-            BattleManager.Inst.coinsWon = BattleManager.Inst.trainer.coins;
-
-            // Set trainer items and name
-            BattleManager.Inst.trainerItems = BattleManager.Inst.trainer.trainerItems;
-            BattleManager.Inst.trainerName = BattleManager.Inst.trainer.NPCName;
+            State.Type = isGymLeader ? BattleType.GymLeader : BattleType.Trainer;
+            
+            BattleManager.Inst.BattleUI.UpdateTrainerPosseBalls();
 
             // Select current battling Delts, update UI
-            new SwitchDeltAction(State, BattleManager.Inst.oppDelts[0]); // REFACTOR_TODO: How to animate this?
+            BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, oppTrainer.oppDelts[0]).ExecuteAction());
 
             // End NPC Messages and start turn
-            BattleManager.AddToBattleQueue(() => UIManager.Inst.EndNPCMessage());
+            BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
             BattleManager.Inst.TurnProcess.StartTurn();
 
             // Remove NPC's notification chat bubble
-            BattleManager.AddToBattleQueue(() => UIManager.Inst.EndNPCMessage());
+            BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
+        }
+
+        public void InitializeTrainerAI(NPCInteraction trainer)
+        {
+            TrainerAI.Trainer = trainer;
+
+            // Set opp Delts going into battle
+            State.OpponentState.Delts = trainer.oppDelts;
+
+            // Set victory coins
+            TrainerAI.CoinReward = trainer.coins;
+
+            // Set trainer items and name
+            TrainerAI.trainerItems = trainer.trainerItems;
+            TrainerAI.TrainerName = trainer.NPCName;
+
+            State.OpponentAI = TrainerAI;
         }
 
         // Start a battle originating from TallGrass.cs
         public void StartWildBattle(DeltemonClass oppDeltSpawn)
         {
-            initializeBattle();
+            InitializeBattle();
 
             // Ensure Delt doesn't start with status affliction
             // REFACTOR_TODO: Put this in battle UI
@@ -144,7 +127,7 @@ namespace BattleDelts.Battle
         {
             AudioSource source = MusicManager.Inst.audiosource;
             BattleManager.Inst.sceneMusic = source.clip;
-            source.clip = BattleManager.Inst.battleMusic;
+            source.clip = BattleManager.Inst.BattleMusic;
             source.Play();
         }
     }
