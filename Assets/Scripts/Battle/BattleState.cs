@@ -50,6 +50,11 @@ namespace BattleDelts.Battle
             else return "Wild Delt"; // REFACTOR_TODO: Throw error here?
         }
 
+        public void RegisterAction(bool isPlayer, BattleAction action)
+        {
+            GetPlayerState(isPlayer).ChosenAction = action;
+        }
+
         public bool DeterminePlayerMovesFirst()
         {
             UseMoveAction playerMove = (UseMoveAction)PlayerState.ChosenAction;

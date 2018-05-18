@@ -131,12 +131,25 @@ namespace BattleDelts.UI
             }
             else
             {
-                IsCaught.SetActiveIfChanged(GameManager.Inst.deltDex.Exists(dd => dd.nickname == State.OpponentState.DeltInBattle.deltdex.nickname));
+                SetIsCaughtIcon();
             }
 
             deltInfo.HealthBarBackground.color = GetHealthBarColor(switchIn.health / switchIn.GPA);
 
             if (isPlayer) PopulateMoveset(switchIn);
+        }
+
+        public void SetIsCaughtIcon()
+        {
+            string OppDeltDexName = State.OpponentState.DeltInBattle.deltdex.nickname;
+            foreach (DeltDexData dd in GameManager.Inst.deltDex)
+            {
+                if (dd.nickname == OppDeltDexName)
+                {
+                    IsCaught.SetActiveIfChanged(true);
+                }
+            }
+            IsCaught.SetActiveIfChanged(false);
         }
 
         public void PopulateMoveset(DeltemonClass switchIn)
@@ -375,6 +388,7 @@ namespace BattleDelts.UI
             }
         }
 
+        [System.Serializable]
         public class DeltInfoUI
         {
             public Text NameText;

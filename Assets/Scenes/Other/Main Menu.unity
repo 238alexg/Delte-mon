@@ -50724,6 +50724,22 @@ MonoBehaviour:
   daStatus: {fileID: 21300060, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
   porkSprite: {fileID: 21300598, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   porkBack: {fileID: 21300596, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
+  PlayerDeltInfo:
+    NameText: {fileID: 3877}
+    HealthText: {fileID: 3394}
+    Image: {fileID: 3311}
+    Status: {fileID: 3803}
+    HealthBarBackground: {fileID: 3114}
+    HealthBar: {fileID: 3012}
+    ExperienceBar: {fileID: 3475}
+  OpponentDeltInfo:
+    NameText: {fileID: 3189}
+    HealthText: {fileID: 0}
+    Image: {fileID: 4047}
+    Status: {fileID: 3329}
+    HealthBarBackground: {fileID: 3350}
+    HealthBar: {fileID: 3290}
+    ExperienceBar: {fileID: 0}
   PlayerHealthBar: {fileID: 3012}
   OppHealthBar: {fileID: 3290}
   HealthText: {fileID: 3394}
@@ -67014,7 +67030,6 @@ MonoBehaviour:
   musicMan: {fileID: 3217}
   fade: {fileID: 3927}
   noStatus: {fileID: 21300076, guid: 49ce9dee259284098b706f936b1cb194, type: 3}
-  porkSprite: {fileID: 21300598, guid: 33c0fbfbb145e48faa4926d7a8e996dc, type: 3}
   SceneChangeUI: {fileID: 1043}
   MessageText: {fileID: 3503}
   SceneChangeText: {fileID: 3108}

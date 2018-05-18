@@ -49,6 +49,8 @@ namespace BattleDelts.Battle
         // Function to initialize a new battle, for trainers and wild Delts
         public void InitializeBattle()
         {
+            GameQueue.WorldAdd(action: () => GameQueue.Inst.ChangeQueueType(GameQueue.QueueType.Battle));
+
             BattleManager.Inst.BattleUI.LoadBackgroundAndPodium();
             
             PlayBattleMusic();
@@ -61,7 +63,8 @@ namespace BattleDelts.Battle
 
             // Select current battling Delts, update UI
             State.PlayerState.DeltInBattle = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
-            BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, State.PlayerState.DeltInBattle).ExecuteAction()); 
+            State.RegisterAction(true, new SwitchDeltAction(State, State.PlayerState.DeltInBattle));
+            BattleManager.AddToBattleQueue(enumerator: State.PlayerState.ChosenAction.ExecuteAction()); 
         }
 
 

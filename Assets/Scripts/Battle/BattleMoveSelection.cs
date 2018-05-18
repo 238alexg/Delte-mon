@@ -36,13 +36,13 @@ namespace BattleDelts.Battle
 
         public void RegisterPlayerAction(BattleAction action)
         {
-            State.PlayerState.ChosenAction = action;
+            State.RegisterAction(true, action);
             BattleManager.Inst.TurnProcess.StartBattleExecution();
         }
 
         public void RegisterOpponentAction(BattleAction action)
         {
-            State.OpponentState.ChosenAction = action;
+            State.RegisterAction(false, action);
         }
         
         public void TryThrowBall(ItemClass ball)

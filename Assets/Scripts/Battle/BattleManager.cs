@@ -45,6 +45,7 @@ namespace BattleDelts.Battle
             TurnProcess = new BattleTurnProcess(State);
             MoveSelection = new BattleMoveSelection(State);
             Animator = new BattleAnimator(State, PlayerDeltAnim, OppDeltAnim);
+            BattleUI.Initialize(TurnProcess, State);
         }
 
         public void StatusChange(bool isPlayer, statusType status)

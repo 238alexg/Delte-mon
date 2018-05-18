@@ -43,7 +43,7 @@ namespace BattleDelts.Battle
             // If it is not first turn, do slide in animation
             if (switchOut != null)
             {
-                QueueBattleText(SwitchIn.nickname + " has been switched in for " + switchOut.nickname);
+                BattleManager.AddToBattleQueue(SwitchIn.nickname + " has been switched in for " + switchOut.nickname);
             }
 
             // Add stat upgrades for Delt's item
@@ -55,7 +55,7 @@ namespace BattleDelts.Battle
 
                     BattleManager.Inst.Animator.TriggerDeltAnimation("Buff", IsPlayer);
 
-                    QueueBattleText(string.Format("{0}'s {1} raised it's {2} stat!", SwitchIn.nickname, SwitchIn.item.itemName, ((DeltStat)i).ToStatString()));
+                    BattleManager.AddToBattleQueue(string.Format("{0}'s {1} raised it's {2} stat!", SwitchIn.nickname, SwitchIn.item.itemName, ((DeltStat)i).ToStatString()));
                 }
             }
 

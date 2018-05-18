@@ -17,10 +17,5 @@ namespace BattleDelts.Battle
                 return State.PlayerState.ChosenAction == this;
             }
         }
-
-        protected void QueueBattleText(string text)
-        {
-            throw new System.NotImplementedException("Battle text queue not implemented!");
-        }
     }
 }

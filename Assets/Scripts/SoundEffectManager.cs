@@ -8,6 +8,7 @@ public class SoundEffectManager : MonoBehaviour {
 
 	public AudioSource source;
 	public List<SoundEffectTuple> allSounds;
+    public Dictionary<string, AudioClip> AllSounds;
 
 	public static SoundEffectManager Inst { get; private set; }
 
@@ -20,8 +21,16 @@ public class SoundEffectManager : MonoBehaviour {
 	}
 
 	public AudioClip FindAudioClip(string name) {
-		SoundEffectTuple SET = allSounds.Find (s => s.name == name);
-		return SET.sound;
+        // REFACTOR_TODO: Turn this array into the dictionary declared above
+
+        for (int i = 0; i < allSounds.Count; i++)
+        {
+            if (allSounds[i].name == name && allSounds[i].sound != null)
+            {
+                return allSounds[i].sound;
+            }
+        }
+        return null;
 	}
 
 	// Setting function: get FX sound volume and save
