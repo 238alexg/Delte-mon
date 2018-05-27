@@ -64,6 +64,7 @@ namespace BattleDelts.Battle
             // Select current battling Delts, update UI
             State.PlayerState.DeltInBattle = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
             State.RegisterAction(true, new SwitchDeltAction(State, State.PlayerState.DeltInBattle));
+
             BattleManager.AddToBattleQueue(enumerator: State.PlayerState.ChosenAction.ExecuteAction()); 
         }
 
@@ -112,10 +113,13 @@ namespace BattleDelts.Battle
         {
             InitializeBattle();
 
+            State.OpponentAI = WildAI;
+
             // Ensure Delt doesn't start with status affliction
             // REFACTOR_TODO: Put this in battle UI
             oppDeltSpawn.curStatus = statusType.None;
             oppDeltSpawn.statusImage = BattleManager.Inst.BattleUI.noStatus;
+            State.OpponentState.DeltInBattle = oppDeltSpawn;
 
             // REFACTOR_TODO: Serialize field
             BattleManager.Inst.BattleUI.transform.GetChild(2).GetChild(4).gameObject.SetActive(false);

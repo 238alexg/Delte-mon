@@ -26,7 +26,7 @@ namespace BattleDelts.Battle
         }
 
         // Trainer AI chooses Action for battle. Actions include using item, using move, or switching Delts
-        public override BattleAction ChooseNextAction()
+        public override BattleAction GetNextAction()
         {
             ItemClass chosenItem = ChooseTrainerItem();
             DeltemonClass playerDeltInBattle = State.PlayerState.DeltInBattle;

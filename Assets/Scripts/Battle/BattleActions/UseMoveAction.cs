@@ -28,6 +28,11 @@ namespace BattleDelts.Battle
 
         public override IEnumerator ExecuteAction()
         {
+            return InternalExecuteAction();
+        }
+
+        IEnumerator InternalExecuteAction()
+        {
             AttackingDelt = IsPlayer ? State.PlayerState.DeltInBattle : State.OpponentState.DeltInBattle;
             DefendingDelt = IsPlayer ? State.OpponentState.DeltInBattle : State.PlayerState.DeltInBattle;
 
@@ -37,8 +42,6 @@ namespace BattleDelts.Battle
             }
 
             UseMove();
-
-            yield break;
         }
 
         statusType[] preMoveStatuses = { statusType.Asleep, statusType.Drunk, statusType.High, statusType.Suspended };
@@ -52,17 +55,12 @@ namespace BattleDelts.Battle
                     return null;
             }
         }
-
-        void QueueBattleMessage(string message)
-        {
-            throw new NotImplementedException("Unimplemented exception: Queue Battle Message");
-        }
         
         IEnumerator PerformPreMoveStatus()
         {
             PreMoveStatusData statusData = GetAttackingStatusEffect(AttackingDelt.curStatus);
 
-            QueueBattleMessage(AttackingDelt.nickname + statusData.StatusActiveText); // "Delt is this status"
+            BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + statusData.StatusActiveText); // "Delt is this status"
             BattleManager.Inst.Animator.TriggerDeltAnimation(statusData.AnimationAndSoundKey, IsPlayer);
 
             if (AttackingDelt.curStatus != statusType.Drunk)
@@ -70,12 +68,12 @@ namespace BattleDelts.Battle
                 // If Delt comes down
                 if (Random.Range(0, 100) <= statusData.ChanceToRecover)
                 {
-                    QueueBattleMessage(AttackingDelt.nickname + statusData.StatusRemovalText);
+                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + statusData.StatusRemovalText);
                     BattleManager.Inst.StatusChange(IsPlayer, statusType.None);
                 }
                 else
                 {
-                    QueueBattleMessage(AttackingDelt.nickname + statusData.StatusContinueText);
+                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + statusData.StatusContinueText);
                 }
             }
             else // Drunk-specific effects
@@ -89,14 +87,14 @@ namespace BattleDelts.Battle
                     
                     yield return new WaitForSeconds(1);
 
-                    QueueBattleMessage(AttackingDelt.nickname + " hurt itself in it's drunkeness!"); // REFACTOR_TODO: Random string from array of drunk hurt strings
+                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " hurt itself in it's drunkeness!"); // REFACTOR_TODO: Random string from array of drunk hurt strings
                     yield return BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHurtDelt(IsPlayer));
 
                     // Player DA's
                     if (AttackingDelt.health <= 0)
                     {
                         AttackingDelt.health = 0;
-                        QueueBattleMessage(AttackingDelt.nickname + " has DA'd for being too Drunk!");
+                        BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " has DA'd for being too Drunk!");
                         BattleManager.Inst.StatusChange(IsPlayer, statusType.DA);
                         CheckLoss(IsPlayer);
                     }
@@ -104,7 +102,7 @@ namespace BattleDelts.Battle
                 // Attacker relieved from Drunk status
                 else if (Random.Range(0, 100) <= statusData.ChanceToRecover) // Recovery chance is 27%
                 {
-                    QueueBattleMessage(AttackingDelt.nickname + " has sobered up!");
+                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " has sobered up!");
                     BattleManager.Inst.StatusChange(IsPlayer, statusType.None);
                 }
             }
@@ -119,14 +117,14 @@ namespace BattleDelts.Battle
         void UseMove()
         {
             // Display attack choice
-            QueueBattleMessage(AttackingDelt.nickname + " used " + Move.moveName + "!");
+            BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " used " + Move.moveName + "!");
 
             // If the first move is a hit
             if (Random.Range(0, 100) <= Move.hitChance)
             {
                 if (Move.movType == moveType.Block)
                 {
-                    QueueBattleMessage(AttackingDelt.nickname + " blocks!");
+                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " blocks!");
                     return;
                 }
 
@@ -140,7 +138,7 @@ namespace BattleDelts.Battle
                 {
                     if (buff.buffT == buffType.Heal)
                     {
-                        QueueBattleMessage(AttackingDelt.nickname + " cut a deal with the Director of Academic Affairs!");
+                        BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " cut a deal with the Director of Academic Affairs!");
                         BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHealDelt(IsPlayer));
                         // REFACTOR_TODO: Add to animation queue
                     }
@@ -155,7 +153,7 @@ namespace BattleDelts.Battle
             // Attack missed!
             else
             {
-                QueueBattleMessage("But " + AttackingDelt.nickname + " missed!");
+                BattleManager.AddToBattleQueue(message: "But " + AttackingDelt.nickname + " missed!");
             }
 
             // Player loses/selects another Delt
@@ -216,19 +214,19 @@ namespace BattleDelts.Battle
 
             if (isCrit)
             {
-                QueueBattleMessage("It's a critical hit!");
+                BattleManager.AddToBattleQueue(message: "It's a critical hit!");
             }
 
             if (effectiveness != Effectiveness.Average)
             {
-                QueueBattleMessage(GetEffectivenessMessage(effectiveness));
+                BattleManager.AddToBattleQueue(message: GetEffectivenessMessage(effectiveness));
             }
 
             // If Delt passed out
             if (DefendingDelt.health <= 0)
             {
                 DefendingDelt.health = 0;
-                QueueBattleMessage(DefendingDelt.nickname + " has DA'd!");
+                BattleManager.AddToBattleQueue(message: DefendingDelt.nickname + " has DA'd!");
                 BattleManager.Inst.StatusChange(!IsPlayer, statusType.DA);
                 CheckLoss(!IsPlayer);
             }
@@ -264,7 +262,7 @@ namespace BattleDelts.Battle
                 BattleManager.Inst.Animator.TriggerDeltAnimation("Buff", isPlayer);
             }
             // yield return new WaitForSeconds(0.5f); // REFACTOR_TODO: Handle animation somehow
-            QueueBattleMessage(buffMessage);
+            BattleManager.AddToBattleQueue(message: buffMessage);
         }
 
         void TryToSetStatus(MoveClass move)
@@ -278,7 +276,7 @@ namespace BattleDelts.Battle
                 // Update defender status
                 BattleManager.Inst.StatusChange(!IsPlayer, move.statusType);
 
-                QueueBattleMessage(string.Format("{0} is now {1}!", DefendingDelt.nickname, DefendingDelt.curStatus));
+                BattleManager.AddToBattleQueue(message: string.Format("{0} is now {1}!", DefendingDelt.nickname, DefendingDelt.curStatus));
             }
         }
         

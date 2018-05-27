@@ -37,6 +37,7 @@ namespace BattleDelts.Battle
         public void StartTurn()
         {
             // REFACTOR_TODO: Does anything else need to happen here?
+            State.OpponentAI.ChooseNextAction();
             BattleManager.AddToBattleQueue(action: () => BattleManager.Inst.BattleUI.PresentMoveOptions());
         }
 
@@ -51,33 +52,33 @@ namespace BattleDelts.Battle
 
             if (State.PlayerState.ChosenAction.Type != BattleActionType.Move)
             {
-                ExecuteTurnActions(playerFirst: true);
+                BattleManager.AddToBattleQueue(enumerator: ExecuteTurnActions(playerFirst: true));
             }
             else if (State.OpponentState.ChosenAction.Type != BattleActionType.Move)
             {
-                ExecuteTurnActions(playerFirst: false);
+                BattleManager.AddToBattleQueue(enumerator: ExecuteTurnActions(playerFirst: false));
             }
             else
             {
-                ExecuteTurnActions(State.DeterminePlayerMovesFirst());
+                BattleManager.AddToBattleQueue(enumerator: ExecuteTurnActions(State.DeterminePlayerMovesFirst()));
             }
         }
 
-        public void ExecuteTurnActions(bool playerFirst)
+        public IEnumerator ExecuteTurnActions(bool playerFirst)
         {
             // REFACTOR_TODO: Check for loss conditions literally everywhere
 
             if (playerFirst)
             {
-                State.PlayerState.ChosenAction.ExecuteAction();
+                yield return State.PlayerState.ChosenAction.ExecuteAction();
                 BattleManager.Inst.CheckWinCondition();
-                State.OpponentState.ChosenAction.ExecuteAction();
+                yield return State.OpponentState.ChosenAction.ExecuteAction();
             }
             else
             {
-                State.OpponentState.ChosenAction.ExecuteAction();
+                yield return State.OpponentState.ChosenAction.ExecuteAction();
                 BattleManager.Inst.CheckWinCondition();
-                State.PlayerState.ChosenAction.ExecuteAction();
+                yield return State.PlayerState.ChosenAction.ExecuteAction();
             }
             BattleManager.Inst.CheckWinCondition();
 

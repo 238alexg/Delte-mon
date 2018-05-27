@@ -305,6 +305,11 @@ namespace BattleDelts.UI
             MoveMenu.SetActive(false);
             PlayerOptions.SetActive(true);
         }
+
+        public void RunButtonPress()
+        {
+            BattleManager.Inst.MoveSelection.TryRun();
+        }
         
         public void UpdateHealthBarText(string text)
         {
@@ -425,7 +430,7 @@ namespace BattleDelts.UI
 
             public void Populate(MoveClass move)
             {
-                Button.interactable = move.PPLeft <= 0;
+                Button.interactable = move.PPLeft > 0;
 
                 // REFACTOR_TODO: Move this pork case somewhere?
                 bool pork = GameManager.Inst.pork;

@@ -9,7 +9,12 @@ namespace BattleDelts.Battle
     {
         protected BattleState State;
 
-        public abstract BattleAction ChooseNextAction();
+        public void ChooseNextAction()
+        {
+            State.RegisterAction(false, GetNextAction());
+        }
+
+        public abstract BattleAction GetNextAction();
 
         // When opp Delts have no more PP Left
         protected abstract void ForceOppLoss();

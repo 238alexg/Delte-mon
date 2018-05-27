@@ -13,7 +13,7 @@ namespace BattleDelts.Battle
         }
 
         // Wild Delt move = random move from moveset
-        public override BattleAction ChooseNextAction()
+        public override BattleAction GetNextAction()
         {
             List<MoveClass> movesWithUses = new List<MoveClass>();
             foreach (MoveClass move in State.OpponentState.DeltInBattle.moveset)

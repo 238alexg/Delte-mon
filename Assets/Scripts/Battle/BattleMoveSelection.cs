@@ -27,13 +27,7 @@ namespace BattleDelts.Battle
         {
             State = state;
         }
-
-        public void StartMoveSelection()
-        {
-            RegisterOpponentAction(State.OpponentAI.ChooseNextAction());
-            BattleManager.Inst.BattleUI.PresentMoveOptions();
-        }
-
+        
         public void RegisterPlayerAction(BattleAction action)
         {
             State.RegisterAction(true, action);

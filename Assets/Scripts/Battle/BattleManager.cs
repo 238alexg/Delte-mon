@@ -92,7 +92,10 @@ namespace BattleDelts.Battle
         {
             // REFACTOR_TODO: If win condition is met, remove all battle items from queue and add battle end conditions to queue
             // REFACTOR_TODO: Use state AI to determine win conditions/add more functionality to later battles
-            throw new System.NotImplementedException("Win condition checking doesn't exist yet!");
+
+            return false;
+
+            //throw new System.NotImplementedException("Win condition checking doesn't exist yet!");
         }
 
         // REFACTOR_TODO: Temporary until moveclass is no longer a Monobehavior
