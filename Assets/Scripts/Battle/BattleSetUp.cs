@@ -123,8 +123,8 @@ namespace BattleDelts.Battle
 
             // REFACTOR_TODO: Serialize field
             BattleManager.Inst.BattleUI.transform.GetChild(2).GetChild(4).gameObject.SetActive(false);
-
-            new SwitchDeltAction(State, oppDeltSpawn); // REFACTOR_TODO: This used to be a coroutine
+            
+            BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, oppDeltSpawn).ExecuteAction());
 
             BattleManager.AddToBattleQueue("A wild " + oppDeltSpawn.deltdex.nickname + " appeared!");
             BattleManager.Inst.TurnProcess.StartTurn();
