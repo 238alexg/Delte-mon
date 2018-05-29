@@ -19,9 +19,10 @@ namespace BattleDelts.UI
         public GameObject MessageUI, PlayerOverview, MoveMenu, LevelUpUI, EvolveUI, NewMoveUI, PlayerOptions;
         public Color fullHealth, halfHealth, quarterHealth;
         public Sprite noStatus, daStatus, porkSprite, porkBack;
-        
+
         #region REFACTOR
         // REFACTOR_TODO: Organize these by themed header
+#pragma warning disable 0649
         [SerializeField] DeltInfoUI PlayerDeltInfo, OpponentDeltInfo;
         public Slider PlayerHealthBar, OppHealthBar; // REFACTOR_TODO: make this private (used in heal/hurt coroutine)
         [SerializeField] Text HealthText, LevelUpText;
@@ -32,10 +33,8 @@ namespace BattleDelts.UI
         [SerializeField] MoveOption[] MoveOptions;
         [SerializeField] Sprite[] backgrounds;
         [SerializeField] Sprite[] podiums;
-
-        Image PrevEvolveImage, NewEvolveImage, PlayerDeltSprite;
-
-        BattleTurnProcess TurnProcess;
+#pragma warning restore 0649
+        
         BattleState State;
         
         // ON UPDATES: PUT FRATERNITY NAMES HERE
@@ -45,7 +44,6 @@ namespace BattleDelts.UI
 
         public void Initialize(BattleTurnProcess turnProcess, BattleState state)
         {
-            TurnProcess = turnProcess;
             State = state;
 
             for (int i = 0; i < 4; i++)
@@ -210,16 +208,13 @@ namespace BattleDelts.UI
 
 
         // User clicks Learn New Move or Don't Learn
-        public void NewMoveButtonPress(bool isLearn)
+        public void NewMoveButtonPress(bool isLearn, System.Action OnFinish)
         {
             // REFACTOR_TODO: Make references
             Text cancelText = NewMoveUI.transform.GetChild(5).GetChild(0).GetComponent<Text>();
             Text learnText = NewMoveUI.transform.GetChild(4).GetChild(0).GetComponent<Text>();
             DeltemonClass delt = State.PlayerState.DeltInBattle;
-
-            // REFACTOR_TODO: Use button onPress actions instead of this awkward logic
-            bool finishNewMove = false; // REFACTOR_TODO: what does this do?
-
+            
             // Presses the cancel button
             if (!isLearn)
             {
@@ -232,7 +227,7 @@ namespace BattleDelts.UI
                     delt.moveset.RemoveAt(4);
                     NewMoveUI.SetActive(false);
                     UIManager.Inst.PosseUI.CloseMoveOverviews();
-                    finishNewMove = true;
+                    OnFinish();
                 }
                 // Cancel button must be pressed again to confirm
                 else
@@ -271,7 +266,7 @@ namespace BattleDelts.UI
 
                     BattleManager.AddToBattleQueue(string.Format("{0} learned the move {1}!", delt.nickname, newMove.moveName));
 
-                    finishNewMove = true;
+                    OnFinish();
                 }
                 // Cancel button must be pressed again to confirm
                 else
@@ -375,7 +370,7 @@ namespace BattleDelts.UI
             EvolveUI.SetActive(true);
 
             // Set battle image to new image
-            PlayerDeltSprite.sprite = evolvingDelt.deltdex.backImage;
+            PlayerDeltInfo.Image.sprite = evolvingDelt.deltdex.backImage;
         }
 
         public void HideEvolveUI()

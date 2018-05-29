@@ -169,10 +169,11 @@ public class MoveClass : MonoBehaviour {
 }
 
 [System.Serializable]
-public class buffTuple {
-	public bool isBuff;
-	public buffType buffT;
-	public byte buffAmount;
+public class buffTuple
+{
+	public bool HasPositiveEffect;
+	public buffType BuffType;
+	public byte BuffAmount;
 }
 
 public enum moveType {

@@ -24,6 +24,8 @@ namespace BattleDelts.Battle
         {
             State = state;
             Move = move;
+            AttackingDelt = IsPlayer ? state.PlayerState.DeltInBattle : state.OpponentState.DeltInBattle;
+            DefendingDelt = IsPlayer ? state.OpponentState.DeltInBattle : state.PlayerState.DeltInBattle;
         }
 
         public override IEnumerator ExecuteAction()
@@ -33,84 +35,8 @@ namespace BattleDelts.Battle
 
         IEnumerator InternalExecuteAction()
         {
-            AttackingDelt = IsPlayer ? State.PlayerState.DeltInBattle : State.OpponentState.DeltInBattle;
-            DefendingDelt = IsPlayer ? State.OpponentState.DeltInBattle : State.PlayerState.DeltInBattle;
-
-            if (preMoveStatuses.Contains(AttackingDelt.curStatus))
-            {
-                yield return BattleManager.Inst.StartCoroutine(PerformPreMoveStatus());
-            }
-
             UseMove();
-        }
-
-        statusType[] preMoveStatuses = { statusType.Asleep, statusType.Drunk, statusType.High, statusType.Suspended };
-        statusType[] postMoveStatuses = { statusType.Roasted, statusType.Indebted, statusType.Plagued };
-
-        PreMoveStatusData GetAttackingStatusEffect(statusType statusType)
-        {
-            switch (statusType)
-            {
-                default:
-                    return null;
-            }
-        }
-        
-        IEnumerator PerformPreMoveStatus()
-        {
-            PreMoveStatusData statusData = GetAttackingStatusEffect(AttackingDelt.curStatus);
-
-            BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + statusData.StatusActiveText); // "Delt is this status"
-            BattleManager.Inst.Animator.TriggerDeltAnimation(statusData.AnimationAndSoundKey, IsPlayer);
-
-            if (AttackingDelt.curStatus != statusType.Drunk)
-            {
-                // If Delt comes down
-                if (Random.Range(0, 100) <= statusData.ChanceToRecover)
-                {
-                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + statusData.StatusRemovalText);
-                    BattleManager.Inst.StatusChange(IsPlayer, statusType.None);
-                }
-                else
-                {
-                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + statusData.StatusContinueText);
-                }
-            }
-            else // Drunk-specific effects
-            {
-                // If Delt hurts himself
-                if (Random.Range(0, 100) <= 30)
-                {
-                    AttackingDelt.health = AttackingDelt.health - (AttackingDelt.GPA * 0.05f);
-
-                    BattleManager.Inst.Animator.TriggerDeltAnimation("Hurt", IsPlayer);
-                    
-                    yield return new WaitForSeconds(1);
-
-                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " hurt itself in it's drunkeness!"); // REFACTOR_TODO: Random string from array of drunk hurt strings
-                    yield return BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHurtDelt(IsPlayer));
-
-                    // Player DA's
-                    if (AttackingDelt.health <= 0)
-                    {
-                        AttackingDelt.health = 0;
-                        BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " has DA'd for being too Drunk!");
-                        BattleManager.Inst.StatusChange(IsPlayer, statusType.DA);
-                        CheckLoss(IsPlayer);
-                    }
-                }
-                // Attacker relieved from Drunk status
-                else if (Random.Range(0, 100) <= statusData.ChanceToRecover) // Recovery chance is 27%
-                {
-                    BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " has sobered up!");
-                    BattleManager.Inst.StatusChange(IsPlayer, statusType.None);
-                }
-            }
-        }
-
-        void CheckLoss(bool CheckingPlayer)
-        {
-
+            yield return null;
         }
         
         // Returns true if move was a successful blocking move
@@ -136,7 +62,7 @@ namespace BattleDelts.Battle
                 // Do move buffs
                 foreach (buffTuple buff in Move.buffs)
                 {
-                    if (buff.buffT == buffType.Heal)
+                    if (buff.BuffType == buffType.Heal)
                     {
                         BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " cut a deal with the Director of Academic Affairs!");
                         BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHealDelt(IsPlayer));
@@ -144,7 +70,7 @@ namespace BattleDelts.Battle
                     }
                     else
                     {
-                        PerformMoveBuff(buff, buff.isBuff ? AttackingDelt : DefendingDelt);
+                        PerformMoveBuff(buff, buff.HasPositiveEffect ? AttackingDelt : DefendingDelt);
                     }
                 }
 
@@ -154,12 +80,6 @@ namespace BattleDelts.Battle
             else
             {
                 BattleManager.AddToBattleQueue(message: "But " + AttackingDelt.nickname + " missed!");
-            }
-
-            // Player loses/selects another Delt
-            if (DefendingDelt.health <= 0)
-            {
-                CheckLoss(DefendingDelt == State.PlayerState.DeltInBattle);
             }
         }
 
@@ -228,7 +148,6 @@ namespace BattleDelts.Battle
                 DefendingDelt.health = 0;
                 BattleManager.AddToBattleQueue(message: DefendingDelt.nickname + " has DA'd!");
                 BattleManager.Inst.StatusChange(!IsPlayer, statusType.DA);
-                CheckLoss(!IsPlayer);
             }
         }
 
@@ -246,13 +165,13 @@ namespace BattleDelts.Battle
 
         void PerformMoveBuff(buffTuple buff, DeltemonClass buffedDelt)
         {
-            DeltStat stat = GetDeltStatFromBuffT(buff.buffT);
+            DeltStat stat = GetDeltStatFromBuffT(buff.BuffType);
             bool isPlayer = buffedDelt == State.PlayerState.DeltInBattle;
-            float valueChange = buff.buffAmount * 0.02f * buffedDelt.GetStat(stat) + buff.buffAmount;
-            string buffMessage = string.Format("{0}'s {1} stat went {2} {3}!", buffedDelt.nickname, stat, buff.buffAmount > 5 ? "waaay" : "", buff.isBuff ? "up" : "down");
+            float valueChange = buff.BuffAmount * 0.02f * buffedDelt.GetStat(stat) + buff.BuffAmount;
+            string buffMessage = string.Format("{0}'s {1} stat went {2} {3}!", buffedDelt.nickname, stat, buff.BuffAmount > 5 ? "waaay" : "", buff.HasPositiveEffect ? "up" : "down");
             State.ChangeStatAddition(isPlayer, stat, valueChange);
 
-            if (buff.isBuff)
+            if (buff.HasPositiveEffect)
             {
                 valueChange *= -1;
                 BattleManager.Inst.Animator.TriggerDeltAnimation("Debuff", isPlayer);
@@ -278,15 +197,6 @@ namespace BattleDelts.Battle
 
                 BattleManager.AddToBattleQueue(message: string.Format("{0} is now {1}!", DefendingDelt.nickname, DefendingDelt.curStatus));
             }
-        }
-        
-        class PreMoveStatusData
-        {
-            public int ChanceToRecover;
-            public string StatusRemovalText;
-            public string StatusContinueText;
-            public string StatusActiveText;
-            public string AnimationAndSoundKey;
         }
     }
 }

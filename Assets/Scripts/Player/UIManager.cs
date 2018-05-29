@@ -44,9 +44,7 @@ namespace BattleDelts.UI
         public GameObject NPCName;
         public List<Color> itemColors;
         public Animator NPCSlideIn;
-
-
-        int firstMoveLoaded;
+        
         public int secondMoveLoaded;
 
         public Coroutine curCoroutine { get; private set; }
@@ -74,7 +72,6 @@ namespace BattleDelts.UI
             queueHead = new UIQueueItem();
             activeDelt = null;
             activeItem = null;
-            firstMoveLoaded = -1;
             secondMoveLoaded = -1;
 
             currentUI = UIMode.World;

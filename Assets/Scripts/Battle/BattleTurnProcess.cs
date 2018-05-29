@@ -69,9 +69,20 @@ namespace BattleDelts.Battle
             // REFACTOR_TODO: Check for loss conditions literally everywhere
 
             if (playerFirst)
-            {
+            {   
+                if (State.PlayerState.ChosenAction.Type == BattleActionType.Move)
+                {
+                    yield return CheckAttackingDeltStatus(State.PlayerState, true);
+                    BattleManager.Inst.CheckWinCondition();
+                }
                 yield return State.PlayerState.ChosenAction.ExecuteAction();
                 BattleManager.Inst.CheckWinCondition();
+
+                if (State.OpponentState.ChosenAction.Type == BattleActionType.Move)
+                {
+                    yield return CheckAttackingDeltStatus(State.OpponentState, true);
+                    BattleManager.Inst.CheckWinCondition();
+                }
                 yield return State.OpponentState.ChosenAction.ExecuteAction();
             }
             else
@@ -93,7 +104,7 @@ namespace BattleDelts.Battle
 
         statusType[] AttackingStatusEffects = { };
 
-        PreMoveStatusData GetAttackingStatusEffect(statusType statusType)
+        StatusAffectData GetAttackingStatusEffect(statusType statusType)
         {
             switch (statusType)
             {
@@ -111,7 +122,7 @@ namespace BattleDelts.Battle
                 yield break;
             }
 
-            PreMoveStatusData statusData = GetAttackingStatusEffect(attacker.curStatus);
+            StatusAffectData statusData = GetAttackingStatusEffect(attacker.curStatus);
 
             BattleManager.AddToBattleQueue(attacker.nickname + statusData.StatusActiveText);
 
@@ -138,7 +149,9 @@ namespace BattleDelts.Battle
                     attacker.health = attacker.health - (attacker.GPA * 0.05f);
                     BattleManager.Inst.Animator.TriggerDeltAnimation("Hurt", isPlayer); // 1 second
                     BattleManager.AddToBattleQueue(attacker.nickname + " hurt itself in it's drunkeness!");
-                    //BattleManager.AddToBattleQueue(hurtDelt(isPlayer)); // REFACTOR_TODO: Find proper location for this
+                    
+                    // REFACTOR_TODO: Find proper location for this
+                    //yield return BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHurtDelt(isPlayer));
 
                     // Player DA's // REFACTOR_TODO: This should be in the hurt function
                     if (attacker.health <= 0)
@@ -157,9 +170,9 @@ namespace BattleDelts.Battle
             }
         }
 
-        statusType[] PostMoveStatusEffects = { };
+        statusType[] PostMoveStatusEffects = { statusType.Roasted, statusType.Indebted, statusType.Plagued };
 
-        PostMoveStatusData GetPostMoveStatusEffect(statusType statusType)
+        StatusAffectData GetPostMoveStatusEffect(statusType statusType)
         {
             switch (statusType)
             {
@@ -181,7 +194,7 @@ namespace BattleDelts.Battle
                     delt.health = 0;
                 }
 
-                PostMoveStatusData statusEffect = GetPostMoveStatusEffect(delt.curStatus);
+                StatusAffectData statusEffect = GetPostMoveStatusEffect(delt.curStatus);
 
                 // If opp Delt is Roasted
                 if (delt.curStatus == statusType.Roasted)
@@ -486,24 +499,17 @@ namespace BattleDelts.Battle
         }
         
         // REFACTOR_TODO: Determine if these need to be seperate
-        class PreMoveStatusData
+        class StatusAffectData
         {
+            // REFACTOR_TODO: Load these in from a JSON file or make them scriptable objects
+#pragma warning disable 0649
             public int ChanceToRemove;
             public string StatusRemovalText;
             public string StatusContinueText;
             public string StatusActiveText;
             public string AnimationAndSoundKey;
             public int AnimationTime; // REFACTOR_TODO: Determine if this is needed
-        }
-
-        class PostMoveStatusData
-        {
-            public int ChanceToRemove;
-            public string StatusRemovalText;
-            public string StatusContinueText;
-            public string StatusActiveText;
-            public string AnimationAndSoundKey;
-            public int AnimationTime; // REFACTOR_TODO: Determine if this is needed
+#pragma warning restore 0649
         }
     }
 }

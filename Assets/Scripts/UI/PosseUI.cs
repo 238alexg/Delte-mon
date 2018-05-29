@@ -15,7 +15,6 @@ namespace BattleDelts.UI
         [System.NonSerialized] public int overviewDeltIndex, firstMoveLoaded = -1, secondMoveLoaded = -1;
         DeltemonClass activeDelt;
         public Sprite noStatus;
-        List<Color> rarityColor;
 
         // Load deltPosse into Deltemon UI
         public void Open(bool forceSwitchIn)
@@ -145,7 +144,7 @@ namespace BattleDelts.UI
                     else
                     {
                         activeDelt = GameManager.Inst.deltPosse[overviewDeltIndex];
-                        root.transform.GetChild(overviewDeltIndex + 1).gameObject.GetComponent<Image>().color = rarityColor[1];
+                        root.transform.GetChild(overviewDeltIndex + 1).gameObject.GetComponent<Image>().color = Color.gray;
                     }
                 }
             }

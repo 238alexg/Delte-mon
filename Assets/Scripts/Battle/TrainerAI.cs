@@ -11,9 +11,6 @@ namespace BattleDelts.Battle
         public string TrainerName;
         public NPCInteraction Trainer;
         public int CoinReward;
-
-        int[] OppStatAdditions;
-        int[] PlayerStatAdditions;
         
         public TrainerAI(BattleState state)
         {
@@ -155,7 +152,7 @@ namespace BattleDelts.Battle
             float tmpBuffScore = 0;
             DeltemonClass deltInBattle = State.OpponentState.DeltInBattle;
 
-            if (buff.buffT == buffType.Heal)
+            if (buff.BuffType == buffType.Heal)
             {
                 if (deltInBattle.health < 0.4 * deltInBattle.GPA)
                 {
@@ -166,86 +163,86 @@ namespace BattleDelts.Battle
                     tmpBuffScore = 1;
                 }
 
-                tmpBuffScore *= buff.buffAmount;
+                tmpBuffScore *= buff.BuffAmount;
 
             }
             else
             {
                 byte index = 0;
-                switch (buff.buffT)
+                switch (buff.BuffType)
                 {
                     case (buffType.Truth):
                         index = 1;
                         // Priority for if oppDelt has TruthAtk and it buffs oppDelt
-                        if (buff.isBuff && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
+                        if (buff.HasPositiveEffect && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         // Priority for if player has TruthAtk and it debuffs player
-                        else if (!buff.isBuff && (curPlayerDelt.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
+                        else if (!buff.HasPositiveEffect && (curPlayerDelt.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         break;
                     case (buffType.Courage):
                         index = 2;
                         // Priority for if oppDelt has powerAtk and it debuffs player
-                        if (!buff.isBuff && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))))
+                        if (!buff.HasPositiveEffect && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         // Priority for if player has powerAtk and it buffs oppDelt
-                        else if (buff.isBuff && (curPlayerDelt.moveset.Exists(m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))))
+                        else if (buff.HasPositiveEffect && (curPlayerDelt.moveset.Exists(m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         break;
                     case (buffType.Faith):
                         index = 3;
                         // Priority for if oppDelt has truthAtk and it debuffs player
-                        if (!buff.isBuff && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
+                        if (!buff.HasPositiveEffect && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         // Priority for if player has truthAtk and it buffs oppDelt
-                        else if (buff.isBuff && (curPlayerDelt.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
+                        else if (buff.HasPositiveEffect && (curPlayerDelt.moveset.Exists(m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         break;
                     case (buffType.Power):
                         index = 4;
                         // Priority for if oppDelt has PowerAtk and it buffs oppDelt
-                        if (buff.isBuff && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))))
+                        if (buff.HasPositiveEffect && (deltInBattle.moveset.Exists(m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         // Priority for if player has PowerAtk and it debuffs player
-                        else if (!buff.isBuff && (curPlayerDelt.moveset.Exists(m => (m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))
+                        else if (!buff.HasPositiveEffect && (curPlayerDelt.moveset.Exists(m => (m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         break;
                     case (buffType.ChillToPull):
                         index = 5;
-                        float oppCTP = deltInBattle.ChillToPull + OppStatAdditions[index];
-                        float playerCTP = curPlayerDelt.ChillToPull + PlayerStatAdditions[index];
+                        float oppCTP = State.OpponentState.GetDeltBattleStat(DeltStat.ChillToPull);
+                        float playerCTP = State.PlayerState.GetDeltBattleStat(DeltStat.ChillToPull);
 
                         // If opp speed is less than player's, and within an amendable range
                         // Note: Buff type does not matter in this context
                         if ((oppCTP < playerCTP) && (oppCTP > 0.80f * playerCTP))
                         {
-                            tmpBuffScore = 15 * buff.buffAmount;
+                            tmpBuffScore = 15 * buff.BuffAmount;
                         }
                         break;
                 }
 
                 // If a buff/debuff has already affected the Delt, lower the priority of the buff/debuff
-                if (buff.isBuff && OppStatAdditions[index] > 0)
+                if (buff.HasPositiveEffect && State.OpponentState.StatAdditions[index] > 0)
                 {
                     tmpBuffScore *= 0.8f;
                 }
-                else if (!buff.isBuff && OppStatAdditions[index] < 0)
+                else if (!buff.HasPositiveEffect && State.OpponentState.StatAdditions[index] < 0)
                 {
                     tmpBuffScore *= 0.8f;
                 }
@@ -348,26 +345,16 @@ namespace BattleDelts.Battle
         // Calculates how effective it would be to keep Delt in
         float CalculateStayScore(MoveClass chosenMove, DeltemonClass curPlayerDelt)
         {
-            bool oppGoesFirst;
+            bool oppGoesFirst = State.PlayerState.GetDeltBattleStat(DeltStat.ChillToPull) >
+                    State.OpponentState.GetDeltBattleStat(DeltStat.ChillToPull);
             float stayChance = 100;
             DeltemonClass deltInBattle = State.OpponentState.DeltInBattle;
-
-            // Calculate who goes first and set oppGoesFirst variable
-            if (deltInBattle.ChillToPull + (OppStatAdditions[5] * 0.1f * deltInBattle.deltdex.BVs[5]) >
-                curPlayerDelt.ChillToPull + (PlayerStatAdditions[5] * 0.1f * curPlayerDelt.deltdex.BVs[5]))
-            {
-                oppGoesFirst = true;
-            }
-            else
-            {
-                oppGoesFirst = false;
-            }
-
+            
             // If opponent has a status
             if (deltInBattle.curStatus != statusType.None)
             {
                 // If move doesn't heal
-                if (!chosenMove.buffs.Exists(b => b.buffT == buffType.Heal))
+                if (!chosenMove.buffs.Exists(b => b.BuffType == buffType.Heal))
                 {
 
                     // Lower health == lower stayChance

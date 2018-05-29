@@ -40,7 +40,8 @@ namespace BattleDelts.UI
                 }
                 catch (System.Exception e)
                 {
-
+                    // REFACTOR_TODO: Fix errors from opening up the map
+                    Debug.LogError("Opening map exception: " + e);
                 }
             }
 

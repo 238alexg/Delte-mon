@@ -118,10 +118,9 @@ namespace BattleDelts
 
         QueueItem GetNextQueueItem()
         {
-            QueueItem queueItem;
             if (ImmediateQueue.Count > 0)
             {
-                queueItem = ImmediateQueue.Dequeue();
+                return ImmediateQueue.Dequeue();
             }
             else
             {

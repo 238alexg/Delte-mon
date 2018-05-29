@@ -6,6 +6,7 @@ namespace BattleDelts.UI
 {
     public class SettingsUI : UIScreen
     {
+#pragma warning disable 0649
         [SerializeField] InputField PlayerName;
         [SerializeField] Slider ScrollSpeed;
         [SerializeField] Slider MusicVolume;
@@ -13,6 +14,7 @@ namespace BattleDelts.UI
         [SerializeField] Toggle PorkToggle;
 
         [SerializeField] Image MaleImage, FemaleImage;
+#pragma warning restore 0649
 
         // Open settings menu on settings button push
         public override void Open()
