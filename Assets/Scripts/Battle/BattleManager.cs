@@ -36,8 +36,6 @@ namespace BattleDelts.Battle
             Inst = this;
         }
 
-        BattleAction oppChoice;
-
         void Start()
         {
             State = new BattleState();
@@ -93,9 +91,7 @@ namespace BattleDelts.Battle
             // REFACTOR_TODO: If win condition is met, remove all battle items from queue and add battle end conditions to queue
             // REFACTOR_TODO: Use state AI to determine win conditions/add more functionality to later battles
 
-            return false;
-
-            //throw new System.NotImplementedException("Win condition checking doesn't exist yet!");
+            throw new System.NotImplementedException("Win condition checking doesn't exist yet!");
         }
 
         // REFACTOR_TODO: Temporary until moveclass is no longer a Monobehavior

@@ -26,7 +26,7 @@ namespace BattleDelts.UI
         public Slider PlayerHealthBar, OppHealthBar; // REFACTOR_TODO: make this private (used in heal/hurt coroutine)
         [SerializeField] Text HealthText, LevelUpText;
         public Slider ExperienceSlider; // REFACTOR_TODO: make this private (used in awarding XP coroutine)
-        [SerializeField] Image ExperienceBarBackground, PlayerHealthBarBackground, OppHealthBarBackground;
+        [SerializeField] Image ExperienceBarBackground;
         
         [SerializeField] GameObject IsCaught;
         [SerializeField] MoveOption[] MoveOptions;
@@ -134,7 +134,7 @@ namespace BattleDelts.UI
                 SetIsCaughtIcon();
             }
 
-            deltInfo.HealthBarBackground.color = GetHealthBarColor(switchIn.health / switchIn.GPA);
+            deltInfo.HealthBarImage.color = GetHealthBarColor(switchIn.health / switchIn.GPA);
 
             if (isPlayer) PopulateMoveset(switchIn);
         }
@@ -318,7 +318,7 @@ namespace BattleDelts.UI
 
         public void UpdateHealthBarColor(bool isPlayer, DeltemonClass delt)
         {
-            Image healthBarBackground = isPlayer ? PlayerHealthBarBackground : OppHealthBarBackground;
+            Image healthBarBackground = isPlayer ? PlayerDeltInfo.HealthBarImage : OpponentDeltInfo.HealthBarImage;
             Color healthBarColor = GetHealthBarColor(delt.health / delt.GPA);
 
             if (healthBarBackground.color != healthBarColor)
@@ -400,7 +400,7 @@ namespace BattleDelts.UI
             public Text HealthText;
             public Image Image;
             public Image Status;
-            public Image HealthBarBackground;
+            public Image HealthBarImage;
             public Slider HealthBar;
             public Slider ExperienceBar;
         }
@@ -434,7 +434,7 @@ namespace BattleDelts.UI
 
                 // REFACTOR_TODO: Move this pork case somewhere?
                 bool pork = GameManager.Inst.pork;
-                Background.color = pork ? new Color(0.967f, 0.698f, 0.878f) : move.majorType.background;
+                Background.color = pork ? PorkManager.PorkColor : move.majorType.background;
                 MoveText.text = pork ? "What is pork?!" + System.Environment.NewLine + "Porks: " + move.PPLeft + "/ PORK" :
                     move.moveName + System.Environment.NewLine + "PP: " + move.PPLeft + "/" + move.PP;
                 Move = move;

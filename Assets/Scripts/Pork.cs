@@ -8,6 +8,8 @@ namespace BattleDelts
 
         public static bool PorkActive = false;
 
+        public static Color PorkColor = new Color(0.967f, 0.698f, 0.878f);
+
         public Sprite PorkSprite, BackSprite;
 
         void Awake()

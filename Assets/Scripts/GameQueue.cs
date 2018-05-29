@@ -98,6 +98,8 @@ namespace BattleDelts
                         yield return CoroutineParent.StartCoroutine(UIManager.Inst.displayMessage(queueItem.Message));
                         // Wait for message to finish
                         yield return new WaitUntil(() => UIManager.Inst.endMessage);
+
+                        UIManager.Inst.endMessage = false;
                         UIManager.Inst.MessageUI.SetActiveIfChanged(false);
                     }
                     if (queueItem.Action != null)
