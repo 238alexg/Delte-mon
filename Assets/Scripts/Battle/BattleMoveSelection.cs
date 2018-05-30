@@ -49,7 +49,7 @@ namespace BattleDelts.Battle
             else
             {
                 // REFACTOR_TODO: Message that trainer slapped the ball away
-                BattleManager.Inst.BattleUI.PresentMoveOptions();
+                BattleManager.Inst.BattleUI.PresentPlayerOptions();
             }
         }
 
@@ -70,7 +70,7 @@ namespace BattleDelts.Battle
             else
             {
                 UIManager.Inst.StartMessage(errorMessage);
-                BattleManager.Inst.BattleUI.PresentMoveOptions();
+                BattleManager.Inst.BattleUI.PresentPlayerOptions();
             }
         }
         
@@ -90,7 +90,7 @@ namespace BattleDelts.Battle
             else
             {
                 // REFACTOR_TODO: Message that the Delt is DA'd
-                BattleManager.Inst.BattleUI.PresentMoveOptions();
+                BattleManager.Inst.BattleUI.PresentPlayerOptions();
             }
         }
 
@@ -119,7 +119,7 @@ namespace BattleDelts.Battle
             else
             {
                 UIManager.Inst.StartMessage(errorMessage);
-                BattleManager.Inst.BattleUI.PresentMoveOptions();
+                BattleManager.Inst.BattleUI.PresentPlayerOptions();
             }
         }
         
@@ -152,7 +152,7 @@ namespace BattleDelts.Battle
             {
                 UIManager.Inst.StartMessage("The other trainer notices you tiptoeing away from battle...");
                 UIManager.Inst.StartMessage("You feel absolutely ashamed, and return to the fight.");
-                BattleManager.Inst.BattleUI.PresentMoveOptions();
+                BattleManager.Inst.BattleUI.PresentPlayerOptions();
             }
         }
     }

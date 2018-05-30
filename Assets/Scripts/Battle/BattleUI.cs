@@ -289,16 +289,22 @@ namespace BattleDelts.UI
             NewMoveUI.SetActive(true);
         }
 
+        public void PresentPlayerOptions()
+        {
+            PlayerOptions.SetActiveIfChanged(true);
+            MoveMenu.SetActiveIfChanged(false);
+        }
+
         public void PresentMoveOptions()
         {
-            PlayerOptions.SetActive(false);
-            MoveMenu.SetActive(true);
+            PlayerOptions.SetActiveIfChanged(false);
+            MoveMenu.SetActiveIfChanged(true);
         }
 
         public void HideMoveOptions()
         {
-            MoveMenu.SetActive(false);
-            PlayerOptions.SetActive(true);
+            MoveMenu.SetActiveIfChanged(false);
+            PlayerOptions.SetActiveIfChanged(true);
         }
 
         public void RunButtonPress()

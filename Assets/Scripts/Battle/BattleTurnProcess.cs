@@ -38,7 +38,7 @@ namespace BattleDelts.Battle
         {
             // REFACTOR_TODO: Does anything else need to happen here?
             State.OpponentAI.ChooseNextAction();
-            BattleManager.AddToBattleQueue(action: () => BattleManager.Inst.BattleUI.PresentMoveOptions());
+            BattleManager.AddToBattleQueue(action: () => BattleManager.Inst.BattleUI.PresentPlayerOptions());
         }
 
         public void StartBattleExecution()

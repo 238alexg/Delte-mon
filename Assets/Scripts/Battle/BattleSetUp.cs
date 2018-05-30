@@ -84,11 +84,11 @@ namespace BattleDelts.Battle
             BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, oppTrainer.oppDelts[0]).ExecuteAction());
 
             // End NPC Messages and start turn
-            BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
+            //BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
             BattleManager.Inst.TurnProcess.StartTurn();
 
             // Remove NPC's notification chat bubble
-            BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
+            //BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
         }
 
         public void InitializeTrainerAI(NPCInteraction trainer)
