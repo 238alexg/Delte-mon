@@ -23,33 +23,43 @@ namespace BattleDelts.Battle
             Type = BattleActionType.Ball;
         }
 
-        public override IEnumerator ExecuteAction()
+        void ThrowBallTrainerReaction()
         {
-            return ThrowBall();
+            QueueBattleMessage("You throw a " + Ball.itemName + ", but the trainer bats it away!");
+
+            QueueBattleMessage("\"What the hell, man?\"");
+
+            // REFACTOR_TODO: Get trainer on screen and then remove here
+            // REFACTOR_TODO: Check this earlier in the code, not here (this occurs after all action validation)
         }
 
-        void QueueBattleMessage(string message)
+        void CaptureDelt()
         {
-            throw new System.NotImplementedException("Unimplemented exception: Queue Battle Message");
+            QueueBattleMessage(State.OpponentState.DeltInBattle.nickname + " was caught!");
+
+            if (GameManager.Inst.deltPosse.Count == 6)
+            {
+                QueueBattleMessage("Posse full, " + State.OpponentState.DeltInBattle.nickname + " has been added to your house.");
+            }
+
+            GameManager.Inst.AddDelt(State.OpponentState.DeltInBattle);
+#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
+			    AchievementManager.Inst.DeltsRushedUpdate ();
+#endif
+            BattleManager.Inst.EndBattle(true);
         }
 
+        // REFACTOR_TODO: Figure out whether to wait on these animations 
+        // or whether it would be easier to do your own animation coroutines
         // Player throws a ball at the opposing (hopefully wild) Delt
-        public IEnumerator ThrowBall()
+        public override void ExecuteAction()
         {
             // If not a wild battle, Trainer bats away ball in disgust
             if (State.IsTrainer)
             {
-                QueueBattleMessage("You throw a " + Ball.itemName + ", but the trainer bats it away!");
-
-                QueueBattleMessage("\"What the hell, man?\"");
-
-                // REFACTOR_TODO: Get trainer on screen and then remove here
-                // REFACTOR_TODO: Check this earlier in the code, not here (this occurs after all action validation)
-
-                yield break;
+                ThrowBallTrainerReaction();
+                return;
             }
-
-            //PlayerOptions.SetActive(false); REFACTOR_TODO: Remove this once battle actions do this automatically
 
             QueueBattleMessage("You threw a " + Ball.itemName + "!");
 
@@ -62,59 +72,47 @@ namespace BattleDelts.Battle
             BattleManager.Inst.Animator.TriggerDeltAnimation("ThrowBall", false);
             SoundEffectManager.Inst.PlaySoundImmediate("BallTink");
 
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
             BattleManager.Inst.Animator.TriggerDeltAnimation("FadeOut", false);
 
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
             SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2");
 
-            yield return new WaitForSeconds(1);
+            //yield return new WaitForSeconds(1);
 
             // Play sounds for ball shakes
             if (ballRattles > 1)
             {
                 SoundEffectManager.Inst.PlaySoundImmediate("BallRattle1");
-                yield return new WaitForSeconds(1);
-
-                if (ballRattles > 2)
-                {
-                    SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2");
-                    yield return new WaitForSeconds(1);
-
-                    if (ballRattles > 3)
-                    {
-                        SoundEffectManager.Inst.PlaySoundImmediate("BallClick");
-                        yield return new WaitForSeconds(1);
-                    }
-                }
+                //yield return new WaitForSeconds(1);
             }
-
-            if (ballRattles == 4)
+            if (ballRattles > 2)
             {
+                SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2");
+                //yield return new WaitForSeconds(1);
+            }
+            if (ballRattles > 3) // Capture Delt
+            {
+                SoundEffectManager.Inst.PlaySoundImmediate("BallClick");
+                //yield return new WaitForSeconds(1);
                 // REFACTOR_TODO: Set win condition on battle
-                QueueBattleMessage(State.OpponentState.DeltInBattle.nickname + " was caught!");
-
-                if (GameManager.Inst.deltPosse.Count == 6)
-                {
-                    QueueBattleMessage("Posse full, " + State.OpponentState.DeltInBattle.nickname + " has been added to your house.");
-                }
-
-                GameManager.Inst.AddDelt(State.OpponentState.DeltInBattle);
-#if !UNITY_EDITOR && (UNITY_IOS || UNITY_ANDROID)
-			    AchievementManager.Inst.DeltsRushedUpdate ();
-#endif
-                BattleManager.Inst.EndBattle(true);
+                CaptureDelt();
             }
             else
             {
                 BattleManager.Inst.Animator.TriggerDeltAnimation("BallReleaseFadeIn", false);
 
-                yield return new WaitForSeconds(0.5f);
+                //yield return new WaitForSeconds(0.5f);
 
                 QueueBattleMessage(State.OpponentState.DeltInBattle.nickname + " escaped!");
             }
+        }
+
+        void QueueBattleMessage(string message)
+        {
+            throw new System.NotImplementedException("Unimplemented exception: Queue Battle Message");
         }
 
         int GetBallModifier(ItemClass ball)

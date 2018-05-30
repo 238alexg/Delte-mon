@@ -75,7 +75,7 @@ namespace BattleDelts.Battle
                     yield return CheckAttackingDeltStatus(State.PlayerState, true);
                     BattleManager.Inst.CheckWinCondition();
                 }
-                yield return State.PlayerState.ChosenAction.ExecuteAction();
+                State.PlayerState.ChosenAction.ExecuteAction();
                 BattleManager.Inst.CheckWinCondition();
 
                 if (State.OpponentState.ChosenAction.Type == BattleActionType.Move)
@@ -83,13 +83,13 @@ namespace BattleDelts.Battle
                     yield return CheckAttackingDeltStatus(State.OpponentState, true);
                     BattleManager.Inst.CheckWinCondition();
                 }
-                yield return State.OpponentState.ChosenAction.ExecuteAction();
+                State.OpponentState.ChosenAction.ExecuteAction();
             }
             else
             {
-                yield return State.OpponentState.ChosenAction.ExecuteAction();
+                State.OpponentState.ChosenAction.ExecuteAction();
                 BattleManager.Inst.CheckWinCondition();
-                yield return State.PlayerState.ChosenAction.ExecuteAction();
+                State.PlayerState.ChosenAction.ExecuteAction();
             }
             BattleManager.Inst.CheckWinCondition();
 
@@ -263,7 +263,7 @@ namespace BattleDelts.Battle
 
                 if (switchIn != null)
                 {
-                    BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, switchIn).ExecuteAction());
+                    new SwitchDeltAction(State, switchIn).ExecuteAction();
                 }
                 else
                 {

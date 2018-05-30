@@ -129,7 +129,7 @@ namespace BattleDelts.UI
                     else
                     {
                         StartCoroutine(AnimateUIClose());
-                        BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(BattleManager.Inst.State, activeDelt).ExecuteAction());
+                        new SwitchDeltAction(BattleManager.Inst.State, activeDelt).ExecuteAction();
                     }
                     activeDelt = null;
                 }

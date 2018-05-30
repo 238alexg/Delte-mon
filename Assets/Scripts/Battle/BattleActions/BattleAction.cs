@@ -8,7 +8,7 @@ namespace BattleDelts.Battle
     {
         protected BattleState State;
         public BattleActionType Type;
-        public abstract IEnumerator ExecuteAction();
+        public abstract void ExecuteAction();
 
         protected bool IsPlayer
         {

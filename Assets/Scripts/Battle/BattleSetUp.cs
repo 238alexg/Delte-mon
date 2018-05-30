@@ -65,7 +65,7 @@ namespace BattleDelts.Battle
             State.PlayerState.DeltInBattle = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
             State.RegisterAction(true, new SwitchDeltAction(State, State.PlayerState.DeltInBattle));
 
-            BattleManager.AddToBattleQueue(enumerator: State.PlayerState.ChosenAction.ExecuteAction()); 
+            State.PlayerState.ChosenAction.ExecuteAction(); 
         }
 
 
@@ -81,7 +81,7 @@ namespace BattleDelts.Battle
             BattleManager.Inst.BattleUI.UpdateTrainerPosseBalls();
 
             // Select current battling Delts, update UI
-            BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, oppTrainer.oppDelts[0]).ExecuteAction());
+            new SwitchDeltAction(State, oppTrainer.oppDelts[0]).ExecuteAction();
 
             // End NPC Messages and start turn
             //BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
@@ -124,7 +124,7 @@ namespace BattleDelts.Battle
             // REFACTOR_TODO: Serialize field
             BattleManager.Inst.BattleUI.transform.GetChild(2).GetChild(4).gameObject.SetActive(false);
             
-            BattleManager.AddToBattleQueue(enumerator: new SwitchDeltAction(State, oppDeltSpawn).ExecuteAction());
+            new SwitchDeltAction(State, oppDeltSpawn).ExecuteAction();
 
             BattleManager.AddToBattleQueue("A wild " + oppDeltSpawn.deltdex.nickname + " appeared!");
             BattleManager.Inst.TurnProcess.StartTurn();

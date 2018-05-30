@@ -28,19 +28,7 @@ namespace BattleDelts.Battle
             DefendingDelt = IsPlayer ? state.OpponentState.DeltInBattle : state.PlayerState.DeltInBattle;
         }
 
-        public override IEnumerator ExecuteAction()
-        {
-            return InternalExecuteAction();
-        }
-
-        IEnumerator InternalExecuteAction()
-        {
-            UseMove();
-            yield return null;
-        }
-        
-        // Returns true if move was a successful blocking move
-        void UseMove()
+        public override void ExecuteAction()
         {
             // Display attack choice
             BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " used " + Move.moveName + "!");

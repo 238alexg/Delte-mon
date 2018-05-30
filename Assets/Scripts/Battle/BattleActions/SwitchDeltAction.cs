@@ -22,13 +22,8 @@ namespace BattleDelts.Battle
             SwitchIn = switchIn;
         }
 
-        public override IEnumerator ExecuteAction()
-        {
-            return SwitchDelts();
-        }
-
         // Switching out Delts, loading into Battle UI, clearing temporary battle stats
-        public IEnumerator SwitchDelts()
+        public override void ExecuteAction()
         {
             DeltemonClass switchOut = IsPlayer ? State.PlayerState.DeltInBattle : State.OpponentState.DeltInBattle;
 
@@ -58,8 +53,6 @@ namespace BattleDelts.Battle
                     BattleManager.AddToBattleQueue(string.Format("{0}'s {1} raised it's {2} stat!", SwitchIn.nickname, SwitchIn.item.itemName, ((DeltStat)i).ToStatString()));
                 }
             }
-
-            yield return null; // REFACTOR_TODO: Make all of these functions not IEnums
         }
     }
 }

@@ -24,30 +24,23 @@ namespace BattleDelts.Battle
             Recipient = recipient;
         }
 
-        public override IEnumerator ExecuteAction()
+        // Player/Trainer uses an Item on a Delt
+        public override void ExecuteAction()
         {
-            return UseItem();
+            string trainerTitle = IsPlayer ? GameManager.Inst.playerName : State.IsTrainer ? State.OpponentState.DeltInBattle.deltdex.deltName : ((TrainerAI)State.OpponentAI).TrainerName;
+
+            QueueBattleText(trainerTitle + " used " + Item.itemName + " on " + Recipient.nickname + "!");
+
+            ApplyItemHeal();
+            ApplyItemHeal();
+            ApplyItemStatAdditions();
         }
 
         void QueueBattleText(string text)
         {
             throw new System.NotImplementedException("UseItemAction battle messages are UNIMPLEMENTED");
         }
-
-        // Player/Trainer uses an Item on a Delt
-        public IEnumerator UseItem()
-        {
-            string trainerTitle = IsPlayer ? GameManager.Inst.playerName : State.IsTrainer ? State.OpponentState.DeltInBattle.deltdex.deltName : ((TrainerAI)State.OpponentAI).TrainerName;
-            
-            QueueBattleText(trainerTitle + " used " + Item.itemName + " on " + Recipient.nickname + "!");
-            
-            ApplyItemHeal();
-            ApplyItemHeal();
-            ApplyItemStatAdditions();
-
-            yield return null; // REFACTOR_TODO: Can all of these execute actions just be functions?
-        }
-
+        
         void ApplyStatusCure()
         {
             if (Item.cure != statusType.None)
