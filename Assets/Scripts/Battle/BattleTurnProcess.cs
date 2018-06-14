@@ -116,7 +116,8 @@ namespace BattleDelts.Battle
         IEnumerator CheckAttackingDeltStatus(PlayerBattleState player, bool isPlayer)
         {
             DeltemonClass attacker = player.DeltInBattle;
-            
+            BattleAnimator animator = BattleManager.Inst.Animator;
+
             if (!AttackingStatusEffects.Contains(attacker.curStatus))
             {
                 yield break;
@@ -124,9 +125,10 @@ namespace BattleDelts.Battle
 
             StatusAffectData statusData = GetAttackingStatusEffect(attacker.curStatus);
 
-            BattleManager.AddToBattleQueue(attacker.nickname + statusData.StatusActiveText);
-
-            BattleManager.Inst.Animator.TriggerDeltAnimation(statusData.AnimationAndSoundKey, isPlayer); // 1 second
+            BattleManager.AddToBattleQueue(
+                message: attacker.nickname + statusData.StatusActiveText,
+                enumerator: animator.DeltAnimation(statusData.AnimationAndSoundKey, isPlayer)
+            );
 
             if (attacker.curStatus != statusType.Drunk)
             {
@@ -147,7 +149,7 @@ namespace BattleDelts.Battle
                 if (Random.Range(0, 100) <= 30)
                 {
                     attacker.health = attacker.health - (attacker.GPA * 0.05f);
-                    BattleManager.Inst.Animator.TriggerDeltAnimation("Hurt", isPlayer); // 1 second
+                    BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("Hurt", isPlayer)); 
                     BattleManager.AddToBattleQueue(attacker.nickname + " hurt itself in it's drunkeness!");
                     
                     // REFACTOR_TODO: Find proper location for this
@@ -199,7 +201,7 @@ namespace BattleDelts.Battle
                 // If opp Delt is Roasted
                 if (delt.curStatus == statusType.Roasted)
                 {
-                    BattleManager.Inst.Animator.TriggerDeltAnimation(statusEffect.AnimationAndSoundKey, isPlayer);
+                    BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltAnimation(statusEffect.AnimationAndSoundKey, isPlayer));
                     BattleManager.AddToBattleQueue(delt.nickname + statusEffect.StatusActiveText);
                 }
 
@@ -470,7 +472,7 @@ namespace BattleDelts.Battle
 
             // Start evolution animation, wait to end
             // REFACTOR_TODO: This animation had a ending trigger as well: is that needed?
-            BattleManager.Inst.Animator.TriggerDeltAnimation("Evolve", true); // 6.5 seconds
+            BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltAnimation("Evolve", true)); // 6.5 seconds
 
             // Text for after evolution animation
             if (GameManager.Inst.pork)

@@ -26,14 +26,22 @@ namespace BattleDelts.Battle
         public override void ExecuteAction()
         {
             DeltemonClass switchOut = IsPlayer ? State.PlayerState.DeltInBattle : State.OpponentState.DeltInBattle;
+            PlayerBattleState playerState = State.GetPlayerState(IsPlayer);
 
             // Clear the temporary stats of the Delt
-            State.GetPlayerState(IsPlayer).ResetStatAdditions();
+            playerState.ResetStatAdditions();
+
+            if (switchOut != null)
+            {
+                BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltSlideOut(IsPlayer));
+            }
+
+            playerState.DeltInBattle = SwitchIn;
 
             BattleManager.Inst.BattleUI.PopulateBattlingDeltInfo(IsPlayer, SwitchIn);
-
+            
             // Animate Delt coming in
-            BattleManager.Inst.Animator.TriggerDeltAnimation("SlideIn", IsPlayer);
+            BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltSlideIn(IsPlayer));
 
             // If it is not first turn, do slide in animation
             if (switchOut != null)
@@ -47,9 +55,8 @@ namespace BattleDelts.Battle
                 for (int i = 1; i < 6; i++)
                 {
                     if (SwitchIn.item.statUpgrades[i] == 0) continue;
-
-                    BattleManager.Inst.Animator.TriggerDeltAnimation("Buff", IsPlayer);
-
+                    
+                    BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltAnimation("Buff", IsPlayer));
                     BattleManager.AddToBattleQueue(string.Format("{0}'s {1} raised it's {2} stat!", SwitchIn.nickname, SwitchIn.item.itemName, ((DeltStat)i).ToStatString()));
                 }
             }

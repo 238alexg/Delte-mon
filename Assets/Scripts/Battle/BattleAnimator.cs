@@ -15,37 +15,64 @@ namespace BattleDelts.Battle
 {
 	public class BattleAnimator
 	{
-        public Animator PlayerDeltSprite;
-        public Animator OpponentDeltSprite;
+        public AnimatorWrapper PlayerAttackAndSlideAnimator;
+        public AnimatorWrapper OpponentAttackAndSlideAnimator;
 
+        public AnimatorWrapper PlayerStatusAnimator;
+        public AnimatorWrapper OpponentStatusAnimator;
+        
         BattleState State;
         
-        public BattleAnimator(BattleState state, Animator playerDeltAnim, Animator oppDeltAnim)
+        public BattleAnimator(BattleState state, AnimatorWrapper playerStatusAnim, AnimatorWrapper oppStatusAnim, AnimatorWrapper playerSlideIn, AnimatorWrapper oppSlideIn)
         {
             State = state;
-            PlayerDeltSprite = playerDeltAnim;
-            OpponentDeltSprite = oppDeltAnim;
+            PlayerStatusAnimator = playerStatusAnim;
+            OpponentStatusAnimator = oppStatusAnim;
+            PlayerAttackAndSlideAnimator = playerSlideIn;
+            OpponentAttackAndSlideAnimator = oppSlideIn;
         }
 
-        public void TriggerDeltAnimation(string animationKey, bool isPlayer)
+        public IEnumerator DeltSlideIn(bool isPlayer)
         {
-            if (isPlayer) PlayerDeltSprite.SetTrigger(animationKey);
-            else OpponentDeltSprite.SetTrigger(animationKey);
-            SoundEffectManager.Inst.PlaySoundImmediate(animationKey);
+            AnimatorWrapper slideAnimator = isPlayer ? PlayerAttackAndSlideAnimator : OpponentAttackAndSlideAnimator;
+            return slideAnimator.TriggerAndWait("SlideIn");
         }
 
-        public void TriggerDeltAnimation(string animationKey, int animationValue, bool isPlayer)
+        public IEnumerator DeltSlideOut(bool isPlayer)
         {
-            if (isPlayer) PlayerDeltSprite.SetInteger(animationKey, animationValue);
-            else OpponentDeltSprite.SetInteger(animationKey, animationValue);
-
+            AnimatorWrapper slideAnimator = isPlayer ? PlayerAttackAndSlideAnimator : OpponentAttackAndSlideAnimator;
+            return slideAnimator.TriggerAndWait("SlideOut");
         }
 
-        public void ChangeDeltStatus(bool isPlayer, statusType status)
+        public IEnumerator DeltAttack(bool isPlayer)
+        {
+            AnimatorWrapper slideAnimator = isPlayer ? PlayerAttackAndSlideAnimator : OpponentAttackAndSlideAnimator;
+            return slideAnimator.TriggerAndWait("Attack");
+        }
+
+        public IEnumerator DeltHurt(bool isPlayer)
+        {
+            AnimatorWrapper slideAnimator = isPlayer ? PlayerAttackAndSlideAnimator : OpponentAttackAndSlideAnimator;
+            return slideAnimator.TriggerAndWait("Hurt");
+        }
+
+        public IEnumerator DeltAnimation(string animationKey, bool isPlayer)
+        {
+            AnimatorWrapper animator = isPlayer ? PlayerStatusAnimator : OpponentStatusAnimator;
+            return animator.TriggerAndWait(animationKey);
+            BattleManager.AddToBattleQueue(action: () => SoundEffectManager.Inst.PlaySoundImmediate(animationKey));
+        }
+
+        public IEnumerator BallRattles(int ballRattles)
+        {
+            return OpponentStatusAnimator.TriggerAndWait("BallRattles", ballRattles);
+        }
+
+        public IEnumerator ChangeDeltStatus(bool isPlayer, statusType status)
         {
             string statusKey = status.ToString();
-            if (isPlayer) PlayerDeltSprite.SetTrigger(statusKey);
-            else OpponentDeltSprite.SetTrigger(statusKey);
+            AnimatorWrapper animator = isPlayer ? PlayerStatusAnimator : OpponentStatusAnimator;
+            return animator.TriggerAndWait(statusKey);
             SoundEffectManager.Inst.PlaySoundImmediate(statusKey);
             //REFACTOR_TODO: Have animation use callback to SetDeltStatusSprite
         }
@@ -87,11 +114,12 @@ namespace BattleDelts.Battle
             }
         }
 
-        public void TriggerHitAnimation (bool isPlayer, Effectiveness effectiveness)
+        public IEnumerator TriggerHitAnimation (bool isPlayer, Effectiveness effectiveness)
         {
-            if (isPlayer) PlayerDeltSprite.SetTrigger("Attack");
-            else OpponentDeltSprite.SetTrigger("Attack");
+            AnimatorWrapper animator = isPlayer ? PlayerStatusAnimator : OpponentStatusAnimator;
 
+            return animator.TriggerAndWait("Attack");
+            
             switch (effectiveness)
             {
                 case Effectiveness.Ineffective:
@@ -149,10 +177,10 @@ namespace BattleDelts.Battle
         // Set up animations to get ready for next slide in
         public void ResetAnimations()
         {
-            PlayerDeltSprite.Play("Idle");
-            OpponentDeltSprite.Play("Idle");
-            //playerBattleAnim.Play("Idle"); // REFACTOR_TODO: What is
-            //oppBattleAnim.Play("Idle"); // REFACTOR_TODO: What is 2
+            PlayerAttackAndSlideAnimator.SetIdleAsync();
+            OpponentAttackAndSlideAnimator.SetIdleAsync();
+            PlayerStatusAnimator.SetIdleAsync();
+            OpponentStatusAnimator.SetIdleAsync();
         }
     }
 }

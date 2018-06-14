@@ -50,7 +50,7 @@ namespace BattleDelts.Battle
                 {
                     statusType oldStatus = Recipient.curStatus;
 
-                    BattleManager.Inst.Animator.TriggerDeltAnimation("Cure", IsPlayer); // REFACTOR_TODO: Queue animation
+                    BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltAnimation("Cure", IsPlayer));
 
                     BattleManager.Inst.StatusChange(true, statusType.None);
 
@@ -70,7 +70,7 @@ namespace BattleDelts.Battle
                 Recipient.health += Item.statUpgrades[0];
 
                 // Heal animation
-                BattleManager.Inst.Animator.AnimateHealDelt(IsPlayer); // REFACTOR_TODO: Coroutine or queue animation
+                BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.AnimateHealDelt(IsPlayer));
 
                 // If delt health is over max, set it to max
                 if (Recipient.health >= Recipient.GPA)

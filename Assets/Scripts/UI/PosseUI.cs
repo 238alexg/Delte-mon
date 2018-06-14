@@ -8,7 +8,6 @@ namespace BattleDelts.UI
 {
     public class PosseUI : UIScreen
     {
-
         public GameObject DeltOverviewUI;
         public Transform MoveOneOverview, MoveTwoOverview;
         public List<Button> MoveOptions;
