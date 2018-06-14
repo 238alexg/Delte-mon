@@ -4706,6 +4706,7 @@ GameObject:
   - component: {fileID: 1312}
   - component: {fileID: 3311}
   - component: {fileID: 1037}
+  - component: {fileID: 3361}
   m_Layer: 5
   m_Name: Player Image
   m_TagString: Untagged
@@ -7156,6 +7157,7 @@ GameObject:
   - component: {fileID: 1439}
   - component: {fileID: 3473}
   - component: {fileID: 1042}
+  - component: {fileID: 4157}
   m_Layer: 5
   m_Name: Player Battle Anim
   m_TagString: Untagged
@@ -9871,6 +9873,7 @@ GameObject:
   - component: {fileID: 1585}
   - component: {fileID: 3645}
   - component: {fileID: 1046}
+  - component: {fileID: 4148}
   m_Layer: 5
   m_Name: Enemy Battle Anim
   m_TagString: Untagged
@@ -15978,6 +15981,7 @@ GameObject:
   - component: {fileID: 1921}
   - component: {fileID: 4047}
   - component: {fileID: 1049}
+  - component: {fileID: 3277}
   m_Layer: 5
   m_Name: Enemy Image
   m_TagString: Untagged
@@ -51953,6 +51957,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &3277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27d8ea806a745a4f815e9bd446c4c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1049}
 --- !u!114 &3278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54563,6 +54579,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &3361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27d8ea806a745a4f815e9bd446c4c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1037}
 --- !u!114 &3362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79105,8 +79133,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BattleMusic: {fileID: 8300000, guid: b22f477202ed145cea6ff1cf537f732b, type: 3}
   bossWin: {fileID: 8300000, guid: 39c098bbdc156480da99d029d12f1a5a, type: 3}
-  PlayerDeltAnim: {fileID: 1042}
-  OppDeltAnim: {fileID: 1046}
+  PlayerDeltAnim: {fileID: 4157}
+  OppDeltAnim: {fileID: 4148}
+  PlayerSlideIn: {fileID: 3361}
+  OppSlideIn: {fileID: 3277}
   BattleUI: {fileID: 3240}
 --- !u!114 &4133
 MonoBehaviour:
@@ -79622,6 +79652,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &4148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27d8ea806a745a4f815e9bd446c4c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1046}
 --- !u!114 &4149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79786,6 +79828,18 @@ MonoBehaviour:
   PorkToggle: {fileID: 3148}
   MaleImage: {fileID: 3700}
   FemaleImage: {fileID: 3182}
+--- !u!114 &4157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27d8ea806a745a4f815e9bd446c4c1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 1042}
 --- !u!1 &84332828
 GameObject:
   m_ObjectHideFlags: 0

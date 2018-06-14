@@ -13,7 +13,7 @@ namespace BattleDelts.Battle
         [NonSerialized] public DeltemonClass wildPool;
         [NonSerialized] public AudioClip sceneMusic;
         public AudioClip BattleMusic, bossWin;
-        public Animator PlayerDeltAnim, OppDeltAnim;
+        public AnimatorWrapper PlayerDeltAnim, OppDeltAnim, PlayerSlideIn, OppSlideIn;
 
         #region BATTLE DELTS REFACTOR
         BattleSetUp SetUp;
@@ -42,13 +42,13 @@ namespace BattleDelts.Battle
             SetUp = new BattleSetUp(State);
             TurnProcess = new BattleTurnProcess(State);
             MoveSelection = new BattleMoveSelection(State);
-            Animator = new BattleAnimator(State, PlayerDeltAnim, OppDeltAnim);
+            Animator = new BattleAnimator(State, PlayerDeltAnim, OppDeltAnim, PlayerSlideIn, OppSlideIn);
             BattleUI.Initialize(TurnProcess, State);
         }
 
         public void StatusChange(bool isPlayer, statusType status)
         {
-            Animator.ChangeDeltStatus(isPlayer, status);
+            AddToBattleQueue(enumerator: Animator.ChangeDeltStatus(isPlayer, status));
             if (isPlayer) State.PlayerState.DeltInBattle.curStatus = status;
             else State.OpponentState.DeltInBattle.curStatus = status;
         }

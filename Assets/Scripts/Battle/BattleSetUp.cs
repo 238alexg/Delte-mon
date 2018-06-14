@@ -24,10 +24,11 @@ namespace BattleDelts.Battle
             State.Reset();
             State.Type = type;
             State.OpponentAI = AI;
-
+            
             // REFACTOR_TODO: Queue the beginning of battle
-            BattleManager.Inst.Animator.TriggerDeltAnimation("SlideOut", true);
-            BattleManager.Inst.Animator.TriggerDeltAnimation("SlideOut", false);
+            BattleAnimator animator = BattleManager.Inst.Animator;
+            BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("SlideOut", true));
+            BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("SlideOut", false));
         }
 
         // REFACTOR_TODO: These specific battle cases should have their own music, background selection, etc.
@@ -62,13 +63,11 @@ namespace BattleDelts.Battle
             State.PlayerState.Delts = GameManager.Inst.deltPosse;
 
             // Select current battling Delts, update UI
-            State.PlayerState.DeltInBattle = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
-            State.RegisterAction(true, new SwitchDeltAction(State, State.PlayerState.DeltInBattle));
-
-            State.PlayerState.ChosenAction.ExecuteAction(); 
+            DeltemonClass startingDelt = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
+            State.RegisterAction(true, new SwitchDeltAction(State, startingDelt));
+            State.PlayerState.ChosenAction.ExecuteAction();
         }
-
-
+        
         // Initializes battle for a player vs. NPC battle
         public void StartTrainerBattle(NPCInteraction oppTrainer, bool isGymLeader)
         {
@@ -119,13 +118,10 @@ namespace BattleDelts.Battle
             // REFACTOR_TODO: Put this in battle UI
             oppDeltSpawn.curStatus = statusType.None;
             oppDeltSpawn.statusImage = BattleManager.Inst.BattleUI.noStatus;
-            State.OpponentState.DeltInBattle = oppDeltSpawn;
 
             // REFACTOR_TODO: Serialize field
             BattleManager.Inst.BattleUI.transform.GetChild(2).GetChild(4).gameObject.SetActive(false);
             
-            new SwitchDeltAction(State, oppDeltSpawn).ExecuteAction();
-
             BattleManager.AddToBattleQueue("A wild " + oppDeltSpawn.deltdex.nickname + " appeared!");
             BattleManager.Inst.TurnProcess.StartTurn();
         }

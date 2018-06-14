@@ -52,9 +52,10 @@ namespace BattleDelts.Battle
                 {
                     if (buff.BuffType == buffType.Heal)
                     {
-                        BattleManager.AddToBattleQueue(message: AttackingDelt.nickname + " cut a deal with the Director of Academic Affairs!");
-                        BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHealDelt(IsPlayer));
-                        // REFACTOR_TODO: Add to animation queue
+                        BattleManager.AddToBattleQueue(
+                            message: AttackingDelt.nickname + " cut a deal with the Director of Academic Affairs!",
+                            enumerator: BattleManager.Inst.Animator.AnimateHealDelt(IsPlayer)
+                        );
                     }
                     else
                     {
@@ -96,7 +97,8 @@ namespace BattleDelts.Battle
         void PerformMoveDamage()
         {
             Effectiveness effectiveness = Move.GetEffectivenessAgainst(DefendingDelt);
-            BattleManager.Inst.Animator.TriggerDeltAnimation("Attack", IsPlayer);
+            BattleAnimator animator = BattleManager.Inst.Animator;
+            BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("Attack", IsPlayer));
             // yield return new WaitForSeconds(0.4f); // REFACTOR_TODO: Animations added to the queue
 
             bool isCrit = false;
@@ -115,10 +117,8 @@ namespace BattleDelts.Battle
             // Return final damage
             DefendingDelt.health = DefendingDelt.health - rawDamage;
             
-            BattleManager.Inst.Animator.TriggerHitAnimation(IsPlayer, effectiveness);
-            //yield return new WaitForSeconds(1); // REFACTOR_TODO: Animations added to the queue
-
-            BattleManager.Inst.StartCoroutine(BattleManager.Inst.Animator.AnimateHurtDelt(!IsPlayer));
+            BattleManager.AddToBattleQueue(enumerator: animator.TriggerHitAnimation(IsPlayer, effectiveness));
+            BattleManager.AddToBattleQueue(enumerator: animator.AnimateHurtDelt(!IsPlayer));
 
             if (isCrit)
             {
@@ -157,18 +157,19 @@ namespace BattleDelts.Battle
             bool isPlayer = buffedDelt == State.PlayerState.DeltInBattle;
             float valueChange = buff.BuffAmount * 0.02f * buffedDelt.GetStat(stat) + buff.BuffAmount;
             string buffMessage = string.Format("{0}'s {1} stat went {2} {3}!", buffedDelt.nickname, stat, buff.BuffAmount > 5 ? "waaay" : "", buff.HasPositiveEffect ? "up" : "down");
+            BattleAnimator animator = BattleManager.Inst.Animator;
+
             State.ChangeStatAddition(isPlayer, stat, valueChange);
 
             if (buff.HasPositiveEffect)
             {
                 valueChange *= -1;
-                BattleManager.Inst.Animator.TriggerDeltAnimation("Debuff", isPlayer);
+                BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("Debuff", isPlayer));
             }
             else
             {
-                BattleManager.Inst.Animator.TriggerDeltAnimation("Buff", isPlayer);
+                BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("Buff", isPlayer));
             }
-            // yield return new WaitForSeconds(0.5f); // REFACTOR_TODO: Handle animation somehow
             BattleManager.AddToBattleQueue(message: buffMessage);
         }
 
@@ -177,8 +178,7 @@ namespace BattleDelts.Battle
             // If move has a status affliction and chance is met
             if ((move.statusType != statusType.None) && (Random.Range(0, 100) <= move.statusChance) && (DefendingDelt.curStatus != move.statusType))
             {
-                BattleManager.Inst.Animator.ChangeDeltStatus(!IsPlayer, move.statusType);
-                //yield return new WaitForSeconds(1); // REFACTOR_TODO: Queue animation
+                BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.ChangeDeltStatus(!IsPlayer, move.statusType));
 
                 // Update defender status
                 BattleManager.Inst.StatusChange(!IsPlayer, move.statusType);

@@ -25,9 +25,9 @@ namespace BattleDelts.Battle
 
         void ThrowBallTrainerReaction()
         {
-            QueueBattleMessage("You throw a " + Ball.itemName + ", but the trainer bats it away!");
+            BattleManager.AddToBattleQueue("You throw a " + Ball.itemName + ", but the trainer bats it away!");
 
-            QueueBattleMessage("\"What the hell, man?\"");
+            BattleManager.AddToBattleQueue("\"What the hell, man?\"");
 
             // REFACTOR_TODO: Get trainer on screen and then remove here
             // REFACTOR_TODO: Check this earlier in the code, not here (this occurs after all action validation)
@@ -35,11 +35,11 @@ namespace BattleDelts.Battle
 
         void CaptureDelt()
         {
-            QueueBattleMessage(State.OpponentState.DeltInBattle.nickname + " was caught!");
+            BattleManager.AddToBattleQueue(State.OpponentState.DeltInBattle.nickname + " was caught!");
 
             if (GameManager.Inst.deltPosse.Count == 6)
             {
-                QueueBattleMessage("Posse full, " + State.OpponentState.DeltInBattle.nickname + " has been added to your house.");
+                BattleManager.AddToBattleQueue("Posse full, " + State.OpponentState.DeltInBattle.nickname + " has been added to your house.");
             }
 
             GameManager.Inst.AddDelt(State.OpponentState.DeltInBattle);
@@ -61,58 +61,43 @@ namespace BattleDelts.Battle
                 return;
             }
 
-            QueueBattleMessage("You threw a " + Ball.itemName + "!");
+            BattleManager.AddToBattleQueue("You threw a " + Ball.itemName + "!");
 
             float catchChance = GetCatchChance(Ball, State.OpponentState.DeltInBattle);
 
             int ballRattles = GetNumberOfBallRattles(catchChance);
+            BattleAnimator battleAnimator = BattleManager.Inst.Animator;
 
             // Trigger animations
-            BattleManager.Inst.Animator.TriggerDeltAnimation("BallRattles", ballRattles, false);
-            BattleManager.Inst.Animator.TriggerDeltAnimation("ThrowBall", false);
-            SoundEffectManager.Inst.PlaySoundImmediate("BallTink");
-
-            //yield return new WaitForSeconds(1);
-
-            BattleManager.Inst.Animator.TriggerDeltAnimation("FadeOut", false);
-
-            //yield return new WaitForSeconds(1);
-
-            SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2");
-
-            //yield return new WaitForSeconds(1);
+            BattleManager.AddToBattleQueue(enumerator: battleAnimator.BallRattles(ballRattles));
+            BattleManager.AddToBattleQueue(enumerator: battleAnimator.DeltAnimation("ThrowBall", false));
+            BattleManager.AddToBattleQueue(action: () => SoundEffectManager.Inst.PlaySoundImmediate("BallTink"));
+            
+            BattleManager.AddToBattleQueue(enumerator: battleAnimator.DeltAnimation("FadeOut", false));
+            
+            // REFACTOR_TODO: Break up the animation so we call each rattle at these stages
+            BattleManager.AddToBattleQueue(action: () => SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2"));
 
             // Play sounds for ball shakes
             if (ballRattles > 1)
             {
-                SoundEffectManager.Inst.PlaySoundImmediate("BallRattle1");
-                //yield return new WaitForSeconds(1);
+                BattleManager.AddToBattleQueue(action: () => SoundEffectManager.Inst.PlaySoundImmediate("BallRattle1"));
             }
             if (ballRattles > 2)
             {
-                SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2");
-                //yield return new WaitForSeconds(1);
+                BattleManager.AddToBattleQueue(action: () => SoundEffectManager.Inst.PlaySoundImmediate("BallRattle2"));
             }
             if (ballRattles > 3) // Capture Delt
             {
                 SoundEffectManager.Inst.PlaySoundImmediate("BallClick");
-                //yield return new WaitForSeconds(1);
                 // REFACTOR_TODO: Set win condition on battle
                 CaptureDelt();
             }
             else
             {
-                BattleManager.Inst.Animator.TriggerDeltAnimation("BallReleaseFadeIn", false);
-
-                //yield return new WaitForSeconds(0.5f);
-
-                QueueBattleMessage(State.OpponentState.DeltInBattle.nickname + " escaped!");
+                BattleManager.AddToBattleQueue(enumerator: battleAnimator.DeltAnimation("BallReleaseFadeIn", false));
+                BattleManager.AddToBattleQueue(State.OpponentState.DeltInBattle.nickname + " escaped!");
             }
-        }
-
-        void QueueBattleMessage(string message)
-        {
-            throw new System.NotImplementedException("Unimplemented exception: Queue Battle Message");
         }
 
         int GetBallModifier(ItemClass ball)
