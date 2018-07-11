@@ -16,7 +16,7 @@ namespace BattleDelts
 	{
         [SerializeField] Animator Animator;
         
-        bool QueuedAnimationCompleted = false;
+        bool QueuedAnimationCompleted = true;
         
         public void OnAnimationComplete()
         {
