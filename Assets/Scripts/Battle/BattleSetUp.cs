@@ -1,7 +1,12 @@
-﻿using BattleDelts.UI;
-using System.Linq;
+﻿/*
+ *	Battle Delts
+ *	BattleSetUp.cs
+ *	Copyright (c) Alex Geoffrey, 2018
+ *	All Rights Reserved
+ *
+ */
+
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace BattleDelts.Battle
 {
@@ -52,25 +57,56 @@ namespace BattleDelts.Battle
         {
             GameQueue.QueueImmediate(action: () => GameQueue.Inst.ChangeQueueType(GameQueue.QueueType.Battle));
 
-            BattleManager.Inst.BattleUI.LoadBackgroundAndPodium();
+            BattleManager.Inst.BattleUI.InitializeNewBattle();
             
             PlayBattleMusic();
-
-            // Clear temp battle stats for player and opponent
-            State.PlayerState.ResetStatAdditions();
-            State.OpponentState.ResetStatAdditions();
             
             State.PlayerState.Delts = GameManager.Inst.deltPosse;
-
+            
             // Select current battling Delts, update UI
-            DeltemonClass startingDelt = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
-            State.RegisterAction(true, new SwitchDeltAction(State, startingDelt));
-            State.PlayerState.ChosenAction.ExecuteAction();
+            InitialSwitchIn(isPlayer: true);
+            InitialSwitchIn(isPlayer: false);
+
+            PromptDeltItemBuffs(isPlayer: true);
+            PromptDeltItemBuffs(isPlayer: false);
         }
-        
+
+        void InitialSwitchIn(bool isPlayer)
+        {
+            PlayerBattleState playerState = State.GetPlayerState(isPlayer);
+            DeltemonClass startingDelt = State.PlayerState.Delts.Find(delt => delt.curStatus != statusType.DA);
+
+            playerState.ResetStatAdditions();
+            playerState.DeltInBattle = startingDelt;
+            BattleManager.Inst.BattleUI.PopulateBattlingDeltInfo(isPlayer, startingDelt);
+            BattleManager.AddToBattleQueue(
+                action: () => BattleManager.Inst.BattleUI.SetDeltImageActive(isPlayer), 
+                enumerator: BattleManager.Inst.Animator.DeltSlideIn(isPlayer)
+            );
+        }
+
+        void PromptDeltItemBuffs(bool isPlayer)
+        {
+            DeltemonClass delt = State.GetPlayerState(isPlayer).DeltInBattle;
+
+            // Add stat upgrades for Delt's item
+            if (delt.item != null)
+            {
+                for (int i = 1; i < 6; i++)
+                {
+                    if (delt.item.statUpgrades[i] == 0) continue;
+
+                    BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltAnimation("Buff", isPlayer));
+                    BattleManager.AddToBattleQueue(string.Format("{0}'s {1} raised it's {2} stat!", delt.nickname, delt.item.itemName, ((DeltStat)i).ToStatString()));
+                }
+            }
+        }
+
         // Initializes battle for a player vs. NPC battle
         public void StartTrainerBattle(NPCInteraction oppTrainer, bool isGymLeader)
         {
+            State.OpponentState.Delts = oppTrainer.oppDelts;
+
             InitializeBattle();
 
             InitializeTrainerAI(oppTrainer);
@@ -78,10 +114,7 @@ namespace BattleDelts.Battle
             State.Type = isGymLeader ? BattleType.GymLeader : BattleType.Trainer;
             
             BattleManager.Inst.BattleUI.UpdateTrainerPosseBalls();
-
-            // Select current battling Delts, update UI
-            new SwitchDeltAction(State, oppTrainer.oppDelts[0]).ExecuteAction();
-
+            
             // End NPC Messages and start turn
             //BattleManager.AddToBattleQueue(action: () => UIManager.Inst.EndNPCMessage());
             BattleManager.Inst.TurnProcess.StartTurn();
@@ -110,6 +143,9 @@ namespace BattleDelts.Battle
         // Start a battle originating from TallGrass.cs
         public void StartWildBattle(DeltemonClass oppDeltSpawn)
         {
+            State.OpponentState.Delts.Clear();
+            State.OpponentState.Delts.Add(oppDeltSpawn);
+
             InitializeBattle();
 
             State.OpponentAI = WildAI;
@@ -118,10 +154,7 @@ namespace BattleDelts.Battle
             // REFACTOR_TODO: Put this in battle UI
             oppDeltSpawn.curStatus = statusType.None;
             oppDeltSpawn.statusImage = BattleManager.Inst.BattleUI.noStatus;
-
-            // Select current battling Delts, update UI
-            new SwitchDeltAction(State, oppDeltSpawn).ExecuteAction();
-
+            
             // REFACTOR_TODO: Serialize field
             BattleManager.Inst.BattleUI.transform.GetChild(2).GetChild(4).gameObject.SetActive(false);
             

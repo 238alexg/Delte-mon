@@ -86,12 +86,18 @@ namespace BattleDelts.Battle
             throw new System.NotImplementedException("Consolidated queue doesn't exist yet!");
         }
 
-        public bool CheckWinCondition()
+        public void CheckWinCondition()
         {
             // REFACTOR_TODO: If win condition is met, remove all battle items from queue and add battle end conditions to queue
             // REFACTOR_TODO: Use state AI to determine win conditions/add more functionality to later battles
-
-            throw new System.NotImplementedException("Win condition checking doesn't exist yet!");
+            if (State.PlayerState.HasLost())
+            {
+                PlayerLoseBattle();
+            }
+            if (State.OpponentState.HasLost())
+            {
+                PlayerWinBattle();
+            }
         }
 
         // REFACTOR_TODO: Temporary until moveclass is no longer a Monobehavior

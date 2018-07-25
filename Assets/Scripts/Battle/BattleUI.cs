@@ -52,7 +52,20 @@ namespace BattleDelts.UI
             }
         }
 
-        public void LoadBackgroundAndPodium()
+        public void InitializeNewBattle()
+        {
+            PlayerDeltInfo.Image.gameObject.SetActiveIfChanged(false);
+            OpponentDeltInfo.Image.gameObject.SetActiveIfChanged(false);
+            SetBackgroundAndPodium();
+        }
+
+        public void SetDeltImageActive(bool isPlayer)
+        {
+            DeltInfoUI deltInfo = isPlayer ? PlayerDeltInfo : OpponentDeltInfo;
+            deltInfo.Image.gameObject.SetActiveIfChanged(true);
+        }
+
+        void SetBackgroundAndPodium()
         {
             // REFACTOR_TODO: Use shaders to do background/animations instead of using these sprites
             string sceneName = GameManager.Inst.curSceneName;

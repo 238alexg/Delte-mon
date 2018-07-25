@@ -39,7 +39,7 @@ namespace BattleDelts.Battle
             playerState.DeltInBattle = SwitchIn;
 
             BattleManager.Inst.BattleUI.PopulateBattlingDeltInfo(IsPlayer, SwitchIn);
-            
+
             // Animate Delt coming in
             BattleManager.AddToBattleQueue(enumerator: BattleManager.Inst.Animator.DeltSlideIn(IsPlayer));
 
