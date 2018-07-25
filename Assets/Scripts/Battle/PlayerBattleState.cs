@@ -53,7 +53,7 @@ namespace BattleDelts.Battle
         {
             for(int i = 0; i < Delts.Count; i++)
             {
-                if (Delts[i].curStatus != statusType.DA && !Delts[i].HasNoMovesLeft())
+                if (Delts[i].curStatus != statusType.DA && Delts[i].HasMovesLeft())
                 {
                     return false;
                 }

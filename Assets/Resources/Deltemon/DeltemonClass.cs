@@ -267,7 +267,7 @@ public class DeltemonClass : MonoBehaviour {
 		}
 	}
 
-    public bool HasNoMovesLeft()
+    public bool HasMovesLeft()
     {
         for (int i = 0; i < moveset.Count; i++)
         {

@@ -53,6 +53,7 @@ namespace BattleDelts.Battle
         public IEnumerator DeltHurt(bool isPlayer)
         {
             AnimatorWrapper slideAnimator = isPlayer ? PlayerAttackAndSlideAnimator : OpponentAttackAndSlideAnimator;
+            string animationKey = isPlayer ? "PlayerHurt" : "OppHurt";
             return slideAnimator.TriggerAndWait("Hurt");
         }
 
@@ -118,8 +119,8 @@ namespace BattleDelts.Battle
         {
             AnimatorWrapper animator = isPlayer ? PlayerStatusAnimator : OpponentStatusAnimator;
 
-            return animator.TriggerAndWait("Attack");
-            
+            yield return DeltAttack(isPlayer);
+
             switch (effectiveness)
             {
                 case Effectiveness.Ineffective:

@@ -98,7 +98,7 @@ namespace BattleDelts.Battle
         {
             Effectiveness effectiveness = Move.GetEffectivenessAgainst(DefendingDelt);
             BattleAnimator animator = BattleManager.Inst.Animator;
-            BattleManager.AddToBattleQueue(enumerator: animator.DeltAnimation("Attack", IsPlayer));
+            BattleManager.AddToBattleQueue(enumerator: animator.TriggerHitAnimation(IsPlayer, effectiveness));
             // yield return new WaitForSeconds(0.4f); // REFACTOR_TODO: Animations added to the queue
 
             bool isCrit = false;
@@ -117,7 +117,6 @@ namespace BattleDelts.Battle
             // Return final damage
             DefendingDelt.health = DefendingDelt.health - rawDamage;
             
-            BattleManager.AddToBattleQueue(enumerator: animator.TriggerHitAnimation(IsPlayer, effectiveness));
             BattleManager.AddToBattleQueue(enumerator: animator.AnimateHurtDelt(!IsPlayer));
 
             if (isCrit)
