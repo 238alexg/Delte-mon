@@ -53,14 +53,13 @@ namespace BattleDelts.Battle
         public IEnumerator DeltHurt(bool isPlayer)
         {
             AnimatorWrapper slideAnimator = isPlayer ? PlayerAttackAndSlideAnimator : OpponentAttackAndSlideAnimator;
-            string animationKey = isPlayer ? "PlayerHurt" : "OppHurt";
             return slideAnimator.TriggerAndWait("Hurt");
         }
 
         public IEnumerator DeltAnimation(string animationKey, bool isPlayer)
         {
             AnimatorWrapper animator = isPlayer ? PlayerStatusAnimator : OpponentStatusAnimator;
-            return animator.TriggerAndWait(animationKey);
+            yield return animator.TriggerAndWait(animationKey);
             BattleManager.AddToBattleQueue(action: () => SoundEffectManager.Inst.PlaySoundImmediate(animationKey));
         }
 
@@ -73,7 +72,7 @@ namespace BattleDelts.Battle
         {
             string statusKey = status.ToString();
             AnimatorWrapper animator = isPlayer ? PlayerStatusAnimator : OpponentStatusAnimator;
-            return animator.TriggerAndWait(statusKey);
+            yield return animator.TriggerAndWait(statusKey);
             SoundEffectManager.Inst.PlaySoundImmediate(statusKey);
             //REFACTOR_TODO: Have animation use callback to SetDeltStatusSprite
         }
@@ -160,8 +159,11 @@ namespace BattleDelts.Battle
 
                 BattleManager.Inst.BattleUI.UpdateHealthBarColor(isPlayer, defender);
 
-                string healthText = GameManager.Inst.pork ? (int)healthBar.value + "/PORK" : (int)healthBar.value + "/" + (int)defender.GPA;
-                BattleManager.Inst.BattleUI.UpdateHealthBarText(healthText);
+                if (isPlayer)
+                {
+                    string healthText = GameManager.Inst.pork ? (int)healthBar.value + "/PORK" : (int)healthBar.value + "/" + (int)defender.GPA;
+                    BattleManager.Inst.BattleUI.UpdateHealthBarText(healthText);
+                }
 
                 // Animation delay
                 yield return new WaitForSeconds(0.01f);
