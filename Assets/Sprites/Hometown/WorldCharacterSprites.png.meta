@@ -1,121 +1,342 @@
 fileFormatVersion: 2
 guid: 69ef2c69aa07d4bc8a5c7e3169c15cde
-timeCreated: 1493589823
-licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Player_Stand_South
-    21300002: Player_Stand_North
-    21300004: Player_Stand_West
-    21300006: Player_Stand_East
-    21300008: GDI_South
-    21300010: GDI_North
-    21300012: Nurse_Valleck
-    21300014: Shopkeeper_Bergie
-    21300016: Professor Cheema
-    21300018: ProfCheema_World
-    21300020: WorldCharacterSprites_10
-    21300022: WorldCharacterSprites_11
-    21300024: WorldCharacterSprites_12
-    21300026: WorldCharacterSprites_13
-    21300028: WorldCharacterSprites_14
-    21300030: WorldCharacterSprites_15
-    21300032: WorldCharacterSprites_16
-    21300034: WorldCharacterSprites_17
-    21300036: WorldCharacterSprites_18
-    21300038: WorldCharacterSprites_19
-    21300040: WorldCharacterSprites_20
-    21300042: WorldCharacterSprites_21
-    21300044: WorldCharacterSprites_22
-    21300046: WorldCharacterSprites_23
-    21300048: WorldCharacterSprites_24
-    21300050: WorldCharacterSprites_25
-    21300052: Stock Man 4
-    21300054: Stock Woman 2
-    21300056: WorldCharacterSprites_28
-    21300058: WorldCharacterSprites_29
-    21300060: WorldCharacterSprites_30
-    21300062: WorldCharacterSprites_31
-    21300064: WorldCharacterSprites_32
-    21300066: WorldCharacterSprites_33
-    21300068: WorldCharacterSprites_34
-    21300070: GDI_East
-    21300072: GDI_West
-    21300074: WorldCharacterSprites_0
-    21300076: WorldCharacterSprites_1
-    21300078: WorldCharacterSprites_2
-    21300080: WorldCharacterSprites_3
-    21300082: Stock Man 1
-    21300084: Stock Man 2
-    21300086: Stock Woman 1
-    21300088: NurseVallek_World
-    21300090: Salesman_Bergie_World
-    21300092: WorldCharacterSprites_35
-    21300094: Stock Woman 3
-    21300096: Stock Man 5
-    21300098: WorldCharacterSprites_38
-    21300100: WorldCharacterSprites_39
-    21300102: WorldCharacterSprites_40
-    21300104: WorldCharacterSprites_41
-    21300106: WorldCharacterSprites_42
-    21300108: WorldCharacterSprites_43
-    21300110: WorldCharacterSprites_44
-    21300112: WorldCharacterSprites_45
-    21300114: NameChanger_East
-    21300116: WorldCharacterSprites_47
-    21300118: WorldCharacterSprites_48
-    21300120: WorldCharacterSprites_49
-    21300122: WorldCharacterSprites_50
-    21300124: WorldCharacterSprites_51
-    21300126: WorldCharacterSprites_52
-    21300128: WorldCharacterSprites_53
-    21300130: WorldCharacterSprites_54
-    21300132: WorldCharacterSprites_55
-    21300134: WorldCharacterSprites_56
-    21300136: WorldCharacterSprites_57
-    21300138: WorldCharacterSprites_58
-    21300140: WorldCharacterSprites_59
-    21300142: WorldCharacterSprites_60
-    21300144: WorldCharacterSprites_61
-    21300146: WorldCharacterSprites_62
-    21300148: WorldCharacterSprites_63
-    21300150: WorldCharacterSprites_64
-    21300152: WorldCharacterSprites_65
-    21300154: WorldCharacterSprites_66
-    21300156: WorldCharacterSprites_67
-    21300158: WorldCharacterSprites_68
-    21300160: WorldCharacterSprites_69
-    21300162: WorldCharacterSprites_70
-    21300164: WorldCharacterSprites_71
-    21300166: WorldCharacterSprites_72
-    21300168: WorldCharacterSprites_73
-    21300170: WorldCharacterSprites_74
-    21300172: WorldCharacterSprites_75
-    21300174: WorldCharacterSprites_76
-    21300176: WorldCharacterSprites_77
-    21300178: WorldCharacterSprites_78
-    21300180: WorldCharacterSprites_79
-    21300182: WorldCharacterSprites_80
-    21300184: WorldCharacterSprites_81
-    21300186: WorldCharacterSprites_82
-    21300188: WorldCharacterSprites_83
-    21300190: WorldCharacterSprites_84
-    21300192: WorldCharacterSprites_85
-    21300194: WorldCharacterSprites_86
-    21300196: WorldCharacterSprites_87
-    21300198: WorldCharacterSprites_88
-    21300200: WorldCharacterSprites_89
-    21300202: WorldCharacterSprites_90
-    21300204: WorldCharacterSprites_91
-    21300206: WorldCharacterSprites_92
-    21300208: WorldCharacterSprites_93
-    21300210: WorldCharacterSprites_94
-    21300212: WorldCharacterSprites_95
-    21300214: WorldCharacterSprites_96
-    21300216: WorldCharacterSprites_97
-    21300218: Stock Man 3
-    21300220: Name Changer
-  serializedVersion: 4
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Player_Stand_South
+  - first:
+      213: 21300002
+    second: Player_Stand_North
+  - first:
+      213: 21300004
+    second: Player_Stand_West
+  - first:
+      213: 21300006
+    second: Player_Stand_East
+  - first:
+      213: 21300008
+    second: GDI_South
+  - first:
+      213: 21300010
+    second: GDI_North
+  - first:
+      213: 21300012
+    second: Nurse_Valleck
+  - first:
+      213: 21300014
+    second: Shopkeeper_Bergie
+  - first:
+      213: 21300016
+    second: Professor Cheema
+  - first:
+      213: 21300018
+    second: ProfCheema_World
+  - first:
+      213: 21300020
+    second: WorldCharacterSprites_10
+  - first:
+      213: 21300022
+    second: WorldCharacterSprites_11
+  - first:
+      213: 21300024
+    second: WorldCharacterSprites_12
+  - first:
+      213: 21300026
+    second: WorldCharacterSprites_13
+  - first:
+      213: 21300028
+    second: WorldCharacterSprites_14
+  - first:
+      213: 21300030
+    second: WorldCharacterSprites_15
+  - first:
+      213: 21300032
+    second: WorldCharacterSprites_16
+  - first:
+      213: 21300034
+    second: WorldCharacterSprites_17
+  - first:
+      213: 21300036
+    second: WorldCharacterSprites_18
+  - first:
+      213: 21300038
+    second: WorldCharacterSprites_19
+  - first:
+      213: 21300040
+    second: WorldCharacterSprites_20
+  - first:
+      213: 21300042
+    second: WorldCharacterSprites_21
+  - first:
+      213: 21300044
+    second: WorldCharacterSprites_22
+  - first:
+      213: 21300046
+    second: WorldCharacterSprites_23
+  - first:
+      213: 21300048
+    second: WorldCharacterSprites_24
+  - first:
+      213: 21300050
+    second: WorldCharacterSprites_25
+  - first:
+      213: 21300052
+    second: Stock Man 4
+  - first:
+      213: 21300054
+    second: Stock Woman 2
+  - first:
+      213: 21300056
+    second: WorldCharacterSprites_28
+  - first:
+      213: 21300058
+    second: WorldCharacterSprites_29
+  - first:
+      213: 21300060
+    second: WorldCharacterSprites_30
+  - first:
+      213: 21300062
+    second: WorldCharacterSprites_31
+  - first:
+      213: 21300064
+    second: WorldCharacterSprites_32
+  - first:
+      213: 21300066
+    second: WorldCharacterSprites_33
+  - first:
+      213: 21300068
+    second: WorldCharacterSprites_34
+  - first:
+      213: 21300070
+    second: GDI_East
+  - first:
+      213: 21300072
+    second: GDI_West
+  - first:
+      213: 21300074
+    second: WorldCharacterSprites_0
+  - first:
+      213: 21300076
+    second: WorldCharacterSprites_1
+  - first:
+      213: 21300078
+    second: WorldCharacterSprites_2
+  - first:
+      213: 21300080
+    second: WorldCharacterSprites_3
+  - first:
+      213: 21300082
+    second: Stock Man 1
+  - first:
+      213: 21300084
+    second: Stock Man 2
+  - first:
+      213: 21300086
+    second: Stock Woman 1
+  - first:
+      213: 21300088
+    second: NurseVallek_World
+  - first:
+      213: 21300090
+    second: Salesman_Bergie_World
+  - first:
+      213: 21300092
+    second: WorldCharacterSprites_35
+  - first:
+      213: 21300094
+    second: Stock Woman 3
+  - first:
+      213: 21300096
+    second: Stock Man 5
+  - first:
+      213: 21300098
+    second: WorldCharacterSprites_38
+  - first:
+      213: 21300100
+    second: WorldCharacterSprites_39
+  - first:
+      213: 21300102
+    second: WorldCharacterSprites_40
+  - first:
+      213: 21300104
+    second: WorldCharacterSprites_41
+  - first:
+      213: 21300106
+    second: WorldCharacterSprites_42
+  - first:
+      213: 21300108
+    second: WorldCharacterSprites_43
+  - first:
+      213: 21300110
+    second: WorldCharacterSprites_44
+  - first:
+      213: 21300112
+    second: WorldCharacterSprites_45
+  - first:
+      213: 21300114
+    second: NameChanger_East
+  - first:
+      213: 21300116
+    second: WorldCharacterSprites_47
+  - first:
+      213: 21300118
+    second: WorldCharacterSprites_48
+  - first:
+      213: 21300120
+    second: WorldCharacterSprites_49
+  - first:
+      213: 21300122
+    second: WorldCharacterSprites_50
+  - first:
+      213: 21300124
+    second: WorldCharacterSprites_51
+  - first:
+      213: 21300126
+    second: WorldCharacterSprites_52
+  - first:
+      213: 21300128
+    second: WorldCharacterSprites_53
+  - first:
+      213: 21300130
+    second: WorldCharacterSprites_54
+  - first:
+      213: 21300132
+    second: WorldCharacterSprites_55
+  - first:
+      213: 21300134
+    second: WorldCharacterSprites_56
+  - first:
+      213: 21300136
+    second: WorldCharacterSprites_57
+  - first:
+      213: 21300138
+    second: WorldCharacterSprites_58
+  - first:
+      213: 21300140
+    second: WorldCharacterSprites_59
+  - first:
+      213: 21300142
+    second: WorldCharacterSprites_60
+  - first:
+      213: 21300144
+    second: WorldCharacterSprites_61
+  - first:
+      213: 21300146
+    second: WorldCharacterSprites_62
+  - first:
+      213: 21300148
+    second: WorldCharacterSprites_63
+  - first:
+      213: 21300150
+    second: WorldCharacterSprites_64
+  - first:
+      213: 21300152
+    second: WorldCharacterSprites_65
+  - first:
+      213: 21300154
+    second: WorldCharacterSprites_66
+  - first:
+      213: 21300156
+    second: WorldCharacterSprites_67
+  - first:
+      213: 21300158
+    second: WorldCharacterSprites_68
+  - first:
+      213: 21300160
+    second: WorldCharacterSprites_69
+  - first:
+      213: 21300162
+    second: WorldCharacterSprites_70
+  - first:
+      213: 21300164
+    second: WorldCharacterSprites_71
+  - first:
+      213: 21300166
+    second: WorldCharacterSprites_72
+  - first:
+      213: 21300168
+    second: WorldCharacterSprites_73
+  - first:
+      213: 21300170
+    second: WorldCharacterSprites_74
+  - first:
+      213: 21300172
+    second: WorldCharacterSprites_75
+  - first:
+      213: 21300174
+    second: WorldCharacterSprites_76
+  - first:
+      213: 21300176
+    second: WorldCharacterSprites_77
+  - first:
+      213: 21300178
+    second: WorldCharacterSprites_78
+  - first:
+      213: 21300180
+    second: WorldCharacterSprites_79
+  - first:
+      213: 21300182
+    second: WorldCharacterSprites_80
+  - first:
+      213: 21300184
+    second: WorldCharacterSprites_81
+  - first:
+      213: 21300186
+    second: WorldCharacterSprites_82
+  - first:
+      213: 21300188
+    second: WorldCharacterSprites_83
+  - first:
+      213: 21300190
+    second: WorldCharacterSprites_84
+  - first:
+      213: 21300192
+    second: WorldCharacterSprites_85
+  - first:
+      213: 21300194
+    second: WorldCharacterSprites_86
+  - first:
+      213: 21300196
+    second: WorldCharacterSprites_87
+  - first:
+      213: 21300198
+    second: WorldCharacterSprites_88
+  - first:
+      213: 21300200
+    second: WorldCharacterSprites_89
+  - first:
+      213: 21300202
+    second: WorldCharacterSprites_90
+  - first:
+      213: 21300204
+    second: WorldCharacterSprites_91
+  - first:
+      213: 21300206
+    second: WorldCharacterSprites_92
+  - first:
+      213: 21300208
+    second: WorldCharacterSprites_93
+  - first:
+      213: 21300210
+    second: WorldCharacterSprites_94
+  - first:
+      213: 21300212
+    second: WorldCharacterSprites_95
+  - first:
+      213: 21300214
+    second: WorldCharacterSprites_96
+  - first:
+      213: 21300216
+    second: WorldCharacterSprites_97
+  - first:
+      213: 21300218
+    second: Stock Man 3
+  - first:
+      213: 21300220
+    second: Name Changer
+  externalObjects: {}
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -123,6 +344,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -131,6 +354,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -138,10 +363,13 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 0
     aniso: -1
-    mipBias: -1
-    wrapMode: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -150,49 +378,68 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: iPhone
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: iPhone
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: WebGL
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -208,7 +455,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_1
       rect:
@@ -221,7 +476,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_2
       rect:
@@ -234,7 +497,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_3
       rect:
@@ -247,7 +518,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Man 1
       rect:
@@ -260,7 +539,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Man 2
       rect:
@@ -273,7 +560,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Woman 1
       rect:
@@ -286,7 +581,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NurseVallek_World
       rect:
@@ -299,7 +602,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Salesman_Bergie_World
       rect:
@@ -312,7 +623,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: ProfCheema_World
       rect:
@@ -325,7 +644,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_10
       rect:
@@ -338,7 +665,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_11
       rect:
@@ -351,7 +686,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_12
       rect:
@@ -364,7 +707,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_13
       rect:
@@ -377,7 +728,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_14
       rect:
@@ -390,7 +749,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_15
       rect:
@@ -403,7 +770,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_16
       rect:
@@ -416,7 +791,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_17
       rect:
@@ -429,7 +812,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_18
       rect:
@@ -442,7 +833,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_19
       rect:
@@ -455,7 +854,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_20
       rect:
@@ -468,7 +875,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_21
       rect:
@@ -481,7 +896,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_22
       rect:
@@ -494,7 +917,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_23
       rect:
@@ -507,7 +938,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_24
       rect:
@@ -520,7 +959,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_25
       rect:
@@ -533,7 +980,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Man 4
       rect:
@@ -546,7 +1001,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Woman 2
       rect:
@@ -559,7 +1022,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_28
       rect:
@@ -572,7 +1043,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_29
       rect:
@@ -585,7 +1064,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_30
       rect:
@@ -598,7 +1085,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_31
       rect:
@@ -611,7 +1106,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_32
       rect:
@@ -624,7 +1127,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_33
       rect:
@@ -637,7 +1148,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_34
       rect:
@@ -650,7 +1169,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_35
       rect:
@@ -663,7 +1190,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Woman 3
       rect:
@@ -676,7 +1211,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Man 5
       rect:
@@ -689,7 +1232,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_38
       rect:
@@ -702,7 +1253,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_39
       rect:
@@ -715,7 +1274,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_40
       rect:
@@ -728,7 +1295,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_41
       rect:
@@ -741,7 +1316,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_42
       rect:
@@ -754,7 +1337,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_43
       rect:
@@ -767,7 +1358,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_44
       rect:
@@ -780,7 +1379,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_45
       rect:
@@ -793,7 +1400,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: NameChanger_East
       rect:
@@ -806,7 +1421,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_47
       rect:
@@ -819,7 +1442,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_48
       rect:
@@ -832,7 +1463,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_49
       rect:
@@ -845,7 +1484,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_50
       rect:
@@ -858,7 +1505,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_51
       rect:
@@ -871,7 +1526,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_52
       rect:
@@ -884,7 +1547,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_53
       rect:
@@ -897,7 +1568,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_54
       rect:
@@ -910,7 +1589,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_55
       rect:
@@ -923,7 +1610,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_56
       rect:
@@ -936,7 +1631,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_57
       rect:
@@ -949,7 +1652,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_58
       rect:
@@ -962,7 +1673,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_59
       rect:
@@ -975,7 +1694,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_60
       rect:
@@ -988,7 +1715,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_61
       rect:
@@ -1001,7 +1736,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_62
       rect:
@@ -1014,7 +1757,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_63
       rect:
@@ -1027,7 +1778,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_64
       rect:
@@ -1040,7 +1799,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_65
       rect:
@@ -1053,7 +1820,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_66
       rect:
@@ -1066,7 +1841,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_67
       rect:
@@ -1079,7 +1862,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_68
       rect:
@@ -1092,7 +1883,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_69
       rect:
@@ -1105,7 +1904,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0c305410000000000800000000000000
+      internalID: 21300160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_70
       rect:
@@ -1118,7 +1925,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2c305410000000000800000000000000
+      internalID: 21300162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_71
       rect:
@@ -1131,7 +1946,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4c305410000000000800000000000000
+      internalID: 21300164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_72
       rect:
@@ -1144,7 +1967,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6c305410000000000800000000000000
+      internalID: 21300166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_73
       rect:
@@ -1157,7 +1988,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8c305410000000000800000000000000
+      internalID: 21300168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_74
       rect:
@@ -1170,7 +2009,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ac305410000000000800000000000000
+      internalID: 21300170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_75
       rect:
@@ -1183,7 +2030,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cc305410000000000800000000000000
+      internalID: 21300172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_76
       rect:
@@ -1196,7 +2051,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_77
       rect:
@@ -1209,7 +2072,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_78
       rect:
@@ -1222,7 +2093,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_79
       rect:
@@ -1235,7 +2114,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_80
       rect:
@@ -1248,7 +2135,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_81
       rect:
@@ -1261,7 +2156,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_82
       rect:
@@ -1274,7 +2177,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_83
       rect:
@@ -1287,7 +2198,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_84
       rect:
@@ -1300,7 +2219,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ed305410000000000800000000000000
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_85
       rect:
@@ -1313,7 +2240,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0e305410000000000800000000000000
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_86
       rect:
@@ -1326,7 +2261,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_87
       rect:
@@ -1339,7 +2282,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_88
       rect:
@@ -1352,7 +2303,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_89
       rect:
@@ -1365,7 +2324,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_90
       rect:
@@ -1378,7 +2345,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_91
       rect:
@@ -1391,7 +2366,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ce305410000000000800000000000000
+      internalID: 21300204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_92
       rect:
@@ -1404,7 +2387,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: ee305410000000000800000000000000
+      internalID: 21300206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_93
       rect:
@@ -1417,7 +2408,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 0f305410000000000800000000000000
+      internalID: 21300208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_94
       rect:
@@ -1430,7 +2429,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 2f305410000000000800000000000000
+      internalID: 21300210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_95
       rect:
@@ -1443,7 +2450,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 4f305410000000000800000000000000
+      internalID: 21300212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_96
       rect:
@@ -1456,7 +2471,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 6f305410000000000800000000000000
+      internalID: 21300214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: WorldCharacterSprites_97
       rect:
@@ -1469,7 +2492,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: 8f305410000000000800000000000000
+      internalID: 21300216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Stock Man 3
       rect:
@@ -1482,7 +2513,15 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: af305410000000000800000000000000
+      internalID: 21300218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Name Changer
       rect:
@@ -1495,9 +2534,28 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
+      physicsShape: []
       tessellationDetail: 0
+      bones: []
+      spriteID: cf305410000000000800000000000000
+      internalID: 21300220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
