@@ -1,3 +1,10 @@
+
+############# PERSONAL #############
+/Assets/Scenes/Other/TestScene.unity
+/Assets/Scripts/Refactor2022/Test/*
+
+############# UNITY ################
+
 /[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
