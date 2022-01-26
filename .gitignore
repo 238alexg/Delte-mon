@@ -2,6 +2,8 @@
 ############# PERSONAL #############
 /Assets/Scenes/Other/TestScene.unity
 /Assets/Scripts/Refactor2022/Test/*
+/Assets/Editor/Test/*
+/Assets/Plugins/*
 
 ############# UNITY ################
 
