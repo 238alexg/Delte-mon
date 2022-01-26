@@ -1,0 +1,104 @@
+{
+  "AllMajors": [
+    {
+      "Name": "Accounting",
+      "Element": "Dark",
+      "BackgroundColor": "6D6D6D"
+    },
+    {
+      "Name": "Business",
+      "Element": "Water",
+      "BackgroundColor": "8DAAFF"
+    },
+    {
+      "Name": "Computer Science",
+      "Element": "Electric",
+      "BackgroundColor": "F2EA80"
+    },
+    {
+      "Name": "Economics",
+      "Element": "Flying",
+      "BackgroundColor": "A2BDC9"
+    },
+    {
+      "Name": "English",
+      "Element": "Dragon",
+      "BackgroundColor": "9587D0"
+    },
+    {
+      "Name": "Accounting",
+      "Element": "Dark",
+      "BackgroundColor": "6D6D6D"
+    },
+    {
+      "Name": "Environmental Science",
+      "Element": "Ice",
+      "BackgroundColor": "7DE0E8"
+    },
+    {
+      "Name": "FHS",
+      "Element": "Fairy",
+      "BackgroundColor": "E893D4"
+    },
+    {
+      "Name": "Geology",
+      "Element": "Rock",
+      "BackgroundColor": "9E9F5D"
+    },
+    {
+      "Name": "History",
+      "Element": "Ghost",
+      "BackgroundColor": "8E70EE"
+    },
+    {
+      "Name": "Human Phys",
+      "Element": "Fighting",
+      "BackgroundColor": "E5AD7B"
+    },
+    {
+      "Name": "Intl Studies",
+      "Element": "Ground",
+      "BackgroundColor": "9F9169"
+    },
+    {
+      "Name": "Journalism",
+      "Element": "Fire",
+      "BackgroundColor": "FF7676"
+    },
+    {
+      "Name": "Math",
+      "Element": "Bug",
+      "BackgroundColor": "A4D05D"
+    },
+    {
+      "Name": "Natural Science",
+      "Element": "Grass",
+      "BackgroundColor": "8AD684"
+    },
+    {
+      "Name": "NoMajor",
+      "Element": "None",
+      "BackgroundColor": "000000"
+    },
+    {
+      "Name": "Political Science",
+      "Element": "Poison",
+      "BackgroundColor": "C183D2"
+    },
+    {
+      "Name": "Product Design",
+      "Element": "Steel",
+      "BackgroundColor": "D6D6D6"
+    },
+    {
+      "Name": "Psychology",
+      "Element": "Psychic",
+      "BackgroundColor": "CEA1CD"
+    },
+    {
+      "Name": "Undeclared",
+      "Element": "Normal",
+      "BackgroundColor": "C1C1C1"
+    }
+  ]
+}

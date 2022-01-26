@@ -1,0 +1,1952 @@
+{
+  "AllDelts": [
+    {
+      "Nickname": "Belzard",
+      "DeltName": "John Belz",
+      "Description": "In competition with it's own kind, Belzards get very aggressive and will often chirp \"Sway\" at each other.",
+      "PinNumber": 1488,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        117,
+        107,
+        79,
+        81,
+        103,
+        113
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Scaley",
+      "NextEvolve": "",
+      "Rarity": "VeryRare",
+      "AVIndex": 0,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 38,
+          "MoveName": "Bylaws"
+        },
+        {
+          "Level": 42,
+          "MoveName": "FED"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Build Resume"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Dab"
+        },
+        {
+          "Level": 51,
+          "MoveName": "Money Market"
+        },
+        {
+          "Level": 54,
+          "MoveName": "Rush"
+        },
+        {
+          "Level": 57,
+          "MoveName": "Hired"
+        },
+        {
+          "Level": 60,
+          "MoveName": "MBA"
+        },
+        {
+          "Level": 62,
+          "MoveName": "Terminate"
+        }
+      ]
+    },
+    {
+      "Nickname": "Bibby",
+      "DeltName": "Joe Hart",
+      "Description": "Jersey boy turned PC chair.",
+      "PinNumber": 1514,
+      "Major1": "Journalism",
+      "Major2": "NoMajor",
+      "BVs": [
+        47,
+        43,
+        35,
+        34,
+        64,
+        77
+      ],
+      "EvolveLevel": 19,
+      "PrevEvolve": "",
+      "NextEvolve": "Calemeleon",
+      "Rarity": "VeryRare",
+      "AVIndex": 5,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Freshman Essay"
+        },
+        {
+          "Level": 7,
+          "MoveName": "Investigate"
+        },
+        {
+          "Level": 10,
+          "MoveName": "Hash"
+        },
+        {
+          "Level": 13,
+          "MoveName": "Cut"
+        },
+        {
+          "Level": 17,
+          "MoveName": "Editorial"
+        }
+      ]
+    },
+    {
+      "Nickname": "Bilbo",
+      "DeltName": "Dakoata Lutje",
+      "Description": "Don't underestimate Bilbo, he did wrestling in high school!",
+      "PinNumber": 1522,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        45,
+        32,
+        69,
+        28,
+        97,
+        29
+      ],
+      "EvolveLevel": 18,
+      "PrevEvolve": "",
+      "NextEvolve": "Gavalen",
+      "Rarity": "Common",
+      "AVIndex": 4,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Supply & Demand"
+        },
+        {
+          "Level": 4,
+          "MoveName": "Conditional Formatting"
+        },
+        {
+          "Level": 8,
+          "MoveName": "Hash"
+        },
+        {
+          "Level": 12,
+          "MoveName": "Use Derivatives"
+        },
+        {
+          "Level": 15,
+          "MoveName": "Capitalism"
+        }
+      ]
+    },
+    {
+      "Nickname": "Calemeleon",
+      "DeltName": "Simon Calem",
+      "Description": "Jersey boy turned PC chair.",
+      "PinNumber": 1489,
+      "Major1": "Journalism",
+      "Major2": "NoMajor",
+      "BVs": [
+        75,
+        68,
+        45,
+        43,
+        93,
+        111
+      ],
+      "EvolveLevel": 35,
+      "PrevEvolve": "Bibby",
+      "NextEvolve": "Flames",
+      "Rarity": "VeryRare",
+      "AVIndex": 5,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 20,
+          "MoveName": "Editorial"
+        },
+        {
+          "Level": 23,
+          "MoveName": "Dab"
+        },
+        {
+          "Level": 26,
+          "MoveName": "Strong Lead"
+        },
+        {
+          "Level": 29,
+          "MoveName": "Column"
+        },
+        {
+          "Level": 32,
+          "MoveName": "Falsified Information"
+        }
+      ]
+    },
+    {
+      "Nickname": "Concusspinks",
+      "DeltName": "Ryan Spinks",
+      "Description": "When out of water, this shark will flail about and probably end up concussed.",
+      "PinNumber": 1492,
+      "Major1": "Natural Science",
+      "Major2": "NoMajor",
+      "BVs": [
+        98,
+        38,
+        111,
+        106,
+        56,
+        26
+      ],
+      "EvolveLevel": 35,
+      "PrevEvolve": "Kumarsh",
+      "NextEvolve": "Shermurk",
+      "Rarity": "VeryRare",
+      "AVIndex": 2,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 20,
+          "MoveName": "Acid"
+        },
+        {
+          "Level": 23,
+          "MoveName": "Ride Curve"
+        },
+        {
+          "Level": 25,
+          "MoveName": "Detonate"
+        },
+        {
+          "Level": 27,
+          "MoveName": "Punnet Square"
+        },
+        {
+          "Level": 30,
+          "MoveName": "Ozone"
+        },
+        {
+          "Level": 32,
+          "MoveName": "Clone"
+        }
+      ]
+    },
+    {
+      "Nickname": "Dobby",
+      "DeltName": "Will Kilty",
+      "Description": "This motivated Delt often seeks to improve his surroundings while evading Green Chair meetings.",
+      "PinNumber": 1504,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        60,
+        47,
+        45,
+        46,
+        44,
+        58
+      ],
+      "EvolveLevel": 19,
+      "PrevEvolve": "",
+      "NextEvolve": "Scaley",
+      "Rarity": "VeryRare",
+      "AVIndex": 0,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Supply & Demand"
+        },
+        {
+          "Level": 6,
+          "MoveName": "Bylaws"
+        },
+        {
+          "Level": 9,
+          "MoveName": "Peer Evaluation"
+        },
+        {
+          "Level": 13,
+          "MoveName": "Oral Presentation"
+        },
+        {
+          "Level": 17,
+          "MoveName": "Mary Jane"
+        }
+      ]
+    },
+    {
+      "Nickname": "DormKicks",
+      "DeltName": "Houston Greenberg",
+      "Description": "He's got the entrepenurial spirit. Or at least it's tombstone.",
+      "PinNumber": 1497,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        53,
+        55,
+        92,
+        28,
+        95,
+        77
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Eyethan",
+      "NextEvolve": "",
+      "Rarity": "Common",
+      "AVIndex": 4,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 19,
+          "MoveName": "Oral Presentation"
+        },
+        {
+          "Level": 22,
+          "MoveName": "Micro Manage"
+        },
+        {
+          "Level": 28,
+          "MoveName": "Drive Car"
+        },
+        {
+          "Level": 31,
+          "MoveName": "Negotiate"
+        },
+        {
+          "Level": 33,
+          "MoveName": "Hack"
+        },
+        {
+          "Level": 36,
+          "MoveName": "Downsize"
+        },
+        {
+          "Level": 39,
+          "MoveName": "Build Resume"
+        },
+        {
+          "Level": 42,
+          "MoveName": "Hired"
+        },
+        {
+          "Level": 45,
+          "MoveName": "MBA"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Terminate"
+        }
+      ]
+    },
+    {
+      "Nickname": "Dorricourt",
+      "DeltName": "Peter Dorricott",
+      "Description": "Dorricourt is the goat of trees.",
+      "PinNumber": 1508,
+      "Major1": "Natural Science",
+      "Major2": "NoMajor",
+      "BVs": [
+        101,
+        44,
+        110,
+        78,
+        46,
+        21
+      ],
+      "EvolveLevel": 29,
+      "PrevEvolve": "",
+      "NextEvolve": "Treent",
+      "Rarity": "Common",
+      "AVIndex": 2,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Mitochondria"
+        },
+        {
+          "Level": 5,
+          "MoveName": "Acid"
+        },
+        {
+          "Level": 9,
+          "MoveName": "Dab"
+        },
+        {
+          "Level": 12,
+          "MoveName": "O Chem"
+        },
+        {
+          "Level": 15,
+          "MoveName": "Noble Gas"
+        },
+        {
+          "Level": 18,
+          "MoveName": "Cancer"
+        },
+        {
+          "Level": 21,
+          "MoveName": "Ride Curve"
+        },
+        {
+          "Level": 24,
+          "MoveName": "Broken Finger"
+        },
+        {
+          "Level": 27,
+          "MoveName": "Punnet Square"
+        }
+      ]
+    },
+    {
+      "Nickname": "Exceleon",
+      "DeltName": "Jake Zusman",
+      "Description": "Contrary to popular belief, Exceleon only has 4 legs.",
+      "PinNumber": 1473,
+      "Major1": "Accounting",
+      "Major2": "NoMajor",
+      "BVs": [
+        72,
+        100,
+        84,
+        48,
+        50,
+        46
+      ],
+      "EvolveLevel": 32,
+      "PrevEvolve": "Shahound",
+      "NextEvolve": "Wolfmond",
+      "Rarity": "Common",
+      "AVIndex": 1,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 19,
+          "MoveName": "Raining Money"
+        },
+        {
+          "Level": 21,
+          "MoveName": "Bankruptcy"
+        },
+        {
+          "Level": 23,
+          "MoveName": "Phallic Image"
+        },
+        {
+          "Level": 25,
+          "MoveName": "Study Tables"
+        },
+        {
+          "Level": 27,
+          "MoveName": "Pyramid"
+        },
+        {
+          "Level": 29,
+          "MoveName": "Bruised Testicle"
+        },
+        {
+          "Level": 31,
+          "MoveName": "Firesale"
+        }
+      ]
+    },
+    {
+      "Nickname": "Eyethan",
+      "DeltName": "Ethan McChristian",
+      "Description": "He's got the entrepenurial spirit. Or at least it's tombstone.",
+      "PinNumber": 1519,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        39,
+        41,
+        71,
+        20,
+        72,
+        57
+      ],
+      "EvolveLevel": 16,
+      "PrevEvolve": "",
+      "NextEvolve": "DormKicks",
+      "Rarity": "VeryCommon",
+      "AVIndex": 4,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Supply & Demand"
+        },
+        {
+          "Level": 5,
+          "MoveName": "Supply"
+        },
+        {
+          "Level": 9,
+          "MoveName": "Use Derivatives"
+        },
+        {
+          "Level": 12,
+          "MoveName": "Richter Roll"
+        }
+      ]
+    },
+    {
+      "Nickname": "Flames",
+      "DeltName": "James McAndrew",
+      "Description": "While intimidating burning down villages, Flames is most formidable on the dance floor.",
+      "PinNumber": 1431,
+      "Major1": "Journalism",
+      "Major2": "NoMajor",
+      "BVs": [
+        87,
+        157,
+        55,
+        57,
+        98,
+        196
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Calemeleon",
+      "NextEvolve": "",
+      "Rarity": "Legendary",
+      "AVIndex": 5,
+      "AVAmount": 5,
+      "LevelUpMoves": [
+        {
+          "Level": 38,
+          "MoveName": "Slant"
+        },
+        {
+          "Level": 42,
+          "MoveName": "Front Page"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Detonate"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Anchorman"
+        },
+        {
+          "Level": 51,
+          "MoveName": "Feature"
+        },
+        {
+          "Level": 54,
+          "MoveName": "Sleep In"
+        },
+        {
+          "Level": 57,
+          "MoveName": "Exclusive"
+        },
+        {
+          "Level": 60,
+          "MoveName": "Hard News"
+        },
+        {
+          "Level": 62,
+          "MoveName": "Soft News"
+        }
+      ]
+    },
+    {
+      "Nickname": "Flyle",
+      "DeltName": "Lyle Wescott",
+      "Description": "Flyles make a point of dropping pyles of poisonous fecal matter onto their opponents.",
+      "PinNumber": 1487,
+      "Major1": "Economics",
+      "Major2": "NoMajor",
+      "BVs": [
+        56,
+        38,
+        71,
+        37,
+        97,
+        101
+      ],
+      "EvolveLevel": 29,
+      "PrevEvolve": "Huntweet",
+      "NextEvolve": "Italeagle",
+      "Rarity": "Common",
+      "AVIndex": 5,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 18,
+          "MoveName": "Price"
+        },
+        {
+          "Level": 21,
+          "MoveName": "Smog"
+        },
+        {
+          "Level": 23,
+          "MoveName": "Drive Car"
+        },
+        {
+          "Level": 25,
+          "MoveName": "Communism"
+        },
+        {
+          "Level": 27,
+          "MoveName": "Sleep In"
+        }
+      ]
+    },
+    {
+      "Nickname": "Frijoles",
+      "DeltName": "Cameron McCann",
+      "Description": "Five years? FIVE YEARS!?",
+      "PinNumber": 1481,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        90,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Velardass",
+      "NextEvolve": "",
+      "Rarity": "VeryCommon",
+      "AVIndex": 0,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 19,
+          "MoveName": "Micro Manage"
+        },
+        {
+          "Level": 22,
+          "MoveName": "Negotiate"
+        },
+        {
+          "Level": 25,
+          "MoveName": "Interest Rate"
+        },
+        {
+          "Level": 28,
+          "MoveName": "Accept Internship"
+        },
+        {
+          "Level": 31,
+          "MoveName": "Phallic Image"
+        },
+        {
+          "Level": 34,
+          "MoveName": "Downsize"
+        },
+        {
+          "Level": 37,
+          "MoveName": "Build Resume"
+        },
+        {
+          "Level": 40,
+          "MoveName": "Hernia"
+        },
+        {
+          "Level": 43,
+          "MoveName": "Chapter"
+        },
+        {
+          "Level": 46,
+          "MoveName": "MBA"
+        },
+        {
+          "Level": 49,
+          "MoveName": "Terminate"
+        }
+      ]
+    },
+    {
+      "Nickname": "Gavalen",
+      "DeltName": "Gavin Maxwell",
+      "Description": "Gavalens spend most of their time on muscle beach holding various orientations around monkey bars.",
+      "PinNumber": 1501,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        59,
+        41,
+        109,
+        45,
+        123,
+        32
+      ],
+      "EvolveLevel": 36,
+      "PrevEvolve": "Bilbo",
+      "NextEvolve": "Mohlord",
+      "Rarity": "Uncommon",
+      "AVIndex": 4,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Micro Manage"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Negotiate"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Dynamite"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Downsize"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Facebook"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Shotgun"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Get Swol"
+        }
+      ]
+    },
+    {
+      "Nickname": "Gayrados",
+      "DeltName": "DJ McIntire",
+      "Description": "While beautiful to look at, Gayrados can tear you apart in the blink of an eye.",
+      "PinNumber": 1443,
+      "Major1": "FHS",
+      "Major2": "NoMajor",
+      "BVs": [
+        96,
+        135,
+        166,
+        48,
+        85,
+        20
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Markofish",
+      "NextEvolve": "",
+      "Rarity": "Uncommon",
+      "AVIndex": 2,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 12,
+          "MoveName": "Community Service"
+        },
+        {
+          "Level": 14,
+          "MoveName": "Sudoku"
+        },
+        {
+          "Level": 16,
+          "MoveName": "Console"
+        },
+        {
+          "Level": 18,
+          "MoveName": "Active Listening"
+        },
+        {
+          "Level": 21,
+          "MoveName": "Holden Center"
+        },
+        {
+          "Level": 23,
+          "MoveName": "Domesticate"
+        },
+        {
+          "Level": 26,
+          "MoveName": "Adopt"
+        },
+        {
+          "Level": 28,
+          "MoveName": "Drive Car"
+        },
+        {
+          "Level": 29,
+          "MoveName": "Share Impact"
+        },
+        {
+          "Level": 32,
+          "MoveName": "Background Check"
+        },
+        {
+          "Level": 35,
+          "MoveName": "Foster Home"
+        },
+        {
+          "Level": 38,
+          "MoveName": "Take Custody"
+        },
+        {
+          "Level": 40,
+          "MoveName": "Psychoanalyze"
+        },
+        {
+          "Level": 41,
+          "MoveName": "Intervention"
+        },
+        {
+          "Level": 44,
+          "MoveName": "Neglect"
+        },
+        {
+          "Level": 46,
+          "MoveName": "Philanthropy"
+        },
+        {
+          "Level": 48,
+          "MoveName": "See Red"
+        }
+      ]
+    },
+    {
+      "Nickname": "Gilliair",
+      "DeltName": "Jason Gilliam",
+      "Description": "Some say Gillairs fly all night without rest.",
+      "PinNumber": 1413,
+      "Major1": "Intl Studies",
+      "Major2": "History",
+      "BVs": [
+        96,
+        133,
+        100,
+        42,
+        133,
+        96
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Tancker",
+      "NextEvolve": "",
+      "Rarity": "Rare",
+      "AVIndex": 4,
+      "AVAmount": 4,
+      "LevelUpMoves": [
+        {
+          "Level": 29,
+          "MoveName": "Declare War"
+        },
+        {
+          "Level": 32,
+          "MoveName": "Break Treaty"
+        },
+        {
+          "Level": 35,
+          "MoveName": "World War I"
+        },
+        {
+          "Level": 38,
+          "MoveName": "United Nations"
+        },
+        {
+          "Level": 41,
+          "MoveName": "Quarantine"
+        },
+        {
+          "Level": 43,
+          "MoveName": "World War II"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Alliance"
+        },
+        {
+          "Level": 47,
+          "MoveName": "Golden Age"
+        },
+        {
+          "Level": 50,
+          "MoveName": "Hiroshima"
+        },
+        {
+          "Level": 53,
+          "MoveName": "Genocide"
+        }
+      ]
+    },
+    {
+      "Nickname": "Huntweet",
+      "DeltName": "Huntley Sims",
+      "Description": "Huntweets are known for flocking to the freshman dorms over the winter.",
+      "PinNumber": 1515,
+      "Major1": "Economics",
+      "Major2": "NoMajor",
+      "BVs": [
+        41,
+        28,
+        55,
+        27,
+        72,
+        77
+      ],
+      "EvolveLevel": 16,
+      "PrevEvolve": "",
+      "NextEvolve": "Flyle",
+      "Rarity": "VeryCommon",
+      "AVIndex": 5,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Demand"
+        },
+        {
+          "Level": 6,
+          "MoveName": "Supply"
+        },
+        {
+          "Level": 9,
+          "MoveName": "Conditional Formatting"
+        },
+        {
+          "Level": 12,
+          "MoveName": "Equilibrium"
+        }
+      ]
+    },
+    {
+      "Nickname": "Italeagle",
+      "DeltName": "Yuri D'Agosto",
+      "Description": "Rumor has it the only thing Mussolini feared was the Italeagle.",
+      "PinNumber": 1448,
+      "Major1": "Economics",
+      "Major2": "Business",
+      "BVs": [
+        79,
+        48,
+        98,
+        51,
+        143,
+        156
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Flyle",
+      "NextEvolve": "",
+      "Rarity": "Uncommon",
+      "AVIndex": 5,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 31,
+          "MoveName": "Capitalism"
+        },
+        {
+          "Level": 34,
+          "MoveName": "Corruption"
+        },
+        {
+          "Level": 37,
+          "MoveName": "Accept Internship"
+        },
+        {
+          "Level": 40,
+          "MoveName": "FED"
+        },
+        {
+          "Level": 43,
+          "MoveName": "Money Market"
+        },
+        {
+          "Level": 46,
+          "MoveName": "Downsize"
+        },
+        {
+          "Level": 49,
+          "MoveName": "Fascism"
+        },
+        {
+          "Level": 52,
+          "MoveName": "Micro"
+        },
+        {
+          "Level": 55,
+          "MoveName": "Terminate"
+        },
+        {
+          "Level": 58,
+          "MoveName": "Macro"
+        }
+      ]
+    },
+    {
+      "Nickname": "Kumarsh",
+      "DeltName": "Dylan Kumar",
+      "Description": "While it looks like a beard to most, Kumarsh's gills allow it to hide     in swampwater for a few hours.",
+      "PinNumber": 1516,
+      "Major1": "Natural Science",
+      "Major2": "NoMajor",
+      "BVs": [
+        73,
+        23,
+        81,
+        78,
+        29,
+        16
+      ],
+      "EvolveLevel": 19,
+      "PrevEvolve": "",
+      "NextEvolve": "Concusspinks",
+      "Rarity": "VeryRare",
+      "AVIndex": 2,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Mitochondria"
+        },
+        {
+          "Level": 7,
+          "MoveName": "Noble Gas"
+        },
+        {
+          "Level": 10,
+          "MoveName": "Granola"
+        },
+        {
+          "Level": 13,
+          "MoveName": "O Chem"
+        },
+        {
+          "Level": 17,
+          "MoveName": "Hash"
+        }
+      ]
+    },
+    {
+      "Nickname": "Mafiyah",
+      "DeltName": "Macaihah Broussard",
+      "Description": "Mafiyah actually designed a fire Fall 2016 Rush Logo.",
+      "PinNumber": 1431,
+      "Major1": "Journalism",
+      "Major2": "NoMajor",
+      "BVs": [
+        101,
+        90,
+        63,
+        62,
+        113,
+        171
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Calemeleon",
+      "NextEvolve": "",
+      "Rarity": "Legendary",
+      "AVIndex": 5,
+      "AVAmount": 5,
+      "LevelUpMoves": [
+        {
+          "Level": 38,
+          "MoveName": "Slant"
+        },
+        {
+          "Level": 42,
+          "MoveName": "Front Page"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Shasta"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Anchorman"
+        },
+        {
+          "Level": 51,
+          "MoveName": "Feature"
+        },
+        {
+          "Level": 54,
+          "MoveName": "Rush"
+        },
+        {
+          "Level": 57,
+          "MoveName": "Exclusive"
+        },
+        {
+          "Level": 60,
+          "MoveName": "Hard News"
+        },
+        {
+          "Level": 62,
+          "MoveName": "Soft News"
+        }
+      ]
+    },
+    {
+      "Nickname": "Markofish",
+      "DeltName": "Nathan Markovich",
+      "Description": "Found off Thailand's coast, Markofish is the only known aquatic species with a solid beard.",
+      "PinNumber": 1496,
+      "Major1": "FHS",
+      "Major2": "NoMajor",
+      "BVs": [
+        88,
+        85,
+        79,
+        48,
+        85,
+        15
+      ],
+      "EvolveLevel": 12,
+      "PrevEvolve": "",
+      "NextEvolve": "Gayrados",
+      "Rarity": "VeryCommon",
+      "AVIndex": 2,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Banana Dance"
+        }
+      ]
+    },
+    {
+      "Nickname": "Merl",
+      "DeltName": "Matt Robinson",
+      "Description": "A guide who puffs the fattest clouds.",
+      "PinNumber": 1486,
+      "Major1": "Political Science",
+      "Major2": "NoMajor",
+      "BVs": [
+        40,
+        103,
+        85,
+        122,
+        110,
+        40
+      ],
+      "EvolveLevel": 27,
+      "PrevEvolve": "",
+      "NextEvolve": "PuffPuffPeter",
+      "Rarity": "Uncommon",
+      "AVIndex": 3,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Watergate"
+        },
+        {
+          "Level": 7,
+          "MoveName": "Independence"
+        },
+        {
+          "Level": 11,
+          "MoveName": "Dab"
+        },
+        {
+          "Level": 14,
+          "MoveName": "Constitution"
+        },
+        {
+          "Level": 17,
+          "MoveName": "Taxation"
+        },
+        {
+          "Level": 21,
+          "MoveName": "Mary Jane"
+        },
+        {
+          "Level": 24,
+          "MoveName": "Facebook"
+        }
+      ]
+    },
+    {
+      "Nickname": "Mohlord",
+      "DeltName": "Matt Mohler",
+      "Description": "A Mohlord's strength is often determined by the state of his hair.",
+      "PinNumber": 1456,
+      "Major1": "Business",
+      "Major2": "Political Science",
+      "BVs": [
+        83,
+        56,
+        139,
+        53,
+        183,
+        36
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Gavalen",
+      "NextEvolve": "",
+      "Rarity": "Rare",
+      "AVIndex": 4,
+      "AVAmount": 4,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Build Resume"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Lobby"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Shasta"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Hired"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Citizen Arrest"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Detonate"
+        },
+        {
+          "Level": 0,
+          "MoveName": "MBA"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Fascism"
+        },
+        {
+          "Level": 0,
+          "MoveName": "Terminate"
+        }
+      ]
+    },
+    {
+      "Nickname": "PaulRyan",
+      "DeltName": "Andrew Warren",
+      "Description": "The resemblance is uncanny.",
+      "PinNumber": 1510,
+      "Major1": "Economics",
+      "Major2": "NoMajor",
+      "BVs": [
+        37,
+        39,
+        27,
+        32,
+        71,
+        94
+      ],
+      "EvolveLevel": 27,
+      "PrevEvolve": "",
+      "NextEvolve": "Seuss",
+      "Rarity": "VeryCommon",
+      "AVIndex": 5,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Demand"
+        },
+        {
+          "Level": 4,
+          "MoveName": "Supply"
+        },
+        {
+          "Level": 7,
+          "MoveName": "Equilibrium"
+        },
+        {
+          "Level": 10,
+          "MoveName": "Democracy"
+        },
+        {
+          "Level": 13,
+          "MoveName": "Price"
+        },
+        {
+          "Level": 16,
+          "MoveName": "Oral Presentation"
+        },
+        {
+          "Level": 19,
+          "MoveName": "Curve"
+        },
+        {
+          "Level": 22,
+          "MoveName": "Micro Manage"
+        },
+        {
+          "Level": 25,
+          "MoveName": "Capitalism"
+        }
+      ]
+    },
+    {
+      "Nickname": "PuffPuffPeter",
+      "DeltName": "Peter Anderson",
+      "Description": "They say if you walk through a PuffPuffPeter your eyes become more red than Mars.",
+      "PinNumber": 1416,
+      "Major1": "Political Science",
+      "Major2": "Economics",
+      "BVs": [
+        50,
+        123,
+        93,
+        155,
+        128,
+        50
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Merl",
+      "NextEvolve": "",
+      "Rarity": "Rare",
+      "AVIndex": 3,
+      "AVAmount": 4,
+      "LevelUpMoves": [
+        {
+          "Level": 30,
+          "MoveName": "Republic"
+        },
+        {
+          "Level": 33,
+          "MoveName": "Build Wall"
+        },
+        {
+          "Level": 36,
+          "MoveName": "Interest Rate"
+        },
+        {
+          "Level": 39,
+          "MoveName": "Citizen Arrest"
+        },
+        {
+          "Level": 42,
+          "MoveName": "FED"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Amendment"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Secede"
+        },
+        {
+          "Level": 51,
+          "MoveName": "Macro"
+        },
+        {
+          "Level": 53,
+          "MoveName": "Fascism"
+        }
+      ]
+    },
+    {
+      "Nickname": "Scaley",
+      "DeltName": "Caley Berney",
+      "Description": "Scaleys bounce soccer balls on their chest as part of an elaborate mating ritual.",
+      "PinNumber": 1488,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        83,
+        72,
+        67,
+        68,
+        65,
+        80
+      ],
+      "EvolveLevel": 35,
+      "PrevEvolve": "Dobby",
+      "NextEvolve": "Shawcodile",
+      "Rarity": "VeryRare",
+      "AVIndex": 0,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 20,
+          "MoveName": "Micro Manage"
+        },
+        {
+          "Level": 23,
+          "MoveName": "Negotiate"
+        },
+        {
+          "Level": 26,
+          "MoveName": "Odd Markets"
+        },
+        {
+          "Level": 29,
+          "MoveName": "Build Resume"
+        },
+        {
+          "Level": 32,
+          "MoveName": "Downsize"
+        }
+      ]
+    },
+    {
+      "Nickname": "Seuss",
+      "DeltName": "Zane Karimi",
+      "Description": "Seusses sustain a diet purely of things neither green nor ham.",
+      "PinNumber": 1406,
+      "Major1": "Economics",
+      "Major2": "NoMajor",
+      "BVs": [
+        71,
+        80,
+        59,
+        65,
+        149,
+        176
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "PaulRyan",
+      "NextEvolve": "",
+      "Rarity": "Uncommon",
+      "AVIndex": 5,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 29,
+          "MoveName": "Money Market"
+        },
+        {
+          "Level": 32,
+          "MoveName": "Interest Rate"
+        },
+        {
+          "Level": 35,
+          "MoveName": "Clone"
+        },
+        {
+          "Level": 38,
+          "MoveName": "FED"
+        },
+        {
+          "Level": 41,
+          "MoveName": "Odd Markets"
+        },
+        {
+          "Level": 44,
+          "MoveName": "Pin"
+        },
+        {
+          "Level": 47,
+          "MoveName": "Micro"
+        },
+        {
+          "Level": 50,
+          "MoveName": "Exothermic"
+        },
+        {
+          "Level": 53,
+          "MoveName": "Macro"
+        }
+      ]
+    },
+    {
+      "Nickname": "Shahound",
+      "DeltName": "Shaheen Safari",
+      "Description": "Contrary to his last name, Shahound is very domesticated.",
+      "PinNumber": 1505,
+      "Major1": "Accounting",
+      "Major2": "NoMajor",
+      "BVs": [
+        56,
+        79,
+        69,
+        32,
+        34,
+        30
+      ],
+      "EvolveLevel": 16,
+      "PrevEvolve": "",
+      "NextEvolve": "Exceleon",
+      "Rarity": "VeryCommon",
+      "AVIndex": 1,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Consulting"
+        },
+        {
+          "Level": 4,
+          "MoveName": "Quickbooks"
+        },
+        {
+          "Level": 8,
+          "MoveName": "Bylaws"
+        },
+        {
+          "Level": 12,
+          "MoveName": "Peer Evaluation"
+        },
+        {
+          "Level": 15,
+          "MoveName": "Cash Flows"
+        }
+      ]
+    },
+    {
+      "Nickname": "ShahoundDD",
+      "DeltName": "Shaheen Safari",
+      "Description": "Contrary to his last name, Shahound is very domesticated.",
+      "PinNumber": 1505,
+      "Major1": "Accounting",
+      "Major2": "NoMajor",
+      "BVs": [
+        56,
+        79,
+        69,
+        32,
+        34,
+        30
+      ],
+      "EvolveLevel": 16,
+      "PrevEvolve": "",
+      "NextEvolve": "Exceleon",
+      "Rarity": "VeryCommon",
+      "AVIndex": 1,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Consulting"
+        },
+        {
+          "Level": 4,
+          "MoveName": "Quickbooks"
+        },
+        {
+          "Level": 8,
+          "MoveName": "Bylaws"
+        },
+        {
+          "Level": 12,
+          "MoveName": "Peer Evaluation"
+        },
+        {
+          "Level": 15,
+          "MoveName": "Cash Flows"
+        }
+      ]
+    },
+    {
+      "Nickname": "Shawcodile",
+      "DeltName": "Connor Shaw",
+      "Description": "Often bystanders only see a floating mustache in the water, warning them of lurking danger.",
+      "PinNumber": 1419,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        113,
+        79,
+        107,
+        103,
+        81,
+        117
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Scaley",
+      "NextEvolve": "",
+      "Rarity": "VeryRare",
+      "AVIndex": 0,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 38,
+          "MoveName": "Bylaws"
+        },
+        {
+          "Level": 42,
+          "MoveName": "FED"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Build Resume"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Oath"
+        },
+        {
+          "Level": 51,
+          "MoveName": "Chapter"
+        },
+        {
+          "Level": 54,
+          "MoveName": "Rush"
+        },
+        {
+          "Level": 57,
+          "MoveName": "Hired"
+        },
+        {
+          "Level": 60,
+          "MoveName": "MBA"
+        },
+        {
+          "Level": 62,
+          "MoveName": "Terminate"
+        }
+      ]
+    },
+    {
+      "Nickname": "Shermurk",
+      "DeltName": "Sherman Tran",
+      "Description": "Often called the \"Godzilla of the swamp,\" Shermurk is known for it's collosal size and rosy cheeks.",
+      "PinNumber": 1456,
+      "Major1": "Natural Science",
+      "Major2": "Environmental Science",
+      "BVs": [
+        135,
+        60,
+        171,
+        155,
+        86,
+        43
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Concusspinks",
+      "NextEvolve": "",
+      "Rarity": "Legendary",
+      "AVIndex": 2,
+      "AVAmount": 5,
+      "LevelUpMoves": [
+        {
+          "Level": 38,
+          "MoveName": "OH-"
+        },
+        {
+          "Level": 39,
+          "MoveName": "Ozone"
+        },
+        {
+          "Level": 42,
+          "MoveName": "CHCl3"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Study Tables"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Granola"
+        },
+        {
+          "Level": 51,
+          "MoveName": "MCAT"
+        },
+        {
+          "Level": 54,
+          "MoveName": "Global Warming"
+        },
+        {
+          "Level": 57,
+          "MoveName": "Endothermic"
+        },
+        {
+          "Level": 60,
+          "MoveName": "Extinction"
+        },
+        {
+          "Level": 62,
+          "MoveName": "Exothermic"
+        }
+      ]
+    },
+    {
+      "Nickname": "Tancker",
+      "DeltName": "Jason Becker",
+      "Description": "They say if you hear a Tancker coming, it's already too late.",
+      "PinNumber": 1502,
+      "Major1": "Intl Studies",
+      "Major2": "NoMajor",
+      "BVs": [
+        105,
+        32,
+        88,
+        34,
+        111,
+        30
+      ],
+      "EvolveLevel": 27,
+      "PrevEvolve": "",
+      "NextEvolve": "Gilliair",
+      "Rarity": "Common",
+      "AVIndex": 4,
+      "AVAmount": 2,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Translate"
+        },
+        {
+          "Level": 5,
+          "MoveName": "Hash"
+        },
+        {
+          "Level": 9,
+          "MoveName": "International Waters"
+        },
+        {
+          "Level": 13,
+          "MoveName": "Refugee"
+        },
+        {
+          "Level": 17,
+          "MoveName": "Cross Borders"
+        },
+        {
+          "Level": 21,
+          "MoveName": "Cold War"
+        },
+        {
+          "Level": 24,
+          "MoveName": "Romance"
+        }
+      ]
+    },
+    {
+      "Nickname": "Tannon",
+      "DeltName": "Hao Tan",
+      "Description": "\"Hao is a glass cannon\" - Reginald",
+      "PinNumber": 1446,
+      "Major1": "Natural Science",
+      "Major2": "Human Phys",
+      "BVs": [
+        42,
+        239,
+        69,
+        69,
+        30,
+        201
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Concusspinks",
+      "NextEvolve": "",
+      "Rarity": "Legendary",
+      "AVIndex": 1,
+      "AVAmount": 5,
+      "LevelUpMoves": [
+        {
+          "Level": 38,
+          "MoveName": "OH-"
+        },
+        {
+          "Level": 39,
+          "MoveName": "Circle Jerk"
+        },
+        {
+          "Level": 42,
+          "MoveName": "CHCl3"
+        },
+        {
+          "Level": 45,
+          "MoveName": "Cancer"
+        },
+        {
+          "Level": 48,
+          "MoveName": "Pin"
+        },
+        {
+          "Level": 51,
+          "MoveName": "MCAT"
+        },
+        {
+          "Level": 54,
+          "MoveName": "Rush"
+        },
+        {
+          "Level": 57,
+          "MoveName": "Catharsis"
+        },
+        {
+          "Level": 60,
+          "MoveName": "Dislocate"
+        },
+        {
+          "Level": 62,
+          "MoveName": "Exothermic"
+        }
+      ]
+    },
+    {
+      "Nickname": "Treent",
+      "DeltName": "Trent Peters-Clarke",
+      "Description": "Treents are known for their peaceful nature and passion for board games.",
+      "PinNumber": 1410,
+      "Major1": "Natural Science",
+      "Major2": "Human Phys",
+      "BVs": [
+        169,
+        56,
+        175,
+        109,
+        63,
+        28
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Dorricourt",
+      "NextEvolve": "",
+      "Rarity": "Rare",
+      "AVIndex": 2,
+      "AVAmount": 4,
+      "LevelUpMoves": [
+        {
+          "Level": 31,
+          "MoveName": "GATC"
+        },
+        {
+          "Level": 34,
+          "MoveName": "Physical Therapy"
+        },
+        {
+          "Level": 37,
+          "MoveName": "CHCl3"
+        },
+        {
+          "Level": 40,
+          "MoveName": "Bruised Testicle"
+        },
+        {
+          "Level": 43,
+          "MoveName": "MCAT"
+        },
+        {
+          "Level": 46,
+          "MoveName": "Clone"
+        },
+        {
+          "Level": 49,
+          "MoveName": "Pin"
+        },
+        {
+          "Level": 52,
+          "MoveName": "Endothermic"
+        },
+        {
+          "Level": 54,
+          "MoveName": "CPR"
+        },
+        {
+          "Level": 56,
+          "MoveName": "Exothermic"
+        }
+      ]
+    },
+    {
+      "Nickname": "Velardass",
+      "DeltName": "Brett Velarde",
+      "Description": "CHIIIIILLLLLLLL",
+      "PinNumber": 1521,
+      "Major1": "Business",
+      "Major2": "NoMajor",
+      "BVs": [
+        90,
+        42,
+        42,
+        42,
+        42,
+        42
+      ],
+      "EvolveLevel": 17,
+      "PrevEvolve": "",
+      "NextEvolve": "Frijoles",
+      "Rarity": "VeryCommon",
+      "AVIndex": 0,
+      "AVAmount": 1,
+      "LevelUpMoves": [
+        {
+          "Level": 0,
+          "MoveName": "Supply & Demand"
+        },
+        {
+          "Level": 6,
+          "MoveName": "Freudian Slip"
+        },
+        {
+          "Level": 9,
+          "MoveName": "Conditional Formatting"
+        },
+        {
+          "Level": 11,
+          "MoveName": "Hash"
+        },
+        {
+          "Level": 14,
+          "MoveName": "Use Derivatives"
+        }
+      ]
+    },
+    {
+      "Nickname": "Wolfmond",
+      "DeltName": "Alex Edmonds",
+      "Description": "A pack of Wolfmonds is referred to as a \"Cohort\"",
+      "PinNumber": 1493,
+      "Major1": "Accounting",
+      "Major2": "NoMajor",
+      "BVs": [
+        85,
+        125,
+        105,
+        58,
+        71,
+        56
+      ],
+      "EvolveLevel": 0,
+      "PrevEvolve": "Exceleon",
+      "NextEvolve": "",
+      "Rarity": "Uncommon",
+      "AVIndex": 1,
+      "AVAmount": 3,
+      "LevelUpMoves": [
+        {
+          "Level": 34,
+          "MoveName": "Debits"
+        },
+        {
+          "Level": 37,
+          "MoveName": "Integrity"
+        },
+        {
+          "Level": 40,
+          "MoveName": "Audit"
+        },
+        {
+          "Level": 43,
+          "MoveName": "Build Wall"
+        },
+        {
+          "Level": 46,
+          "MoveName": "Loan Default"
+        },
+        {
+          "Level": 49,
+          "MoveName": "Bad Debt"
+        },
+        {
+          "Level": 51,
+          "MoveName": "Hired"
+        },
+        {
+          "Level": 53,
+          "MoveName": "Macro"
+        },
+        {
+          "Level": 56,
+          "MoveName": "Fraud"
+        }
+      ]
+    }
+  ]
+}

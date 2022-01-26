@@ -1,0 +1,3714 @@
+{
+  "AllMoves": [
+    {
+      "Name": "",
+      "Description": "",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 0,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 0,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Audit",
+      "Description": "It's time to collect some dues. Chance to Indebt. 10% crit.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Bad Debt",
+      "Description": "Indebt on hit.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 55,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Bankruptcy",
+      "Description": "Chance to Indebt.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Cash Flows",
+      "Description": "15% crit.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Consulting",
+      "Description": "",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 30,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "CPA",
+      "Description": "Sharply buffs Truth.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Debits",
+      "Description": "Buffs Truth, CTP.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Discounts",
+      "Description": "Debuffs Faith.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "Debuff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dividend",
+      "Description": "Heals 35.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Firesale",
+      "Description": "Chance to Roast. 15% crit.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fraud",
+      "Description": "Chance to Indebt. 10% crit.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 15,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Loan Default",
+      "Description": "Chance to Indebt. 10% crit.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pyramid",
+      "Description": "Debuffs Faith, Power.",
+      "Major": "Accounting (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Quickbooks",
+      "Description": "",
+      "Major": "Accounting (MajorClass)",
+      "Type": "Debuff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Raining Money",
+      "Description": "",
+      "Major": "Accounting (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Accept Internship",
+      "Description": "YES! Finally making no money WITH a job!",
+      "Major": "Business (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Build Resume",
+      "Description": "Time to get back on top of things.",
+      "Major": "Business (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Conditional Formatting",
+      "Description": "=($F+$THIS+$HW+$ASSIGNMENT)",
+      "Major": "Business (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Downsize",
+      "Description": "Tell them it's the economy.",
+      "Major": "Business (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hired",
+      "Description": "\"Never hire someone who knows less than you do about what he's hired to do.\" - Malcolm Forbes. 30% crit.",
+      "Major": "Business (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 15,
+      "CritChance": 30,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "MBA",
+      "Description": "Not a shabby title.",
+      "Major": "Business (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Micro Manage",
+      "Description": "Because let's be honest, employees are worse than in The Office.",
+      "Major": "Business (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Negotiate",
+      "Description": "\"Owning a great golf course gives you great power\" - Donald Trump",
+      "Major": "Business (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Oral Presentation",
+      "Description": "Just picture them in their underwear...",
+      "Major": "Business (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Peer Evaluation",
+      "Description": "Nothing like teachers delegating grading work to students!",
+      "Major": "Business (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 30,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Supply & Demand",
+      "Description": "You wish it were that simple. 30% crit.",
+      "Major": "Business (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 30,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 30,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Terminate",
+      "Description": "\"You're Fired\" - Donald Trump",
+      "Major": "Business (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 120,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Use Derivatives",
+      "Description": "Now subtract one from the exponent and... or is it the other way around? Chance to Intoxicate. 15% Crit.",
+      "Major": "Business (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Binary",
+      "Description": "Random.Range(0,1) with efficient offensive power.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 2,
+      "Damage": 250,
+      "Status": "None",
+      "HitChance": 50,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Blue Screen",
+      "Description": "\"Have you tried turning it off and on again?\" - Roy, IT Crowd. Chance to Suspend.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "DDOS",
+      "Description": "Overload a company website with traffic. Or just your friend's Squarespace site. Debuffs Faith, CTP.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 0,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Deadlock",
+      "Description": "There are 5 philosophers eating a meal. If each one is stealing chopsticks, how long until your program crashes? 20% crit.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Debug",
+      "Description": "v., when you use tweezers to take out the flies that got stuck in your laptop fan. Buffs Truth, CTP.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Encrypt",
+      "Description": "In most games, encrypting is when you desend into a dungeon to kill skeletons, vampies, etc. Sharply buffs Courage, Faith.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fibonacci",
+      "Description": "nf = n(f-1) + n(f-2). Buffs Truth.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Firewall",
+      "Description": "A giant flaming wall to prevent intruders from using your ports. Chance to Roast.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "For Loop",
+      "Description": "Repeatable code. 20% crit.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hack",
+      "Description": "When you take an ax to someone's computer. 20% crit.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 85,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hello World",
+      "Description": "print(\"Hello World\"); // 15% crit.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Malware",
+      "Description": "Even good software can be tempted to the dark side. Chance to Plague.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 75,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Memory Leak",
+      "Description": "Getting drunk often leads to a memory leak. Debuffs Faith, CTP.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Stack Overflow",
+      "Description": "The one-stop-shop for all code problems. Buffs Truth, CTP.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Threading",
+      "Description": "Sometimes coders want a side hobby, which often ends up being knitting/making crochets. Sharply buffs CTP.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Virus",
+      "Description": "Often someone who has a cold will sneeze on your computer and give it a virus. Chance to Plague. 15% crit.",
+      "Major": "Computer Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 110,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Capitalism",
+      "Description": "Buffs Power, CTP.",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Communism",
+      "Description": "Debuffs Courage, CTP.",
+      "Major": "Economics (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Curve",
+      "Description": "Debuffs Courage, CTP.",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Demand",
+      "Description": "15% crit.",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Econometrics",
+      "Description": "Buffs Courage.",
+      "Major": "Economics (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Equilibrium",
+      "Description": "Buffs CTP, Debuffs CTP.",
+      "Major": "Economics (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "FED",
+      "Description": "15% crit.",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Interest Rate",
+      "Description": "Chance to Indebt.",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 8,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Macro",
+      "Description": "",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 120,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Micro",
+      "Description": "Sharply Debuffs Courage.",
+      "Major": "Economics (MajorClass)",
+      "Type": "Debuff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Money Market",
+      "Description": "Buffs Power, CTP.",
+      "Major": "Economics (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Odd Markets",
+      "Description": "Indebts on hit.",
+      "Major": "Economics (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 50,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Price",
+      "Description": "15% crit.",
+      "Major": "Economics (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Supply",
+      "Description": "",
+      "Major": "Economics (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Anna Karenina",
+      "Description": "“It's much better to do good in a way that no one knows anything about it.” – Leo Tolstoy",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Birdsong",
+      "Description": "\"I know. I was there. I saw the great void in your soul, and you saw mine.\" – Sebastian Faulks.",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dorian Gray",
+      "Description": "\"Nowadays people know the price of everything and the value of nothing.\" – Oscar Wilde. Buffs Truth, CTP.",
+      "Major": "English (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fight Club",
+      "Description": "“I don't want to die without any scars.” – Check Palahnuik",
+      "Major": "English (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 75,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Free State",
+      "Description": "\"The only lies for which we are truly punished are those we tell ourselves.\" – V.S. Naipaul",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Great Expectations",
+      "Description": "“You made your own snares. I never made them.\" – Charles Dickens. Chance to Plague.",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Into the Wild",
+      "Description": "“Happiness is only real when shared” – Christopher McCandless. Chance to Plague.",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mice & Men",
+      "Description": "“The hell with the rabbits. That's all you can ever remember is them rabbits.” – John Steinbeck",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 45,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mysterious Island",
+      "Description": "\"It is a great misfortune to be alone, my friends; and it must be believed that solitude can quickly destroy reason.\" – Jules Verne. Debuff Faith, Courage.",
+      "Major": "English (MajorClass)",
+      "Type": "Debuff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Rum Diary",
+      "Description": "“Old God sure was in a good mood when he made this place.” - Hunter Thompson. Chance to Intoxicate.",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Ulysses",
+      "Description": "“History, Stephen said, is a nightmare from which I am trying to awake.” – James Joyce",
+      "Major": "English (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 85,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Valis",
+      "Description": "\"It is sometimes an appropriate response to reality to go insane.\" – Philip Dick. Chance to Smoke Out.",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Wuthering Heights",
+      "Description": "“Terror made me cruel” – Emily Brontë. 15% crit.",
+      "Major": "English (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "BOD",
+      "Description": "Biochemical oxygen demand can measure pollutants in water #moreYouKnow. 10% crit.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dakota Access",
+      "Description": "Were YOU at Standing Rock? ",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "EPA",
+      "Description": "\"Global warming was created by and for the Chinese\" - Donald Trump. Sharply buffs Truth, CTP.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Extinction",
+      "Description": "\"He who refuses to learn deserves extinction.\" - Rabbi Hillel. Suspends on hit.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 120,
+      "Status": "None",
+      "HitChance": 60,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Exxon Valdez",
+      "Description": "Unfortunately not an isolated incident. Chance to Plague.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Global Warming",
+      "Description": "Actually called climate change now, since the laws of thermodynamics are a thing. Chance to suspend.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Goodbye Venice",
+      "Description": "Like a slower, more Italian Titanic. Chance to Suspend.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Granola",
+      "Description": "Crunchy Eugene hippie culture. Sharply buffs Truth, heals 25.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Green Chair",
+      "Description": "What an awesome role for a fraternity! Sharply buffs Truth.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Lawyer Up",
+      "Description": "\"You better lawyer up asshole, because I'm not coming back for 30%, I'm coming back for EVERYTHING.\" - The Social Network. Chance to Suspend.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 65,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Melt",
+      "Description": "The one time positive reinforcement isn't a good thing. 15% crit.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Ozone",
+      "Description": "Soon there will be NOzone. Chance to Roast.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Recycle",
+      "Description": "If you're not doing this already I hope you drown in leachate.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Shocking Documentary",
+      "Description": "Noun, a movie that moves you to tears and gets forgotten the next day. Debuffs Faith, 20% crit.",
+      "Major": "Environmental Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Active Listening",
+      "Description": "A healthy alternative to inactive listening. Buffs Truth.",
+      "Major": "FHS (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Adopt",
+      "Description": "\"Biology is the least of what makes someone a mother\" - Oprah Winfrey. Chance to make fall Asleep.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Background Check",
+      "Description": "The best indicator of future behavior is... Chance to Suspend. 10% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Community Service",
+      "Description": "The first step of making a difference. 10% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 55,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Console",
+      "Description": "Sometimes people just need a hug. Buffs Truth, Faith.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Domesticate",
+      "Description": "\"Contrary to what a lot of people think, I haven't been domesticated\" - Prince. Debuffs Faith. 20% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Foster Home",
+      "Description": "For Imaginary Friends? Smoke out on hit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "Status",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 65,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Holden Center",
+      "Description": "Rife with volunteer opportunity. 15% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 65,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Intervention",
+      "Description": "\"Jeff... it's time to burn the cargo shorts.\" Chance to Roast. 15% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 15,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Neglect",
+      "Description": "\"Indifference and neglect often do much more damage than outright dislike.\" - JK Rowling. Sharply Debuffs Faith, Courage.",
+      "Major": "FHS (MajorClass)",
+      "Type": "Debuff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "See Red",
+      "Description": "And all out rage in 3..2..1.. Chance to Roast. 15% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 140,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 15,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Share Impact",
+      "Description": "Brace ourselves! 30% crit.",
+      "Major": "FHS (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 30,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Sudoku",
+      "Description": "A classic passtime. Buffs Truth, debuffs CTP.",
+      "Major": "FHS (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Take Custody",
+      "Description": "\"When my parents got divorced, there was a custody fight over me... and no one showed up.\" - Rodney Dangerfield. Sharply debuffs Faith.",
+      "Major": "FHS (MajorClass)",
+      "Type": "Debuff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Aftershock",
+      "Description": "Shock, but after. Debuffs Courage, CTP.",
+      "Major": "Geology (MajorClass)",
+      "Type": "Debuff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Ash",
+      "Description": "A reference to something? Chance to Plague, 15% crit.",
+      "Major": "Geology (MajorClass)",
+      "Type": "Debuff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Drive Car",
+      "Description": "Gotta support your favorite oil companies! Chance to Plague, 15% crit. Used to fast travel.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dynamite",
+      "Description": "\"What's Grandma doing at the flippin' sand dunes?!\" Chance to Roast, 15% crit.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Earthquake",
+      "Description": "Another reference to something? 15% crit.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Erupt",
+      "Description": "Popping an earth pimple. Chance to Roast.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fossilize",
+      "Description": "Make yourself irresistable to Ross Geller. Buffs Courage sharply.",
+      "Major": "Geology (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Igneous",
+      "Description": "Hotter formation than most dance routines. Chance to Roast.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Metamorphic",
+      "Description": "This move is so post game meta. 15% crit.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 70,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Oil Spill",
+      "Description": "Oops! We will definitely stop doing this so it never happens again! :) Chance to Plague, 20% crit.",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Richter Roll",
+      "Description": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "Major": "Geology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Sedimentary",
+      "Description": "It's sedimentary, Sherock! Debuffs Courage, CTP sharply.",
+      "Major": "Geology (MajorClass)",
+      "Type": "Debuff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Black Plague",
+      "Description": "\"Both of us victims of the same 20th century plague. Not the Black Death, this time; the Gray Life\" - Aldous Huxley. Chance to Plague.",
+      "Major": "History (MajorClass)",
+      "Type": "Status",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 75,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Civil War",
+      "Description": "\"It is well that war is so terrible, or we would grow too fond of it.\" - Robert E. Lee. Chance to Indebt.",
+      "Major": "History (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Cold War",
+      "Description": "\"Communism isn't sleeping; it is, as always, plotting, scheming, working, fighting.\" - Nixon. Buffs Power, Debuffs Truth.",
+      "Major": "History (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Colonize",
+      "Description": "Aliens often colonize human colons! Debuffs Faith.",
+      "Major": "History (MajorClass)",
+      "Type": "Debuff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Golden Age",
+      "Description": "\"America's golden age is what's going to happen once this baby hits the App store.\" - Alex Geoffrey. Buffs Truth, CTP sharply.",
+      "Major": "History (MajorClass)",
+      "Type": "Buff",
+      "PP": 1,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hiroshima",
+      "Description": "The theory in Hiroshima is that the atomic heat was so great thay they burned instantly to ashes - except that there were no ashes.\" - Wilfred Burchett. If hits, opponent will be roasted.",
+      "Major": "History (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 2,
+      "Damage": 170,
+      "Status": "None",
+      "HitChance": 40,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Ken Burns",
+      "Description": "\"History is malleable\" - Ken Burns. Chance to Roast. 15% crit.",
+      "Major": "History (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Peace Treaty",
+      "Description": "“We only make peace with our enemies. That's why it's called making peace.” - Lord Baelish. Blocking move.",
+      "Major": "History (MajorClass)",
+      "Type": "Block",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Revolutionary War",
+      "Description": "\"Give me liberty or give me death!\" - Patrick Henry. Chance to Indebt.",
+      "Major": "History (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 45,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Vietnam War",
+      "Description": "\"I think it's time we stop, children, what's that sound, everybody look what's going down\" - Buffalo Springfield. Chance to Indebt.",
+      "Major": "History (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 95,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 7,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "War On Terror",
+      "Description": "\"Everyone's worried about stopping terrorism. Well, there's really an easy way: Stop participating in it.\" - Noam Chomsky. Chance to Indebt.",
+      "Major": "History (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 110,
+      "Status": "None",
+      "HitChance": 75,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "World War I",
+      "Description": "\"This is a war to end all wars.\" - Woodrow Wilson. Chance to Indebt.",
+      "Major": "History (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "World War II",
+      "Description": "\"In War: Resolution. In Defear: Defiance. In Victory: Magnanimity. In Peace: Good Will.\" - Winston Churchill. Chance to Indebt.",
+      "Major": "History (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 85,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 7,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Acupunture",
+      "Description": "Relax and focus your muscles. Buffs Power, CTP.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Broken Finger",
+      "Description": "\"Charlie bit my finger\" - Sad Child in Car. 25% crit.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Bruised Testicle",
+      "Description": "Stale bagels should never be launched at a man's crotch. 15% crit.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 75,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Cancer",
+      "Description": "Could have done a dark joke, but the #risk was too high. Chance to Plague.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "Status",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "CPR",
+      "Description": "Resuscitate those who cannot resuscitate themselves. Heal 125.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "Buff",
+      "PP": 2,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dislocate",
+      "Description": "When you cut+paste a joint to another location.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fracture",
+      "Description": "Even the word sounds painful. Debuffs Faith, Courage.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "Debuff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Get Swol",
+      "Description": "Go make some gains. Sharply buffs Power, CTP.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hernia",
+      "Description": "Always check for lumps. 15% crit.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Physical Therapy",
+      "Description": "Recover from your injuries. Buffs Courage, Faith. Heals 25.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pubic Hurtis",
+      "Description": "It's a sensitive area. Chance to intoxicate out of pain.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pull Muscle",
+      "Description": "Should have stretched first. 15% crit.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Sprain",
+      "Description": "Turns out ligaments don't love being twisted. 15% crit.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Torn ACL",
+      "Description": "It could happen to anyone, anytime. 15% crit.",
+      "Major": "Human Phys (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "3rd World Country",
+      "Description": "\"Where there is hunger, there cannot be lasting peace.\" - Willy Brandt. 15% crit.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Alliance",
+      "Description": "\"The best way to forge a lasting alliance isn't by peeling a man's skin off\" - Roose Bolton. Sharply buffs Power, Courage.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Cross Borders",
+      "Description": "Wall + pogo stick = new citizen. 15% crit.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Break Treaty",
+      "Description": "Power move. Buffs Power, Debuffs Power. 15% crit.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Declare War",
+      "Description": "\"The two most powerful warriors are patience and time.\" - Leo Tolstoy. Chance to Indebt.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Genocide",
+      "Description": "\"What connects two thousand years of genocide? Too much power in too few hands.\" - Simon Wiesenthal. 30% crit.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 140,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 30,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hide",
+      "Description": "Flight instinct on fleek. Blocking move.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "Block",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "International Waters",
+      "Description": "\"Because of the implication\" - Dennis Reynolds. Buffs Courage, Power.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Invasion",
+      "Description": "Is outvasion giving someone your property? Chance to Indebt. 15% crit.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Quarantine",
+      "Description": "If you can't beat em, isolate em.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Refugee",
+      "Description": "\"We live in the age of the refugee, the age of the exile.\" - Ariel Dorfman. Debuffs Courage.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 40,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Romance",
+      "Description": "Voulez-vous coucher avec moi, ce soir? Sharply buffs Courage.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Trade",
+      "Description": "Tit for tat. Buffs Power.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Translate",
+      "Description": "Or at least let Google do it. 10% crit.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 55,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "United Nations",
+      "Description": "\"The United Nations is our one great hope for a peaceful and free world.\" Buffs Courage, Power.",
+      "Major": "Intl Studies (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Anchorman",
+      "Description": "“They’ve done studies, you know. 60 percent of the time, it works every time.” — Brian Fantana. Roasts on hit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 60,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Column",
+      "Description": "\"Whether my columns are worth reading isn't for me to say.\" - John Podhoretz. 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Cut",
+      "Description": "Some things better left out. Chance to Indebt. Debuffs Faith.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Editorial",
+      "Description": "\"Does not reflect the publisher's official views.\" 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Exclusive",
+      "Description": "\"I’m tired of pretending I’m not a total bitchin’ rock star from Mars.\" - Charlie Sheen. 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 110,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Falsified Information",
+      "Description": "FAKE NEWS. Chance to Plague.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Feature",
+      "Description": "Someone better be writing a fat check for this one. 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Freshman Essay",
+      "Description": "Not your best work. 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 40,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Front Page",
+      "Description": "In the big leagues now. 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hard News",
+      "Description": "It's the news the nation deserves, but not what it needs. Buffs Truth.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Integrity",
+      "Description": "\"Real integrity is doing the right thing, knowing that nobody's going to know whether you did it or not.\" - Oprah Winfrey. Buffs Truth, CTP.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Investigate",
+      "Description": "Best your claims aren't unfounded. Buffs Truth.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "OpEd",
+      "Description": "At least you made it in the paper? 10% crit.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Slant",
+      "Description": "What's the angle? Chance to Intoxicate.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 20,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Soft News",
+      "Description": "Soft news make for soft people. Sharply debuffs Faith.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "Debuff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Strong Lead",
+      "Description": "Grab the reader's attention. Buffs Truth, CTP.",
+      "Major": "Journalism (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Binomial",
+      "Description": "Middle school stuff. Buffs speed^2.",
+      "Major": "Math (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Define",
+      "Description": "Putting something here would be too ironic. 25% crit.",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 85,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 25,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Differentiate",
+      "Description": "Debuffs Power. LOL",
+      "Major": "Math (MajorClass)",
+      "Type": "Debuff",
+      "PP": 25,
+      "Damage": 65,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Divide By 0",
+      "Description": "How to make airplanes fall from the sky. 20% crit.",
+      "Major": "Math (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Factor",
+      "Description": "Solve for x. Crit 20% for when you don't get whole numbers.",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Game Theory",
+      "Description": "Alex Geoffrey trivia: I met Steve Nash before he died. ",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 95,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 30,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Integrate",
+      "Description": "Buffs Power. LOL",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Irrational",
+      "Description": "Infuriating unfractional. Chance to Roast.",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 30,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Math Puns",
+      "Description": "\"Be real, be irrational.\" You've seen them on 100 tshirts not worth the $5 thrift store cop. How about \"Be original\" Debuffs Courage, Faith.",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Monomial",
+      "Description": "Elementry school stuff. Buffs speed.",
+      "Major": "Math (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Paradox",
+      "Description": "",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pi",
+      "Description": "Yummy. (π^3)% chance to hit. Drunk on hit. 31% crit.",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 314,
+      "Status": "None",
+      "HitChance": 31,
+      "StatusChance": 100,
+      "CritChance": 31,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Polynomial",
+      "Description": "College stuff. Buffs speed^4!",
+      "Major": "Math (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Proof",
+      "Description": "Not the alcohol kind of proof.",
+      "Major": "Math (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 30,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Trinomial",
+      "Description": "High school stuff. Buffs speed^3.",
+      "Major": "Math (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "U Substitution",
+      "Description": "No, you substitution! Substitute your opponents stats for worse ones. Debuffs Courage, Faith.",
+      "Major": "Math (MajorClass)",
+      "Type": "Debuff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Wolfram",
+      "Description": "The sweet sweet solace found in checking answers. Chance to intoxicate.",
+      "Major": "Math (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 85,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 30,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Acid",
+      "Description": "Don't even trip. Chance to smoke out.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 12,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "CHCl3",
+      "Description": "Look it up. Makes sleep on hit.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 60,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Clone",
+      "Description": "Create a clone of yourself to absorb the blow. Blocking move.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "Block",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Endothermic",
+      "Description": "Sucks in energy. Debuffs Courage, Faith. Buffs Courage, Faith.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Exothermic",
+      "Description": "Spits out energy. Chance to Roast.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "GATC",
+      "Description": "\"The instructions for all life\" - Every textbook ever. Buffs Courage, Faith.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "MCAT",
+      "Description": "Nearly 50% of al MCAT testers have to retake. 15% crit.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 110,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mitochondria",
+      "Description": "\"...are the powerhouse of the cell.\" - Every textbook ever published. 15% crit.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Noble Gas",
+      "Description": "Nobility doesn't associate with filthy loose electrons. Chance to smoke out.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 12,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "O Chem",
+      "Description": "Your classic make-or-break course. Debuffs Courage, Faith.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "Debuff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "OH-",
+      "Description": "\"Alcohol, my favorite accessory\" - Barenaked Ladies. Chance to intoxicate.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Punnet Square",
+      "Description": "50% dominant, 50% recessive, 25% to smoke out, 100% reason to remember the name.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 50,
+      "StatusChance": 50,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Ride Curve",
+      "Description": "Surf the curve or break in the wake. Buffs Courage, heals 30.",
+      "Major": "Natural Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Amendment",
+      "Description": "\"Jefferson, I'm pretty sure we forgot to put, like, 10 things on the Constitution.\" - James Madison. Buffs Truth, CTP.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Build Wall",
+      "Description": "\"Nobody builds walls better than me... and I will make Mexico pay for that wall. Mark my words.\" - Donald Trump. Blocking move.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "Block",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Campaign",
+      "Description": "Win the affections of the masses with passionate pandering and opponent bashing. Debuffs Truth, Power.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "Debuff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Citizen Arrest",
+      "Description": "Just shout it and arrest all of your favorite people. Chance to Suspend.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 85,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Constitution",
+      "Description": "A country's composure. Buffs Courage, Faith.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 20,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Corruption",
+      "Description": "A scandalous blow with a chance to poison the ear of those you talk to.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Democracy",
+      "Description": "Majority rule. 15% crit.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 65,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Facebook",
+      "Description": "The perfect medium for all the political rants you were to afraid to have in person. Chance to Plague.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 60,
+      "CritChance": 30,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fascism",
+      "Description": "Heil! 15% crit.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Independence",
+      "Description": "The product of overbearing parents and/or motherlands and the spirit of rebellion. Buffs CTP, debuffs Power.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Lobby",
+      "Description": "The entrance to a commercial building or sabotage of public interest. 15% crit.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Republic",
+      "Description": "Elected officals rule. 15% crit.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Secede",
+      "Description": "Who needs the rest of 'em? Suspends on hit.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 55,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Taxation",
+      "Description": "\"Taxes are what we pay for civilized society.\" - Oliver Holmes Jr.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Watergate",
+      "Description": "\"In any organization, the man at the top must bear the responsibility. That responsibility, therefore, belongs here\" - Richard Nixon. Small chance to Suspend.",
+      "Major": "Political Science (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 45,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 5,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Exploded View",
+      "Description": "When a building is drawn with layered pieces seperated. Chance to Roast. 10% crit.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 10,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Industrial Revolution",
+      "Description": "When the industry spun around. Buffs power.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 55,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Invention",
+      "Description": "EUREKA! 10% crit.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 120,
+      "Status": "None",
+      "HitChance": 75,
+      "StatusChance": 0,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mass Production",
+      "Description": "You know, convery belts and stuff. Buffs Power.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Model",
+      "Description": "Not the runway kind. 20% crit.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 25,
+      "Damage": 45,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 20,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Outsource",
+      "Description": "\"Outsourcing is inevitable\" - Stephen Covey. Buffs Power and CTP.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Plastic",
+      "Description": "\"One word: plastics\" - The Graduate. Chance to poison, 10% crit.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Prototype",
+      "Description": "Like the videogame, I'm sure. 15% crit.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Scale",
+      "Description": "On the up and up. Buffs Power, CTP.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Smog",
+      "Description": "Watch Benedict Cumberbatch's audition for Smaug if you haven't. Chance to plague. 10% crit.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 15,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Sweatshop",
+      "Description": "\"I have an idea for sweatshops: air conditioning!\" - Mitch Hedberg. Chance to Indebt. Debuffs Faith, Courage.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "Debuff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Tensile Strength",
+      "Description": "The tensile strength of your tonsils is fairly low. Sharply buffs Power.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "The Lorax",
+      "Description": "\"I speak for the trees, for the trees have no tongues.\" - Dr. Seuss. Heals, buffs Faith, Courage.",
+      "Major": "Product Design (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 50,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Alcohol",
+      "Description": "Actually is a solution. Thanks, chemistry. Chance to intoxicate.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Catharsis",
+      "Description": "A euphoric release. Sharply buffs all stats, heals 100.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "Buff",
+      "PP": 1,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dad Issues",
+      "Description": "Paternal Problems. Debuffs Courage, Power.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Desperation",
+      "Description": "A healthy dose of ambition and failure. Chance to Indebt.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 110,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Ego",
+      "Description": "\"Stupidity combined with arrogance and a huge ego will get you a long way.\" - Chris Lowe. Small buff to all stats.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 40,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Fight or Flight",
+      "Description": "\"Should I stay or should I go\" - The Clash. 50% crit.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 45,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 50,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Freudian Slip",
+      "Description": "Great name for a lingerie store. Chance to roast, buffs Truth. 10% crit.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 55,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 15,
+      "CritChance": 10,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Id",
+      "Description": "Sinstincts. 30% crit.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 30,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Incentive",
+      "Description": "\"Too little attention is paid to the dark side of incentives\" - Barry Schwartz. Buffs Truth, CTP.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mary Jane",
+      "Description": "Devil's lettuce, giggle bush, that good-good. Chance to smoke out.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mind Games",
+      "Description": "\"A psychologist plays the cards beofre the shuffle and the deal.\" - Amit Abraham. 15% crit.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Mom Issues",
+      "Description": "Maternal Misery. Debuffs Truth, Faith.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Phallic Image",
+      "Description": "Delicately etched into 98% of all high school surfaces.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pronouns",
+      "Description": "\"The pronoun is one of the most terrifying masks man has invented\" - John Fowles",
+      "Major": "Psychology (MajorClass)",
+      "Type": "Buff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Psychoanalyze",
+      "Description": "\"Psychoanalysis is the confession without absolution.\" - Germaine Greer. Chance to Roast.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Therapy",
+      "Description": "\"Is this a woman thing? You ask me how I'm feeling. I tell you how I'm feeling, and now you're going to torture me with it.\" - Tony Soprano. Heals 100.",
+      "Major": "Psychology (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Alumni",
+      "Description": "This move is so post-game.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 130,
+      "Status": "None",
+      "HitChance": 70,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Banana Dance",
+      "Description": "If you want it, come and get it, bananana...",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Bylaws",
+      "Description": "Bylaw-of-the-game: Section 4 Article 15: All active members must rush 'em all. Buffs Truth.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 25,
+      "Damage": 55,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Chapter",
+      "Description": "True democracy, and all that it entails. Buffs Truth, Debuffs CTP.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Circle Jerk",
+      "Description": "A condition met when two or more vocal people refuse to reach a common ground. Debuffs CTP, Truth.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Debuff",
+      "PP": 25,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dab",
+      "Description": "When you're proud, sometimes the best thing to do is pretend to sneeze. Buffs CTP, Chance to Smoke Out.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Detonate",
+      "Description": "Leading cause of concussion among college campuses. Chance to Intoxicate. 15% crit.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Dick Dance",
+      "Description": "Exactly what it sounds like.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Buff",
+      "PP": 15,
+      "Damage": 30,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Disaffiliate",
+      "Description": "One hit KO your membership. Chance to Instant DA the opponent.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Hash",
+      "Description": "Everyone loves cleanup duty! Chance to Plague. Debuffs Courage, CTP.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 20,
+      "Damage": 60,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Oath",
+      "Description": "Know it or blow it. Chance to Suspend.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 10,
+      "Damage": 90,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pass Out",
+      "Description": "Work hard, play hard, sleep hard. Heals all Delt's health, but they fall asleep.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Buff",
+      "PP": 5,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Philanthropy",
+      "Description": "JDRF is where all proceeds of DTD's philanthropies go to. They work to solve Juvenile Diabetes. 15% crit.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 5,
+      "Damage": 120,
+      "Status": "None",
+      "HitChance": 85,
+      "StatusChance": 0,
+      "CritChance": 15,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Pin",
+      "Description": "How to assert your dominance over young'uns. Damage is difference in pin number, unless opp pin is higher.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 100,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Rush",
+      "Description": "Gotta rush 'em all! Chance to rush wild Delt!",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 5,
+      "Damage": 20,
+      "Status": "None",
+      "HitChance": 80,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Shasta",
+      "Description": "So trashy #wannaDoSomeBlowMan? Intoxicates on hit.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Status",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 100,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Shotgun",
+      "Description": "Tilt, puncture, and hope you can stomach some carbonation. Chance to Intoxicate.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 80,
+      "Status": "None",
+      "HitChance": 90,
+      "StatusChance": 20,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Sleep In",
+      "Description": "Sometimes no matter how many alarms you set, 3 hours of sleep won't cut it. Chance to make fall Asleep.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "TruthAtk",
+      "PP": 15,
+      "Damage": 70,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 10,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Snek",
+      "Description": "Snitch onto others as you would have other snitch onto you. Debuffs Faith, CTP. Buffs Truth.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Debuff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Study Tables",
+      "Description": "Gotta make that term GPA! Heals 55.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "Buff",
+      "PP": 10,
+      "Damage": 0,
+      "Status": "None",
+      "HitChance": 100,
+      "StatusChance": 0,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    },
+    {
+      "Name": "Yak",
+      "Description": "And rally. Chance to Plague. Debuffs CTP.",
+      "Major": "Undeclared (MajorClass)",
+      "Type": "PowerAtk",
+      "PP": 15,
+      "Damage": 75,
+      "Status": "None",
+      "HitChance": 95,
+      "StatusChance": 15,
+      "CritChance": 0,
+      "Buffs": [
+      ]
+    }
+  ]
+}

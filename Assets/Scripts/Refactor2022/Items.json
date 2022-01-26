@@ -1,0 +1,538 @@
+{
+  "AllItems": [
+    {
+      "Name": "Bid Card",
+      "Description": "Accept and become a member! Revives from DA status with 200 health.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "DA",
+      "StatUpgrades": [
+        200,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Black Book",
+      "Description": "Signed by Professor Cheema! Buffs TCFP.",
+      "ItemType": "Holdable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        3,
+        3,
+        3,
+        3,
+        0
+      ]
+    },
+    {
+      "Name": "Car Keys",
+      "Description": "\"Someone HAS to have them\" - Palmer fiending for McD's. Enables Delt to use Drive on Map.",
+      "ItemType": "Holdable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Cheesy Greens",
+      "Description": "A gooey web blanket of mozzerela atop fresh broccoli from a can. Repels Delts for 50 steps.",
+      "ItemType": "Repel",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        50
+      ]
+    },
+    {
+      "Name": "Chicken Fried Steak",
+      "Description": "Meathook exacts her final act of vengence. Repels Delts for 150 steps.",
+      "ItemType": "Repel",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        150
+      ]
+    },
+    {
+      "Name": "Chocolate Milk",
+      "Description": "Belz tested, parent approved.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        25,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Composite",
+      "Description": "Various paddle names and scribbles appear on the back of this composite, including one \"Shuckinator, 1169\"",
+      "ItemType": "Quest",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Daddy's Check",
+      "Description": "The memo says, \"Give your mom a call <3, Dad\". Cures Indebted.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Indebted",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Dead Fidel",
+      "Description": "He was so young... Heals 10/turn.",
+      "ItemType": "Holdable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        10,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Delta Sig Badge",
+      "Description": "\"To encourage scholarship, social activity and the association of students for their mutual advancement by research and practice\"",
+      "ItemType": "Badge",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Deltialyte",
+      "Description": "Enough electrolytes to hydrate the Mojave desert. Cures intoxication.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Drunk",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "DormKicks",
+      "Description": "I better get a pair for this, Houston.",
+      "ItemType": "Quest",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Dough Co",
+      "Description": "Fried bliss! Heals 100, cures intoxication.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Drunk",
+      "StatUpgrades": [
+        100,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Dutch",
+      "Description": "This'll pep you right up. Cures high.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "High",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "",
+      "Description": "",
+      "ItemType": "Move",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Exec BidBall",
+      "Description": "Somebody call this kid and get him down here! Ball Strength 5.",
+      "ItemType": "Ball",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+      ]
+    },
+    {
+      "Name": "Frat God BidBall",
+      "Description": "Bruh, he's here on a football scholarship with a 4 point. Ball Strength 6.",
+      "ItemType": "Ball",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+      ]
+    },
+    {
+      "Name": "Geed BidBall",
+      "Description": "Softball bid. Ball Strength 1.",
+      "ItemType": "Ball",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+      ]
+    },
+    {
+      "Name": "Hammer",
+      "Description": "Get hammering or get hammered.",
+      "ItemType": "Quest",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Hawaiian Time",
+      "Description": "Sweet teryaki chicken and rice for days. Heals 200.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        200,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Humility",
+      "Description": "A little goes a long way. Cures Suspension.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Suspended",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Ice",
+      "Description": "For that burn. Cured Roasted.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Roasted",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "McPalmers",
+      "Description": "\"But you can get so much for so little!\" Heals 50.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        50,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Megaphone",
+      "Description": "\"AAAADDDDDDDDDDDDIIIIIIIIS!!!!\" Cures Sleep.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Asleep",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Member BidBall. Ball Strength 4.",
+      "Description": "Solid guy, throw him a bid.",
+      "ItemType": "Ball",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+      ]
+    },
+    {
+      "Name": "Neophyte BidBall",
+      "Description": "Some of the guys claim to like him... Ball Strength 3.",
+      "ItemType": "Ball",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+      ]
+    },
+    {
+      "Name": "Oil Beef",
+      "Description": "Would you like some meat with that canola oil? Repels Delts for 250 steps.",
+      "ItemType": "Repel",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        250
+      ]
+    },
+    {
+      "Name": "Onyx Ring",
+      "Description": "Engraved on the ring: \"Through marriage we transform\"",
+      "ItemType": "MegaEvolve",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Papa Souls",
+      "Description": "BBQ goodness sent from above. Heals 250, cures all statuses (including DA).",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "All",
+      "StatUpgrades": [
+        250,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Pedialyte",
+      "Description": "Enough electrolytes to hydrate the Mojave desert. Cures Intoxication.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Drunk",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Peppermint Shnapps",
+      "Description": "A holiday favorite. Buffs Courage.",
+      "ItemType": "Holdable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        5,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Pledge BidBall",
+      "Description": "He'd be lucky to have us. Ball Strength 2.",
+      "ItemType": "Ball",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+      ]
+    },
+    {
+      "Name": "Sig Chi Badge",
+      "Description": "Inscribed on the back are the words \"Friendship, Justice and Learning\"",
+      "ItemType": "Badge",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Sig Nu Badge",
+      "Description": "Inscribed on the back are the words \"Love, Honor, Truth\"",
+      "ItemType": "Badge",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Slippery Butts",
+      "Description": "Still waiting on the sequel. Buffs ChillToPull.",
+      "ItemType": "Holdable",
+      "HoldType": "StatBuff",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        4
+      ]
+    },
+    {
+      "Name": "Soap",
+      "Description": "Seems like these are always on the brink of running out. Cures Plague.",
+      "ItemType": "Usable",
+      "HoldType": "None",
+      "CureStatus": "Plagued",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Ticket",
+      "Description": "The solution to FOMO.",
+      "ItemType": "Quest",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Water Balloon",
+      "Description": "Squishy! Buffs Truth.",
+      "ItemType": "Holdable",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        4,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "Name": "Wrench",
+      "Description": "How handy!",
+      "ItemType": "Quest",
+      "HoldType": "None",
+      "CureStatus": "None",
+      "StatUpgrades": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}
