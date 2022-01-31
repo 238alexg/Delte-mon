@@ -7,8 +7,8 @@ namespace BattleDelts.Data
     public class RefactorData : MonoBehaviour
     {
         public Dictionary<MajorId, Major> Majors { get; private set; }
+        public Dictionary<MoveId, Move> Moves { get; private set; }
         public Items Items { get; private set; }
-        public Moves Moves { get; private set; }
         public Delts Delts { get; private set; }
 
         [SerializeField]
@@ -26,15 +26,11 @@ namespace BattleDelts.Data
         public void Load()
         {
             LoadMajors();
+            LoadMoves();
 
             if (ItemsJson == null)
             {
                 Debug.LogError($"No Items json attached to {nameof(RefactorData)}");
-            }
-
-            if (MovesJson == null)
-            {
-                Debug.LogError($"No Moves json attached to {nameof(RefactorData)}");
             }
 
             if (DeltsJson == null)
@@ -43,7 +39,6 @@ namespace BattleDelts.Data
             }
 
             Items = JsonUtility.FromJson<Items>(ItemsJson.text);
-            Moves = JsonUtility.FromJson<Moves>(MovesJson.text);
             Delts = JsonUtility.FromJson<Delts>(DeltsJson.text);
         }
 
@@ -64,6 +59,31 @@ namespace BattleDelts.Data
                 }
 
                 Majors.Add(majorType, major);
+            }
+        }
+
+        public void LoadMoves()
+        {
+            if (MovesJson == null)
+            {
+                Debug.LogError($"No Moves json attached to {nameof(RefactorData)}");
+            }
+
+            var moves = JsonUtility.FromJson<Moves>(MovesJson.text);
+            Moves = new Dictionary<MoveId, Move>();
+            foreach (var move in moves.AllMoves)
+            {
+                string moveEnumName = move.Name.Replace(" ", "")
+                    .Replace("&", "And") // Supply & Demand, Mice & Men
+                    .Replace("3rd", "Third") // 3rd World Country
+                    .Replace("-", "Negative"); // OH-
+
+                if (!Enum.TryParse(moveEnumName, out MoveId moveType))
+                {
+                    Debug.LogError($"Failed to parse {nameof(MoveId)}: {move.Name}");
+                }
+
+                Moves.Add(moveType, move);
             }
         }
     }
