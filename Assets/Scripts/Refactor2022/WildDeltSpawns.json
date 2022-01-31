@@ -4,7 +4,7 @@
       "MapName": "University St",
       "Sections": [
         {
-          "SectionName": "University St:0",
+          "SectionName": "0",
           "Encounters": [
             {
               "DeltName": "Velardass",
@@ -57,7 +57,7 @@
           ]
         },
         {
-          "SectionName": "University St:1",
+          "SectionName": "1",
           "Encounters": [
             {
               "DeltName": "Velardass",
@@ -115,7 +115,7 @@
       "MapName": "DA Graveyard",
       "Sections": [
         {
-          "SectionName": "DA Graveyard:0",
+          "SectionName": "0",
           "Encounters": [
             {
               "DeltName": "Velardass",
@@ -173,7 +173,7 @@
       "MapName": "Onyx St",
       "Sections": [
         {
-          "SectionName": "Onyx St:0",
+          "SectionName": "0",
           "Encounters": [
             {
               "DeltName": "Velardass",
@@ -190,7 +190,7 @@
           ]
         },
         {
-          "SectionName": "Onyx St:1",
+          "SectionName": "1",
           "Encounters": [
             {
               "DeltName": "Velardass",
@@ -219,7 +219,7 @@
           ]
         },
         {
-          "SectionName": "Onyx St:2",
+          "SectionName": "2",
           "Encounters": [
             {
               "DeltName": "Velardass",
