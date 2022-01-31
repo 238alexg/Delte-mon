@@ -67,12 +67,10 @@ namespace BattleDelts.Data
             Majors = new Dictionary<MajorId, Major>();
             foreach(var major in majors.AllMajors)
             {
-                if (!Enum.TryParse(major.Name.Replace(" ", ""), out MajorId majorType))
+                if (TryParseMajorId(major.Name, out var majorId))
                 {
-                    Debug.LogError($"Failed to parse {nameof(MajorId)}: {major.Name}");
+                    Majors.Add(majorId, major);
                 }
-
-                Majors.Add(majorType, major);
             }
         }
 
@@ -135,8 +133,18 @@ namespace BattleDelts.Data
 
             foreach (var delt in delts.AllDelts)
             {
-                if (TryParseDeltId(delt.Nickname, out var deltType))
+                if (TryParseDeltId(delt.Nickname, out var deltType) &&
+                    TryParseMajorId(delt.Major1, out var major1))
                 {
+                    delt.DeltId = deltType;
+                    delt.FirstMajor = Majors[major1];
+
+                    if (!string.IsNullOrWhiteSpace(delt.Major2) &&
+                        TryParseMajorId(delt.Major2, out var major2))
+                    {
+                        delt.SecondMajor = Majors[major2];
+                    }
+
                     Delts.Add(deltType, delt);
                 }
             }
@@ -175,6 +183,17 @@ namespace BattleDelts.Data
             if (!Enum.TryParse(deltEnumName, out deltType))
             {
                 Debug.LogError($"Failed to parse {nameof(DeltId)}: {deltIdString}");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TryParseMajorId(string majorString, out MajorId majorId)
+        {
+            if (!Enum.TryParse(majorString.Replace(" ", ""), out majorId))
+            {
+                Debug.LogError($"Failed to parse {nameof(MajorId)}: {majorString}");
                 return false;
             }
 

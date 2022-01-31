@@ -28,6 +28,15 @@ namespace BattleDelts.Data
         public int AVAmount;
 
         public List<LevelUpMove> LevelUpMoves;
+
+        [NonSerialized]
+        public Major FirstMajor;
+
+        [NonSerialized]
+        public Major SecondMajor;
+
+        [NonSerialized]
+        public DeltId DeltId;
     }
 
     [Serializable]
