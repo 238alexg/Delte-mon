@@ -3,7 +3,7 @@
     {
       "Name": "Audit",
       "Description": "It's time to collect some dues. Chance to Indebt. 10% crit.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -17,7 +17,7 @@
     {
       "Name": "Bad Debt",
       "Description": "Indebt on hit.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -31,7 +31,7 @@
     {
       "Name": "Bankruptcy",
       "Description": "Chance to Indebt.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -45,7 +45,7 @@
     {
       "Name": "Cash Flows",
       "Description": "15% crit.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -59,7 +59,7 @@
     {
       "Name": "Consulting",
       "Description": "",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 30,
       "Damage": 50,
@@ -73,7 +73,7 @@
     {
       "Name": "CPA",
       "Description": "Sharply buffs Truth.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -87,7 +87,7 @@
     {
       "Name": "Debits",
       "Description": "Buffs Truth, CTP.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -101,7 +101,7 @@
     {
       "Name": "Discounts",
       "Description": "Debuffs Faith.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "Debuff",
       "PP": 20,
       "Damage": 0,
@@ -115,7 +115,7 @@
     {
       "Name": "Dividend",
       "Description": "Heals 35.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -129,7 +129,7 @@
     {
       "Name": "Firesale",
       "Description": "Chance to Roast. 15% crit.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -143,7 +143,7 @@
     {
       "Name": "Fraud",
       "Description": "Chance to Indebt. 10% crit.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 130,
@@ -157,7 +157,7 @@
     {
       "Name": "Loan Default",
       "Description": "Chance to Indebt. 10% crit.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 80,
@@ -171,7 +171,7 @@
     {
       "Name": "Pyramid",
       "Description": "Debuffs Faith, Power.",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 70,
@@ -185,7 +185,7 @@
     {
       "Name": "Quickbooks",
       "Description": "",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "Debuff",
       "PP": 25,
       "Damage": 0,
@@ -199,7 +199,7 @@
     {
       "Name": "Raining Money",
       "Description": "",
-      "Major": "Accounting (MajorClass)",
+      "Major": "Accounting",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -213,7 +213,7 @@
     {
       "Name": "Accept Internship",
       "Description": "YES! Finally making no money WITH a job!",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -227,7 +227,7 @@
     {
       "Name": "Build Resume",
       "Description": "Time to get back on top of things.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -241,7 +241,7 @@
     {
       "Name": "Conditional Formatting",
       "Description": "=($F+$THIS+$HW+$ASSIGNMENT)",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 60,
@@ -255,7 +255,7 @@
     {
       "Name": "Downsize",
       "Description": "Tell them it's the economy.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -269,7 +269,7 @@
     {
       "Name": "Hired",
       "Description": "\"Never hire someone who knows less than you do about what he's hired to do.\" - Malcolm Forbes. 30% crit.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 50,
@@ -283,7 +283,7 @@
     {
       "Name": "MBA",
       "Description": "Not a shabby title.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 90,
@@ -297,7 +297,7 @@
     {
       "Name": "Micro Manage",
       "Description": "Because let's be honest, employees are worse than in The Office.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 70,
@@ -311,7 +311,7 @@
     {
       "Name": "Negotiate",
       "Description": "\"Owning a great golf course gives you great power\" - Donald Trump",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -325,7 +325,7 @@
     {
       "Name": "Oral Presentation",
       "Description": "Just picture them in their underwear...",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -339,7 +339,7 @@
     {
       "Name": "Peer Evaluation",
       "Description": "Nothing like teachers delegating grading work to students!",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "TruthAtk",
       "PP": 30,
       "Damage": 60,
@@ -353,7 +353,7 @@
     {
       "Name": "Supply & Demand",
       "Description": "You wish it were that simple. 30% crit.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "PowerAtk",
       "PP": 30,
       "Damage": 50,
@@ -367,7 +367,7 @@
     {
       "Name": "Terminate",
       "Description": "\"You're Fired\" - Donald Trump",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 120,
@@ -381,7 +381,7 @@
     {
       "Name": "Use Derivatives",
       "Description": "Now subtract one from the exponent and... or is it the other way around? Chance to Intoxicate. 15% Crit.",
-      "Major": "Business (MajorClass)",
+      "Major": "Business",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 60,
@@ -395,7 +395,7 @@
     {
       "Name": "Binary",
       "Description": "Random.Range(0,1) with efficient offensive power.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 2,
       "Damage": 250,
@@ -409,7 +409,7 @@
     {
       "Name": "Blue Screen",
       "Description": "\"Have you tried turning it off and on again?\" - Roy, IT Crowd. Chance to Suspend.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -423,7 +423,7 @@
     {
       "Name": "DDOS",
       "Description": "Overload a company website with traffic. Or just your friend's Squarespace site. Debuffs Faith, CTP.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 0,
@@ -437,7 +437,7 @@
     {
       "Name": "Deadlock",
       "Description": "There are 5 philosophers eating a meal. If each one is stealing chopsticks, how long until your program crashes? 20% crit.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 130,
@@ -451,7 +451,7 @@
     {
       "Name": "Debug",
       "Description": "v., when you use tweezers to take out the flies that got stuck in your laptop fan. Buffs Truth, CTP.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -465,7 +465,7 @@
     {
       "Name": "Encrypt",
       "Description": "In most games, encrypting is when you desend into a dungeon to kill skeletons, vampies, etc. Sharply buffs Courage, Faith.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 0,
@@ -479,7 +479,7 @@
     {
       "Name": "Fibonacci",
       "Description": "nf = n(f-1) + n(f-2). Buffs Truth.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -493,7 +493,7 @@
     {
       "Name": "Firewall",
       "Description": "A giant flaming wall to prevent intruders from using your ports. Chance to Roast.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 75,
@@ -507,7 +507,7 @@
     {
       "Name": "For Loop",
       "Description": "Repeatable code. 20% crit.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -521,7 +521,7 @@
     {
       "Name": "Hack",
       "Description": "When you take an ax to someone's computer. 20% crit.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 85,
@@ -535,7 +535,7 @@
     {
       "Name": "Hello World",
       "Description": "print(\"Hello World\"); // 15% crit.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 50,
@@ -549,7 +549,7 @@
     {
       "Name": "Malware",
       "Description": "Even good software can be tempted to the dark side. Chance to Plague.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -563,7 +563,7 @@
     {
       "Name": "Memory Leak",
       "Description": "Getting drunk often leads to a memory leak. Debuffs Faith, CTP.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 100,
@@ -577,7 +577,7 @@
     {
       "Name": "Stack Overflow",
       "Description": "The one-stop-shop for all code problems. Buffs Truth, CTP.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 0,
@@ -591,7 +591,7 @@
     {
       "Name": "Threading",
       "Description": "Sometimes coders want a side hobby, which often ends up being knitting/making crochets. Sharply buffs CTP.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 0,
@@ -605,7 +605,7 @@
     {
       "Name": "Virus",
       "Description": "Often someone who has a cold will sneeze on your computer and give it a virus. Chance to Plague. 15% crit.",
-      "Major": "Computer Science (MajorClass)",
+      "Major": "Computer Science",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 110,
@@ -619,7 +619,7 @@
     {
       "Name": "Capitalism",
       "Description": "Buffs Power, CTP.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 70,
@@ -633,7 +633,7 @@
     {
       "Name": "Communism",
       "Description": "Debuffs Courage, CTP.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -647,7 +647,7 @@
     {
       "Name": "Curve",
       "Description": "Debuffs Courage, CTP.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 50,
@@ -661,7 +661,7 @@
     {
       "Name": "Demand",
       "Description": "15% crit.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 50,
@@ -675,7 +675,7 @@
     {
       "Name": "Econometrics",
       "Description": "Buffs Courage.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -689,7 +689,7 @@
     {
       "Name": "Equilibrium",
       "Description": "Buffs CTP, Debuffs CTP.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -703,7 +703,7 @@
     {
       "Name": "FED",
       "Description": "15% crit.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -717,7 +717,7 @@
     {
       "Name": "Interest Rate",
       "Description": "Chance to Indebt.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 80,
@@ -731,7 +731,7 @@
     {
       "Name": "Macro",
       "Description": "",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 120,
@@ -745,7 +745,7 @@
     {
       "Name": "Micro",
       "Description": "Sharply Debuffs Courage.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "Debuff",
       "PP": 5,
       "Damage": 0,
@@ -759,7 +759,7 @@
     {
       "Name": "Money Market",
       "Description": "Buffs Power, CTP.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -773,7 +773,7 @@
     {
       "Name": "Odd Markets",
       "Description": "Indebts on hit.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -787,7 +787,7 @@
     {
       "Name": "Price",
       "Description": "15% crit.",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 60,
@@ -801,7 +801,7 @@
     {
       "Name": "Supply",
       "Description": "",
-      "Major": "Economics (MajorClass)",
+      "Major": "Economics",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -815,7 +815,7 @@
     {
       "Name": "Anna Karenina",
       "Description": "“It's much better to do good in a way that no one knows anything about it.” – Leo Tolstoy",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -829,7 +829,7 @@
     {
       "Name": "Birdsong",
       "Description": "\"I know. I was there. I saw the great void in your soul, and you saw mine.\" – Sebastian Faulks.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 100,
@@ -843,7 +843,7 @@
     {
       "Name": "Dorian Gray",
       "Description": "\"Nowadays people know the price of everything and the value of nothing.\" – Oscar Wilde. Buffs Truth, CTP.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -857,7 +857,7 @@
     {
       "Name": "Fight Club",
       "Description": "“I don't want to die without any scars.” – Check Palahnuik",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 130,
@@ -871,7 +871,7 @@
     {
       "Name": "Free State",
       "Description": "\"The only lies for which we are truly punished are those we tell ourselves.\" – V.S. Naipaul",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 70,
@@ -885,7 +885,7 @@
     {
       "Name": "Great Expectations",
       "Description": "“You made your own snares. I never made them.\" – Charles Dickens. Chance to Plague.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 90,
@@ -899,7 +899,7 @@
     {
       "Name": "Into the Wild",
       "Description": "“Happiness is only real when shared” – Christopher McCandless. Chance to Plague.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 75,
@@ -913,7 +913,7 @@
     {
       "Name": "Mice & Men",
       "Description": "“The hell with the rabbits. That's all you can ever remember is them rabbits.” – John Steinbeck",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 45,
@@ -927,7 +927,7 @@
     {
       "Name": "Mysterious Island",
       "Description": "\"It is a great misfortune to be alone, my friends; and it must be believed that solitude can quickly destroy reason.\" – Jules Verne. Debuff Faith, Courage.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "Debuff",
       "PP": 20,
       "Damage": 0,
@@ -941,7 +941,7 @@
     {
       "Name": "Rum Diary",
       "Description": "“Old God sure was in a good mood when he made this place.” - Hunter Thompson. Chance to Intoxicate.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -955,7 +955,7 @@
     {
       "Name": "Ulysses",
       "Description": "“History, Stephen said, is a nightmare from which I am trying to awake.” – James Joyce",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 85,
@@ -969,7 +969,7 @@
     {
       "Name": "Valis",
       "Description": "\"It is sometimes an appropriate response to reality to go insane.\" – Philip Dick. Chance to Smoke Out.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 80,
@@ -983,7 +983,7 @@
     {
       "Name": "Wuthering Heights",
       "Description": "“Terror made me cruel” – Emily Brontë. 15% crit.",
-      "Major": "English (MajorClass)",
+      "Major": "English",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -997,7 +997,7 @@
     {
       "Name": "BOD",
       "Description": "Biochemical oxygen demand can measure pollutants in water #moreYouKnow. 10% crit.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 50,
@@ -1011,7 +1011,7 @@
     {
       "Name": "Dakota Access",
       "Description": "Were YOU at Standing Rock? ",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -1025,7 +1025,7 @@
     {
       "Name": "EPA",
       "Description": "\"Global warming was created by and for the Chinese\" - Donald Trump. Sharply buffs Truth, CTP.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -1039,7 +1039,7 @@
     {
       "Name": "Extinction",
       "Description": "\"He who refuses to learn deserves extinction.\" - Rabbi Hillel. Suspends on hit.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 120,
@@ -1053,7 +1053,7 @@
     {
       "Name": "Exxon Valdez",
       "Description": "Unfortunately not an isolated incident. Chance to Plague.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 80,
@@ -1067,7 +1067,7 @@
     {
       "Name": "Global Warming",
       "Description": "Actually called climate change now, since the laws of thermodynamics are a thing. Chance to suspend.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 100,
@@ -1081,7 +1081,7 @@
     {
       "Name": "Goodbye Venice",
       "Description": "Like a slower, more Italian Titanic. Chance to Suspend.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -1095,7 +1095,7 @@
     {
       "Name": "Granola",
       "Description": "Crunchy Eugene hippie culture. Sharply buffs Truth, heals 25.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 0,
@@ -1109,7 +1109,7 @@
     {
       "Name": "Green Chair",
       "Description": "What an awesome role for a fraternity! Sharply buffs Truth.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -1123,7 +1123,7 @@
     {
       "Name": "Lawyer Up",
       "Description": "\"You better lawyer up asshole, because I'm not coming back for 30%, I'm coming back for EVERYTHING.\" - The Social Network. Chance to Suspend.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 65,
@@ -1137,7 +1137,7 @@
     {
       "Name": "Melt",
       "Description": "The one time positive reinforcement isn't a good thing. 15% crit.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 60,
@@ -1151,7 +1151,7 @@
     {
       "Name": "Ozone",
       "Description": "Soon there will be NOzone. Chance to Roast.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -1165,7 +1165,7 @@
     {
       "Name": "Recycle",
       "Description": "If you're not doing this already I hope you drown in leachate.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -1179,7 +1179,7 @@
     {
       "Name": "Shocking Documentary",
       "Description": "Noun, a movie that moves you to tears and gets forgotten the next day. Debuffs Faith, 20% crit.",
-      "Major": "Environmental Science (MajorClass)",
+      "Major": "Environmental Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 75,
@@ -1193,7 +1193,7 @@
     {
       "Name": "Active Listening",
       "Description": "A healthy alternative to inactive listening. Buffs Truth.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -1207,7 +1207,7 @@
     {
       "Name": "Adopt",
       "Description": "\"Biology is the least of what makes someone a mother\" - Oprah Winfrey. Chance to make fall Asleep.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -1221,7 +1221,7 @@
     {
       "Name": "Background Check",
       "Description": "The best indicator of future behavior is... Chance to Suspend. 10% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -1235,7 +1235,7 @@
     {
       "Name": "Community Service",
       "Description": "The first step of making a difference. 10% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 55,
@@ -1249,7 +1249,7 @@
     {
       "Name": "Console",
       "Description": "Sometimes people just need a hug. Buffs Truth, Faith.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -1263,7 +1263,7 @@
     {
       "Name": "Domesticate",
       "Description": "\"Contrary to what a lot of people think, I haven't been domesticated\" - Prince. Debuffs Faith. 20% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 70,
@@ -1277,7 +1277,7 @@
     {
       "Name": "Foster Home",
       "Description": "For Imaginary Friends? Smoke out on hit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "Status",
       "PP": 5,
       "Damage": 0,
@@ -1291,7 +1291,7 @@
     {
       "Name": "Holden Center",
       "Description": "Rife with volunteer opportunity. 15% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 65,
@@ -1305,7 +1305,7 @@
     {
       "Name": "Intervention",
       "Description": "\"Jeff... it's time to burn the cargo shorts.\" Chance to Roast. 15% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -1319,7 +1319,7 @@
     {
       "Name": "Neglect",
       "Description": "\"Indifference and neglect often do much more damage than outright dislike.\" - JK Rowling. Sharply Debuffs Faith, Courage.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "Debuff",
       "PP": 5,
       "Damage": 0,
@@ -1333,7 +1333,7 @@
     {
       "Name": "See Red",
       "Description": "And all out rage in 3..2..1.. Chance to Roast. 15% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 140,
@@ -1347,7 +1347,7 @@
     {
       "Name": "Share Impact",
       "Description": "Brace ourselves! 30% crit.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -1361,7 +1361,7 @@
     {
       "Name": "Sudoku",
       "Description": "A classic passtime. Buffs Truth, debuffs CTP.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -1375,7 +1375,7 @@
     {
       "Name": "Take Custody",
       "Description": "\"When my parents got divorced, there was a custody fight over me... and no one showed up.\" - Rodney Dangerfield. Sharply debuffs Faith.",
-      "Major": "FHS (MajorClass)",
+      "Major": "FHS",
       "Type": "Debuff",
       "PP": 10,
       "Damage": 0,
@@ -1389,7 +1389,7 @@
     {
       "Name": "Aftershock",
       "Description": "Shock, but after. Debuffs Courage, CTP.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "Debuff",
       "PP": 25,
       "Damage": 0,
@@ -1403,7 +1403,7 @@
     {
       "Name": "Ash",
       "Description": "A reference to something? Chance to Plague, 15% crit.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "Debuff",
       "PP": 15,
       "Damage": 0,
@@ -1417,7 +1417,7 @@
     {
       "Name": "Drive Car",
       "Description": "Gotta support your favorite oil companies! Chance to Plague, 15% crit. Used to fast travel.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 75,
@@ -1431,7 +1431,7 @@
     {
       "Name": "Dynamite",
       "Description": "\"What's Grandma doing at the flippin' sand dunes?!\" Chance to Roast, 15% crit.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -1445,7 +1445,7 @@
     {
       "Name": "Earthquake",
       "Description": "Another reference to something? 15% crit.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 100,
@@ -1459,7 +1459,7 @@
     {
       "Name": "Erupt",
       "Description": "Popping an earth pimple. Chance to Roast.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 80,
@@ -1473,7 +1473,7 @@
     {
       "Name": "Fossilize",
       "Description": "Make yourself irresistable to Ross Geller. Buffs Courage sharply.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -1487,7 +1487,7 @@
     {
       "Name": "Igneous",
       "Description": "Hotter formation than most dance routines. Chance to Roast.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 100,
@@ -1501,7 +1501,7 @@
     {
       "Name": "Metamorphic",
       "Description": "This move is so post game meta. 15% crit.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 130,
@@ -1515,7 +1515,7 @@
     {
       "Name": "Oil Spill",
       "Description": "Oops! We will definitely stop doing this so it never happens again! :) Chance to Plague, 20% crit.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 50,
@@ -1529,7 +1529,7 @@
     {
       "Name": "Richter Roll",
       "Description": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 50,
@@ -1543,7 +1543,7 @@
     {
       "Name": "Sedimentary",
       "Description": "It's sedimentary, Sherock! Debuffs Courage, CTP sharply.",
-      "Major": "Geology (MajorClass)",
+      "Major": "Geology",
       "Type": "Debuff",
       "PP": 5,
       "Damage": 0,
@@ -1557,7 +1557,7 @@
     {
       "Name": "Black Plague",
       "Description": "\"Both of us victims of the same 20th century plague. Not the Black Death, this time; the Gray Life\" - Aldous Huxley. Chance to Plague.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "Status",
       "PP": 15,
       "Damage": 0,
@@ -1571,7 +1571,7 @@
     {
       "Name": "Civil War",
       "Description": "\"It is well that war is so terrible, or we would grow too fond of it.\" - Robert E. Lee. Chance to Indebt.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -1585,7 +1585,7 @@
     {
       "Name": "Cold War",
       "Description": "\"Communism isn't sleeping; it is, as always, plotting, scheming, working, fighting.\" - Nixon. Buffs Power, Debuffs Truth.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -1599,7 +1599,7 @@
     {
       "Name": "Colonize",
       "Description": "Aliens often colonize human colons! Debuffs Faith.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "Debuff",
       "PP": 25,
       "Damage": 0,
@@ -1613,7 +1613,7 @@
     {
       "Name": "Golden Age",
       "Description": "\"America's golden age is what's going to happen once this baby hits the App store.\" - Alex Geoffrey. Buffs Truth, CTP sharply.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "Buff",
       "PP": 1,
       "Damage": 0,
@@ -1627,7 +1627,7 @@
     {
       "Name": "Hiroshima",
       "Description": "The theory in Hiroshima is that the atomic heat was so great thay they burned instantly to ashes - except that there were no ashes.\" - Wilfred Burchett. If hits, opponent will be roasted.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "PowerAtk",
       "PP": 2,
       "Damage": 170,
@@ -1641,7 +1641,7 @@
     {
       "Name": "Ken Burns",
       "Description": "\"History is malleable\" - Ken Burns. Chance to Roast. 15% crit.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 75,
@@ -1655,7 +1655,7 @@
     {
       "Name": "Peace Treaty",
       "Description": "“We only make peace with our enemies. That's why it's called making peace.” - Lord Baelish. Blocking move.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "Block",
       "PP": 10,
       "Damage": 0,
@@ -1669,7 +1669,7 @@
     {
       "Name": "Revolutionary War",
       "Description": "\"Give me liberty or give me death!\" - Patrick Henry. Chance to Indebt.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 45,
@@ -1683,7 +1683,7 @@
     {
       "Name": "Vietnam War",
       "Description": "\"I think it's time we stop, children, what's that sound, everybody look what's going down\" - Buffalo Springfield. Chance to Indebt.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 95,
@@ -1697,7 +1697,7 @@
     {
       "Name": "War On Terror",
       "Description": "\"Everyone's worried about stopping terrorism. Well, there's really an easy way: Stop participating in it.\" - Noam Chomsky. Chance to Indebt.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 110,
@@ -1711,7 +1711,7 @@
     {
       "Name": "World War I",
       "Description": "\"This is a war to end all wars.\" - Woodrow Wilson. Chance to Indebt.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -1725,7 +1725,7 @@
     {
       "Name": "World War II",
       "Description": "\"In War: Resolution. In Defear: Defiance. In Victory: Magnanimity. In Peace: Good Will.\" - Winston Churchill. Chance to Indebt.",
-      "Major": "History (MajorClass)",
+      "Major": "History",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 85,
@@ -1739,7 +1739,7 @@
     {
       "Name": "Acupunture",
       "Description": "Relax and focus your muscles. Buffs Power, CTP.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -1753,7 +1753,7 @@
     {
       "Name": "Broken Finger",
       "Description": "\"Charlie bit my finger\" - Sad Child in Car. 25% crit.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 75,
@@ -1767,7 +1767,7 @@
     {
       "Name": "Bruised Testicle",
       "Description": "Stale bagels should never be launched at a man's crotch. 15% crit.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 100,
@@ -1781,7 +1781,7 @@
     {
       "Name": "Cancer",
       "Description": "Could have done a dark joke, but the #risk was too high. Chance to Plague.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "Status",
       "PP": 15,
       "Damage": 80,
@@ -1795,7 +1795,7 @@
     {
       "Name": "CPR",
       "Description": "Resuscitate those who cannot resuscitate themselves. Heal 125.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "Buff",
       "PP": 2,
       "Damage": 0,
@@ -1809,7 +1809,7 @@
     {
       "Name": "Dislocate",
       "Description": "When you cut+paste a joint to another location.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 130,
@@ -1823,7 +1823,7 @@
     {
       "Name": "Fracture",
       "Description": "Even the word sounds painful. Debuffs Faith, Courage.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "Debuff",
       "PP": 10,
       "Damage": 0,
@@ -1837,7 +1837,7 @@
     {
       "Name": "Get Swol",
       "Description": "Go make some gains. Sharply buffs Power, CTP.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -1851,7 +1851,7 @@
     {
       "Name": "Hernia",
       "Description": "Always check for lumps. 15% crit.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -1865,7 +1865,7 @@
     {
       "Name": "Physical Therapy",
       "Description": "Recover from your injuries. Buffs Courage, Faith. Heals 25.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -1879,7 +1879,7 @@
     {
       "Name": "Pubic Hurtis",
       "Description": "It's a sensitive area. Chance to intoxicate out of pain.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 80,
@@ -1893,7 +1893,7 @@
     {
       "Name": "Pull Muscle",
       "Description": "Should have stretched first. 15% crit.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 60,
@@ -1907,7 +1907,7 @@
     {
       "Name": "Sprain",
       "Description": "Turns out ligaments don't love being twisted. 15% crit.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 50,
@@ -1921,7 +1921,7 @@
     {
       "Name": "Torn ACL",
       "Description": "It could happen to anyone, anytime. 15% crit.",
-      "Major": "Human Phys (MajorClass)",
+      "Major": "Human Phys",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 70,
@@ -1935,7 +1935,7 @@
     {
       "Name": "3rd World Country",
       "Description": "\"Where there is hunger, there cannot be lasting peace.\" - Willy Brandt. 15% crit.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 80,
@@ -1949,7 +1949,7 @@
     {
       "Name": "Alliance",
       "Description": "\"The best way to forge a lasting alliance isn't by peeling a man's skin off\" - Roose Bolton. Sharply buffs Power, Courage.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -1963,7 +1963,7 @@
     {
       "Name": "Cross Borders",
       "Description": "Wall + pogo stick = new citizen. 15% crit.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 70,
@@ -1977,7 +1977,7 @@
     {
       "Name": "Break Treaty",
       "Description": "Power move. Buffs Power, Debuffs Power. 15% crit.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 70,
@@ -1991,7 +1991,7 @@
     {
       "Name": "Declare War",
       "Description": "\"The two most powerful warriors are patience and time.\" - Leo Tolstoy. Chance to Indebt.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 80,
@@ -2005,7 +2005,7 @@
     {
       "Name": "Genocide",
       "Description": "\"What connects two thousand years of genocide? Too much power in too few hands.\" - Simon Wiesenthal. 30% crit.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 140,
@@ -2019,7 +2019,7 @@
     {
       "Name": "Hide",
       "Description": "Flight instinct on fleek. Blocking move.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "Block",
       "PP": 10,
       "Damage": 0,
@@ -2033,7 +2033,7 @@
     {
       "Name": "International Waters",
       "Description": "\"Because of the implication\" - Dennis Reynolds. Buffs Courage, Power.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -2047,7 +2047,7 @@
     {
       "Name": "Invasion",
       "Description": "Is outvasion giving someone your property? Chance to Indebt. 15% crit.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -2061,7 +2061,7 @@
     {
       "Name": "Quarantine",
       "Description": "If you can't beat em, isolate em.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -2075,7 +2075,7 @@
     {
       "Name": "Refugee",
       "Description": "\"We live in the age of the refugee, the age of the exile.\" - Ariel Dorfman. Debuffs Courage.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 40,
@@ -2089,7 +2089,7 @@
     {
       "Name": "Romance",
       "Description": "Voulez-vous coucher avec moi, ce soir? Sharply buffs Courage.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -2103,7 +2103,7 @@
     {
       "Name": "Trade",
       "Description": "Tit for tat. Buffs Power.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -2117,7 +2117,7 @@
     {
       "Name": "Translate",
       "Description": "Or at least let Google do it. 10% crit.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 55,
@@ -2131,7 +2131,7 @@
     {
       "Name": "United Nations",
       "Description": "\"The United Nations is our one great hope for a peaceful and free world.\" Buffs Courage, Power.",
-      "Major": "Intl Studies (MajorClass)",
+      "Major": "Intl Studies",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -2145,7 +2145,7 @@
     {
       "Name": "Anchorman",
       "Description": "“They’ve done studies, you know. 60 percent of the time, it works every time.” — Brian Fantana. Roasts on hit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 60,
@@ -2159,7 +2159,7 @@
     {
       "Name": "Column",
       "Description": "\"Whether my columns are worth reading isn't for me to say.\" - John Podhoretz. 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -2173,7 +2173,7 @@
     {
       "Name": "Cut",
       "Description": "Some things better left out. Chance to Indebt. Debuffs Faith.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 50,
@@ -2187,7 +2187,7 @@
     {
       "Name": "Editorial",
       "Description": "\"Does not reflect the publisher's official views.\" 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -2201,7 +2201,7 @@
     {
       "Name": "Exclusive",
       "Description": "\"I’m tired of pretending I’m not a total bitchin’ rock star from Mars.\" - Charlie Sheen. 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 110,
@@ -2215,7 +2215,7 @@
     {
       "Name": "Falsified Information",
       "Description": "FAKE NEWS. Chance to Plague.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -2229,7 +2229,7 @@
     {
       "Name": "Feature",
       "Description": "Someone better be writing a fat check for this one. 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -2243,7 +2243,7 @@
     {
       "Name": "Freshman Essay",
       "Description": "Not your best work. 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 40,
@@ -2257,7 +2257,7 @@
     {
       "Name": "Front Page",
       "Description": "In the big leagues now. 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 80,
@@ -2271,7 +2271,7 @@
     {
       "Name": "Hard News",
       "Description": "It's the news the nation deserves, but not what it needs. Buffs Truth.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 130,
@@ -2285,7 +2285,7 @@
     {
       "Name": "Integrity",
       "Description": "\"Real integrity is doing the right thing, knowing that nobody's going to know whether you did it or not.\" - Oprah Winfrey. Buffs Truth, CTP.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -2299,7 +2299,7 @@
     {
       "Name": "Investigate",
       "Description": "Best your claims aren't unfounded. Buffs Truth.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -2313,7 +2313,7 @@
     {
       "Name": "OpEd",
       "Description": "At least you made it in the paper? 10% crit.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 50,
@@ -2327,7 +2327,7 @@
     {
       "Name": "Slant",
       "Description": "What's the angle? Chance to Intoxicate.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 60,
@@ -2341,7 +2341,7 @@
     {
       "Name": "Soft News",
       "Description": "Soft news make for soft people. Sharply debuffs Faith.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "Debuff",
       "PP": 5,
       "Damage": 0,
@@ -2355,7 +2355,7 @@
     {
       "Name": "Strong Lead",
       "Description": "Grab the reader's attention. Buffs Truth, CTP.",
-      "Major": "Journalism (MajorClass)",
+      "Major": "Journalism",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -2369,7 +2369,7 @@
     {
       "Name": "Binomial",
       "Description": "Middle school stuff. Buffs speed^2.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -2383,7 +2383,7 @@
     {
       "Name": "Define",
       "Description": "Putting something here would be too ironic. 25% crit.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 85,
@@ -2397,7 +2397,7 @@
     {
       "Name": "Differentiate",
       "Description": "Debuffs Power. LOL",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "Debuff",
       "PP": 25,
       "Damage": 65,
@@ -2411,7 +2411,7 @@
     {
       "Name": "Divide By 0",
       "Description": "How to make airplanes fall from the sky. 20% crit.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -2425,7 +2425,7 @@
     {
       "Name": "Factor",
       "Description": "Solve for x. Crit 20% for when you don't get whole numbers.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 60,
@@ -2439,7 +2439,7 @@
     {
       "Name": "Game Theory",
       "Description": "Alex Geoffrey trivia: I met Steve Nash before he died. ",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 95,
@@ -2453,7 +2453,7 @@
     {
       "Name": "Integrate",
       "Description": "Buffs Power. LOL",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 70,
@@ -2467,7 +2467,7 @@
     {
       "Name": "Irrational",
       "Description": "Infuriating unfractional. Chance to Roast.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 70,
@@ -2481,7 +2481,7 @@
     {
       "Name": "Math Puns",
       "Description": "\"Be real, be irrational.\" You've seen them on 100 tshirts not worth the $5 thrift store cop. How about \"Be original\" Debuffs Courage, Faith.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 0,
@@ -2495,7 +2495,7 @@
     {
       "Name": "Monomial",
       "Description": "Elementry school stuff. Buffs speed.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -2509,7 +2509,7 @@
     {
       "Name": "Paradox",
       "Description": "",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 100,
@@ -2523,7 +2523,7 @@
     {
       "Name": "Pi",
       "Description": "Yummy. (π^3)% chance to hit. Drunk on hit. 31% crit.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 314,
@@ -2537,7 +2537,7 @@
     {
       "Name": "Polynomial",
       "Description": "College stuff. Buffs speed^4!",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -2551,7 +2551,7 @@
     {
       "Name": "Proof",
       "Description": "Not the alcohol kind of proof.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 75,
@@ -2565,7 +2565,7 @@
     {
       "Name": "Trinomial",
       "Description": "High school stuff. Buffs speed^3.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -2579,7 +2579,7 @@
     {
       "Name": "U Substitution",
       "Description": "No, you substitution! Substitute your opponents stats for worse ones. Debuffs Courage, Faith.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "Debuff",
       "PP": 10,
       "Damage": 0,
@@ -2593,7 +2593,7 @@
     {
       "Name": "Wolfram",
       "Description": "The sweet sweet solace found in checking answers. Chance to intoxicate.",
-      "Major": "Math (MajorClass)",
+      "Major": "Math",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 85,
@@ -2607,7 +2607,7 @@
     {
       "Name": "Acid",
       "Description": "Don't even trip. Chance to smoke out.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 80,
@@ -2621,7 +2621,7 @@
     {
       "Name": "CHCl3",
       "Description": "Look it up. Makes sleep on hit.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -2635,7 +2635,7 @@
     {
       "Name": "Clone",
       "Description": "Create a clone of yourself to absorb the blow. Blocking move.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "Block",
       "PP": 10,
       "Damage": 0,
@@ -2649,7 +2649,7 @@
     {
       "Name": "Endothermic",
       "Description": "Sucks in energy. Debuffs Courage, Faith. Buffs Courage, Faith.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -2663,7 +2663,7 @@
     {
       "Name": "Exothermic",
       "Description": "Spits out energy. Chance to Roast.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 130,
@@ -2677,7 +2677,7 @@
     {
       "Name": "GATC",
       "Description": "\"The instructions for all life\" - Every textbook ever. Buffs Courage, Faith.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -2691,7 +2691,7 @@
     {
       "Name": "MCAT",
       "Description": "Nearly 50% of al MCAT testers have to retake. 15% crit.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 110,
@@ -2705,7 +2705,7 @@
     {
       "Name": "Mitochondria",
       "Description": "\"...are the powerhouse of the cell.\" - Every textbook ever published. 15% crit.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 50,
@@ -2719,7 +2719,7 @@
     {
       "Name": "Noble Gas",
       "Description": "Nobility doesn't associate with filthy loose electrons. Chance to smoke out.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 60,
@@ -2733,7 +2733,7 @@
     {
       "Name": "O Chem",
       "Description": "Your classic make-or-break course. Debuffs Courage, Faith.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "Debuff",
       "PP": 20,
       "Damage": 0,
@@ -2747,7 +2747,7 @@
     {
       "Name": "OH-",
       "Description": "\"Alcohol, my favorite accessory\" - Barenaked Ladies. Chance to intoxicate.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -2761,7 +2761,7 @@
     {
       "Name": "Punnet Square",
       "Description": "50% dominant, 50% recessive, 25% to smoke out, 100% reason to remember the name.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 80,
@@ -2775,7 +2775,7 @@
     {
       "Name": "Ride Curve",
       "Description": "Surf the curve or break in the wake. Buffs Courage, heals 30.",
-      "Major": "Natural Science (MajorClass)",
+      "Major": "Natural Science",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -2789,7 +2789,7 @@
     {
       "Name": "Amendment",
       "Description": "\"Jefferson, I'm pretty sure we forgot to put, like, 10 things on the Constitution.\" - James Madison. Buffs Truth, CTP.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -2803,7 +2803,7 @@
     {
       "Name": "Build Wall",
       "Description": "\"Nobody builds walls better than me... and I will make Mexico pay for that wall. Mark my words.\" - Donald Trump. Blocking move.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "Block",
       "PP": 5,
       "Damage": 0,
@@ -2817,7 +2817,7 @@
     {
       "Name": "Campaign",
       "Description": "Win the affections of the masses with passionate pandering and opponent bashing. Debuffs Truth, Power.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "Debuff",
       "PP": 20,
       "Damage": 0,
@@ -2831,7 +2831,7 @@
     {
       "Name": "Citizen Arrest",
       "Description": "Just shout it and arrest all of your favorite people. Chance to Suspend.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 85,
@@ -2845,7 +2845,7 @@
     {
       "Name": "Constitution",
       "Description": "A country's composure. Buffs Courage, Faith.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "Buff",
       "PP": 20,
       "Damage": 0,
@@ -2859,7 +2859,7 @@
     {
       "Name": "Corruption",
       "Description": "A scandalous blow with a chance to poison the ear of those you talk to.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 80,
@@ -2873,7 +2873,7 @@
     {
       "Name": "Democracy",
       "Description": "Majority rule. 15% crit.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 65,
@@ -2887,7 +2887,7 @@
     {
       "Name": "Facebook",
       "Description": "The perfect medium for all the political rants you were to afraid to have in person. Chance to Plague.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 80,
@@ -2901,7 +2901,7 @@
     {
       "Name": "Fascism",
       "Description": "Heil! 15% crit.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 100,
@@ -2915,7 +2915,7 @@
     {
       "Name": "Independence",
       "Description": "The product of overbearing parents and/or motherlands and the spirit of rebellion. Buffs CTP, debuffs Power.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -2929,7 +2929,7 @@
     {
       "Name": "Lobby",
       "Description": "The entrance to a commercial building or sabotage of public interest. 15% crit.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 75,
@@ -2943,7 +2943,7 @@
     {
       "Name": "Republic",
       "Description": "Elected officals rule. 15% crit.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 80,
@@ -2957,7 +2957,7 @@
     {
       "Name": "Secede",
       "Description": "Who needs the rest of 'em? Suspends on hit.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -2971,7 +2971,7 @@
     {
       "Name": "Taxation",
       "Description": "\"Taxes are what we pay for civilized society.\" - Oliver Holmes Jr.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -2985,7 +2985,7 @@
     {
       "Name": "Watergate",
       "Description": "\"In any organization, the man at the top must bear the responsibility. That responsibility, therefore, belongs here\" - Richard Nixon. Small chance to Suspend.",
-      "Major": "Political Science (MajorClass)",
+      "Major": "Political Science",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 45,
@@ -2999,7 +2999,7 @@
     {
       "Name": "Exploded View",
       "Description": "When a building is drawn with layered pieces seperated. Chance to Roast. 10% crit.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 100,
@@ -3013,7 +3013,7 @@
     {
       "Name": "Industrial Revolution",
       "Description": "When the industry spun around. Buffs power.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 55,
@@ -3027,7 +3027,7 @@
     {
       "Name": "Invention",
       "Description": "EUREKA! 10% crit.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 120,
@@ -3041,7 +3041,7 @@
     {
       "Name": "Mass Production",
       "Description": "You know, convery belts and stuff. Buffs Power.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -3055,7 +3055,7 @@
     {
       "Name": "Model",
       "Description": "Not the runway kind. 20% crit.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "PowerAtk",
       "PP": 25,
       "Damage": 45,
@@ -3069,7 +3069,7 @@
     {
       "Name": "Outsource",
       "Description": "\"Outsourcing is inevitable\" - Stephen Covey. Buffs Power and CTP.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -3083,7 +3083,7 @@
     {
       "Name": "Plastic",
       "Description": "\"One word: plastics\" - The Graduate. Chance to poison, 10% crit.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 60,
@@ -3097,7 +3097,7 @@
     {
       "Name": "Prototype",
       "Description": "Like the videogame, I'm sure. 15% crit.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 70,
@@ -3111,7 +3111,7 @@
     {
       "Name": "Scale",
       "Description": "On the up and up. Buffs Power, CTP.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -3125,7 +3125,7 @@
     {
       "Name": "Smog",
       "Description": "Watch Benedict Cumberbatch's audition for Smaug if you haven't. Chance to plague. 10% crit.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -3139,7 +3139,7 @@
     {
       "Name": "Sweatshop",
       "Description": "\"I have an idea for sweatshops: air conditioning!\" - Mitch Hedberg. Chance to Indebt. Debuffs Faith, Courage.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "Debuff",
       "PP": 10,
       "Damage": 0,
@@ -3153,7 +3153,7 @@
     {
       "Name": "Tensile Strength",
       "Description": "The tensile strength of your tonsils is fairly low. Sharply buffs Power.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -3167,7 +3167,7 @@
     {
       "Name": "The Lorax",
       "Description": "\"I speak for the trees, for the trees have no tongues.\" - Dr. Seuss. Heals, buffs Faith, Courage.",
-      "Major": "Product Design (MajorClass)",
+      "Major": "Product Design",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 50,
@@ -3181,7 +3181,7 @@
     {
       "Name": "Alcohol",
       "Description": "Actually is a solution. Thanks, chemistry. Chance to intoxicate.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -3195,7 +3195,7 @@
     {
       "Name": "Catharsis",
       "Description": "A euphoric release. Sharply buffs all stats, heals 100.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "Buff",
       "PP": 1,
       "Damage": 0,
@@ -3209,7 +3209,7 @@
     {
       "Name": "Dad Issues",
       "Description": "Paternal Problems. Debuffs Courage, Power.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 100,
@@ -3223,7 +3223,7 @@
     {
       "Name": "Desperation",
       "Description": "A healthy dose of ambition and failure. Chance to Indebt.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 110,
@@ -3237,7 +3237,7 @@
     {
       "Name": "Ego",
       "Description": "\"Stupidity combined with arrogance and a huge ego will get you a long way.\" - Chris Lowe. Small buff to all stats.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 40,
@@ -3251,7 +3251,7 @@
     {
       "Name": "Fight or Flight",
       "Description": "\"Should I stay or should I go\" - The Clash. 50% crit.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 45,
@@ -3265,7 +3265,7 @@
     {
       "Name": "Freudian Slip",
       "Description": "Great name for a lingerie store. Chance to roast, buffs Truth. 10% crit.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 55,
@@ -3279,7 +3279,7 @@
     {
       "Name": "Id",
       "Description": "Sinstincts. 30% crit.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 80,
@@ -3293,7 +3293,7 @@
     {
       "Name": "Incentive",
       "Description": "\"Too little attention is paid to the dark side of incentives\" - Barry Schwartz. Buffs Truth, CTP.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "Buff",
       "PP": 15,
       "Damage": 0,
@@ -3307,7 +3307,7 @@
     {
       "Name": "Mary Jane",
       "Description": "Devil's lettuce, giggle bush, that good-good. Chance to smoke out.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -3321,7 +3321,7 @@
     {
       "Name": "Mind Games",
       "Description": "\"A psychologist plays the cards beofre the shuffle and the deal.\" - Amit Abraham. 15% crit.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 20,
       "Damage": 60,
@@ -3335,7 +3335,7 @@
     {
       "Name": "Mom Issues",
       "Description": "Maternal Misery. Debuffs Truth, Faith.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 100,
@@ -3349,7 +3349,7 @@
     {
       "Name": "Phallic Image",
       "Description": "Delicately etched into 98% of all high school surfaces.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 80,
@@ -3363,7 +3363,7 @@
     {
       "Name": "Pronouns",
       "Description": "\"The pronoun is one of the most terrifying masks man has invented\" - John Fowles",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "Buff",
       "PP": 25,
       "Damage": 0,
@@ -3377,7 +3377,7 @@
     {
       "Name": "Psychoanalyze",
       "Description": "\"Psychoanalysis is the confession without absolution.\" - Germaine Greer. Chance to Roast.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "TruthAtk",
       "PP": 10,
       "Damage": 90,
@@ -3391,7 +3391,7 @@
     {
       "Name": "Therapy",
       "Description": "\"Is this a woman thing? You ask me how I'm feeling. I tell you how I'm feeling, and now you're going to torture me with it.\" - Tony Soprano. Heals 100.",
-      "Major": "Psychology (MajorClass)",
+      "Major": "Psychology",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -3405,7 +3405,7 @@
     {
       "Name": "Alumni",
       "Description": "This move is so post-game.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 130,
@@ -3419,7 +3419,7 @@
     {
       "Name": "Banana Dance",
       "Description": "If you want it, come and get it, bananana...",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -3433,7 +3433,7 @@
     {
       "Name": "Bylaws",
       "Description": "Bylaw-of-the-game: Section 4 Article 15: All active members must rush 'em all. Buffs Truth.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "TruthAtk",
       "PP": 25,
       "Damage": 55,
@@ -3447,7 +3447,7 @@
     {
       "Name": "Chapter",
       "Description": "True democracy, and all that it entails. Buffs Truth, Debuffs CTP.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -3461,7 +3461,7 @@
     {
       "Name": "Circle Jerk",
       "Description": "A condition met when two or more vocal people refuse to reach a common ground. Debuffs CTP, Truth.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Debuff",
       "PP": 25,
       "Damage": 0,
@@ -3475,7 +3475,7 @@
     {
       "Name": "Dab",
       "Description": "When you're proud, sometimes the best thing to do is pretend to sneeze. Buffs CTP, Chance to Smoke Out.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 60,
@@ -3489,7 +3489,7 @@
     {
       "Name": "Detonate",
       "Description": "Leading cause of concussion among college campuses. Chance to Intoxicate. 15% crit.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 100,
@@ -3503,7 +3503,7 @@
     {
       "Name": "Dick Dance",
       "Description": "Exactly what it sounds like.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Buff",
       "PP": 15,
       "Damage": 30,
@@ -3517,7 +3517,7 @@
     {
       "Name": "Disaffiliate",
       "Description": "One hit KO your membership. Chance to Instant DA the opponent.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 100,
@@ -3531,7 +3531,7 @@
     {
       "Name": "Hash",
       "Description": "Everyone loves cleanup duty! Chance to Plague. Debuffs Courage, CTP.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 20,
       "Damage": 60,
@@ -3545,7 +3545,7 @@
     {
       "Name": "Oath",
       "Description": "Know it or blow it. Chance to Suspend.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 10,
       "Damage": 90,
@@ -3559,7 +3559,7 @@
     {
       "Name": "Pass Out",
       "Description": "Work hard, play hard, sleep hard. Heals all Delt's health, but they fall asleep.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Buff",
       "PP": 5,
       "Damage": 0,
@@ -3573,7 +3573,7 @@
     {
       "Name": "Philanthropy",
       "Description": "JDRF is where all proceeds of DTD's philanthropies go to. They work to solve Juvenile Diabetes. 15% crit.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "TruthAtk",
       "PP": 5,
       "Damage": 120,
@@ -3587,7 +3587,7 @@
     {
       "Name": "Pin",
       "Description": "How to assert your dominance over young'uns. Damage is difference in pin number, unless opp pin is higher.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 100,
@@ -3601,7 +3601,7 @@
     {
       "Name": "Rush",
       "Description": "Gotta rush 'em all! Chance to rush wild Delt!",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 5,
       "Damage": 20,
@@ -3615,7 +3615,7 @@
     {
       "Name": "Shasta",
       "Description": "So trashy #wannaDoSomeBlowMan? Intoxicates on hit.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Status",
       "PP": 10,
       "Damage": 0,
@@ -3629,7 +3629,7 @@
     {
       "Name": "Shotgun",
       "Description": "Tilt, puncture, and hope you can stomach some carbonation. Chance to Intoxicate.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 80,
@@ -3643,7 +3643,7 @@
     {
       "Name": "Sleep In",
       "Description": "Sometimes no matter how many alarms you set, 3 hours of sleep won't cut it. Chance to make fall Asleep.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "TruthAtk",
       "PP": 15,
       "Damage": 70,
@@ -3657,7 +3657,7 @@
     {
       "Name": "Snek",
       "Description": "Snitch onto others as you would have other snitch onto you. Debuffs Faith, CTP. Buffs Truth.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Debuff",
       "PP": 10,
       "Damage": 0,
@@ -3671,7 +3671,7 @@
     {
       "Name": "Study Tables",
       "Description": "Gotta make that term GPA! Heals 55.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "Buff",
       "PP": 10,
       "Damage": 0,
@@ -3685,7 +3685,7 @@
     {
       "Name": "Yak",
       "Description": "And rally. Chance to Plague. Debuffs CTP.",
-      "Major": "Undeclared (MajorClass)",
+      "Major": "Undeclared",
       "Type": "PowerAtk",
       "PP": 15,
       "Damage": 75,
