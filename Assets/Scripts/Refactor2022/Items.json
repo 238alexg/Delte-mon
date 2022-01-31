@@ -201,21 +201,6 @@
       ]
     },
     {
-      "Name": "",
-      "Description": "",
-      "ItemType": "Move",
-      "HoldType": "None",
-      "CureStatus": "None",
-      "StatUpgrades": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    {
       "Name": "Exec BidBall",
       "Description": "Somebody call this kid and get him down here! Ball Strength 5.",
       "ItemType": "Ball",
@@ -333,8 +318,8 @@
       ]
     },
     {
-      "Name": "Member BidBall. Ball Strength 4.",
-      "Description": "Solid guy, throw him a bid.",
+      "Name": "Member BidBall",
+      "Description": "Solid guy, throw him a bid. Ball Strength 4.",
       "ItemType": "Ball",
       "HoldType": "None",
       "CureStatus": "None",
