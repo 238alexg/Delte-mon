@@ -135,13 +135,10 @@ namespace BattleDelts.Data
 
             foreach (var delt in delts.AllDelts)
             {
-                string deltEnumName = delt.Nickname.Replace(" ", "");
-                if (!Enum.TryParse(deltEnumName, out DeltId DeltType))
+                if (TryParseDeltId(delt.Nickname, out var deltType))
                 {
-                    Debug.LogError($"Failed to parse {nameof(DeltId)}: {delt.Nickname}");
+                    Delts.Add(deltType, delt);
                 }
-
-                Delts.Add(DeltType, delt);
             }
         }
 
@@ -157,8 +154,31 @@ namespace BattleDelts.Data
 
             foreach (var wds in wildDeltSpawns.AllSpawns)
             {
+                foreach(var section in wds.Sections)
+                {
+                    foreach(var encounter in section.Encounters)
+                    {
+                        if (TryParseDeltId(encounter.DeltName, out var deltType))
+                        {
+                            encounter.Delt = Delts[deltType];
+                        }
+                    }
+                }
+
                 MapDeltSpawns.Add(wds.MapName, wds.Sections);
             }
+        }
+
+        private bool TryParseDeltId(string deltIdString, out DeltId deltType)
+        {
+            string deltEnumName = deltIdString.Replace(" ", "");
+            if (!Enum.TryParse(deltEnumName, out deltType))
+            {
+                Debug.LogError($"Failed to parse {nameof(DeltId)}: {deltIdString}");
+                return false;
+            }
+
+            return true;
         }
     }
 }

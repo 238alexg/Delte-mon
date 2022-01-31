@@ -30,5 +30,8 @@ namespace BattleDelts.Data
         public string RarityLevel;
         public int MinLevel;
         public int MaxLevel;
+
+        [NonSerialized]
+        public Delt Delt;
     }
 }
