@@ -26,6 +26,9 @@ namespace BattleDelts.Data
         public int CritChance;
 
         public List<Buff> Buffs;
+
+        [NonSerialized]
+        public MoveId MoveId;
     }
 
     [Serializable]

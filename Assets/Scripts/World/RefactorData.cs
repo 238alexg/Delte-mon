@@ -69,6 +69,7 @@ namespace BattleDelts.Data
             {
                 if (TryParseMajorId(major.Name, out var majorId))
                 {
+                    major.MajorId = majorId;
                     Majors.Add(majorId, major);
                 }
             }
@@ -90,12 +91,13 @@ namespace BattleDelts.Data
                     .Replace("3rd", "Third") // 3rd World Country
                     .Replace("-", "Negative"); // OH-
 
-                if (!Enum.TryParse(moveEnumName, out MoveId moveType))
+                if (!Enum.TryParse(moveEnumName, out MoveId moveId))
                 {
                     Debug.LogError($"Failed to parse {nameof(MoveId)}: {move.Name}");
                 }
 
-                Moves.Add(moveType, move);
+                move.MoveId = moveId;
+                Moves.Add(moveId, move);
             }
         }
 
@@ -112,12 +114,13 @@ namespace BattleDelts.Data
             {
                 string itemEnumName = item.Name.Replace(" ", "")
                     .Replace("'", ""); // Daddy's Check
-                if (!Enum.TryParse(itemEnumName, out ItemId itemType))
+                if (!Enum.TryParse(itemEnumName, out ItemId itemId))
                 {
                     Debug.LogError($"Failed to parse {nameof(ItemId)}: {item.Name}");
                 }
 
-                Items.Add(itemType, item);
+                item.ItemId = itemId;
+                Items.Add(itemId, item);
             }
         }
 

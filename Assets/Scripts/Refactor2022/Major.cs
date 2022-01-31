@@ -17,6 +17,9 @@ namespace BattleDelts.Data
         public string Element;
 
         public string BackgroundColor;
+
+        [NonSerialized]
+        public MajorId MajorId;
     }
 
 }

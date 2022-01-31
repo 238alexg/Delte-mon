@@ -23,5 +23,8 @@ namespace BattleDelts.Data
         public string CureStatus;
 
         public int[] StatUpgrades;
+
+        [NonSerialized]
+        public ItemId ItemId;
     }
 }
