@@ -1,0 +1,241 @@
+{
+  "AllSpawns": [
+    {
+      "MapName": "University St",
+      "Sections": [
+        {
+          "SectionName": "University St:0",
+          "Encounters": [
+            {
+              "DeltName": "Velardass",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Shahound",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "PaulRyan",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Eyethan",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Flyle",
+              "RarityLevel": "Uncommon",
+              "MinLevel": 18,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "Frijoles",
+              "RarityLevel": "Uncommon",
+              "MinLevel": 18,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "PaulRyan",
+              "RarityLevel": "Uncommon",
+              "MinLevel": 18,
+              "MaxLevel": 21
+            }
+          ]
+        },
+        {
+          "SectionName": "University St:1",
+          "Encounters": [
+            {
+              "DeltName": "Velardass",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Shahound",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "PaulRyan",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Flyle",
+              "RarityLevel": "Uncommon",
+              "MinLevel": 18,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "Uncommon",
+              "MinLevel": 18,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "Shahound",
+              "RarityLevel": "Uncommon",
+              "MinLevel": 18,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "Bibby",
+              "RarityLevel": "VeryRare",
+              "MinLevel": 9,
+              "MaxLevel": 13
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "MapName": "DA Graveyard",
+      "Sections": [
+        {
+          "SectionName": "DA Graveyard:0",
+          "Encounters": [
+            {
+              "DeltName": "Velardass",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Eyethan",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Shahound",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 12,
+              "MaxLevel": 15
+            },
+            {
+              "DeltName": "Flyle",
+              "RarityLevel": "Common",
+              "MinLevel": 17,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "Frijoles",
+              "RarityLevel": "Common",
+              "MinLevel": 17,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "Merl",
+              "RarityLevel": "Common",
+              "MinLevel": 17,
+              "MaxLevel": 21
+            },
+            {
+              "DeltName": "DormKicks",
+              "RarityLevel": "Common",
+              "MinLevel": 17,
+              "MaxLevel": 21
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "MapName": "Onyx St",
+      "Sections": [
+        {
+          "SectionName": "Onyx St:0",
+          "Encounters": [
+            {
+              "DeltName": "Velardass",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 3,
+              "MaxLevel": 7
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 3,
+              "MaxLevel": 7
+            }
+          ]
+        },
+        {
+          "SectionName": "Onyx St:1",
+          "Encounters": [
+            {
+              "DeltName": "Velardass",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 6,
+              "MaxLevel": 11
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 6,
+              "MaxLevel": 11
+            },
+            {
+              "DeltName": "Markofish",
+              "RarityLevel": "Common",
+              "MinLevel": 6,
+              "MaxLevel": 11
+            },
+            {
+              "DeltName": "PaulRyan",
+              "RarityLevel": "Common",
+              "MinLevel": 6,
+              "MaxLevel": 11
+            }
+          ]
+        },
+        {
+          "SectionName": "Onyx St:2",
+          "Encounters": [
+            {
+              "DeltName": "Velardass",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 2,
+              "MaxLevel": 5
+            },
+            {
+              "DeltName": "Huntweet",
+              "RarityLevel": "VeryCommon",
+              "MinLevel": 2,
+              "MaxLevel": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
