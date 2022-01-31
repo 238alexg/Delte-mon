@@ -9,7 +9,7 @@ namespace BattleDelts.Data
         public Dictionary<MajorId, Major> Majors { get; private set; }
         public Dictionary<MoveId, Move> Moves { get; private set; }
         public Dictionary<ItemId, Item> Items { get; private set; }
-        public Delts Delts { get; private set; }
+        public Dictionary<DeltId, Delt> Delts { get; private set; }
 
         [SerializeField]
         private TextAsset MajorsJson;
@@ -25,16 +25,26 @@ namespace BattleDelts.Data
 
         public void Load()
         {
+            var loadStartTime = DateTime.UtcNow;
             LoadMajors();
+            var majorLoadTime = DateTime.UtcNow;
+
             LoadMoves();
+            var moveLoadTime = DateTime.UtcNow;
+
             LoadItems();
+            var itemLoadTime = DateTime.UtcNow;
 
-            if (DeltsJson == null)
-            {
-                Debug.LogError($"No Delts json attached to {nameof(RefactorData)}");
-            }
+            LoadDelts();
+            var deltLoadTime = DateTime.UtcNow;
 
-            Delts = JsonUtility.FromJson<Delts>(DeltsJson.text);
+            double totalLoadTimeMs = (deltLoadTime - loadStartTime).TotalMilliseconds;
+            string loadTimeString = $"Serialized data load took {totalLoadTimeMs} ms total. Breakdown:{Environment.NewLine}" +
+                $"- Majors: {(majorLoadTime - loadStartTime).TotalMilliseconds} ms{Environment.NewLine}" +
+                $"- Moves: {(moveLoadTime - majorLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
+                $"- Items: {(itemLoadTime - moveLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
+                $"- Delts: {(deltLoadTime - itemLoadTime).TotalMilliseconds} ms";
+            Debug.Log(loadTimeString);
         }
 
         public void LoadMajors()
@@ -106,30 +116,24 @@ namespace BattleDelts.Data
 
         public void LoadDelts()
         {
-            if (ItemsJson == null)
+            if (DeltsJson == null)
             {
-                Debug.LogError($"No items json attached to {nameof(RefactorData)}");
+                Debug.LogError($"No delts json attached to {nameof(RefactorData)}");
             }
 
-            var items = JsonUtility.FromJson<Items>(ItemsJson.text);
-            Items = new Dictionary<ItemId, Item>();
+            var delts = JsonUtility.FromJson<Delts>(DeltsJson.text);
+            Delts = new Dictionary<DeltId, Delt>();
 
-            string itemString = "";
-
-            foreach (var item in items.AllItems)
+            foreach (var delt in delts.AllDelts)
             {
-                itemString += $"{item.Name},\n";
-
-                string itemEnumName = item.Name.Replace(" ", "");
-                if (!Enum.TryParse(itemEnumName, out ItemId itemType))
+                string deltEnumName = delt.Nickname.Replace(" ", "");
+                if (!Enum.TryParse(deltEnumName, out DeltId DeltType))
                 {
-                    Debug.LogError($"Failed to parse {nameof(ItemId)}: {item.Name}");
+                    Debug.LogError($"Failed to parse {nameof(DeltId)}: {delt.Nickname}");
                 }
 
-                Items.Add(itemType, item);
+                Delts.Add(DeltType, delt);
             }
-
-            print(itemString);
         }
     }
 }
