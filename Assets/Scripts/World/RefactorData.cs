@@ -10,6 +10,7 @@ namespace BattleDelts.Data
         public Dictionary<MoveId, Move> Moves { get; private set; }
         public Dictionary<ItemId, Item> Items { get; private set; }
         public Dictionary<DeltId, Delt> Delts { get; private set; }
+        public Dictionary<string, List<MapSectionSpawns>> MapDeltSpawns { get; private set; }
 
         [SerializeField]
         private TextAsset MajorsJson;
@@ -23,9 +24,13 @@ namespace BattleDelts.Data
         [SerializeField]
         private TextAsset DeltsJson;
 
+        [SerializeField]
+        private TextAsset WildDeltSpawnsJson;
+
         public void Load()
         {
             var loadStartTime = DateTime.UtcNow;
+
             LoadMajors();
             var majorLoadTime = DateTime.UtcNow;
 
@@ -38,12 +43,16 @@ namespace BattleDelts.Data
             LoadDelts();
             var deltLoadTime = DateTime.UtcNow;
 
+            LoadWildDeltSpawns();
+            var spawnsLoadTime = DateTime.UtcNow;
+
             double totalLoadTimeMs = (deltLoadTime - loadStartTime).TotalMilliseconds;
             string loadTimeString = $"Serialized data load took {totalLoadTimeMs} ms total. Breakdown:{Environment.NewLine}" +
                 $"- Majors: {(majorLoadTime - loadStartTime).TotalMilliseconds} ms{Environment.NewLine}" +
                 $"- Moves: {(moveLoadTime - majorLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
                 $"- Items: {(itemLoadTime - moveLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
-                $"- Delts: {(deltLoadTime - itemLoadTime).TotalMilliseconds} ms";
+                $"- Delts: {(deltLoadTime - itemLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
+                $"- Spawns: {(spawnsLoadTime - deltLoadTime).TotalMilliseconds} ms";
             Debug.Log(loadTimeString);
         }
 
@@ -133,6 +142,22 @@ namespace BattleDelts.Data
                 }
 
                 Delts.Add(DeltType, delt);
+            }
+        }
+
+        public void LoadWildDeltSpawns()
+        {
+            if (WildDeltSpawnsJson == null)
+            {
+                Debug.LogError($"No wild delts json attached to {nameof(RefactorData)}");
+            }
+
+            var wildDeltSpawns = JsonUtility.FromJson<WildDeltSpawns>(WildDeltSpawnsJson.text);
+            MapDeltSpawns = new Dictionary<string, List<MapSectionSpawns>>();
+
+            foreach (var wds in wildDeltSpawns.AllSpawns)
+            {
+                MapDeltSpawns.Add(wds.MapName, wds.Sections);
             }
         }
     }
