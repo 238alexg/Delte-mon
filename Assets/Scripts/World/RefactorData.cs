@@ -86,18 +86,13 @@ namespace BattleDelts.Data
             Moves = new Dictionary<MoveId, Move>();
             foreach (var move in moves.AllMoves)
             {
-                string moveEnumName = move.Name.Replace(" ", "")
-                    .Replace("&", "And") // Supply & Demand, Mice & Men
-                    .Replace("3rd", "Third") // 3rd World Country
-                    .Replace("-", "Negative"); // OH-
-
-                if (!Enum.TryParse(moveEnumName, out MoveId moveId))
+                if (TryParseMoveId(move.Name, out var moveId) && 
+                    TryParseMajorId(move.Major, out var majorId))
                 {
-                    Debug.LogError($"Failed to parse {nameof(MoveId)}: {move.Name}");
+                    move.MoveId = moveId;
+                    move.MoveMajor = Majors[majorId];
+                    Moves.Add(moveId, move);
                 }
-
-                move.MoveId = moveId;
-                Moves.Add(moveId, move);
             }
         }
 
@@ -197,6 +192,22 @@ namespace BattleDelts.Data
             if (!Enum.TryParse(majorString.Replace(" ", ""), out majorId))
             {
                 Debug.LogError($"Failed to parse {nameof(MajorId)}: {majorString}");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TryParseMoveId(string moveIdString, out MoveId moveId)
+        {
+            string moveEnumName = moveIdString.Replace(" ", "")
+                .Replace("&", "And") // Supply & Demand, Mice & Men
+                .Replace("3rd", "Third") // 3rd World Country
+                .Replace("-", "Negative"); // OH-
+
+            if (!Enum.TryParse(moveEnumName, out moveId))
+            {
+                Debug.LogError($"Failed to parse {nameof(MoveId)}: {moveIdString}");
                 return false;
             }
 

@@ -29,6 +29,9 @@ namespace BattleDelts.Data
 
         [NonSerialized]
         public MoveId MoveId;
+
+        [NonSerialized]
+        public Major MoveMajor;
     }
 
     [Serializable]
