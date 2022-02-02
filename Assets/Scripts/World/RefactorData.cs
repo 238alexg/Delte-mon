@@ -166,9 +166,11 @@ namespace BattleDelts.Data
                     {
                         foreach (var encounter in section.Encounters)
                         {
-                            if (TryParseDeltId(encounter.DeltName, out var deltType))
+                            if (TryParseDeltId(encounter.DeltName, out var deltType) && 
+                                Enum.TryParse(encounter.RarityLevel, out Rarity rarity))
                             {
                                 encounter.Delt = Delts[deltType];
+                                encounter.Rarity = rarity;
                             }
                         }
 

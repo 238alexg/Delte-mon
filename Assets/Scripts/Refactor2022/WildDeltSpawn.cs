@@ -36,5 +36,8 @@ namespace BattleDelts.Data
 
         [NonSerialized]
         public Delt Delt;
+
+        [NonSerialized]
+        public Rarity Rarity;
     }
 }
