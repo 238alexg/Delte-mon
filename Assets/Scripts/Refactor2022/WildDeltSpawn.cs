@@ -21,6 +21,9 @@ namespace BattleDelts.Data
     {
         public string SectionName;
         public List<DeltEncounter> Encounters;
+
+        [NonSerialized]
+        public WildDeltSpawnId WildDeltSpawnId;
     }
 
     [Serializable]

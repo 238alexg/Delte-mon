@@ -10,7 +10,7 @@ namespace BattleDelts.Data
         public Dictionary<MoveId, Move> Moves { get; private set; }
         public Dictionary<ItemId, Item> Items { get; private set; }
         public Dictionary<DeltId, Delt> Delts { get; private set; }
-        public Dictionary<string, List<MapSectionSpawns>> MapDeltSpawns { get; private set; }
+        public Dictionary<WildDeltSpawnId, MapSectionSpawns> MapDeltSpawns { get; private set; }
 
         [SerializeField]
         private TextAsset MajorsJson;
@@ -156,22 +156,27 @@ namespace BattleDelts.Data
             }
 
             var wildDeltSpawns = JsonUtility.FromJson<WildDeltSpawns>(WildDeltSpawnsJson.text);
-            MapDeltSpawns = new Dictionary<string, List<MapSectionSpawns>>();
+            MapDeltSpawns = new Dictionary<WildDeltSpawnId, MapSectionSpawns>();
 
             foreach (var wds in wildDeltSpawns.AllSpawns)
             {
                 foreach(var section in wds.Sections)
                 {
-                    foreach(var encounter in section.Encounters)
+                    if (TryParseWildDeltSpawnId(wds.MapName, section.SectionName, out var wildDeltSpawnId))
                     {
-                        if (TryParseDeltId(encounter.DeltName, out var deltType))
+                        foreach (var encounter in section.Encounters)
                         {
-                            encounter.Delt = Delts[deltType];
+                            if (TryParseDeltId(encounter.DeltName, out var deltType))
+                            {
+                                encounter.Delt = Delts[deltType];
+                            }
                         }
-                    }
-                }
 
-                MapDeltSpawns.Add(wds.MapName, wds.Sections);
+                        section.WildDeltSpawnId = wildDeltSpawnId;
+                        MapDeltSpawns.Add(wildDeltSpawnId, section);
+                    }
+
+                }
             }
         }
 
@@ -208,6 +213,18 @@ namespace BattleDelts.Data
             if (!Enum.TryParse(moveEnumName, out moveId))
             {
                 Debug.LogError($"Failed to parse {nameof(MoveId)}: {moveIdString}");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TryParseWildDeltSpawnId(string mapName, string sectionName, out WildDeltSpawnId wildDeltSpawnId)
+        {
+            string wildDeltSpawnEnumName = $"{mapName}{sectionName}".Replace(" ", "");
+            if (!Enum.TryParse(wildDeltSpawnEnumName, out wildDeltSpawnId))
+            {
+                Debug.LogError($"Failed to parse {nameof(WildDeltSpawnId)}. Map name: {mapName}, section: {sectionName}");
                 return false;
             }
 
