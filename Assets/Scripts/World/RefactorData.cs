@@ -10,7 +10,7 @@ namespace BattleDelts.Data
         public Dictionary<MoveId, Move> Moves { get; private set; }
         public Dictionary<ItemId, Item> Items { get; private set; }
         public Dictionary<DeltId, Delt> Delts { get; private set; }
-        public Dictionary<WildDeltSpawnId, MapSectionSpawns> MapDeltSpawns { get; private set; }
+        public Dictionary<WildDeltSpawnId, MapSectionSpawns> DeltSpawns { get; private set; }
 
         [SerializeField]
         private TextAsset MajorsJson;
@@ -156,7 +156,7 @@ namespace BattleDelts.Data
             }
 
             var wildDeltSpawns = JsonUtility.FromJson<WildDeltSpawns>(WildDeltSpawnsJson.text);
-            MapDeltSpawns = new Dictionary<WildDeltSpawnId, MapSectionSpawns>();
+            DeltSpawns = new Dictionary<WildDeltSpawnId, MapSectionSpawns>();
 
             foreach (var wds in wildDeltSpawns.AllSpawns)
             {
@@ -175,7 +175,7 @@ namespace BattleDelts.Data
                         }
 
                         section.WildDeltSpawnId = wildDeltSpawnId;
-                        MapDeltSpawns.Add(wildDeltSpawnId, section);
+                        DeltSpawns.Add(wildDeltSpawnId, section);
                     }
 
                 }
