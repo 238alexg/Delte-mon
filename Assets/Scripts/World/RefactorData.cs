@@ -129,13 +129,16 @@ namespace BattleDelts.Data
             var delts = JsonUtility.FromJson<Delts>(DeltsJson.text);
             Delts = new Dictionary<DeltId, Delt>();
 
+            var deltsWithEvolutions = new List<Delt>();
             foreach (var delt in delts.AllDelts)
             {
                 if (TryParseDeltId(delt.Nickname, out var deltType) &&
-                    TryParseMajorId(delt.Major1, out var major1))
+                    TryParseMajorId(delt.Major1, out var major1) && 
+                    Enum.TryParse(delt.Rarity, out Rarity rarity))
                 {
                     delt.DeltId = deltType;
                     delt.FirstMajor = Majors[major1];
+                    delt.RarityEnum = rarity;
 
                     if (!string.IsNullOrWhiteSpace(delt.Major2) &&
                         TryParseMajorId(delt.Major2, out var major2))
@@ -144,6 +147,28 @@ namespace BattleDelts.Data
                     }
 
                     Delts.Add(deltType, delt);
+
+                    if (!string.IsNullOrEmpty(delt.PrevEvolve) || 
+                        !string.IsNullOrEmpty(delt.NextEvolve))
+                    {
+                        deltsWithEvolutions.Add(delt);
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"Failed to parse delt {delt.Nickname}");
+                }
+            }
+
+            foreach(var delt in deltsWithEvolutions)
+            {
+                if (TryParseDeltId(delt.PrevEvolve, out var prevDeltId))
+                {
+                    delt.PrevEvolution = Delts[prevDeltId];
+                }
+                if (TryParseDeltId(delt.NextEvolve, out var nextDeltId))
+                {
+                    delt.NextEvolution = Delts[nextDeltId];
                 }
             }
         }
@@ -184,6 +209,12 @@ namespace BattleDelts.Data
 
         private bool TryParseDeltId(string deltIdString, out DeltId deltType)
         {
+            if (string.IsNullOrWhiteSpace(deltIdString))
+            {
+                deltType = default;
+                return false;
+            }
+
             string deltEnumName = deltIdString.Replace(" ", "");
             if (!Enum.TryParse(deltEnumName, out deltType))
             {
