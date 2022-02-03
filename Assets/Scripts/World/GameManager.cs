@@ -5,9 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using BattleDelts.Data;
 
 public class GameManager : MonoBehaviour {
 	public UIManager UIManager;
+	public RefactorData Data;
+	
+	[SerializeField]
+	private SpriteData SpriteData;
 
 	[Header("Player Data")]
 	public string playerName, lastTownName;
@@ -53,6 +58,9 @@ public class GameManager : MonoBehaviour {
 		houseDelts = new List<DeltemonData> ();
 		location = new Vector3 (0, 0, 0);
 		Application.targetFrameRate = 60;
+
+		SpriteData.PopulateDictionaries();
+		Data.Load(SpriteData);
 	}
 
 	// Keep track of how long the player has been playing
