@@ -12,19 +12,36 @@ namespace BattleDelts.Data
         public Sprite Back;
     }
 
+    [Serializable]
+    public class MajorSpriteData
+    {
+        public MajorId Major;
+        public Sprite Sprite;
+    }
+
     public class SpriteData : MonoBehaviour
     {
         public Dictionary<DeltId, DeltSpriteData> DeltSprites;
+        public Dictionary<MajorId, Sprite> MajorSprites;
 
         [SerializeField]
         private List<DeltSpriteData> DeltSpriteList;
 
+        [SerializeField]
+        private List<MajorSpriteData> MajorSpriteList;
+
         public void PopulateDictionaries()
         {
             DeltSprites = new Dictionary<DeltId, DeltSpriteData>();
-            foreach (var spriteData in DeltSpriteList)
+            foreach (var deltSpriteData in DeltSpriteList)
             {
-                DeltSprites[spriteData.DeltId] = spriteData;
+                DeltSprites[deltSpriteData.DeltId] = deltSpriteData;
+            }
+
+            MajorSprites = new Dictionary<MajorId, Sprite>();
+            foreach (var majorSpriteData in MajorSpriteList)
+            {
+                MajorSprites[majorSpriteData.Major] = majorSpriteData.Sprite;
             }
         }
     }

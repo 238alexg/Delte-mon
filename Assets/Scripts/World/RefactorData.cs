@@ -31,7 +31,7 @@ namespace BattleDelts.Data
         {
             var loadStartTime = DateTime.UtcNow;
 
-            LoadMajors();
+            LoadMajors(spriteData);
             var majorLoadTime = DateTime.UtcNow;
 
             LoadMoves();
@@ -56,7 +56,7 @@ namespace BattleDelts.Data
             Debug.Log(loadTimeString);
         }
 
-        public void LoadMajors()
+        public void LoadMajors(SpriteData spriteData)
         {
             if (MajorsJson == null)
             {
@@ -67,9 +67,12 @@ namespace BattleDelts.Data
             Majors = new Dictionary<MajorId, Major>();
             foreach(var major in majors.AllMajors)
             {
-                if (TryParseMajorId(major.Name, out var majorId))
+                if (TryParseMajorId(major.Name, out var majorId) && 
+                    ColorUtility.TryParseHtmlString(major.BackgroundColor, out var color))
                 {
                     major.MajorId = majorId;
+                    major.Color = color;
+                    major.Sprite = spriteData.MajorSprites[majorId];
                     Majors.Add(majorId, major);
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BattleDelts.Data
 {
@@ -20,6 +21,12 @@ namespace BattleDelts.Data
 
         [NonSerialized]
         public MajorId MajorId;
+
+        [NonSerialized]
+        public Color Color;
+
+        [NonSerialized]
+        public Sprite Sprite;
     }
 
 }
