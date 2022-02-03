@@ -27,7 +27,7 @@ namespace BattleDelts.Data
         [SerializeField]
         private TextAsset WildDeltSpawnsJson;
 
-        public void Load()
+        public void Load(SpriteData spriteData)
         {
             var loadStartTime = DateTime.UtcNow;
 
@@ -40,7 +40,7 @@ namespace BattleDelts.Data
             LoadItems();
             var itemLoadTime = DateTime.UtcNow;
 
-            LoadDelts();
+            LoadDelts(spriteData);
             var deltLoadTime = DateTime.UtcNow;
 
             LoadWildDeltSpawns();
@@ -119,7 +119,7 @@ namespace BattleDelts.Data
             }
         }
 
-        public void LoadDelts()
+        public void LoadDelts(SpriteData spriteData)
         {
             if (DeltsJson == null)
             {
@@ -139,6 +139,17 @@ namespace BattleDelts.Data
                     delt.DeltId = deltType;
                     delt.FirstMajor = Majors[major1];
                     delt.RarityEnum = rarity;
+
+                    if (!spriteData.DeltSprites.ContainsKey(deltType))
+                    {
+                        Debug.LogError($"No sprites for delt {deltType}");
+                    }
+                    else
+                    {
+                        var deltSprites = spriteData.DeltSprites[deltType];
+                        delt.FrontSprite = deltSprites.Front;
+                        delt.BackSprite = deltSprites.Back;
+                    }
 
                     if (!string.IsNullOrWhiteSpace(delt.Major2) &&
                         TryParseMajorId(delt.Major2, out var major2))

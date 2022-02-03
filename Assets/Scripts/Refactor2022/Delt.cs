@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace BattleDelts.Data
 {
@@ -46,6 +47,12 @@ namespace BattleDelts.Data
 
         [NonSerialized]
         public Rarity RarityEnum;
+
+        [NonSerialized]
+        public Sprite FrontSprite;
+
+        [NonSerialized]
+        public Sprite BackSprite;
     }
 
     [Serializable]
