@@ -30,7 +30,6 @@
         Scaley,
         Seuss,
         Shahound,
-        ShahoundDD,
         Shawcodile,
         Shermurk,
         Tancker,

@@ -1497,50 +1497,6 @@
       ]
     },
     {
-      "Nickname": "ShahoundDD",
-      "DeltName": "Shaheen Safari",
-      "Description": "Contrary to his last name, Shahound is very domesticated.",
-      "PinNumber": 1505,
-      "Major1": "Accounting",
-      "Major2": "NoMajor",
-      "BVs": [
-        56,
-        79,
-        69,
-        32,
-        34,
-        30
-      ],
-      "EvolveLevel": 16,
-      "PrevEvolve": "",
-      "NextEvolve": "Exceleon",
-      "Rarity": "VeryCommon",
-      "AVIndex": 1,
-      "AVAmount": 1,
-      "LevelUpMoves": [
-        {
-          "Level": 0,
-          "MoveName": "Consulting"
-        },
-        {
-          "Level": 4,
-          "MoveName": "Quickbooks"
-        },
-        {
-          "Level": 8,
-          "MoveName": "Bylaws"
-        },
-        {
-          "Level": 12,
-          "MoveName": "Peer Evaluation"
-        },
-        {
-          "Level": 15,
-          "MoveName": "Cash Flows"
-        }
-      ]
-    },
-    {
       "Nickname": "Shawcodile",
       "DeltName": "Connor Shaw",
       "Description": "Often bystanders only see a floating mustache in the water, warning them of lurking danger.",
