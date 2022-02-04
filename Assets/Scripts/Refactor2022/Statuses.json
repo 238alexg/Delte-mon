@@ -1,0 +1,28 @@
+{
+  "AllStatuses": [
+    {
+      "Name": "Plagued"
+    },
+    {
+      "Name": "Indebted"
+    },
+    {
+      "Name": "Suspended"
+    },
+    {
+      "Name": "Roasted"
+    },
+    {
+      "Name": "Asleep"
+    },
+    {
+      "Name": "High"
+    },
+    {
+      "Name": "Drunk"
+    },
+    {
+      "Name": "DA"
+    }
+  ]
+}

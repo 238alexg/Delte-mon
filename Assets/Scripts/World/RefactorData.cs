@@ -7,6 +7,7 @@ namespace BattleDelts.Data
     public class RefactorData : MonoBehaviour
     {
         public Dictionary<MajorId, Major> Majors { get; private set; }
+        public Dictionary<statusType, Status> Statuses { get; private set; }
         public Dictionary<MoveId, Move> Moves { get; private set; }
         public Dictionary<ItemId, Item> Items { get; private set; }
         public Dictionary<DeltId, Delt> Delts { get; private set; }
@@ -14,6 +15,9 @@ namespace BattleDelts.Data
 
         [SerializeField]
         private TextAsset MajorsJson;
+
+        [SerializeField]
+        private TextAsset StatusesJson;
 
         [SerializeField]
         private TextAsset ItemsJson;
@@ -67,13 +71,40 @@ namespace BattleDelts.Data
             Majors = new Dictionary<MajorId, Major>();
             foreach(var major in majors.AllMajors)
             {
+                /// Add # if it doesn't exist to be parsed by <see cref="ColorUtility.TryParseHtmlString"/>
+                string bgColorString = $"#{major.BackgroundColor.TrimStart('#')}";
                 if (TryParseMajorId(major.Name, out var majorId) && 
-                    ColorUtility.TryParseHtmlString(major.BackgroundColor, out var color))
+                    ColorUtility.TryParseHtmlString(bgColorString, out var color) && 
+                    spriteData.MajorSprites.ContainsKey(majorId))
                 {
                     major.MajorId = majorId;
                     major.Color = color;
                     major.Sprite = spriteData.MajorSprites[majorId];
                     Majors.Add(majorId, major);
+                }
+                else
+                {
+                    Debug.LogError($"Failed to parse major {major.Name}");
+                }
+            }
+        }
+
+        public void LoadStatuses(SpriteData spriteData)
+        {
+            if (StatusesJson == null)
+            {
+                Debug.LogError($"No Statuses json attached to {nameof(RefactorData)}");
+            }
+
+            var statuses = JsonUtility.FromJson<Statuses>(StatusesJson.text);
+            Statuses = new Dictionary<statusType, Status>();
+            foreach (var status in statuses.AllStatuses)
+            {
+                if (TryParseStatusId(status.Name, out var statusId))
+                {
+                    status.StatusId = statusId;
+                    status.Sprite = spriteData.StatusSprites[statusId];
+                    Statuses.Add(statusId, status);
                 }
             }
         }
@@ -90,11 +121,16 @@ namespace BattleDelts.Data
             foreach (var move in moves.AllMoves)
             {
                 if (TryParseMoveId(move.Name, out var moveId) && 
-                    TryParseMajorId(move.Major, out var majorId))
+                    TryParseMajorId(move.Major, out var majorId) &&
+                    Majors.ContainsKey(majorId))
                 {
                     move.MoveId = moveId;
                     move.MoveMajor = Majors[majorId];
                     Moves.Add(moveId, move);
+                }
+                else
+                {
+                    Debug.LogError($"Failed to parse move: {move.Name}");
                 }
             }
         }
@@ -244,6 +280,17 @@ namespace BattleDelts.Data
             if (!Enum.TryParse(majorString.Replace(" ", ""), out majorId))
             {
                 Debug.LogError($"Failed to parse {nameof(MajorId)}: {majorString}");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TryParseStatusId(string statusString, out statusType statusId)
+        {
+            if (!Enum.TryParse(statusString, out statusId))
+            {
+                Debug.LogError($"Failed to parse {nameof(statusType)}: {statusString}");
                 return false;
             }
 

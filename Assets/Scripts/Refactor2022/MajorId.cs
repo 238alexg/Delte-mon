@@ -16,7 +16,6 @@
         Journalism,
         Math,
         NaturalScience,
-        NoMajor,
         PoliticalScience,
         ProductDesign,
         Psychology,
