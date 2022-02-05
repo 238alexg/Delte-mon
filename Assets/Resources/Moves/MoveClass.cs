@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,12 @@ public class MoveClass : MonoBehaviour {
 	[Header("General Info")]
 	public string moveName;
 	public string moveDescription;
-	public MajorClass majorType;
-	public Sprite status;
+
+    // TODO: Temporary breaking replacement until MoveClass is replaced by move data
+    //public MajorClass Major;
+    public Major Major;
+
+    public Sprite status;
 	public moveType movType; 
 	public byte moveIndex;
 
@@ -30,7 +35,7 @@ public class MoveClass : MonoBehaviour {
 	public void duplicateValues(MoveClass recipient) {
 		recipient.moveName = moveName;
 		recipient.moveDescription = moveDescription;
-		recipient.majorType = majorType;
+		recipient.Major = Major;
 		recipient.status = status;
 		recipient.movType = movType;
 		recipient.moveIndex = moveIndex;

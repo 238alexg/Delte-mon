@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using BattleDelts.Data;
 
 public class UIManager : MonoBehaviour {
 	[Header("Entire UI Objects")]
@@ -465,11 +466,11 @@ public class UIManager : MonoBehaviour {
 		DeltDexClass dex = curOverviewDex.transform.GetComponent<DeltDexClass> ();
 
 		// Set background colors based on major
-		DeltDexOverviewUI.GetComponent<Image> ().color = dex.major1.background;
-		if (dex.major2.majorName == "NoMajor") {
+		DeltDexOverviewUI.GetComponent<Image>().color = dex.major1.Color;
+		if (dex.major2 == null) {
 			DeltDexOverviewUI.GetChild (0).gameObject.SetActive (false);
 		} else {
-			DeltDexOverviewUI.GetChild (0).gameObject.GetComponent<Image> ().color = dex.major2.background;
+			DeltDexOverviewUI.GetChild (0).gameObject.GetComponent<Image> ().color = dex.major2.Color;
 			DeltDexOverviewUI.GetChild (0).gameObject.SetActive (true);
 		}
 
@@ -492,9 +493,9 @@ public class UIManager : MonoBehaviour {
 		}
 
 		// Set major images
-		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().sprite = dex.major1.majorImage;
+		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().sprite = dex.major1.Sprite;
 		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().preserveAspect = true;
-		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().sprite = dex.major2.majorImage;
+		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().sprite = dex.major2.Sprite;
 		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().preserveAspect = true;
 
 
@@ -1036,10 +1037,10 @@ public class UIManager : MonoBehaviour {
 			Slider expBar = DeltOverviewUI.transform.GetChild (6).GetComponent<Slider> ();
 			Slider health = DeltOverviewUI.transform.GetChild (7).GetComponent<Slider> ();
 
-			DeltOverviewUI.GetComponent <Image>().color = delt.deltdex.major1.background;
-			if (delt.deltdex.major2.majorName != "NoMajor") {
+			DeltOverviewUI.GetComponent <Image>().color = delt.deltdex.major1.Color;
+			if (delt.deltdex.major2 != null) {
 				DeltOverviewUI.transform.GetChild (0).gameObject.SetActive (true);
-				DeltOverviewUI.transform.GetChild (0).GetComponent <Image> ().color = delt.deltdex.major2.background;
+				DeltOverviewUI.transform.GetChild (0).GetComponent <Image> ().color = delt.deltdex.major2.Color;
 			} else {
 				DeltOverviewUI.transform.GetChild (0).gameObject.SetActive (false);
 			}
@@ -1069,11 +1070,11 @@ public class UIManager : MonoBehaviour {
 				if (index < delt.moveset.Count) {
 					tmpMove = delt.moveset [index];
 					if (gameManager.pork) {
-						MoveOptions [index].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
-						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = ("What is pork!?" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+						MoveOptions[index].GetComponent<Image>().color = new Color(0.967f, 0.698f, 0.878f);
+						MoveOptions[index].transform.GetChild(0).gameObject.GetComponent<Text>().text = "What is pork!?" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK";
 					} else {
-						MoveOptions [index].GetComponent<Image> ().color = tmpMove.majorType.background;
-						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+						MoveOptions[index].GetComponent<Image>().color = tmpMove.Major.Color;
+						MoveOptions[index].transform.GetChild(0).gameObject.GetComponent<Text> ().text = tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP;
 					}
 					MoveOptions [index].gameObject.SetActive (true);
 				} else {
@@ -1127,8 +1128,8 @@ public class UIManager : MonoBehaviour {
 			firstMoveLoaded = index;
 		}
 			
-		MoveOverview.GetComponent <Image>().color = move.majorType.background;
-		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
+		MoveOverview.GetComponent <Image>().color = move.Major.Color;
+		MoveOverview.GetChild(0).GetComponent<Image>().sprite = move.Major.Sprite;
 
 		if (move.statType != statusType.None) {
 			MoveOverview.GetChild (1).gameObject.SetActive (true);

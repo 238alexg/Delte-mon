@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,6 @@ public class DeltDexClass : MonoBehaviour {
 	public string nickname, deltName, description;
 	public Sprite frontImage, backImage;
 	public int pinNumber;
-	public MajorClass major1, major2;
 	public List<byte> BVs;
 	public DeltDexClass prevEvol, nextEvol;
 	public int evolveLevel;
@@ -14,15 +14,18 @@ public class DeltDexClass : MonoBehaviour {
 	public Rarity rarity;
 	public byte AVIndex, AVAwardAmount;
 	public otherEvol secondEvolution;
+
+	[NonSerialized]
+	public Major major1, major2;
 }
 
-[System.Serializable]
+[Serializable]
 public class LevelUpMove {
 	public int level;
 	public MoveClass move;
 }
 
-[System.Serializable]
+[Serializable]
 public class otherEvol {
 	public DeltDexClass secondEvol;
 	public byte firstEvolStat;

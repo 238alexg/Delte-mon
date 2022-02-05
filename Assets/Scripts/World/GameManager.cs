@@ -270,12 +270,14 @@ public class GameManager : MonoBehaviour {
 		}
 
 		// Save each move and pp left of move
-		for(int i = 0; i < deltClass.moveset.Count; i++) {
-			MoveData newMove = new MoveData ();
-			newMove.moveName = deltClass.moveset [i].moveName;
-			newMove.PPLeft = deltClass.moveset [i].PPLeft;
-			newMove.major = deltClass.moveset [i].majorType.majorName;
-			tempSave.moves.Add (newMove);
+		for (int i = 0; i < deltClass.moveset.Count; i++) 
+		{ 
+            tempSave.moves.Add(new MoveData
+			{
+				moveName = deltClass.moveset[i].moveName,
+				PPLeft = deltClass.moveset[i].PPLeft,
+				major = deltClass.moveset[i].Major.Name
+			});
 		}
 		return tempSave;
 	}

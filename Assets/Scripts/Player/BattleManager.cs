@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -70,6 +71,8 @@ public class BattleManager : MonoBehaviour {
 
 	public static BattleManager BattleMan { get; private set; }
 
+	private Dictionary<(MajorId, MajorId), float> MajorEffectiveness;
+
 	private void Awake() {
 		if (BattleMan != null) {
 			DestroyImmediate(gameObject);
@@ -86,6 +89,155 @@ public class BattleManager : MonoBehaviour {
 		trainer = null;
 		playerWon = false;
 		forcePlayerSwitch = false;
+
+		CreateEffectivenessDict();
+	}
+
+	private void CreateEffectivenessDict()
+    {
+		float veryEffective = 2;
+		float ineffective = 0.5f;
+		float notEffective = 0;
+
+		MajorEffectiveness = new Dictionary<(MajorId, MajorId), float>()
+		{
+			[(MajorId.Accounting, MajorId.History)] = veryEffective,
+			[(MajorId.Accounting, MajorId.Psychology)] = veryEffective,
+			[(MajorId.Accounting, MajorId.HumanPhys)] = ineffective,
+			[(MajorId.Accounting, MajorId.Accounting)] = ineffective,
+			[(MajorId.Accounting, MajorId.FHS)] = ineffective,
+
+			[(MajorId.Business, MajorId.Geology)] = veryEffective,
+			[(MajorId.Business, MajorId.IntlStudies)] = veryEffective,
+			[(MajorId.Business, MajorId.Journalism)] = veryEffective,
+			[(MajorId.Business, MajorId.Business)] = ineffective,
+			[(MajorId.Business, MajorId.English)] = ineffective,
+			[(MajorId.Business, MajorId.NaturalScience)] = ineffective,
+
+			[(MajorId.ComputerScience, MajorId.Business)] = veryEffective,
+			[(MajorId.ComputerScience, MajorId.Economics)] = veryEffective,
+			[(MajorId.ComputerScience, MajorId.ComputerScience)] = ineffective,
+			[(MajorId.ComputerScience, MajorId.English)] = ineffective,
+			[(MajorId.ComputerScience, MajorId.NaturalScience)] = ineffective,
+			[(MajorId.ComputerScience, MajorId.IntlStudies)] = notEffective,
+
+			[(MajorId.Economics, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.Economics, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.Economics, MajorId.Math)] = veryEffective,
+			[(MajorId.Economics, MajorId.Geology)] = ineffective,
+			[(MajorId.Economics, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.Economics, MajorId.ComputerScience)] = ineffective,
+
+			[(MajorId.English, MajorId.English)] = veryEffective,
+			[(MajorId.English, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.English, MajorId.FHS)] = notEffective,
+
+			[(MajorId.EnvironmentalScience, MajorId.Economics)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.IntlStudies)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.English)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.EnvironmentalScience, MajorId.Journalism)] = ineffective,
+			[(MajorId.EnvironmentalScience, MajorId.Business)] = ineffective,
+			[(MajorId.EnvironmentalScience, MajorId.EnvironmentalScience)] = ineffective,
+
+			[(MajorId.FHS, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.FHS, MajorId.English)] = veryEffective,
+			[(MajorId.FHS, MajorId.Accounting)] = veryEffective,
+			[(MajorId.FHS, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.FHS, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.FHS, MajorId.Journalism)] = ineffective,
+
+			[(MajorId.Geology, MajorId.Economics)] = veryEffective,
+			[(MajorId.Geology, MajorId.Math)] = veryEffective,
+			[(MajorId.Geology, MajorId.Journalism)] = veryEffective,
+			[(MajorId.Geology, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.Geology, MajorId.HumanPhys)] = ineffective,
+			[(MajorId.Geology, MajorId.IntlStudies)] = ineffective,
+			[(MajorId.Geology, MajorId.ProductDesign)] = ineffective,
+
+			[(MajorId.History, MajorId.History)] = veryEffective,
+			[(MajorId.History, MajorId.Psychology)] = veryEffective,
+			[(MajorId.History, MajorId.Accounting)] = ineffective,
+			[(MajorId.History, MajorId.Undeclared)] = notEffective,
+
+			[(MajorId.Economics, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.Economics, MajorId.Geology)] = veryEffective,
+			[(MajorId.Economics, MajorId.ProductDesign)] = veryEffective,
+			[(MajorId.Economics, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.Economics, MajorId.Accounting)] = veryEffective,
+			[(MajorId.Economics, MajorId.Economics)] = ineffective,
+			[(MajorId.Economics, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.Economics, MajorId.Math)] = ineffective,
+			[(MajorId.Economics, MajorId.Psychology)] = ineffective,
+			[(MajorId.Economics, MajorId.FHS)] = ineffective,
+
+			[(MajorId.IntlStudies, MajorId.PoliticalScience)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.Geology)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.Journalism)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.ProductDesign)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.ComputerScience)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.Math)] = ineffective,
+			[(MajorId.IntlStudies, MajorId.NaturalScience)] = ineffective,
+			[(MajorId.IntlStudies, MajorId.Economics)] = notEffective,
+
+			[(MajorId.Journalism, MajorId.Math)] = veryEffective,
+			[(MajorId.Journalism, MajorId.ProductDesign)] = veryEffective,
+			[(MajorId.Journalism, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.Journalism, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.Journalism, MajorId.Geology)] = ineffective,
+			[(MajorId.Journalism, MajorId.Journalism)] = ineffective,
+			[(MajorId.Journalism, MajorId.Business)] = ineffective,
+			[(MajorId.Journalism, MajorId.English)] = ineffective,
+
+			[(MajorId.Math, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.Math, MajorId.Psychology)] = veryEffective,
+			[(MajorId.Math, MajorId.Accounting)] = veryEffective,
+			[(MajorId.Math, MajorId.HumanPhys)] = ineffective,
+			[(MajorId.Math, MajorId.Economics)] = ineffective,
+			[(MajorId.Math, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.Math, MajorId.History)] = ineffective,
+			[(MajorId.Math, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.Math, MajorId.Journalism)] = ineffective,
+			[(MajorId.Math, MajorId.FHS)] = ineffective,
+
+			[(MajorId.NaturalScience, MajorId.IntlStudies)] = veryEffective,
+			[(MajorId.NaturalScience, MajorId.Geology)] = veryEffective,
+			[(MajorId.NaturalScience, MajorId.Business)] = veryEffective,
+			[(MajorId.NaturalScience, MajorId.Economics)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.Math)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.Journalism)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.NaturalScience)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.English)] = ineffective,
+
+			[(MajorId.PoliticalScience, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.PoliticalScience, MajorId.FHS)] = veryEffective,
+			[(MajorId.PoliticalScience, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.IntlStudies)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.Geology)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.History)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.ProductDesign)] = notEffective,
+
+			[(MajorId.ProductDesign, MajorId.Geology)] = veryEffective,
+			[(MajorId.ProductDesign, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.ProductDesign, MajorId.FHS)] = veryEffective,
+			[(MajorId.ProductDesign, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.ProductDesign, MajorId.Journalism)] = ineffective,
+			[(MajorId.ProductDesign, MajorId.Business)] = ineffective,
+			[(MajorId.ProductDesign, MajorId.ComputerScience)] = ineffective,
+
+			[(MajorId.Psychology, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.Psychology, MajorId.PoliticalScience)] = veryEffective,
+			[(MajorId.Psychology, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.Psychology, MajorId.Psychology)] = ineffective,
+			[(MajorId.Psychology, MajorId.Accounting)] = notEffective,
+
+			[(MajorId.Undeclared, MajorId.Geology)] = ineffective,
+			[(MajorId.Undeclared, MajorId.IntlStudies)] = ineffective,
+			[(MajorId.Undeclared, MajorId.History)] = notEffective,
+		};
 	}
 
 	// Function to initialize a new battle, for trainers and wild Delts
@@ -470,7 +622,7 @@ public class BattleManager : MonoBehaviour {
 
 				// Set tmpScore to the base damage * effectiveness move deals
 				score = moveDamage (move, curOppDelt, curPlayerDelt, false);
-				score = score * moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
+				score = score * moveTypeEffectivenessCalc (move.Major, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
 
 				// More priority to crit chance
 				score += (0.1f * move.critChance);
@@ -560,7 +712,7 @@ public class BattleManager : MonoBehaviour {
 			// Determine the effectiveness against current player's Delt
 			foreach (MoveClass move in delt.moveset) {
 				if ((move.movType == moveType.TruthAtk) || (move.movType == moveType.PowerAtk)) {
-					majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
+					majorEffectiveness = moveTypeEffectivenessCalc (move.Major, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
 					if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
 						if (majorEffectiveness == 4) {
 							switchEffectiveness += 50;
@@ -573,7 +725,7 @@ public class BattleManager : MonoBehaviour {
 
 			// Determine the effectiveness of other player's moves against it
 			foreach (MoveClass move in curPlayerDelt.moveset) {
-				majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curOppDelt.deltdex.major1, curOppDelt.deltdex.major2);
+				majorEffectiveness = moveTypeEffectivenessCalc (move.Major, curOppDelt.deltdex.major1, curOppDelt.deltdex.major2);
 				if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
 					if (majorEffectiveness == 4) {
 						if (switchEffectiveness < 50) {
@@ -790,11 +942,11 @@ public class BattleManager : MonoBehaviour {
 				tmpMove = curPlayerDelt.moveset [i];
 				// Pork option case, color = pink, PP = Porks
 				if (gameManager.pork) {
-					MoveOptions [i].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
-					moveText [i].GetComponent<Text> ().text = ("What is pork?!" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+					MoveOptions [i].GetComponent<Image>().color = new Color (0.967f, 0.698f, 0.878f);
+					moveText [i].GetComponent<Text> ().text = "What is pork?!" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK";
 				} else {
-					MoveOptions [i].GetComponent<Image> ().color = tmpMove.majorType.background;
-					moveText [i].GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+					MoveOptions [i].GetComponent<Image>().color = tmpMove.Major.Color;
+					moveText [i].GetComponent<Text> ().text = tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP;
 				}
 				if (tmpMove.PPLeft <= 0) {
 					MoveOptions [i].interactable = false;
@@ -1339,7 +1491,7 @@ public class BattleManager : MonoBehaviour {
 		if (Random.Range(0,100) <= move.hitChance) {
 
 			if (move.damage > 0) {
-				effectiveness = moveTypeEffectivenessCalc (move.majorType, defender.deltdex.major1, defender.deltdex.major2);
+				effectiveness = moveTypeEffectivenessCalc (move.Major, defender.deltdex.major1, defender.deltdex.major2);
 
 				if (isPlayer) {
 					playerDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
@@ -1601,7 +1753,7 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		// Extra damage if move is same major as Delt
-		if ((move.majorType == attacker.deltdex.major1) || (move.majorType == attacker.deltdex.major2)) {
+		if ((move.Major == attacker.deltdex.major1) || (move.Major == attacker.deltdex.major2)) {
 			otherMods = 1.5f;
 		} else {
 			otherMods = 1f;
@@ -1761,18 +1913,20 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Calculate major effectiveness
-	float moveTypeEffectivenessCalc(MajorClass attackerMove, MajorClass defenderM1, MajorClass defenderM2) {
+	float moveTypeEffectivenessCalc(Major attackerMove, Major defenderM1, Major defenderM2) {
+
 		float effectiveness = 1f;
-		// If attack is super effective
-		if (attackerMove.veryEffective.Contains(defenderM1) || attackerMove.veryEffective.Contains(defenderM2)) {
-			effectiveness *= 2;
-		} // If attack is not very effective
-		if (attackerMove.uneffective.Contains (defenderM1) || attackerMove.uneffective.Contains(defenderM2)) {
-			effectiveness *= 0.5f;
-		} // If attack does 0 damage
-		if (attackerMove.zeroDamage.Contains (defenderM1) || attackerMove.zeroDamage.Contains (defenderM2)) {
-			effectiveness = 0;
+
+		if (MajorEffectiveness.TryGetValue((attackerMove.MajorId, defenderM1.MajorId), out float effectivenessM1))
+        {
+			effectiveness *= effectivenessM1;
 		}
+
+		if (MajorEffectiveness.TryGetValue((attackerMove.MajorId, defenderM2.MajorId), out float effectivenessM2))
+		{
+			effectiveness *= effectivenessM2;
+		}
+
 		return effectiveness;
 	}
 
@@ -2008,7 +2162,7 @@ public class BattleManager : MonoBehaviour {
 						for (int i = 0; i < 4; i++) {
 							MoveClass tmp = curPlayerDelt.moveset [i];
 							Transform button = NewMoveUI.transform.GetChild (i);
-							button.GetComponent <Image>().color = tmp.majorType.background;
+							button.GetComponent <Image>().color = tmp.Major.Color;
 							button.GetChild (0).GetComponent<Text> ().text = (tmp.moveName + System.Environment.NewLine + "PP: " + tmp.PP);
 						}
 							

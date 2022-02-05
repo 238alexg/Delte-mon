@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using BattleDelts.Data;
 
 public class RecoveryCenter: MonoBehaviour {
 
@@ -12,7 +13,6 @@ public class RecoveryCenter: MonoBehaviour {
 	public Transform PosseContentTransform, HouseContentTransform, PosseOverview, HouseOverview, MajorContentTransform, HouseMoveOverview, PosseMoveOverview;
 	public Button SwitchButton;
 	public Image ShowHouseButtonImage, ShowPosseButtonImage;
-	public List<MajorClass> majorList;
 	public Text pinText, levelText;
 	public Sprite healDeskPurp, healDeskYellow;
 	public SpriteRenderer healDesk;
@@ -25,7 +25,7 @@ public class RecoveryCenter: MonoBehaviour {
 	int PosseDeltIndex, HouseDeltIndex, levelQuery, pinQuery;
 	bool hasTriggered, hasHealed, houseDeltsLoaded, posseDeltsLoaded, itemQuery, isSearch, majorSelected;
 	string nameQuery;
-	List<MajorClass> majorQuery;
+	List<Major> majorQuery;
 	List<DeltemonData> queryResults;
 
 	// Private
@@ -45,8 +45,8 @@ public class RecoveryCenter: MonoBehaviour {
 		PosseDeltIndex = -1;
 		houseMove = -1;
 		posseMove = -1;
-		majorQuery = new List<MajorClass> ();
-		queryResults = new List<DeltemonData> ();
+		majorQuery = new List<Major>();
+		queryResults = new List<DeltemonData>();
 
 		itemQuery = false;
 		levelQuery = 1;
@@ -118,6 +118,7 @@ public class RecoveryCenter: MonoBehaviour {
 			// Load house Delts into UI
 			foreach (DeltemonData houseDelt in GameMan.houseDelts) {
 				DeltDexClass tmpDex = ((GameObject)Resources.Load("Deltemon/DeltDex/" + houseDelt.deltdexName + "DD")).GetComponent<DeltDexClass>();
+
 				// Do not show Delts that do not match search query
 				if (isSearch) {
 					// Check names, pin, level, item, and majors
@@ -141,14 +142,14 @@ public class RecoveryCenter: MonoBehaviour {
 				texts [0].text = houseDelt.nickname;
 				texts [1].text = "Lv. " + houseDelt.level;
 
-				li.transform.GetChild(0).GetComponent<Image> ().color = tmpDex.major1.background;
-				if (tmpDex.major2.majorName == "NoMajor") {
-					li.transform.GetChild(3).GetComponent<Image>().sprite = tmpDex.major1.majorImage;
-					li.GetComponent<Image> ().color = tmpDex.major1.background;
+				li.transform.GetChild(0).GetComponent<Image> ().color = tmpDex.major1.Color;
+				if (tmpDex.major2 == null) {
+					li.transform.GetChild(3).GetComponent<Image>().sprite = tmpDex.major1.Sprite;
+					li.GetComponent<Image> ().color = tmpDex.major1.Color;
 				} else {
-					li.transform.GetChild(4).GetComponent<Image>().sprite = tmpDex.major1.majorImage;
-					li.transform.GetChild(5).GetComponent<Image>().sprite = tmpDex.major2.majorImage;
-					li.GetComponent<Image> ().color = tmpDex.major2.background;
+					li.transform.GetChild(4).GetComponent<Image>().sprite = tmpDex.major1.Sprite;
+					li.transform.GetChild(5).GetComponent<Image>().sprite = tmpDex.major2.Sprite;
+					li.GetComponent<Image> ().color = tmpDex.major2.Color;
 				}
 
 				Button b = li.transform.GetChild(6).gameObject.GetComponent<Button>();
@@ -196,15 +197,15 @@ public class RecoveryCenter: MonoBehaviour {
 				Text[] texts = li.GetComponentsInChildren<Text> ();
 				texts [0].text = posseDelt.nickname;
 				texts [1].text = "Lv. " + posseDelt.level;
-				li.transform.GetChild(0).GetComponent<Image> ().color = posseDelt.deltdex.major1.background;
+				li.transform.GetChild(0).GetComponent<Image> ().color = posseDelt.deltdex.major1.Color;
 
-				if (posseDelt.deltdex.major2.majorName == "NoMajor") {
-					li.transform.GetChild(3).GetComponent<Image>().sprite = posseDelt.deltdex.major1.majorImage;
-					li.GetComponent<Image> ().color = posseDelt.deltdex.major1.background;
+				if (posseDelt.deltdex.major2 == null) {
+					li.transform.GetChild(3).GetComponent<Image>().sprite = posseDelt.deltdex.major1.Sprite;
+					li.GetComponent<Image> ().color = posseDelt.deltdex.major1.Color;
 				} else {
-					li.transform.GetChild(4).GetComponent<Image>().sprite = posseDelt.deltdex.major1.majorImage;
-					li.transform.GetChild(5).GetComponent<Image>().sprite = posseDelt.deltdex.major2.majorImage;
-					li.GetComponent<Image> ().color = posseDelt.deltdex.major2.background;
+					li.transform.GetChild(4).GetComponent<Image>().sprite = posseDelt.deltdex.major1.Sprite;
+					li.transform.GetChild(5).GetComponent<Image>().sprite = posseDelt.deltdex.major2.Sprite;
+					li.GetComponent<Image> ().color = posseDelt.deltdex.major2.Color;
 				}
 
 				Button b = li.transform.GetChild(6).gameObject.GetComponent<Button>();
@@ -255,8 +256,8 @@ public class RecoveryCenter: MonoBehaviour {
 			(int)tmpDelt.Truth + System.Environment.NewLine + (int)tmpDelt.Courage + System.Environment.NewLine + (int)tmpDelt.Faith + 
 			System.Environment.NewLine + (int)tmpDelt.Power + System.Environment.NewLine + (int)tmpDelt.ChillToPull;
 
-		overview.GetChild (5).GetComponent<Image> ().sprite = tmpDelt.deltdex.major1.majorImage;
-		overview.GetChild (6).GetComponent<Image> ().sprite = tmpDelt.deltdex.major2.majorImage;
+		overview.GetChild (5).GetComponent<Image> ().sprite = tmpDelt.deltdex.major1.Sprite;
+		overview.GetChild (6).GetComponent<Image> ().sprite = tmpDelt.deltdex.major2.Sprite;
 
 		if (tmpDelt.item != null) {
 			overview.GetChild (7).GetComponent<Text> ().text = "Item:";
@@ -268,10 +269,10 @@ public class RecoveryCenter: MonoBehaviour {
 		}
 
 		// Set overview background color(s)
-		overview.GetComponent<Image> ().color = tmpDelt.deltdex.major1.background;
-		if (tmpDelt.deltdex.major2.majorName != "NoMajor") {
+		overview.GetComponent<Image> ().color = tmpDelt.deltdex.major1.Color;
+		if (tmpDelt.deltdex.major2 == null) {
 			overview.GetChild (0).gameObject.SetActive (true);
-			overview.GetChild (0).GetComponent<Image> ().color = tmpDelt.deltdex.major2.background;
+			overview.GetChild (0).GetComponent<Image> ().color = tmpDelt.deltdex.major2.Color;
 		} else {
 			overview.GetChild (0).gameObject.SetActive (false);
 		}
@@ -282,7 +283,7 @@ public class RecoveryCenter: MonoBehaviour {
 			if (index < tmpDelt.moveset.Count) {
 				moveButton.gameObject.SetActive(true);
 				tmpMove = tmpDelt.moveset [index];
-				moveButton.GetComponent<Image> ().color = tmpMove.majorType.background;
+				moveButton.GetComponent<Image> ().color = tmpMove.Major.Color;
 				moveButton.transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PP);
 			} else {
 				moveButton.gameObject.SetActive(false);
@@ -396,8 +397,8 @@ public class RecoveryCenter: MonoBehaviour {
 			}
 		}
 
-		MoveOverview.GetComponent <Image>().color = move.majorType.background;
-		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
+		MoveOverview.GetComponent <Image>().color = move.Major.Color;
+		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.Major.Sprite;
 
 		if (move.statType != statusType.None) {
 			MoveOverview.GetChild (1).gameObject.SetActive (true);
@@ -416,15 +417,13 @@ public class RecoveryCenter: MonoBehaviour {
 	}
 
 	void OpenSearch () {
-		int i = 0;
-		foreach (MajorClass major in majorList) {
+		foreach (var major in GameManager.GameMan.Data.Majors.Values) {
 			GameObject li = Instantiate (MajorListItem, MajorContentTransform);
 			li.GetComponent<Image> ().color = Color.white;
-			li.transform.GetChild (0).GetComponent<Text> ().text = major.majorName;
-			li.transform.GetChild (1).GetComponent<Image> ().sprite = major.majorImage;
-			AddMajorButtonListener(li.transform.GetChild (2).GetComponent<Button> (), i);
+			li.transform.GetChild (0).GetComponent<Text> ().text = major.Name;
+			li.transform.GetChild (1).GetComponent<Image> ().sprite = major.Sprite;
+			AddMajorButtonListener(li.transform.GetChild (2).GetComponent<Button> (), (int)major.MajorId);
 			li.GetComponent <RectTransform>().localScale = Vector3.one;
-			i++;
 		}
 		SearchUI.SetActive (true);
 		SearchUI.GetComponent <Animator>().SetBool ("SlideIn", true);
@@ -436,13 +435,14 @@ public class RecoveryCenter: MonoBehaviour {
 	}
 	// Add or remove major from query
 	public void AddRemoveMajorFromQuery(int i) {
-		MajorClass tmp = majorQuery.Find (major => major.majorName == majorList[i].majorName);
+		var majorToAddOrRemove = GameMan.Data.Majors[(MajorId)i];
+		var tmp = majorQuery.Find(major => major.MajorId == majorToAddOrRemove.MajorId);
 		if (tmp == null) {
-			majorQuery.Add (majorList [i]);
-			MajorContentTransform.GetChild (i).GetComponent<Image> ().color = majorList [i].background;
+			majorQuery.Add(majorToAddOrRemove);
+			MajorContentTransform.GetChild (i).GetComponent<Image>().color = majorToAddOrRemove.Color;
 		} else {
-			majorQuery.Remove (majorList [i]);
-			MajorContentTransform.GetChild (i).GetComponent<Image> ().color = Color.white;
+			majorQuery.Remove(tmp);
+			MajorContentTransform.GetChild(i).GetComponent<Image>().color = Color.white;
 		}
 	}
 
@@ -451,11 +451,12 @@ public class RecoveryCenter: MonoBehaviour {
 		majorQuery.Clear ();
 		if (!majorSelected) {
 			int i = 0;
-			foreach (MajorClass major in majorList) {
-				MajorContentTransform.GetChild (i).GetComponent<Image> ().color = major.background;
+			var allMajors = GameMan.Data.Majors.Values;
+			foreach (var major in allMajors) {
+				MajorContentTransform.GetChild (i).GetComponent<Image> ().color = major.Color;
 				i++;
 			}
-			majorQuery = new List<MajorClass> (majorList);
+			majorQuery = new List<Major> (allMajors);
 			majorSelected = true;
 		} else {
 			foreach (Transform li in MajorContentTransform) {
