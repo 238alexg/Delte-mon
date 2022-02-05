@@ -35,6 +35,9 @@ namespace BattleDelts.Data
         {
             var loadStartTime = DateTime.UtcNow;
 
+            LoadStatuses(spriteData);
+            var statusLoadTime = DateTime.UtcNow;
+
             LoadMajors(spriteData);
             var majorLoadTime = DateTime.UtcNow;
 
@@ -52,7 +55,8 @@ namespace BattleDelts.Data
 
             double totalLoadTimeMs = (deltLoadTime - loadStartTime).TotalMilliseconds;
             string loadTimeString = $"Serialized data load took {totalLoadTimeMs} ms total. Breakdown:{Environment.NewLine}" +
-                $"- Majors: {(majorLoadTime - loadStartTime).TotalMilliseconds} ms{Environment.NewLine}" +
+                $"- Statuses: {(statusLoadTime - loadStartTime).TotalMilliseconds} ms{Environment.NewLine}" +
+                $"- Majors: {(majorLoadTime - statusLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
                 $"- Moves: {(moveLoadTime - majorLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
                 $"- Items: {(itemLoadTime - moveLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
                 $"- Delts: {(deltLoadTime - itemLoadTime).TotalMilliseconds} ms{Environment.NewLine}" +
@@ -122,10 +126,37 @@ namespace BattleDelts.Data
             {
                 if (TryParseMoveId(move.Name, out var moveId) && 
                     TryParseMajorId(move.Major, out var majorId) &&
-                    Majors.ContainsKey(majorId))
+                    Majors.ContainsKey(majorId) && 
+                    TryParseMoveType(move.Type, out moveType moveType))
                 {
                     move.MoveId = moveId;
                     move.MoveMajor = Majors[majorId];
+                    move.MoveType = moveType;
+
+                    if (!string.IsNullOrEmpty(move.Status))
+                    {
+                        if (TryParseStatusId(move.Status, out var statusType))
+                        {
+                            move.StatusType = Statuses[statusType];
+                        }
+                        else
+                        {
+                            Debug.LogError($"Failed to parse move status {move.Status} of {move.Name}");
+                        }
+                    }
+
+                    foreach (var buff in move.Buffs)
+                    {
+                        if (TryParseBuffType(buff.BuffType, out buffType buffType))
+                        {
+                            buff.BuffT = buffType;
+                        }
+                        else
+                        {
+                            Debug.LogError($"Failed to parse move buff {buff.BuffType} of {move.Name}");
+                        }
+                    }
+
                     Moves.Add(moveId, move);
                 }
                 else
@@ -196,13 +227,25 @@ namespace BattleDelts.Data
                         delt.SecondMajor = Majors[major2];
                     }
 
-                    Delts.Add(deltType, delt);
-
                     if (!string.IsNullOrEmpty(delt.PrevEvolve) || 
                         !string.IsNullOrEmpty(delt.NextEvolve))
                     {
                         deltsWithEvolutions.Add(delt);
                     }
+
+                    foreach(var levelUpMove in delt.LevelUpMoves)
+                    {
+                        if (TryParseMoveId(levelUpMove.MoveName, out var moveId))
+                        {
+                            levelUpMove.Move = Moves[moveId];
+                        }
+                        else
+                        {
+                            Debug.LogError($"Failed to parse delt {delt.Nickname} level up move {levelUpMove.MoveName}");
+                        }
+                    }
+
+                    Delts.Add(deltType, delt);
                 }
                 else
                 {
@@ -257,7 +300,7 @@ namespace BattleDelts.Data
             }
         }
 
-        private bool TryParseDeltId(string deltIdString, out DeltId deltType)
+        public bool TryParseDeltId(string deltIdString, out DeltId deltType)
         {
             if (string.IsNullOrWhiteSpace(deltIdString))
             {
@@ -311,6 +354,16 @@ namespace BattleDelts.Data
             }
 
             return true;
+        }
+
+        private bool TryParseMoveType(string type, out moveType moveType)
+        {
+            return Enum.TryParse(type, out moveType);
+        }
+
+        private bool TryParseBuffType(string buffTypeString, out buffType buffType)
+        {
+            return Enum.TryParse(buffTypeString, out buffType);
         }
 
         private bool TryParseWildDeltSpawnId(string mapName, string sectionName, out WildDeltSpawnId wildDeltSpawnId)

@@ -32,6 +32,12 @@ namespace BattleDelts.Data
 
         [NonSerialized]
         public Major MoveMajor;
+
+        [NonSerialized]
+        public Status StatusType;
+
+        [NonSerialized]
+        public moveType MoveType;
     }
 
     [Serializable]
@@ -40,5 +46,8 @@ namespace BattleDelts.Data
         public bool IsBuff;
         public string BuffType;
         public int Amount;
+
+        [NonSerialized]
+        public buffType BuffT;
     }
 }
