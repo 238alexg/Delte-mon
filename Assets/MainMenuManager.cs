@@ -15,64 +15,65 @@ public class MainMenuManager : MonoBehaviour
 	GameManager GameMan;
 	byte saveIndex;
 	bool saveExists;
-	float totalTime;
 
 	void Start() {
 		GameMan = GameManager.GameMan;
 		saveIndex = 0;
-		totalTime = 0;
 	}
 
 	public void MainManuTouch() {
 		SavesUI.SetActive (true);
 
 		// Load and show all save files
-		for (byte i = 0; i < 3; i++) {
+		for (int i = 0; i < 3; i++) {
 			LoadSaveFile(i);
 		}
 	}
 
-	public void LoadSaveFile(byte saveNum) {
-		Transform loadOverview = SavesUI.transform.GetChild (0).GetChild (saveNum).GetChild (1);
+	public void LoadSaveFile(int saveNum) {
+		var loadOverview = SavesUI.transform.GetChild(0).GetChild(saveNum).GetChild(1);
 
 		// Fill in load information
 		if (SaveLoadGame.Inst.SaveFileExists(saveNum)) 
 		{
-			PlayerData load = SaveLoadGame.Inst.Load(saveNum);
+			var gameState = SaveLoadGame.Inst.LoadGameState(saveNum);
 
 			// Set player name
-			loadOverview.GetChild (0).GetComponent <Text>().text = load.playerName;
+			loadOverview.GetChild(0).GetComponent<Text>().text = gameState.PlayerName;
 
 			// Set dexes found
-			loadOverview.GetChild (1).GetComponent <Text>().text = "Dexes found: " + load.deltDexesFound;
+			loadOverview.GetChild(1).GetComponent<Text>().text = "Dexes found: " + gameState.DeltDexes.Count;
 
 			// Number of gym badges earned
-			loadOverview.GetChild (2).GetComponent <Text>().text = "Gyms Defeated: " + load.allItems.FindAll (item => item.itemName.Contains ("Badge")).Count;
+			loadOverview.GetChild(2).GetComponent<Text>().text = "Gyms Defeated: " + 
+				gameState.Items.FindAll(item => item.itemName.Contains("Badge")).Count;
 
-			// Set highest level
-			totalTime += load.timePlayed;
-			int hours = (int)(load.timePlayed / 3600);
-			int minutes = (int)((load.timePlayed / 60) - (hours * 60));
-			if (minutes < 10) {
-				loadOverview.GetChild (3).GetComponent <Text> ().text = "Time played: " + hours + ":0" + minutes;
-			} else {
-				loadOverview.GetChild (3).GetComponent <Text> ().text = "Time played: " + hours + ":" + minutes;
+			// Time played
+			int hours = (int)(gameState.TimePlayed / 3600);
+			int minutes = (int)((gameState.TimePlayed / 60) - (hours * 60));
+			if (minutes < 10)
+			{
+				loadOverview.GetChild(3).GetComponent<Text>().text = "Time played: " + hours + ":0" + minutes;
+			}
+			else
+			{
+				loadOverview.GetChild(3).GetComponent<Text>().text = "Time played: " + hours + ":" + minutes;
 			}
 
 			// Set coin count
-			loadOverview.GetChild (4).GetComponent <Text>().text = "" + load.coins;
+			loadOverview.GetChild (4).GetComponent <Text>().text = "" + gameState.Coins;
 
 			// Set posse leader image
-			if (!GameMan.Data.TryParseDeltId(load.deltPosse[0].deltdexName, out var deltId))
+			if (!GameMan.Data.TryParseDeltId(gameState.Posse[0].deltdexName, out var deltId))
             {
-				Debug.LogError($"Failed to parse {nameof(DeltId)} leading delt posse {load.deltPosse[0].deltdexName}");
+				Debug.LogError($"Failed to parse {nameof(DeltId)} leading delt posse {gameState.Posse[0].deltdexName}");
 			}
 
 			var leadingDeltdex = GameMan.Data.Delts[deltId];
 			loadOverview.GetChild (5).GetComponent <Image>().sprite = leadingDeltdex.FrontSprite;
 
 			// Set posse leader stats
-			loadOverview.GetChild (6).GetComponent <Text>().text = load.deltPosse[0].nickname + System.Environment.NewLine + "Lvl: " + load.deltPosse[0].level;
+			loadOverview.GetChild (6).GetComponent <Text>().text = gameState.Posse[0].nickname + System.Environment.NewLine + "Lvl: " + gameState.Posse[0].level;
 
 			loadOverview.parent.GetChild (0).gameObject.SetActive (false);
 			loadOverview.gameObject.SetActive (true);
@@ -121,8 +122,8 @@ public class MainMenuManager : MonoBehaviour
 
 		if (SaveLoadGame.Inst.SaveFileExists(saveIndex)) 
 		{
-			PlayerData load = SaveLoadGame.Inst.Load(saveIndex);
-			GameMan.SelectLoadFile (load);
+			var loadedSave = SaveLoadGame.Inst.Load(saveIndex);
+			GameMan.PopulateFromSave(loadedSave);
 		} 
 		else 
 		{
@@ -148,12 +149,11 @@ public class MainMenuManager : MonoBehaviour
 
 	// Player presses Delete Save button
 	public void DeleteSave() {
-		PlayerData load = SaveLoadGame.Inst.Load(saveIndex);
 		GameMan.saveIndex = saveIndex;
-
-		if (load != null) {
+		if (SaveLoadGame.Inst.SaveFileExists(saveIndex))
+        {
 			// Player confirms choice to delete Save file
-			if (DeleteSaveText.text == "Confirm Delete?") 
+			if (DeleteSaveText.text == "Confirm Delete?")
 			{
 				SaveLoadGame.Inst.DeleteSave(saveIndex);
 
@@ -161,15 +161,18 @@ public class MainMenuManager : MonoBehaviour
 				LoadSaveFile(saveIndex);
 
 				// Reset buttons, Delete button text
-				selectSave (-1);
-			} 
+				selectSave(-1);
+			}
 			// Player clicks delete save, present confirmation messages
-			else {
-				UIManager.UIMan.StartMessage ("WARNING: If the Delete button is pressed again this save file WILL be deleted FOREVER!");
+			else
+			{
+				UIManager.UIMan.StartMessage("WARNING: If the Delete button is pressed again this save file WILL be deleted FOREVER!");
 				DeleteSaveText.text = "Confirm Delete?";
 			}
-		} else {
-			UIManager.UIMan.StartMessage ("There is no previous save to delete!");
+		}
+        else
+        {
+			UIManager.UIMan.StartMessage("There is no previous save to delete!");
 		}
 	}
 }

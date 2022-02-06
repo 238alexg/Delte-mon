@@ -1,15 +1,28 @@
 ﻿using BattleDelts.Data;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 namespace BattleDelts.Save
 {
+	public class LoadedSave
+    {
+		public GlobalState GlobalState;
+		public GameState GameState;
+	}
+
 	// TODO: Once DeltemonClass is not a monobehavior I do not need this class to be a monobehavior
     public class SaveLoadGame : MonoBehaviour
     {
+		public const string CurrentVersion = "1.0";
 		public static SaveLoadGame Inst;
+		
+		private readonly BinaryFormatter BinaryFormatter = new BinaryFormatter();
+		private int CurrentSaveIndex;
+
+		private string GlobalSaveFilepath => $"{Application.persistentDataPath}/globalData.dat";
 
 		private void Awake()
 		{
@@ -21,32 +34,72 @@ namespace BattleDelts.Save
 			Inst = this;
 		}
 
-		public bool SaveFileExists(int index)
+		public bool SaveFileExists(int saveIndex)
         {
-			return File.Exists(GetSavePath(index));
+			return File.Exists(GetSavePath(saveIndex));
 		}
 
-		// Load the game from save (ONLY CALLED ON STARTUP! Player cannot choose to load the game)
-		public PlayerData Load(byte save)
+		public LoadedSave Load(int saveIndex)
 		{
-			if (SaveFileExists(save))
+			CurrentSaveIndex = saveIndex;
+			var gameState = LoadGameState(saveIndex);
+			return new LoadedSave()
 			{
-				BinaryFormatter bf = new BinaryFormatter();
-				FileStream file = File.Open(Application.persistentDataPath + "/playerData" + save + ".dat", FileMode.Open);
-				PlayerData load = (PlayerData)bf.Deserialize(file);
-				file.Close();
+				GlobalState = LoadGlobalState(),
+				GameState = gameState
+			};
+		}
 
-				return load;
+		public GameState LoadGameState(int saveIndex)
+        {
+			if (SaveFileExists(saveIndex))
+			{
+				if (TryLoadAndDeserializeFile(GetSavePath(saveIndex), out GameState gameState))
+                {
+					return gameState;
+                }
+
+				if (TryLoadAndDeserializeFile(GetSavePath(saveIndex), out PlayerData legacySave))
+                {
+					UpdateGlobalOptionsFromLegacySave(legacySave);
+					var updatedGameState = ConvertLegacySaveToGameState(legacySave);
+
+					// To override legacy saves w new format
+					Save(updatedGameState);
+					return updatedGameState;
+				}
+
+				Debug.LogError($"Failed to deserialize save at index {saveIndex} to current or legacy formats");
+				return null;
 			}
 			else
 			{
+				Debug.LogError($"Trying to load save at index {saveIndex} that does not exist");
 				return null;
 			}
 		}
 
-		public void DeleteSave(int index)
+		public void Save(GameState gameState, GlobalState globalState)
         {
-			File.Delete(GetSavePath(index));
+			Save(gameState);
+			Save(globalState);
+		}
+
+		public void Save(GameState gameState)
+        {
+			Debug.Log($"Saving {nameof(GameState)} to index {CurrentSaveIndex}");
+			SerializeAndSaveToFile(gameState, GetSavePath(CurrentSaveIndex));
+		}
+
+		public void Save(GlobalState globalState)
+        {
+			Debug.Log($"Saving {nameof(GlobalState)}");
+			SerializeAndSaveToFile(globalState, GlobalSaveFilepath);
+		}
+
+		public void DeleteSave(int saveIndex)
+        {
+			File.Delete(GetSavePath(saveIndex));
         }
 
 		// Convert DeltClass to serializable data
@@ -169,7 +222,119 @@ namespace BattleDelts.Save
 
 		private string GetSavePath(int saveIndex)
 		{
-			return Application.persistentDataPath + "/playerData" + saveIndex + ".dat";
+			return $"{Application.persistentDataPath}/playerData{saveIndex}.dat";
+		}
+
+		public GlobalState LoadGlobalState()
+        {
+			if (TryLoadAndDeserializeFile(GlobalSaveFilepath, out GlobalState globalState))
+            {
+				return globalState;
+			}
+
+			Debug.LogError($"Failed to load {nameof(GlobalState)}. Creating new one (will overwrite old if corrupted)");
+			return new GlobalState()
+			{
+				GlobalSaveVersion = CurrentVersion,
+
+				// TODO: Create const defaults for these
+				FXVolume = default,
+				MusicVolume = default,
+				Pork = false,
+				ScrollSpeed = default,
+				TimePlayed = 0,
+			};
+		}
+
+		private bool TryLoadAndDeserializeFile<T>(string filepath, out T deserializedObject) where T : class
+        {
+			deserializedObject = null;
+
+			if (!File.Exists(filepath))
+            {
+				return false;
+            }
+
+			using (var globalSaveFile = File.Open(filepath, FileMode.Open))
+            {
+				var deserializedObjectNoType = BinaryFormatter.Deserialize(globalSaveFile);
+				if (deserializedObjectNoType is T type)
+				{
+					deserializedObject = type;
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		private void SerializeAndSaveToFile<T>(T objectToSerialize, string filepath) where T : class
+        {
+			using (var openedFileSteam = File.Exists(filepath) 
+				? File.OpenWrite(filepath) 
+				: File.Create(filepath))
+            {
+				BinaryFormatter.Serialize(openedFileSteam, objectToSerialize);
+			}
+		}
+
+		private void UpdateGlobalOptionsFromLegacySave(PlayerData legacySave)
+        {
+			var globalState = LoadGlobalState();
+
+			globalState.ScrollSpeed = legacySave.scrollSpeed;
+			globalState.MusicVolume = legacySave.musicVolume;
+			globalState.FXVolume = legacySave.FXVolume;
+			globalState.Pork = legacySave.pork;
+
+			// Add to the time the user has currently played
+			globalState.TimePlayed += legacySave.timePlayed;
+
+			Save(globalState);
+		}
+
+		private GameState ConvertLegacySaveToGameState(PlayerData legacySave)
+        {
+			return new GameState()
+			{
+				SaveVersion = CurrentVersion,
+
+				PlayerName = legacySave.playerName,
+				IsMale = legacySave.isMale,
+				Coins = legacySave.coins,
+				TimePlayed = legacySave.timePlayed,
+
+				LastTownId = legacySave.lastTownName,
+				LastLocationId = legacySave.sceneName,
+				XCoord = legacySave.xLoc,
+				YCoord = legacySave.yLoc,
+
+				BattlesWon = legacySave.battlesWon,
+				DeltsRushed = legacySave.deltsRushed,
+
+				SceneInteractions = legacySave.sceneInteractions,
+				HouseDelts = legacySave.houseDelts,
+				Posse = legacySave.deltPosse.ToList(),
+				DeltDexes = GetDeltDexesFromLegacySave(legacySave.deltDex),
+				Items = legacySave.allItems
+			};
+        }
+
+		private List<DeltId> GetDeltDexesFromLegacySave(List<DeltDexData> legacyDexes)
+        {
+			var deltDexes = new List<DeltId>();
+			foreach(var legacyDex in legacyDexes)
+            {
+				if (!GameManager.GameMan.Data.TryParseDeltId(legacyDex.nickname, out var deltId))
+                {
+                    Debug.LogError($"Failed ot parse {nameof(DeltId)} of legacy save delt: {legacyDex.nickname}");
+                    continue;
+                }
+
+				deltDexes.Add(deltId);
+			}
+
+			return deltDexes;
 		}
 	}
 }

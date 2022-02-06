@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 	[Header("Other")]
 	public GameObject emptyDelt;
 	public bool deleteSave;
-	public float timePlayed;
+	public float timePlayed, TotalTimePlayed;
 
 //	string[] mapNames = {"Hometown", "DA Graveyard", "Sigston", "ChiTown", 
 //		"Hayward Field", "Atlambdis","Israel", "Las Saegas", "UOregon", "ChiPsi", 
@@ -68,7 +68,9 @@ public class GameManager : MonoBehaviour {
 
 	// Keep track of how long the player has been playing
 	void Update() {
-		timePlayed += Time.deltaTime;
+		float deltaTime = Time.deltaTime;
+		timePlayed += deltaTime;
+		TotalTimePlayed += deltaTime;
 	}
 
 	// Returns the Recov Location info for the last town visited
@@ -140,100 +142,84 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Save the game
-	public void Save() {
-		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/playerData" + saveIndex + ".dat");
-		var save = new PlayerData()
+	public void Save() 
+	{
+		var gameState = new GameState()
 		{
-			playerName = playerName,
-			xLoc = Mathf.Round(PlayerMovement.PlayMov.transform.position.x),
-			yLoc = Mathf.Round(PlayerMovement.PlayMov.transform.position.y),
-			partySize = (byte)deltPosse.Count,
-			coins = coins,
-			lastTownName = lastTownName,
-			battlesWon = battlesWon,
-			timePlayed = timePlayed,
+			SaveVersion = SaveLoadGame.CurrentVersion,
 
-			// Settings
-			sceneName = SceneManager.GetActiveScene().name,
-			isMale = PlayerMovement.PlayMov.isMale,
-			musicVolume = MusicManager.Instance.maxVolume,
-			FXVolume = SoundEffectManager.SEM.source.volume,
-			pork = pork,
-			scrollSpeed = UIManager.scrollSpeed,
+			PlayerName = playerName,
+			IsMale = PlayerMovement.PlayMov.isMale,
+			Coins = coins,
+			TimePlayed = timePlayed,
 
-			// Lists
-			allItems = new List<ItemData>(allItems),
-			houseDelts = new List<DeltemonData>(houseDelts),
-			deltDex = deltDex.Select(dex => new DeltDexData()
-			{
-				nickname = dex.ToString()
-			}).ToList(),
-			sceneInteractions = new List<SceneInteractionData>(sceneInteractions),
-			deltPosse = new DeltemonData[deltPosse.Count],
+			LastTownId = lastTownName,
+			LastLocationId = SceneManager.GetActiveScene().name,
+			XCoord = Mathf.Round(PlayerMovement.PlayMov.transform.position.x),
+			YCoord = Mathf.Round(PlayerMovement.PlayMov.transform.position.y),
 
-			// Achievements
-			deltDexesFound = (byte)deltDex.Count,
-			houseSize = houseDelts.Count,
+			BattlesWon = battlesWon,
 
-			// Never saved before?
-			deltsRushed = deltPosse.Count + houseDelts.Count,
-			saveFile = (byte)saveIndex,
+			// TODO: Should be an increasing total regardless of delts in house/posse
+			DeltsRushed = deltPosse.Count + houseDelts.Count,
+
+			SceneInteractions = sceneInteractions,
+			HouseDelts = houseDelts,
+			Posse = deltPosse.Select(delt => SaveLoadGame.Inst.ConvertDeltToData(delt)).ToList(),
+			DeltDexes = deltDex,
+			Items = allItems
 		};
 
-		// Convert Delt classes in posse to Serializable form
-		for (byte i = 0; i < deltPosse.Count; i++) {
-			save.deltPosse [i] = SaveLoadGame.Inst.ConvertDeltToData (deltPosse [i]);
-		}
+		var globalState = new GlobalState()
+		{
+			GlobalSaveVersion = SaveLoadGame.CurrentVersion,
 
-		bf.Serialize (file, save);
-		file.Close ();
+			ScrollSpeed = UIManager.scrollSpeed,
+			MusicVolume = MusicManager.Instance.maxVolume,
+			FXVolume = SoundEffectManager.SEM.source.volume,
+			TimePlayed = TotalTimePlayed,
+			Pork = pork
+		};
+
+		SaveLoadGame.Inst.Save(gameState, globalState);
 
 		// Update how long the player has been playing
 		AchievementManager.ReportScore(AchievementManager.ScoreId.Time, (long)timePlayed);
 	}
 
-	public void SelectLoadFile(PlayerData load) {
-		deltPosse.Clear ();
+	public void PopulateFromSave(LoadedSave loadedSave) 
+	{
+		// Game State Populate
+		playerName = loadedSave.GameState.PlayerName;
+		PlayerMovement.PlayMov.ChangeGender(loadedSave.GameState.IsMale);
+		coins = loadedSave.GameState.Coins;
+		timePlayed = loadedSave.GameState.TimePlayed;
 
-		for (byte i = 0; i < load.partySize; i++) {
-			deltPosse.Add(SaveLoadGame.Inst.ConvertDataToDelt(load.deltPosse [i], transform));
-		}
+		lastTownName = loadedSave.GameState.LastTownId;
+		UIManager.SwitchLocationAndScene(
+			Mathf.Floor(loadedSave.GameState.XCoord), 
+			Mathf.Floor(loadedSave.GameState.YCoord), 
+			loadedSave.GameState.LastLocationId);
 
-		currentStartingDelt = deltPosse [0];
-		UIManager.SwitchLocationAndScene(Mathf.Floor (load.xLoc), Mathf.Floor (load.yLoc), load.sceneName);
-		coins = load.coins;
-		playerName = load.playerName;
-		lastTownName = load.lastTownName;
-		timePlayed = load.timePlayed;
-		battlesWon = load.battlesWon;
+		battlesWon = loadedSave.GameState.BattlesWon;
+		// TODO: Delts Rushed total
 
-		// Load player settings
-		curSceneName = load.sceneName;
-		pork = load.pork;
-		UIManager.scrollSpeed = load.scrollSpeed;
-		PlayerMovement.PlayMov.ChangeGender (load.isMale);
-		PlayerMovement.PlayMov.hasDormkicks = load.allItems.Exists (id => id.itemName == "DormKicks");
-		MusicManager.Instance.maxVolume = load.musicVolume;
-		MusicManager.Instance.audiosource.volume = load.musicVolume;
-		SoundEffectManager.SEM.source.volume = load.FXVolume;
+		sceneInteractions = loadedSave.GameState.SceneInteractions;
+		houseDelts = loadedSave.GameState.HouseDelts;
+		deltPosse = loadedSave.GameState.Posse.Select(delt => SaveLoadGame.Inst.ConvertDataToDelt(delt, transform)).ToList();
+		currentStartingDelt = deltPosse[0];
 
-		// Load lists back
-		allItems = new List<ItemData> (load.allItems);
-		houseDelts = new List<DeltemonData> (load.houseDelts);
+		deltDex = loadedSave.GameState.DeltDexes;
+		allItems = loadedSave.GameState.Items;
+		PlayerMovement.PlayMov.hasDormkicks = allItems.Exists(id => id.itemName == "DormKicks");
 
-		deltDex = new List<DeltId>();
-		foreach (var deltDexData in load.deltDex)
-        {
-			if (!GameMan.Data.TryParseDeltId(deltDexData.nickname, out var deltId))
-            {
-				Debug.LogError($"Failed to parse save file delt dex: {deltDexData.nickname}");
-            }
-
-			deltDex.Add(deltId);
-		}
-
-		sceneInteractions = new List<SceneInteractionData> (load.sceneInteractions);
+		// Global State Populate
+		UIManager.scrollSpeed = loadedSave.GlobalState.ScrollSpeed;
+		MusicManager.Instance.maxVolume = loadedSave.GlobalState.MusicVolume;
+		MusicManager.Instance.audiosource.volume = loadedSave.GlobalState.MusicVolume;
+		SoundEffectManager.SEM.source.volume = loadedSave.GlobalState.FXVolume;
+		pork = loadedSave.GlobalState.Pork;
+		TotalTimePlayed = loadedSave.GlobalState.TimePlayed;
 	}
 
 	public void AddDeltDex(Delt newDex) 
@@ -431,7 +417,6 @@ public class GameManager : MonoBehaviour {
 		}
 
 		curSceneName = present.name;
-
 		curSceneData.discovered = true;
 	}
 }
