@@ -42,7 +42,7 @@ public class QuestManager : MonoBehaviour {
 	}
 	// Test to see if, when Delts are given certain items, something happens
 	public bool DeltItemQuests(DeltemonClass delt) {
-		if ((delt.deltdex.deltName == "Ammas Tanveer") && (delt.item.itemName == "Peanut Butter")) {
+		if ((delt.deltdex.DeltName == "Ammas Tanveer") && (delt.item.itemName == "Peanut Butter")) {
 			// GREAT PAUSE
 			return true;
 		}

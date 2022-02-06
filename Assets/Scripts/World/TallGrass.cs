@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -85,9 +86,14 @@ public class TallGrass : MonoBehaviour {
 				}
 
 				// Get random delt from list of spawns
-				chosenDelt.deltdex = WDS.spawns [Random.Range (0, WDS.spawns.Count)];
+				var spawnedDelt = WDS.spawns[Random.Range(0, WDS.spawns.Count)];
+				if (!GameManager.GameMan.Data.TryParseDeltId(spawnedDelt.nickname, out var deltId))
+                {
+					Debug.LogError($"Failed to parse {nameof(DeltId)} of spawned wild delt {spawnedDelt.nickname}");
+                }
 
 				// Determine stats of the Delt
+				chosenDelt.DeltId = deltId;
 				chosenDelt.level = (byte)Random.Range (WDS.minLevel, WDS.maxLevel);
 				chosenDelt.initializeDelt ();
 

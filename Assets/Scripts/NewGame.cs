@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -97,8 +98,13 @@ public class NewGame : MonoBehaviour {
 
 	// When user selects starter from button
 	public void SelectStarter(DeltDexClass selectedStarter) {
+		if (!GameMan.Data.TryParseDeltId(selectedStarter.nickname, out var deltId))
+        {
+			Debug.LogError($"Failed to parse starter {nameof(DeltId)} {selectedStarter.nickname}");
+        }
+
 		starter = emptyDelt;
-		starter.deltdex = selectedStarter;
+		starter.DeltId = deltId;
 		starter.nickname = selectedStarter.nickname;
 	}
 

@@ -5,48 +5,30 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class MoveClass : MonoBehaviour {
+public class MoveClass {
 
 	[Header("General Info")]
-	public string moveName;
-	public string moveDescription;
-
-    // TODO: Temporary breaking replacement until MoveClass is replaced by move data
-    //public MajorClass Major;
-    public Major Major;
-
-    public Sprite status;
-	public moveType movType; 
-	public byte moveIndex;
+	public MoveId MoveId;
+	public Move Move => GameManager.GameMan.Data.Moves[MoveId];
+	public statusType Status => Move.StatusType == null ? statusType.None : Move.StatusType.StatusId;
 
 	[Header("Battle Info")]
-	public byte PP;
-	public byte PPLeft;
-	public int damage;
-	public int hitChance;
-	public statusType statType;
-	public List<buffTuple> buffs;
-	public int statusChance;
-	public int critChance;
+	public byte moveIndex;
+	public int PPLeft;
 
 	// Could add stat and damage moves?
 	// Could add multi-turn moves?
 
+	public MoveClass(MoveId moveId)
+    {
+		MoveId = moveId;
+		PPLeft = Move.PP;
+    }
+
 	public void duplicateValues(MoveClass recipient) {
-		recipient.moveName = moveName;
-		recipient.moveDescription = moveDescription;
-		recipient.Major = Major;
-		recipient.status = status;
-		recipient.movType = movType;
+		recipient.MoveId = MoveId;
 		recipient.moveIndex = moveIndex;
-		recipient.PP = PP;
 		recipient.PPLeft = PPLeft;
-		recipient.damage = damage;
-		recipient.hitChance = hitChance;
-		recipient.statType = statType;
-		recipient.buffs = buffs;
-		recipient.statusChance = statusChance;
-		recipient.critChance = critChance;
 	}
 }
 

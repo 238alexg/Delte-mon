@@ -340,7 +340,7 @@ namespace BattleDelts.Data
             return true;
         }
 
-        private bool TryParseMoveId(string moveIdString, out MoveId moveId)
+        public bool TryParseMoveId(string moveIdString, out MoveId moveId)
         {
             string moveEnumName = moveIdString.Replace(" ", "")
                 .Replace("&", "And") // Supply & Demand, Mice & Men

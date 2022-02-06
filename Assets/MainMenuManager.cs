@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using BattleDelts.Data;
 
 public class MainMenuManager : MonoBehaviour {
 
@@ -62,8 +63,13 @@ public class MainMenuManager : MonoBehaviour {
 			loadOverview.GetChild (4).GetComponent <Text>().text = "" + load.coins;
 
 			// Set posse leader image
-			GameObject deltDD = (GameObject)Resources.Load ("Deltemon/DeltDex/" + load.deltPosse[0].deltdexName + "DD");
-			loadOverview.GetChild (5).GetComponent <Image>().sprite = deltDD.GetComponent<DeltDexClass> ().frontImage;
+			if (!GameMan.Data.TryParseDeltId(load.deltPosse[0].deltdexName, out var deltId))
+            {
+				Debug.LogError($"Failed to parse {nameof(DeltId)} leading delt posse {load.deltPosse[0].deltdexName}");
+			}
+
+			var leadingDeltdex = GameMan.Data.Delts[deltId];
+			loadOverview.GetChild (5).GetComponent <Image>().sprite = leadingDeltdex.FrontSprite;
 
 			// Set posse leader stats
 			loadOverview.GetChild (6).GetComponent <Text>().text = load.deltPosse[0].nickname + System.Environment.NewLine + "Lvl: " + load.deltPosse[0].level;

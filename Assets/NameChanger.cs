@@ -53,7 +53,7 @@ public class NameChanger : MonoBehaviour {
 			Transform view = PosseView.GetChild (i);
 			if (i < GameManager.GameMan.deltPosse.Count) {
 				view.GetChild (0).GetComponent <Text> ().text = GameManager.GameMan.deltPosse [i].nickname;
-				view.GetChild (1).GetComponent <Image> ().sprite = GameManager.GameMan.deltPosse [i].deltdex.frontImage;
+				view.GetChild (1).GetComponent <Image> ().sprite = GameManager.GameMan.deltPosse [i].deltdex.FrontSprite;
 
 				view.gameObject.SetActive (true);
 			} else {
@@ -71,7 +71,7 @@ public class NameChanger : MonoBehaviour {
 			nameChangeOverview.SetActive (true);
 		}
 		// Set overview image
-		nameChangeOverview.transform.GetChild (0).GetComponent <Image>().sprite = GameManager.GameMan.deltPosse [index].deltdex.frontImage;
+		nameChangeOverview.transform.GetChild (0).GetComponent <Image>().sprite = GameManager.GameMan.deltPosse [index].deltdex.FrontSprite;
 		overviewIndex = index;
 	}
 
@@ -81,7 +81,7 @@ public class NameChanger : MonoBehaviour {
 			GameManager.GameMan.deltPosse [overviewIndex].nickname = newName;
 			NameChangeScreen.SetActive (false);
 			DeltemonClass changed = GameManager.GameMan.deltPosse [overviewIndex];
-			UIMan.StartNPCMessage ("Your " + changed.deltdex.nickname + "'s name is now " + newName, "Name Changer");
+			UIMan.StartNPCMessage ("Your " + changed.deltdex.Nickname + "'s name is now " + newName, "Name Changer");
 			PlayerMovement.PlayMov.ResumeMoving ();
 		} else {
 			StartCoroutine (flashInput (nameChangeOverview.transform.GetChild (1).GetComponent <Image> ()));

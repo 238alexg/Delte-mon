@@ -59,7 +59,7 @@ public class MapManager : MonoBehaviour {
 
 		if (selectedTownText.text != "") {
 			foreach (DeltemonClass delt in GameManager.GameMan.deltPosse) {
-				if (delt.moveset.Exists (move => move.moveName == "Drive")) {
+				if (delt.moveset.Exists (move => move.MoveId == BattleDelts.Data.MoveId.DriveCar)) {
 					if ((delt.item != null) && (delt.item.itemName == "Car Keys")) {
 						canDrive = true;
 						break;

@@ -10,7 +10,7 @@ using BattleDelts.Data;
 public class GameManager : MonoBehaviour {
 	public UIManager UIManager;
 	public RefactorData Data;
-	
+
 	[SerializeField]
 	private SpriteData SpriteData;
 
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
 	public List<DeltemonClass> deltPosse;
 	public List<ItemData> allItems;
-	public List<DeltDexData> deltDex;
+	public List<DeltId> deltDex;
 	public List<DeltemonData> houseDelts;
 	public SceneInteractionData curSceneData;
 	public List<SceneInteractionData> sceneInteractions;
@@ -122,16 +122,6 @@ public class GameManager : MonoBehaviour {
 		UIManager.allItemsLoaded = false;
 	}
 
-	// Add new DeltDex Data entry to player
-	DeltDexData newDeltDexData (DeltDexClass deltDex) {
-		DeltDexData ddd = new DeltDexData ();
-		ddd.actualName = deltDex.deltName;
-		ddd.nickname = deltDex.nickname;
-		ddd.pin = deltDex.pinNumber;
-		ddd.rarity = deltDex.rarity;
-		return ddd;
-	}
-
 	// Setting function: Changed Name
 	public void ChangeName(string newName) {
 		if (!string.IsNullOrEmpty (newName)) {
@@ -149,30 +139,32 @@ public class GameManager : MonoBehaviour {
 	public void Save() {
 		BinaryFormatter bf = new BinaryFormatter ();
 		FileStream file = File.Create (Application.persistentDataPath + "/playerData" + saveIndex + ".dat");
-		PlayerData save = new PlayerData ();
+		var save = new PlayerDataV2()
+		{
+			saveVersion = "1.0",
 
-		// Save basic game data
-		save.playerName = playerName;
-		save.xLoc = Mathf.Round (PlayerMovement.PlayMov.transform.position.x);
-		save.yLoc = Mathf.Round (PlayerMovement.PlayMov.transform.position.y);
-		save.partySize = (byte)deltPosse.Count;
-		save.coins = coins;
-		save.lastTownName = lastTownName;
-		save.battlesWon = battlesWon;
-		save.timePlayed = timePlayed;
+			playerName = playerName,
+			xLoc = Mathf.Round(PlayerMovement.PlayMov.transform.position.x),
+			yLoc = Mathf.Round(PlayerMovement.PlayMov.transform.position.y),
+			partySize = (byte)deltPosse.Count,
+			coins = coins,
+			lastTownName = lastTownName,
+			battlesWon = battlesWon,
+			timePlayed = timePlayed,
 
-		// Save settings
-		save.sceneName = SceneManager.GetActiveScene ().name;
-		save.isMale = PlayerMovement.PlayMov.isMale;
-		save.musicVolume = MusicManager.Instance.maxVolume;
-		save.FXVolume = SoundEffectManager.SEM.source.volume;
-		save.pork = pork;
-		save.scrollSpeed = UIManager.scrollSpeed;
+			// Settings
+			sceneName = SceneManager.GetActiveScene().name,
+			isMale = PlayerMovement.PlayMov.isMale,
+			musicVolume = MusicManager.Instance.maxVolume,
+			FXVolume = SoundEffectManager.SEM.source.volume,
+			pork = pork,
+			scrollSpeed = UIManager.scrollSpeed,
+		};
 
 		// All lists saved
 		save.allItems = new List<ItemData> (allItems);
 		save.houseDelts = new List<DeltemonData> (houseDelts);
-		save.deltDex = new List<DeltDexData> (deltDex);
+		save.deltDex = new List<DeltId> (deltDex);
 		save.sceneInteractions = new List<SceneInteractionData> (sceneInteractions);
 
 		save.deltDexesFound = (byte)deltDex.Count;
@@ -233,7 +225,18 @@ public class GameManager : MonoBehaviour {
 		// Load lists back
 		allItems = new List<ItemData> (load.allItems);
 		houseDelts = new List<DeltemonData> (load.houseDelts);
-		deltDex = new List<DeltDexData> (load.deltDex);
+
+		deltDex = new List<DeltId>();
+		foreach (var deltDexData in load.deltDex)
+        {
+			if (!GameMan.Data.TryParseDeltId(deltDexData.nickname, out var deltId))
+            {
+				Debug.LogError($"Failed to parse save file delt dex: {deltDexData.nickname}");
+            }
+
+			deltDex.Add(deltId);
+		}
+
 		sceneInteractions = new List<SceneInteractionData> (load.sceneInteractions);
 	}
 
@@ -241,10 +244,10 @@ public class GameManager : MonoBehaviour {
 	public DeltemonData convertDeltToData (DeltemonClass deltClass) {
 		DeltemonData tempSave = new DeltemonData();
 
-		tempSave.deltdexName = deltClass.deltdex.nickname;
+		tempSave.deltdexName = deltClass.deltdex.Nickname;
 		tempSave.nickname = deltClass.nickname;
 		tempSave.level = deltClass.level;
-		tempSave.AVCount = deltClass.AVCount;
+		tempSave.AVCount = (byte)deltClass.AVCount;
 		tempSave.status = deltClass.curStatus;
 		tempSave.experience = deltClass.experience;
 		tempSave.XPToLevel = deltClass.XPToLevel;
@@ -259,7 +262,7 @@ public class GameManager : MonoBehaviour {
 
 		// Save accumulated stat values of delt
 		for (int i = 0; i < 6; i++) {
-			tempSave.AVs [i] = deltClass.AVs [i];
+			tempSave.AVs [i] = (byte)deltClass.AVs [i];
 		}
 
 		// Save item if delt has one
@@ -269,14 +272,15 @@ public class GameManager : MonoBehaviour {
 			tempSave.itemName = null;
 		}
 
+		// TODO: Change to V2 move data
 		// Save each move and pp left of move
 		for (int i = 0; i < deltClass.moveset.Count; i++) 
 		{ 
             tempSave.moves.Add(new MoveData
 			{
-				moveName = deltClass.moveset[i].moveName,
-				PPLeft = deltClass.moveset[i].PPLeft,
-				major = deltClass.moveset[i].Major.Name
+				moveName = deltClass.moveset[i].Move.Name,
+				PPLeft = (byte)deltClass.moveset[i].PPLeft,
+				major = deltClass.moveset[i].Move.Major
 			});
 		}
 		return tempSave;
@@ -286,13 +290,18 @@ public class GameManager : MonoBehaviour {
 	public DeltemonClass convertDataToDelt (DeltemonData deltSave, Transform parentObject) {
 		GameObject tmpDeltObject = Instantiate (emptyDelt, parentObject);
 		DeltemonClass tmpDelt = tmpDeltObject.GetComponent<DeltemonClass> ();
-		GameObject deltDD = (GameObject)Resources.Load ("Deltemon/DeltDex/" + deltSave.deltdexName + "DD");
 
 		tmpDeltObject.name = deltSave.nickname;
 
-		tmpDelt.deltdex = deltDD.GetComponent<DeltDexClass> ();
+		if (!GameMan.Data.TryParseDeltId(deltSave.nickname, out var deltId))
+        {
+			Debug.LogError($"Failed to convert delt {deltSave.nickname} to {nameof(DeltId)}");
+			return null;
+        }
+
+		tmpDelt.DeltId = deltId;
 		tmpDelt.nickname = deltSave.nickname;
-		tmpDelt.level = deltSave.level;
+		tmpDelt.level = (byte)deltSave.level;
 		tmpDelt.AVCount = deltSave.AVCount;
 		tmpDelt.curStatus = deltSave.status;
 		tmpDelt.experience = deltSave.experience;
@@ -352,27 +361,23 @@ public class GameManager : MonoBehaviour {
 			tmpDelt.item = null;
 		}
 		foreach (MoveData move in deltSave.moves) {
-			GameObject newMoveObject = (GameObject)Instantiate(Resources.Load ("Moves/" + move.major + "/" + move.moveName), tmpDeltObject.transform);
-			MoveClass newMove = newMoveObject.GetComponent<MoveClass>();
-			tmpDelt.moveset.Add (newMove);
+			if (!GameMan.Data.TryParseMoveId(move.moveName, out var moveId))
+            {
+				Debug.LogError($"Failed to parse {nameof(MoveId)} during load of move {move.moveName} of delt {deltSave.nickname}");
+            }
+
+			tmpDelt.moveset.Add (new MoveClass(moveId));
 		}
 		return tmpDelt;
 	}
 
-	public DeltDexData ConvertDexToData(DeltDexClass dex) {
-		DeltDexData newDexData = new DeltDexData();
-		newDexData.nickname = dex.nickname;
-		newDexData.actualName = dex.deltName;
-		newDexData.pin = dex.pinNumber;
-		newDexData.rarity = dex.rarity;
-		return newDexData;
-	}
+	public void AddDeltDex(Delt newDex) 
+	{
+		if (!deltDex.Any(x => x == newDex.DeltId)) 
+		{
+			deltDex.Add (newDex.DeltId);
 
-	public void AddDeltDex(DeltDexClass newDex) {
-		if (!deltDex.Exists (x => x.pin == newDex.pinNumber)) {
-			deltDex.Add (ConvertDexToData (newDex));
-
-			UIManager.StartMessage ((newDex.nickname + " was added to " + playerName + "'s DeltDex!"));
+			UIManager.StartMessage ((newDex.Nickname + " was added to " + playerName + "'s DeltDex!"));
 
 			// Update leaderboard
 			AchievementManager.AchieveMan.UpdateDeltDexCount (deltDex.Count);
@@ -380,14 +385,8 @@ public class GameManager : MonoBehaviour {
 			// Update DeltDexUI on next load
 			UIManager.allDexesLoaded = false;
 
-			// Sort Dexes by pin number, from highest->lowest (since lower pin = older members)
-			deltDex.Sort (delegate(DeltDexData dataA, DeltDexData dataB) {
-				if (dataA.pin > dataB.pin) {
-					return -1;
-				} else {
-					return 1;
-				}
-			});
+			// TODO: Sort Dexes by pin number, from highest->lowest (since lower pin = older members)
+			deltDex.Sort();
 		}
 	}
 
@@ -407,14 +406,7 @@ public class GameManager : MonoBehaviour {
 			houseDelts.Add (houseDelt);
 			SortHouseDelts ();
 		} else {
-			DeltemonClass playerNewDelt = Instantiate (newDelt, this.transform);
-
-			// Instantiate new Delt's moves so prefabs don't get altered
-			foreach (MoveClass move in playerNewDelt.moveset) {
-				Instantiate (move, playerNewDelt.transform);
-			}
-
-			deltPosse.Add (playerNewDelt);
+			deltPosse.Add(Instantiate(newDelt, this.transform));
 		}
 	}
 
@@ -575,7 +567,7 @@ public class DeltemonData {
 
 	public string nickname;
 	public byte level;
-	public byte[] AVs = new byte [6] { 0, 0, 0, 0, 0, 0 };
+	public byte[] AVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
 	public byte AVCount;
 	public float experience;
 	public int XPToLevel;
@@ -633,4 +625,34 @@ public class PlayerData {
 	public List<DeltDexData> deltDex = new List<DeltDexData> ();
 	public DeltemonData[] deltPosse = new DeltemonData[6];
 	public List<ItemData> allItems = new List<ItemData> ();
+}
+
+[System.Serializable]
+public class PlayerDataV2
+{
+	public string saveVersion;
+	public float xLoc;
+	public float yLoc;
+	public float scrollSpeed;
+	public float musicVolume;
+	public float FXVolume;
+	public float timePlayed;
+	public byte partySize;
+	public byte deltDexesFound;
+	public byte saveFile; // # of save file (player can have multiple)
+	public int houseSize;
+	public int battlesWon;
+	public int deltsRushed; // LATER: Remove
+	public long coins;
+	public string playerName;
+	public string sceneName;
+	public string lastTownName;
+	public bool isMale;
+	public bool pork;
+
+	public List<SceneInteractionData> sceneInteractions = new List<SceneInteractionData>();
+	public List<DeltemonData> houseDelts = new List<DeltemonData>();
+	public List<DeltId> deltDex = new List<DeltId>();
+	public DeltemonData[] deltPosse = new DeltemonData[6];
+	public List<ItemData> allItems = new List<ItemData>();
 }

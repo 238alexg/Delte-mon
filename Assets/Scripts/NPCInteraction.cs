@@ -50,11 +50,6 @@ public class NPCInteraction : MonoBehaviour {
 				if (!customDeltPosse) {
 					oppDelt.initializeDelt ();
 				}
-
-				// So opp Delts do not alter move prefabs
-				foreach (MoveClass move in oppDelt.moveset) {
-					Instantiate (move, oppDelt.transform);
-				}
 			}
 			UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut (), () => UIManager.UIMan.StartTrainerBattle (this, isGymLeader));
 			UIManager.UIMan.StartMessage (null, null, () => notificaiton.enabled = false);
