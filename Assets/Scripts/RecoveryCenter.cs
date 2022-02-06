@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using BattleDelts.Data;
+using BattleDelts.Save;
 
 public class RecoveryCenter: MonoBehaviour {
 
@@ -239,7 +240,7 @@ public class RecoveryCenter: MonoBehaviour {
 			if (this.transform.childCount != 1) {
 				Destroy (this.transform.GetChild (1).gameObject);
 			}
-			HouseSwitchIn = GameMan.convertDataToDelt (queryResults [i], this.transform);
+			HouseSwitchIn = SaveLoadGame.Inst.ConvertDataToDelt (queryResults [i], this.transform);
 			tmpDelt = HouseSwitchIn;
 			HouseDeltIndex = i;
 			HouseSwitchLI = HouseContentTransform.GetChild (i).gameObject;
@@ -309,7 +310,7 @@ public class RecoveryCenter: MonoBehaviour {
 
 		DeltemonClass posseDelt = GameMan.deltPosse [PosseDeltIndex];
 
-		DeltemonData posseToHouseDelt = GameMan.convertDeltToData (posseDelt);
+		DeltemonData posseToHouseDelt = SaveLoadGame.Inst.ConvertDeltToData (posseDelt);
 
 		Button HouseLIButton, PosseLIButton;
 

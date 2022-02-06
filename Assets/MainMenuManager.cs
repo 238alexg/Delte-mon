@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.IO;
 using BattleDelts.Data;
+using BattleDelts.Save;
 
-public class MainMenuManager : MonoBehaviour {
-
+public class MainMenuManager : MonoBehaviour 
+{
 	public GameObject SavesUI;
 	public Text DeleteSaveText;
 	public Button deleteBut, loadBut, newGameBut;
@@ -29,17 +28,18 @@ public class MainMenuManager : MonoBehaviour {
 
 		// Load and show all save files
 		for (byte i = 0; i < 3; i++) {
-			LoadSaveFile (i);
+			LoadSaveFile(i);
 		}
 	}
-	
 
 	public void LoadSaveFile(byte saveNum) {
-		PlayerData load = GameMan.Load (saveNum);
 		Transform loadOverview = SavesUI.transform.GetChild (0).GetChild (saveNum).GetChild (1);
 
 		// Fill in load information
-		if (load != null) {
+		if (SaveLoadGame.Inst.SaveFileExists(saveNum)) 
+		{
+			PlayerData load = SaveLoadGame.Inst.Load(saveNum);
+
 			// Set player name
 			loadOverview.GetChild (0).GetComponent <Text>().text = load.playerName;
 
@@ -117,47 +117,48 @@ public class MainMenuManager : MonoBehaviour {
 
 	// Player presses load game button
 	public void LoadGame() {
-		PlayerData load = GameMan.Load (saveIndex);
 		GameMan.saveIndex = saveIndex;
 
-		if (load != null) {
+		if (SaveLoadGame.Inst.SaveFileExists(saveIndex)) 
+		{
+			PlayerData load = SaveLoadGame.Inst.Load(saveIndex);
 			GameMan.SelectLoadFile (load);
-		} else {
+		} 
+		else 
+		{
 			UIManager.UIMan.StartMessage ("There is no previous save!");
 		}
 	}
 
 	// Player presses New Game button
-	public void NewGame() {
-		PlayerData load = GameMan.Load (saveIndex);
+	public void NewGame() 
+	{
+		if (SaveLoadGame.Inst.SaveFileExists(saveIndex))
+        {
+			UIManager.UIMan.StartMessage("If you want to start a new game, you must delete this save file first!");
+			return;
+		}
+		
 		GameMan.saveIndex = saveIndex;
 
-		if (load != null) {
-			UIManager.UIMan.StartMessage ("If you want to start a new game, you must delete this save file first!");
-		} else {
-			File.Delete (Application.persistentDataPath + "/playerData" + saveIndex + ".dat");
-
-			// Initialize values for beginning of game
-			GameMan.coins = 10;
-
-			UIManager.UIMan.SwitchLocationAndScene (-5, 0, "New Game");
-		}
+		// Initialize values for beginning of game
+		GameMan.coins = 10;
+		UIManager.UIMan.SwitchLocationAndScene(-5, 0, "New Game");
 	}
 
 	// Player presses Delete Save button
 	public void DeleteSave() {
-		PlayerData load = GameMan.Load (saveIndex);
+		PlayerData load = SaveLoadGame.Inst.Load(saveIndex);
 		GameMan.saveIndex = saveIndex;
 
 		if (load != null) {
 			// Player confirms choice to delete Save file
-			if (DeleteSaveText.text == "Confirm Delete?") {
-
-				// Delete Save
-				File.Delete (Application.persistentDataPath + "/playerData" + saveIndex + ".dat");
+			if (DeleteSaveText.text == "Confirm Delete?") 
+			{
+				SaveLoadGame.Inst.DeleteSave(saveIndex);
 
 				// Reset save file to show no save
-				LoadSaveFile (saveIndex);
+				LoadSaveFile(saveIndex);
 
 				// Reset buttons, Delete button text
 				selectSave (-1);
