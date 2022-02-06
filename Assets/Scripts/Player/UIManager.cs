@@ -1270,7 +1270,7 @@ public class UIManager : MonoBehaviour {
 			StartMessage (null, fade.fadeOutToBlack (), (() => playerMovement.transform.position = new Vector3(x, y, -10f)));
 
 			// Fade in, allow player to move
-			StartMessage (null, fade.fadeInSceneChange (), (() => (PlayerMovement.PlayMov.ResumeMoving())));
+			StartMessage (null, fade.fadeInSceneChange (), () => PlayerMovement.PlayMov.ResumeMoving());
 		}
 		StartMessage (null, null, gameManager.Save);
 	}
