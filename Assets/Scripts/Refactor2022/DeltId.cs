@@ -36,6 +36,8 @@
         Tannon,
         Treent,
         Velardass,
-        Wolfmond
+        Wolfmond,
+
+        CurrentTotal = Wolfmond
     }
 }

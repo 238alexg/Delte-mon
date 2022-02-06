@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour {
 
 		SpriteData.PopulateDictionaries();
 		Data.Load(SpriteData);
+
+		AchievementManager.Authenticate();
 	}
 
 	// Keep track of how long the player has been playing
@@ -179,8 +181,7 @@ public class GameManager : MonoBehaviour {
 		file.Close ();
 
 		// Update how long the player has been playing
-		AchievementManager.AchieveMan.TimeSpentUpdate ((long)timePlayed);
-		AchievementManager.AchieveMan.GymLeaderBattles ("");
+		AchievementManager.ReportScore(AchievementManager.ScoreId.Time, (long)timePlayed);
 	}
 
 	// Load the game from save (ONLY CALLED ON STARTUP! Player cannot choose to load the game)
@@ -379,8 +380,23 @@ public class GameManager : MonoBehaviour {
 
 			UIManager.StartMessage ((newDex.Nickname + " was added to " + playerName + "'s DeltDex!"));
 
-			// Update leaderboard
-			AchievementManager.AchieveMan.UpdateDeltDexCount (deltDex.Count);
+			int totalDeltDexes = deltDex.Count;
+			AchievementManager.ReportScore(AchievementManager.ScoreId.DeltDex, totalDeltDexes);
+
+			float dex10Percent = Mathf.Min(totalDeltDexes / 10f, 1) * 100;
+			AchievementManager.ReportAchievement(AchievementManager.AchievementId.Dexes10, dex10Percent);
+
+			float dev25Percent = Mathf.Min(totalDeltDexes / 25f, 1) * 100;
+			AchievementManager.ReportAchievement(AchievementManager.AchievementId.Dexes25, dev25Percent);
+
+			float dex50Percent = Mathf.Min(totalDeltDexes / 50f, 1) * 100;
+			AchievementManager.ReportAchievement(AchievementManager.AchievementId.Dexes50, dex50Percent);
+
+			float dev75Percent = Mathf.Min(totalDeltDexes / 75f, 1) * 100;
+			AchievementManager.ReportAchievement(AchievementManager.AchievementId.Dexes75, dev75Percent);
+
+			float allDexesPercent = 100 * totalDeltDexes / (float)DeltId.CurrentTotal;
+			AchievementManager.ReportAchievement(AchievementManager.AchievementId.AllDexes, allDexesPercent);
 
 			// Update DeltDexUI on next load
 			UIManager.allDexesLoaded = false;
@@ -525,6 +541,21 @@ public class GameManager : MonoBehaviour {
 		} else {
 			prevSI = sceneDataInit;
 		}
+	}
+
+	public int GetHighestLevelDelt()
+    {
+		int level = 0;
+		foreach (DeltemonClass posseDelt in deltPosse)
+		{
+			level = Mathf.Max(posseDelt.level, level);
+		}
+		foreach (DeltemonData houseDelt in houseDelts)
+		{
+			level = Mathf.Max(houseDelt.level, level);
+		}
+
+		return level;
 	}
 
 	// Update active game quests/effects when scene changes

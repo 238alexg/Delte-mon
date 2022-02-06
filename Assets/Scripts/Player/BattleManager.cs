@@ -1209,8 +1209,11 @@ public class BattleManager : MonoBehaviour {
 				yield return StartCoroutine(evolMessage ("Posse full, " + curOppDelt.nickname + " has been added to your house."));
 			}
 
+			long totalDeltsRushed = GameManager.GameMan.deltPosse.Count + GameManager.GameMan.houseDelts.Count;
+
 			UIManager.StartMessage (null, null, () => gameManager.AddDelt (curOppDelt));
-			UIManager.StartMessage (null, null, ()=> AchievementManager.AchieveMan.DeltsRushedUpdate ());
+			UIManager.StartMessage (null, null, () => 
+				AchievementManager.ReportScore(AchievementManager.ScoreId.DeltsRushed, totalDeltsRushed));
 			UIManager.StartMessage (null, null, () => EndBattle ());
 		} else {
 			oppDeltSprite.GetComponent <Animator> ().Play ("BallReleaseFadeIn");
@@ -1992,7 +1995,35 @@ public class BattleManager : MonoBehaviour {
 
 				// Give achievements if any
 				if (trainer.isGymLeader) {
-					AchievementManager.AchieveMan.GymLeaderBattles (trainerName);
+					// TODO: Turn trainers/leaders into enums/refactor data
+					AchievementManager.AchievementId? achievementId = null;
+					switch (trainerName)
+					{
+						case "Kane Varon": // Sigma Chi
+							achievementId = AchievementManager.AchievementId.Gym1;
+							break;
+						case "Brayden Figueroa": // Delta Sig
+							achievementId = AchievementManager.AchievementId.Gym2;
+							break;
+						case "Nick Scrivens": // Sigma Nu
+							achievementId = AchievementManager.AchievementId.Gym3;
+							break;
+					}
+
+					
+
+					if (achievementId != null)
+                    {
+						AchievementManager.ReportAchievement(achievementId.Value);
+
+						// Update number of gyms defeated
+						List<ItemData> allBadges = GameManager.GameMan.allItems.FindAll(item => item.itemT == itemType.Badge);
+						AchievementManager.ReportScore(AchievementManager.ScoreId.Gyms, allBadges.Count);
+					}
+					else
+                    {
+						Debug.LogError($"Failed to get achievement ID for gym leader {trainerName}");
+                    }
 
 					// Heal all player Delts after defeating gym
 					foreach (DeltemonClass delt in playerDelts) {
@@ -2004,7 +2035,7 @@ public class BattleManager : MonoBehaviour {
 						}
 					}
 				} else {
-					QuestManager.QuestMan.BattleAcheivements (trainerName);
+					QuestManager.QuestMan.BattleAcheivements(trainerName);
 				}
 
 				// Give player coins
@@ -2072,7 +2103,8 @@ public class BattleManager : MonoBehaviour {
 				string[] lvlUpText = curPlayerDelt.levelUp ();
 
 				// Try to update highest level score
-				AchievementManager.AchieveMan.HighestLevelUpdate (curPlayerDelt.level);
+				int highestLevelDelt = gameManager.GetHighestLevelDelt();
+				AchievementManager.ReportScore(AchievementManager.ScoreId.HighestLevel, highestLevelDelt);
 
 				// If the Delt's level causes it to evolve
 				if (curPlayerDelt.level == curPlayerDelt.deltdex.EvolveLevel) {
@@ -2509,7 +2541,7 @@ public class BattleManager : MonoBehaviour {
 	void PlayerWinBattle() {
 		playerWon = true;
 		gameManager.battlesWon++;
-		AchievementManager.AchieveMan.BattlesWonUpdate (gameManager.battlesWon);
+		AchievementManager.ReportScore(AchievementManager.ScoreId.BattlesWon, gameManager.battlesWon);
 	}
 
 	// Ends the battle once a player has lost, stops battle coroutine

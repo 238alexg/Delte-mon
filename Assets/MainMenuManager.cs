@@ -83,11 +83,6 @@ public class MainMenuManager : MonoBehaviour {
 			loadOverview.gameObject.SetActive (false);
 			loadOverview.parent.GetChild (0).gameObject.SetActive (true);
 		}
-
-		// If it is the last save, submit total time played score
-		if (saveNum == 2) {
-			AchievementManager.AchieveMan.TimeSpentUpdate ((long)totalTime);
-		}
 	}
 
 	public void selectSave(int index) {

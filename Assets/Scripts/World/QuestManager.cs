@@ -58,7 +58,7 @@ public class QuestManager : MonoBehaviour {
 			UIManager.UIMan.StartMessage ("You shed a tear and praise the almighty Mr. West");
 			UIManager.UIMan.StartMessage ("You can now use the B button to run!");
 		} else if (item.itemName == "Composite") {
-			AchievementManager.AchieveMan.CompositeUpdate (item.numberOfItem);
+			AchievementManager.ReportScore(AchievementManager.ScoreId.Composites, item.numberOfItem);
 		} 
 	}
 
