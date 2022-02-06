@@ -314,7 +314,11 @@ namespace BattleDelts.Save
 
 				SceneInteractions = legacySave.sceneInteractions,
 				HouseDelts = legacySave.houseDelts,
-				Posse = legacySave.deltPosse.ToList(),
+
+				// When first published, the posse was an array of 6 delts
+				// Since now I am storing as a list, I need to remove null delts
+				// from players whose saves had less than 6 delts
+				Posse = legacySave.deltPosse.Where(delt => delt != null).ToList(),
 				DeltDexes = GetDeltDexesFromLegacySave(legacySave.deltDex),
 				Items = legacySave.allItems
 			};
