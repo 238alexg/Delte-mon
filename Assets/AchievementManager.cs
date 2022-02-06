@@ -1,178 +1,156 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.SocialPlatforms.GameCenter;
 
-public class AchievementManager : MonoBehaviour {
+public static class AchievementManager
+{
+	public enum AchievementId
+	{
+		Gym1, // Achievements for gym leader battles
+		Gym2,
+		Gym3,
+		Dexes10, // Achievements for collected unique delt dexes
+		Dexes25,
+		Dexes50,
+		Dexes75,
+		AllDexes
+	}
 
-	public static AchievementManager AchieveMan;
+	public enum ScoreId
+	{
+		Composites, // Update amount of Composites collected
+		Gyms, // # of completed gym leader battles
+		HighestLevel, // Player's highest level Delt
+		BattlesWon, // Total number of battles won
+		DeltsRushed, // Total number of Delts rushed
+		Time, // Total time playing the game
+		DeltDex // Total number of unique deltdexes collected
+	}
 
-	void Awake() {
-		if (AchieveMan == null) {
-			AchieveMan = this;
-		} else if (AchieveMan != this) {
-			Destroy (this.gameObject);
+	public static bool Enabled 
+	{
+		get 
+		{
+			switch (Application.platform)
+			{
+				case RuntimePlatform.IPhonePlayer: return true;
+				case RuntimePlatform.Android: return true;
+				default: return false;
+			};	
 		}
 	}
 
-	void Start () {
-		// Authenticate and register a ProcessAuthentication callback
-		// This call needs to be made before we can proceed to other calls in the Social API
-		Social.localUser.Authenticate (ProcessAuthentication);
+	private static readonly Dictionary<AchievementId, string> AchievementNames = new Dictionary<AchievementId, string>()
+	{
+		[AchievementId.Gym1] = "Gym1",
+		[AchievementId.Gym2] = "Gym2",
+		[AchievementId.Gym3] = "Gym3",
+		[AchievementId.Dexes10] = "10Dexes",
+		[AchievementId.Dexes25] = "25Dexes",
+		[AchievementId.Dexes50] = "50Dexes",
+		[AchievementId.Dexes75] = "75Dexes",
+		[AchievementId.AllDexes] = "AllDexes"
+	};
 
-		// Shows GameCenter banners for iOS
-		GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
-	}
+	private static readonly Dictionary<ScoreId, string> ScoreNames = new Dictionary<ScoreId, string>()
+	{
+		[ScoreId.Composites] = "Composites",
+		[ScoreId.Gyms] = "Gyms",
+		[ScoreId.HighestLevel] = "HighestLevel",
+		[ScoreId.BattlesWon] = "BattlesWon",
+		[ScoreId.DeltsRushed] = "DeltsRushed",
+		[ScoreId.Time] = "Time",
+		[ScoreId.DeltDex] = "DeltDex",
+	};
 
-	// Takes achievement name and reports progress
-	public void ReportAchievement(string achievementID) {
-		if (Social.localUser.authenticated) {
-			Social.ReportProgress (achievementID, 100, (result) => {
-				Debug.Log (result ? "Test reported!" : "Failed to report test achievement");
-			});
-		} else {
-			Debug.Log ("Social Error: localUser is NOT authenticated!");
+	public static void Authenticate()
+    {
+		if (Enabled)
+        {
+			// Authenticate and register a ProcessAuthentication callback
+			// This call needs to be made before we can proceed to other calls in the Social API
+			Social.localUser.Authenticate(ProcessAuthentication);
+
+			// Shows GameCenter banners for iOS
+			GameCenterPlatform.ShowDefaultAchievementCompletionBanner(true);
 		}
 	}
 
-	// Update amount of Composites collected
-	public void CompositeUpdate(double count) {
-		Social.ReportProgress ("Composites", count, (result) => {
-			if (!result) {
-				Debug.Log ("Failed to composite achievement!");
-			}
-		});
-	}
+	public static void ReportAchievement(AchievementId achievement)
+    {
+		ReportAchievement(achievement, 100);
+    }
 
-	// Achievements for gym leader battles
-	public void GymLeaderBattles(string leaderName) {
-		switch (leaderName) {
-		case "Kane Varon": // Sigma Chi
-			ReportAchievement ("Gym1");
-			break;
-		case "Brayden Figueroa": // Delta Sig
-			ReportAchievement ("Gym2");
-			break;
-		case "Nick Scrivens": // Sigma Nu
-			ReportAchievement ("Gym3");
-			break;
-		}
-		// Update number of gyms defeated
-		List<ItemData> allBadges = GameManager.GameMan.allItems.FindAll (item => item.itemT == itemType.Badge);
-
-		Social.ReportScore ((long)allBadges.Count, "Gyms", (result)=> {
-			if (!result) {
-				Debug.Log ("Failed to post battles won score!");
-			}
-		});
-	}
-
-	// Update Player's highest level Delt
-	public void HighestLevelUpdate(long level) {
-		foreach (DeltemonClass posseDelt in GameManager.GameMan.deltPosse) {
-			// If level is not heighest in posse
-			if (level < posseDelt.level) {
-				return;
-			}
-		}
-		foreach (DeltemonData houseDelt in GameManager.GameMan.houseDelts) {
-			// If level is not heighest in posse
-			if (level < houseDelt.level) {
-				return;
-			}
+	public static void ReportAchievement(AchievementId achievement, double percentComplete)
+    {
+		if (!Enabled)
+		{
+			return;
 		}
 
-		// If level is the highest player has, report score
-		Social.ReportScore (level, "HighestLevel", (result)=> {
-			if (!result) {
-				Debug.Log ("Failed to post battles won score!");
+		if (Social.localUser.authenticated)
+		{
+			if (AchievementNames.TryGetValue(achievement, out var achievementName))
+            {
+				Social.ReportProgress(achievementName, percentComplete, (result) => {
+					Debug.Log(result ? "Test reported!" : "Failed to report test achievement");
+				});
 			}
-		});
+			else
+            {
+				Debug.LogError($"Failed to get achievement name for: {achievement}");
+            }
+		}
+		else
+		{
+			Debug.Log("Social Error: localUser is NOT authenticated!");
+		}
 	}
 
-	// Score for most battles won
-	public void BattlesWonUpdate(long count) {
-		Social.ReportScore (count, "BattlesWon", (result)=> {
-			if (!result) {
-				Debug.Log ("Failed to post battles won score!");
+	public static void ReportScore(ScoreId score, long scoreAmount)
+    {
+		if (!Enabled)
+        {
+			return;
+        }
+
+		if (Social.localUser.authenticated)
+		{
+			if (ScoreNames.TryGetValue(score, out var scoreName))
+			{
+				Social.ReportScore(scoreAmount, scoreName, (result) => {
+					Debug.Log(result ? $"{score} score reported!" : $"Failed to report {score} score");
+				});
 			}
-		});
+			else
+			{
+				Debug.LogError($"Failed to get score name for: {score}");
+			}
+		}
+		else
+		{
+			Debug.Log("Social Error: localUser is NOT authenticated!");
+		}
 	}
 
-	// Score for most battles won
-	public void DeltsRushedUpdate() {
-
-		long count = GameManager.GameMan.deltPosse.Count + GameManager.GameMan.houseDelts.Count;
-
-		Social.ReportScore (count, "DeltsRushed", (result)=> {
-			if (!result) {
-				Debug.Log ("Failed to post delts rushed score!");
-			}
-		});
+	public static void ShowAchievements() {
+		if (Enabled)
+        {
+			Social.ShowAchievementsUI();
+		}
 	}
 
-	// Update score for time spent in game
-	public void TimeSpentUpdate(long timePlayed) {
-
-		print ("Minutes played: " + timePlayed / 60);
-
-		Social.ReportScore (timePlayed, "Time", (result)=> {
-			if (!result) {
-				Debug.Log ("Failed to post time score!");
-			}
-		});
-	}
-
-	// When user catches a new delt, update leaderboard
-	public void UpdateDeltDexCount (double count) {
-
-		// Score for most DeltDexes caught
-		Social.ReportScore ((long)count, "DeltDex", (result)=> {
-			if (!result) {
-				Debug.Log ("Failed to post DeltDex score!");
-			}
-		});
-
-		// Achievements for achieving certain # of dexes
-		Social.ReportProgress ("10Dexes", (count*10), (result) => {
-			if (!result) {
-				Debug.Log ("Failed to post 10 Dex achievement!");
-			}
-		});
-		Social.ReportProgress ("25Dexes", count*4, (result) => {
-			if (!result) {
-				Debug.Log ("Failed to post 25 Dex achievement!");
-			}
-		});
-		Social.ReportProgress ("50Dexes", count*2, (result) => {
-			if (!result) {
-				Debug.Log ("Failed to post 50 Dex achievement!");
-			}
-		});
-		Social.ReportProgress ("75Dexes", count*(4/3), (result) => {
-			if (!result) {
-				Debug.Log ("Failed to post 75 Dex achievement!");
-			}
-		});
-		Social.ReportProgress ("AllDexes", count*0.85f, (result) => {
-			if (!result) {
-				Debug.Log ("Failed to post all Dex achievement!");
-			}
-		});
-	}
-
-	public void ShowAchievements() {
-		Social.ShowAchievementsUI ();
-	}
-
-	public void ShowLeaderboard() {
-		Social.ShowLeaderboardUI ();
+	public static void ShowLeaderboard() {
+		if (Enabled)
+        {
+			Social.ShowLeaderboardUI();
+		}
 	}
 
 	// This function gets called when Authenticate completes
 	// Note that if the operation is successful, Social.localUser will contain data from the server. 
-	void ProcessAuthentication (bool success) {
+	private static void ProcessAuthentication (bool success) {
 		if (success) {
 			Debug.Log ("Authenticated, checking achievements");
 
@@ -184,7 +162,7 @@ public class AchievementManager : MonoBehaviour {
 	}
 
 	// This function gets called when the LoadAchievement call completes
-	void ProcessLoadedAchievements (IAchievement[] achievements) {
+	private static void ProcessLoadedAchievements (IAchievement[] achievements) {
 		if (achievements.Length == 0) {
 			Debug.Log ("Error: no achievements found");
 		} else {

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ using UnityEngine;
 public class DeltemonClass : MonoBehaviour {
 
 	[Header("Static Info")]
-	public DeltDexClass deltdex;
+	public DeltId DeltId;
+	public Delt deltdex => GameManager.GameMan.Data.Delts[DeltId];
+
+	//public DeltDexClass deltdex;
 
 	[Header("Dynamic Info")]
 	public string nickname;
@@ -17,8 +21,8 @@ public class DeltemonClass : MonoBehaviour {
 	public float health;
 	public ItemClass item;
 	public List<MoveClass> moveset;
-	public byte[] AVs = new byte[6] {0,0,0,0,0,0};
-	public byte AVCount;
+	public int[] AVs = new int[6] {0,0,0,0,0,0};
+	public int AVCount;
 	public Sprite statusImage;
 	public float GPA, Truth, Courage, Faith, Power, ChillToPull;
 
@@ -88,19 +92,19 @@ public class DeltemonClass : MonoBehaviour {
 		return text;
 	}
 
-	public void learnNewMove(MoveClass newMove, int indexToRemove) {
-		newMove.PPLeft = newMove.PP;
-		moveset [indexToRemove] = newMove;
+	public void learnNewMove(Move newMove, int indexToRemove) 
+	{
+		moveset[indexToRemove].MoveId = newMove.MoveId;
+		moveset[indexToRemove].PPLeft = newMove.PP;
 	}
-
 
 	public void initializeDelt(bool setMoves = true) {
 		int levels = 0;
-		byte index = 0;
-		nickname = deltdex.nickname;
+		int index = 0;
+		nickname = deltdex.Nickname;
 		curStatus = statusType.None;
 		experience = 0;
-		AVs = new byte[6] { 0, 0, 0, 0, 0, 0 };
+		AVs = new int[6] { 0, 0, 0, 0, 0, 0 };
 		AVCount = 0;
 		GPA = 0;
 		Truth = 0;
@@ -113,59 +117,43 @@ public class DeltemonClass : MonoBehaviour {
 		// Update XP needed to level up again
 		XPToLevel = (level * 3) + (level * level * 3);
 
-		// If Delt has 1-2 prev evols, set stats a little lower
-		// Note: Compensates for Delt not evolving from lower stat state(s)
 		int statMod = level;
-		if (deltdex.prevEvol != null) {
-			// 2 previous evols
-			if (deltdex.prevEvol.prevEvol != null) {
+
+		if (deltdex.PrevEvolution != null) {
+
+			// If Delt has 1-2 prev evols, set stats a little lower
+			// Note: Compensates for Delt not evolving from lower stat state(s)
+			if (deltdex.PrevEvolution.PrevEvolution != null)
+			{
 				statMod = (int)(statMod * 0.7f);
-			} 
-			// 1 previous evol
-			else {
-				statMod = (int)(statMod * 0.55f);
-			}
-		}
-
-		if (deltdex.prevEvol != null) {
-
-			DeltDexClass prevDex;
-
-			// Add stats for smallest evolution (if exists)
-			if (deltdex.prevEvol.prevEvol != null) {
 
 				// Get prev prev evolution dex
-				prevDex = deltdex.prevEvol.prevEvol;
-				levels = prevDex.evolveLevel;
+				var firstDex = deltdex.PrevEvolution.PrevEvolution;
+				levels = firstDex.EvolveLevel;
 
 				// Add previous previous evolution stats
-				GPA += (prevDex.BVs [0] * levels * .02f);
-				Truth += (prevDex.BVs [1] * levels * .02f);
-				Courage += (prevDex.BVs [2] * levels * .02f);
-				Faith += (prevDex.BVs [3] * levels * .02f);
-				Power += (prevDex.BVs [4] * levels * .02f);
-				ChillToPull += (prevDex.BVs [5] * levels * .02f);
+				GPA += (firstDex.BVs[0] * levels * .02f);
+				Truth += (firstDex.BVs[1] * levels * .02f);
+				Courage += (firstDex.BVs[2] * levels * .02f);
+				Faith += (firstDex.BVs[3] * levels * .02f);
+				Power += (firstDex.BVs[4] * levels * .02f);
+				ChillToPull += (firstDex.BVs[5] * levels * .02f);
 
 				// If moves need to be set programmatically
-				if (setMoves) {
-					foreach (LevelUpMove lum in prevDex.levelUpMoves) {
-						if (lum.level <= level) {
-							if (moveset.Count < 4) {
-								moveset.Add (lum.move);
-							} else {
-								moveset [index] = lum.move;
-								index = (byte)((index++) % 4);
-							}
-						} else {
-							break;
-						}
-					}
+				if (setMoves)
+				{
+					AddLevelUpMoves(firstDex.LevelUpMoves, ref index);
 				}
+			}
+			// 1 previous evol
+			else
+			{
+				statMod = (int)(statMod * 0.55f);
 			}
 
 			// Get previous evol dex, calculate number of levels where Delt was that evolution
-			prevDex = deltdex.prevEvol;
-			levels = prevDex.evolveLevel - levels;
+			var prevDex = deltdex.PrevEvolution;
+			levels = prevDex.EvolveLevel - levels;
 
 			// Add previous evolution stats
 			GPA += (prevDex.BVs [0] * levels * .02f);
@@ -176,24 +164,13 @@ public class DeltemonClass : MonoBehaviour {
 			ChillToPull += (prevDex.BVs [5] * levels * .02f);
 
 			// Set number of levels as current evolution
-			levels = level - prevDex.evolveLevel;
+			levels = level - prevDex.EvolveLevel;
 
 			// If moves need to be set programmatically
-			if (setMoves) {
-				foreach (LevelUpMove lum in prevDex.levelUpMoves) {
-					if (lum.level <= level) {
-						if (moveset.Count < 4) {
-							moveset.Add (lum.move);
-						} else {
-							moveset [index] = lum.move;
-							index = (byte)((index++) % 4);
-						}
-					} else {
-						break;
-					}
-				}
+			if (setMoves) 
+			{
+				AddLevelUpMoves(prevDex.LevelUpMoves, ref index);
 			}
-
 		} 
 
 		// Delt was always this evolution, no previous
@@ -212,19 +189,27 @@ public class DeltemonClass : MonoBehaviour {
 		health = GPA;
 
 		// If moves need to be set programmatically
-		if (setMoves) {
-			index = 0;
+		if (setMoves) 
+		{
+			AddLevelUpMoves(deltdex.LevelUpMoves, ref index);
+		}
+	}
 
-			foreach (LevelUpMove lum in deltdex.levelUpMoves) {
-				if (lum.level <= level) {
-					if (moveset.Count < 4) {
-						moveset.Add (lum.move);
-					} else {
-						moveset [index] = lum.move;
-						index = (byte)((index++) % 4);
-					}
-				} else {
-					return;
+	private void AddLevelUpMoves(IEnumerable<BattleDelts.Data.LevelUpMove> levelUpMoves, ref int indexToRemove)
+    {
+		foreach(var levelUpMove in levelUpMoves)
+        {
+			if (levelUpMove.Level <= level)
+			{
+				if (moveset.Count < 4)
+				{
+					moveset.Add(new MoveClass(levelUpMove.Move.MoveId));
+				}
+				else
+				{
+					moveset[indexToRemove].MoveId = levelUpMove.Move.MoveId;
+					moveset[indexToRemove].PPLeft = levelUpMove.Move.PP;
+					indexToRemove = (byte)(indexToRemove++ % 4);
 				}
 			}
 		}
@@ -232,7 +217,7 @@ public class DeltemonClass : MonoBehaviour {
 
 	// Duplicate values into recipient Delt
 	public DeltemonClass dulplicateValues(DeltemonClass recipient) {
-		recipient.deltdex = deltdex;
+		recipient.DeltId = DeltId;
 		recipient.nickname = nickname;
 		recipient.curStatus = curStatus;
 		recipient.level = level;

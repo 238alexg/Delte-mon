@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using BattleDelts.Data;
+using BattleDelts.Save;
 
 public class UIManager : MonoBehaviour {
 	[Header("Entire UI Objects")]
@@ -27,7 +29,8 @@ public class UIManager : MonoBehaviour {
 	int overviewDeltIndex;
 
 	[Header("DeltDex UI")]
-	public GameObject DeltDexUI, ListDeltemonObject, curOverviewDex;
+	public GameObject DeltDexUI, ListDeltemonObject;
+	Delt curOverviewDex;
 	public Transform DeltDexOverviewUI, DexListContent;
 	public Button prevEvol, nextEvol;
 	public Color[] rarityColor;
@@ -399,10 +402,11 @@ public class UIManager : MonoBehaviour {
 				Destroy(child.gameObject);
 			}
 			int i = 0;
-			foreach (DeltDexData dexdata in gameManager.deltDex) {
+			foreach (var deltId in gameManager.deltDex) {
+				var delt = gameManager.Data.Delts[deltId];
 				GameObject di = Instantiate (ListDeltemonObject, DexListContent);
 
-				switch (dexdata.rarity) {
+				switch (delt.RarityEnum) {
 				case Rarity.VeryCommon:
 					di.GetComponent<Image> ().color = rarityColor[0];
 					break;
@@ -424,20 +428,20 @@ public class UIManager : MonoBehaviour {
 				}
 				Text[] texts = di.GetComponentsInChildren<Text> ();
 
-				if ((dexdata.rarity == Rarity.VeryRare) || (dexdata.rarity == Rarity.Legendary)) {
+				if ((delt.RarityEnum == Rarity.VeryRare) || (delt.RarityEnum == Rarity.Legendary)) {
 					texts [0].color = Color.white;
 					texts [1].color = Color.white;
 					texts [2].color = Color.white;
 				}
 
 				if (gameManager.pork) {
-					texts [0].text = dexdata.nickname + " Pork";
+					texts [0].text = delt.Nickname + " Pork";
 					texts [1].text = "Last Name Pork, First Name What is";
 					texts [2].text = "01NK";
 				} else {
-					texts [0].text = dexdata.nickname;
-					texts [1].text = dexdata.actualName;
-					texts [2].text = "" + dexdata.pin;
+					texts [0].text = delt.Nickname;
+					texts [1].text = delt.DeltName;
+					texts [2].text = "" + delt.PinNumber;
 				}
 
 				Button b = di.transform.GetChild(3).gameObject.GetComponent<Button>();
@@ -459,18 +463,16 @@ public class UIManager : MonoBehaviour {
 
 	// Loads DeltDex information into Dex Overview UI
 	public void LoadIntoDeltdexOverview (int i) {
-		
-		DeltDexData ddd = gameManager.deltDex [i];
-		curOverviewDex = (GameObject)Resources.Load("Deltemon/DeltDex/" + ddd.nickname + "DD");
-		DeltDexClass dex = curOverviewDex.transform.GetComponent<DeltDexClass> ();
 
-		// Set background colors based on major
-		DeltDexOverviewUI.GetComponent<Image> ().color = dex.major1.background;
-		if (dex.major2.majorName == "NoMajor") {
-			DeltDexOverviewUI.GetChild (0).gameObject.SetActive (false);
+		curOverviewDex = gameManager.Data.Delts[gameManager.deltDex[i]];
+
+        // Set background colors based on major
+        DeltDexOverviewUI.GetComponent<Image>().color = curOverviewDex.FirstMajor.Color;
+		if (curOverviewDex.SecondMajor == null) {
+            DeltDexOverviewUI.GetChild (0).gameObject.SetActive (false);
 		} else {
-			DeltDexOverviewUI.GetChild (0).gameObject.GetComponent<Image> ().color = dex.major2.background;
-			DeltDexOverviewUI.GetChild (0).gameObject.SetActive (true);
+            DeltDexOverviewUI.GetChild (0).gameObject.GetComponent<Image> ().color = curOverviewDex.SecondMajor.Color;
+            DeltDexOverviewUI.GetChild (0).gameObject.SetActive (true);
 		}
 
 		if (gameManager.pork) {
@@ -478,33 +480,33 @@ public class UIManager : MonoBehaviour {
 			DeltDexOverviewUI.GetChild (1).gameObject.GetComponent<Image> ().sprite = porkSprite;
 			DeltDexOverviewUI.GetChild (2).gameObject.GetComponent<Image> ().sprite = battleManager.porkBack;
 			// Set names and description
-			DeltDexOverviewUI.GetChild (5).gameObject.GetComponent<Text> ().text = "What is " + dex.nickname + "!?";
-			DeltDexOverviewUI.GetChild (6).gameObject.GetComponent<Text> ().text = "Ribbert " + dex.deltName + " Rinderson";;
-			DeltDexOverviewUI.GetChild (7).gameObject.GetComponent<Text> ().text = dex.description;
+			DeltDexOverviewUI.GetChild (5).gameObject.GetComponent<Text> ().text = "What is " + curOverviewDex.Nickname + "!?";
+			DeltDexOverviewUI.GetChild (6).gameObject.GetComponent<Text> ().text = "Ribbert " + curOverviewDex.DeltName + " Rinderson";;
+			DeltDexOverviewUI.GetChild (7).gameObject.GetComponent<Text> ().text = curOverviewDex.Description;
 		} else {
 			// Set front and back image, respectively
-			DeltDexOverviewUI.GetChild (1).gameObject.GetComponent<Image> ().sprite = dex.frontImage;
-			DeltDexOverviewUI.GetChild (2).gameObject.GetComponent<Image> ().sprite = dex.backImage;
+			DeltDexOverviewUI.GetChild (1).gameObject.GetComponent<Image> ().sprite = curOverviewDex.FrontSprite;
+			DeltDexOverviewUI.GetChild (2).gameObject.GetComponent<Image> ().sprite = curOverviewDex.BackSprite;
 			// Set names and description
-			DeltDexOverviewUI.GetChild (5).gameObject.GetComponent<Text> ().text = dex.nickname;
-			DeltDexOverviewUI.GetChild (6).gameObject.GetComponent<Text> ().text = dex.deltName;
-			DeltDexOverviewUI.GetChild (7).gameObject.GetComponent<Text> ().text = dex.description;
+			DeltDexOverviewUI.GetChild (5).gameObject.GetComponent<Text> ().text = curOverviewDex.Nickname;
+			DeltDexOverviewUI.GetChild (6).gameObject.GetComponent<Text> ().text = curOverviewDex.DeltName;
+			DeltDexOverviewUI.GetChild (7).gameObject.GetComponent<Text> ().text = curOverviewDex.Description;
 		}
 
 		// Set major images
-		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().sprite = dex.major1.majorImage;
+		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().sprite = curOverviewDex.FirstMajor.Sprite;
 		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().preserveAspect = true;
-		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().sprite = dex.major2.majorImage;
+		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().sprite = curOverviewDex.SecondMajor.Sprite;
 		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().preserveAspect = true;
 
 
 
 		// Create base values string
-		short total = 0;
+		int total = 0;
 		string baseValues = "";
 		for (int index = 0; index < 6; index++) {
-			total += dex.BVs [index];
-			baseValues += System.Environment.NewLine + dex.BVs[index];
+			total += curOverviewDex.BVs [index];
+			baseValues += System.Environment.NewLine + curOverviewDex.BVs[index];
 		}
 		baseValues.Insert (0, total.ToString());
 
@@ -512,11 +514,11 @@ public class UIManager : MonoBehaviour {
 		DeltDexOverviewUI.GetChild (8).gameObject.GetComponent<Text> ().text = baseValues;
 
 		// Set evolution buttons, onclick to load that evolution's dex to overview
-		if (dex.prevEvol != null) {
+		if (curOverviewDex.PrevEvolution != null) {
 			prevEvol.gameObject.SetActive (true);
-			int dexIndex = gameManager.deltDex.FindIndex (dd => dd.actualName == dex.prevEvol.deltName);
+			int dexIndex = gameManager.deltDex.FindIndex (dd => dd == curOverviewDex.PrevEvolution.DeltId);
 			if (dexIndex != -1) {
-				prevEvol.transform.GetChild (0).gameObject.GetComponent<Text> ().text = dex.prevEvol.nickname;
+				prevEvol.transform.GetChild (0).gameObject.GetComponent<Text> ().text = curOverviewDex.PrevEvolution.Nickname;
 				EvolButtonListener (prevEvol, dexIndex);
 			} else {
 				if (gameManager.pork) {
@@ -528,11 +530,11 @@ public class UIManager : MonoBehaviour {
 		} else {
 			prevEvol.gameObject.SetActive (false);
 		}
-		if (dex.nextEvol != null) {
+		if (curOverviewDex.NextEvolution != null) {
 			nextEvol.gameObject.SetActive (true);
-			int dexIndex = gameManager.deltDex.FindIndex (dd => dd.actualName == dex.nextEvol.deltName);
+			int dexIndex = gameManager.deltDex.FindIndex(dd => dd == curOverviewDex.NextEvolution.DeltId);
 			if (dexIndex != -1) {
-				nextEvol.transform.GetChild (0).gameObject.GetComponent<Text> ().text = dex.nextEvol.nickname;
+				nextEvol.transform.GetChild (0).gameObject.GetComponent<Text> ().text = curOverviewDex.NextEvolution.Nickname;
 				EvolButtonListener (nextEvol, dexIndex);
 			} else {
 				if (gameManager.pork) {
@@ -963,7 +965,7 @@ public class UIManager : MonoBehaviour {
 			statCube.transform.GetChild (2).GetComponent<Image> ().sprite = porkSprite;
 		} else {
 			statCube.transform.GetChild (1).GetComponent<Text> ().text = delt.nickname + ", " + delt.level;
-			statCube.transform.GetChild (2).GetComponent<Image> ().sprite = delt.deltdex.frontImage;
+			statCube.transform.GetChild (2).GetComponent<Image> ().sprite = delt.deltdex.FrontSprite;
 		}
 		// Add item sprite to the info box
 		if (delt.item != null) {
@@ -1036,10 +1038,10 @@ public class UIManager : MonoBehaviour {
 			Slider expBar = DeltOverviewUI.transform.GetChild (6).GetComponent<Slider> ();
 			Slider health = DeltOverviewUI.transform.GetChild (7).GetComponent<Slider> ();
 
-			DeltOverviewUI.GetComponent <Image>().color = delt.deltdex.major1.background;
-			if (delt.deltdex.major2.majorName != "NoMajor") {
+			DeltOverviewUI.GetComponent <Image>().color = delt.deltdex.FirstMajor.Color;
+			if (delt.deltdex.SecondMajor != null) {
 				DeltOverviewUI.transform.GetChild (0).gameObject.SetActive (true);
-				DeltOverviewUI.transform.GetChild (0).GetComponent <Image> ().color = delt.deltdex.major2.background;
+				DeltOverviewUI.transform.GetChild (0).GetComponent <Image> ().color = delt.deltdex.SecondMajor.Color;
 			} else {
 				DeltOverviewUI.transform.GetChild (0).gameObject.SetActive (false);
 			}
@@ -1051,11 +1053,11 @@ public class UIManager : MonoBehaviour {
 			if (gameManager.pork) {
 				frontSprite.sprite = porkSprite;
 				nickname.text = "What is " + delt.nickname + " !?";
-				actualName.text = "Loinel " + delt.deltdex.deltName + " Baconius";
+				actualName.text = "Loinel " + delt.deltdex.DeltName + " Baconius";
 			} else {
-				frontSprite.sprite = delt.deltdex.frontImage;
+				frontSprite.sprite = delt.deltdex.FrontSprite;
 				nickname.text = delt.nickname;
-				actualName.text = delt.deltdex.deltName;
+				actualName.text = delt.deltdex.DeltName;
 			}
 
 			health.maxValue = delt.GPA;
@@ -1069,11 +1071,11 @@ public class UIManager : MonoBehaviour {
 				if (index < delt.moveset.Count) {
 					tmpMove = delt.moveset [index];
 					if (gameManager.pork) {
-						MoveOptions [index].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
-						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = ("What is pork!?" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+						MoveOptions[index].GetComponent<Image>().color = new Color(0.967f, 0.698f, 0.878f);
+						MoveOptions[index].transform.GetChild(0).gameObject.GetComponent<Text>().text = "What is pork!?" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK";
 					} else {
-						MoveOptions [index].GetComponent<Image> ().color = tmpMove.majorType.background;
-						MoveOptions [index].transform.GetChild (0).gameObject.GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+						MoveOptions[index].GetComponent<Image>().color = tmpMove.Move.MoveMajor.Color;
+						MoveOptions[index].transform.GetChild(0).gameObject.GetComponent<Text> ().text = tmpMove.Move.Name + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.Move.PP;
 					}
 					MoveOptions [index].gameObject.SetActive (true);
 				} else {
@@ -1093,12 +1095,11 @@ public class UIManager : MonoBehaviour {
 	}
 
 	// Prepare MoveOneOverview with new move info
-	public void SetLevelUpMove(MoveClass newMove, DeltemonClass curPlayerDelt) {
+	public void SetLevelUpMove(Move newMove, DeltemonClass curPlayerDelt) {
 		overviewDeltIndex = gameManager.deltPosse.IndexOf (curPlayerDelt);
 
 		// Temporarily add new move as 5th move
-		curPlayerDelt.moveset.Add (newMove);
-
+		curPlayerDelt.moveset.Add(new MoveClass(newMove.MoveId));
 		MoveClick (4);
 	}
 
@@ -1127,22 +1128,22 @@ public class UIManager : MonoBehaviour {
 			firstMoveLoaded = index;
 		}
 			
-		MoveOverview.GetComponent <Image>().color = move.majorType.background;
-		MoveOverview.GetChild (0).GetComponent <Image>().sprite = move.majorType.majorImage;
+		MoveOverview.GetComponent <Image>().color = move.Move.MoveMajor.Color;
+		MoveOverview.GetChild(0).GetComponent<Image>().sprite = move.Move.MoveMajor.Sprite;
 
-		if (move.statType != statusType.None) {
+		if (move.Status != statusType.None) {
 			MoveOverview.GetChild (1).gameObject.SetActive (true);
-			MoveOverview.GetChild (1).GetComponent <Image> ().sprite = move.status;
+			MoveOverview.GetChild (1).GetComponent <Image> ().sprite = move.Move.StatusType.Sprite;
 		} else {
 			MoveOverview.GetChild (1).gameObject.SetActive (false);
 		}
 
-		MoveOverview.GetChild (2).GetComponent <Text>().text = move.moveName;
-		MoveOverview.GetChild (3).GetComponent <Text>().text = "" + move.movType;
-		MoveOverview.GetChild (4).GetComponent <Text>().text = move.moveDescription;
+		MoveOverview.GetChild (2).GetComponent <Text>().text = move.Move.Name;
+		MoveOverview.GetChild (3).GetComponent <Text>().text = "" + move.Move.Type;
+		MoveOverview.GetChild (4).GetComponent <Text>().text = move.Move.Description;
 
-		MoveOverview.GetChild (5).GetComponent <Text>().text = move.PP + System.Environment.NewLine + move.damage + System.Environment.NewLine +
-			move.hitChance + System.Environment.NewLine + move.statType + System.Environment.NewLine + move.statusChance;
+		MoveOverview.GetChild (5).GetComponent <Text>().text = move.Move.PP + System.Environment.NewLine + move.Move.Damage + System.Environment.NewLine +
+			move.Move.HitChance + System.Environment.NewLine + move.Move.StatusType + System.Environment.NewLine + move.Move.StatusChance;
 
 		MoveOverview.gameObject.SetActive (true);
 	}

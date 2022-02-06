@@ -41,15 +41,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8057922052185660447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec78c59d3c1726f4093d0f35b2c85cc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 58c50b697af67eb4c970a0fd12d2b969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MajorsJson: {fileID: 4900000, guid: 190ef7970388f4444ad79f87be292144, type: 3}
-  StatusesJson: {fileID: 4900000, guid: f0f059a2371ba244fb83ed5434b60edb, type: 3}
-  ItemsJson: {fileID: 4900000, guid: 8923917e5f1de9c43a3e972f6f87efde, type: 3}
-  MovesJson: {fileID: 4900000, guid: a4e495b66117ce34e8f6e17ac9127f14, type: 3}
-  DeltsJson: {fileID: 4900000, guid: 94bc6ebb2c91b4743b4feb96ecf386ec, type: 3}
-  WildDeltSpawnsJson: {fileID: 4900000, guid: f4d11dcbceb579645b5d5eed65e1f81f, type: 3}
+  MajorsJson: {fileID: 4900000, guid: 553eff41dee108541b4700d3f2b8c3f4, type: 3}
+  StatusesJson: {fileID: 4900000, guid: a76685ed2e1e3ea499a038189a9d818e, type: 3}
+  ItemsJson: {fileID: 4900000, guid: 28a29433f29a2f54ebcb91b401db2953, type: 3}
+  MovesJson: {fileID: 4900000, guid: f7edf7fe2efdb1a4c8a760cfbd273f54, type: 3}
+  DeltsJson: {fileID: 4900000, guid: e5bce7e95631da944b64249d05ed6509, type: 3}
+  WildDeltSpawnsJson: {fileID: 4900000, guid: f0af37240f5169c4bbe4dc66b62904b4, type: 3}
 --- !u!114 &4274294102437032580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8057922052185660447}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a227a18f4b0b7241bb7bf879cfddd3c, type: 3}
+  m_Script: {fileID: 11500000, guid: cde9a8b8dd897904bb94bd3799fc9191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DeltSpriteList:

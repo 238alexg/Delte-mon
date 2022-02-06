@@ -60,5 +60,8 @@ namespace BattleDelts.Data
     {
         public int Level;
         public string MoveName;
+
+        [NonSerialized]
+        public Move Move;
     }
 }

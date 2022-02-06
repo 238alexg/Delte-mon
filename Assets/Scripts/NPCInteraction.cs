@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Save;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,11 +50,6 @@ public class NPCInteraction : MonoBehaviour {
 				// Set stats for oppDelts at runtime if not customized in inspector
 				if (!customDeltPosse) {
 					oppDelt.initializeDelt ();
-				}
-
-				// So opp Delts do not alter move prefabs
-				foreach (MoveClass move in oppDelt.moveset) {
-					Instantiate (move, oppDelt.transform);
 				}
 			}
 			UIManager.UIMan.StartMessage (null, UIManager.UIMan.characterSlideOut (), () => UIManager.UIMan.StartTrainerBattle (this, isGymLeader));

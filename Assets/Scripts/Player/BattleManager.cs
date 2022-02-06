@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using BattleDelts.Data;
+using BattleDelts.Save;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -21,7 +23,6 @@ public class BattleManager : MonoBehaviour {
 	public GameManager gameManager;
 	public GameObject BattleUI, MessageUI, PlayerOverview, MoveMenu, LevelUpUI, EvolveUI, NewMoveUI;
 	public Color fullHealth, halfHealth, quarterHealth;
-	public Sprite noStatus, daStatus;
 	public Animator playerBattleAnim, oppBattleAnim;
 	public List<Sprite> backgrounds, podiums;
 
@@ -70,6 +71,8 @@ public class BattleManager : MonoBehaviour {
 
 	public static BattleManager BattleMan { get; private set; }
 
+	private Dictionary<(MajorId, MajorId), float> MajorEffectiveness;
+
 	private void Awake() {
 		if (BattleMan != null) {
 			DestroyImmediate(gameObject);
@@ -86,6 +89,155 @@ public class BattleManager : MonoBehaviour {
 		trainer = null;
 		playerWon = false;
 		forcePlayerSwitch = false;
+
+		CreateEffectivenessDict();
+	}
+
+	private void CreateEffectivenessDict()
+    {
+		float veryEffective = 2;
+		float ineffective = 0.5f;
+		float notEffective = 0;
+
+		MajorEffectiveness = new Dictionary<(MajorId, MajorId), float>()
+		{
+			[(MajorId.Accounting, MajorId.History)] = veryEffective,
+			[(MajorId.Accounting, MajorId.Psychology)] = veryEffective,
+			[(MajorId.Accounting, MajorId.HumanPhys)] = ineffective,
+			[(MajorId.Accounting, MajorId.Accounting)] = ineffective,
+			[(MajorId.Accounting, MajorId.FHS)] = ineffective,
+
+			[(MajorId.Business, MajorId.Geology)] = veryEffective,
+			[(MajorId.Business, MajorId.IntlStudies)] = veryEffective,
+			[(MajorId.Business, MajorId.Journalism)] = veryEffective,
+			[(MajorId.Business, MajorId.Business)] = ineffective,
+			[(MajorId.Business, MajorId.English)] = ineffective,
+			[(MajorId.Business, MajorId.NaturalScience)] = ineffective,
+
+			[(MajorId.ComputerScience, MajorId.Business)] = veryEffective,
+			[(MajorId.ComputerScience, MajorId.Economics)] = veryEffective,
+			[(MajorId.ComputerScience, MajorId.ComputerScience)] = ineffective,
+			[(MajorId.ComputerScience, MajorId.English)] = ineffective,
+			[(MajorId.ComputerScience, MajorId.NaturalScience)] = ineffective,
+			[(MajorId.ComputerScience, MajorId.IntlStudies)] = notEffective,
+
+			[(MajorId.Economics, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.Economics, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.Economics, MajorId.Math)] = veryEffective,
+			[(MajorId.Economics, MajorId.Geology)] = ineffective,
+			[(MajorId.Economics, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.Economics, MajorId.ComputerScience)] = ineffective,
+
+			[(MajorId.English, MajorId.English)] = veryEffective,
+			[(MajorId.English, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.English, MajorId.FHS)] = notEffective,
+
+			[(MajorId.EnvironmentalScience, MajorId.Economics)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.IntlStudies)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.English)] = veryEffective,
+			[(MajorId.EnvironmentalScience, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.EnvironmentalScience, MajorId.Journalism)] = ineffective,
+			[(MajorId.EnvironmentalScience, MajorId.Business)] = ineffective,
+			[(MajorId.EnvironmentalScience, MajorId.EnvironmentalScience)] = ineffective,
+
+			[(MajorId.FHS, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.FHS, MajorId.English)] = veryEffective,
+			[(MajorId.FHS, MajorId.Accounting)] = veryEffective,
+			[(MajorId.FHS, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.FHS, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.FHS, MajorId.Journalism)] = ineffective,
+
+			[(MajorId.Geology, MajorId.Economics)] = veryEffective,
+			[(MajorId.Geology, MajorId.Math)] = veryEffective,
+			[(MajorId.Geology, MajorId.Journalism)] = veryEffective,
+			[(MajorId.Geology, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.Geology, MajorId.HumanPhys)] = ineffective,
+			[(MajorId.Geology, MajorId.IntlStudies)] = ineffective,
+			[(MajorId.Geology, MajorId.ProductDesign)] = ineffective,
+
+			[(MajorId.History, MajorId.History)] = veryEffective,
+			[(MajorId.History, MajorId.Psychology)] = veryEffective,
+			[(MajorId.History, MajorId.Accounting)] = ineffective,
+			[(MajorId.History, MajorId.Undeclared)] = notEffective,
+
+			[(MajorId.Economics, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.Economics, MajorId.Geology)] = veryEffective,
+			[(MajorId.Economics, MajorId.ProductDesign)] = veryEffective,
+			[(MajorId.Economics, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.Economics, MajorId.Accounting)] = veryEffective,
+			[(MajorId.Economics, MajorId.Economics)] = ineffective,
+			[(MajorId.Economics, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.Economics, MajorId.Math)] = ineffective,
+			[(MajorId.Economics, MajorId.Psychology)] = ineffective,
+			[(MajorId.Economics, MajorId.FHS)] = ineffective,
+
+			[(MajorId.IntlStudies, MajorId.PoliticalScience)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.Geology)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.Journalism)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.ProductDesign)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.ComputerScience)] = veryEffective,
+			[(MajorId.IntlStudies, MajorId.Math)] = ineffective,
+			[(MajorId.IntlStudies, MajorId.NaturalScience)] = ineffective,
+			[(MajorId.IntlStudies, MajorId.Economics)] = notEffective,
+
+			[(MajorId.Journalism, MajorId.Math)] = veryEffective,
+			[(MajorId.Journalism, MajorId.ProductDesign)] = veryEffective,
+			[(MajorId.Journalism, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.Journalism, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.Journalism, MajorId.Geology)] = ineffective,
+			[(MajorId.Journalism, MajorId.Journalism)] = ineffective,
+			[(MajorId.Journalism, MajorId.Business)] = ineffective,
+			[(MajorId.Journalism, MajorId.English)] = ineffective,
+
+			[(MajorId.Math, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.Math, MajorId.Psychology)] = veryEffective,
+			[(MajorId.Math, MajorId.Accounting)] = veryEffective,
+			[(MajorId.Math, MajorId.HumanPhys)] = ineffective,
+			[(MajorId.Math, MajorId.Economics)] = ineffective,
+			[(MajorId.Math, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.Math, MajorId.History)] = ineffective,
+			[(MajorId.Math, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.Math, MajorId.Journalism)] = ineffective,
+			[(MajorId.Math, MajorId.FHS)] = ineffective,
+
+			[(MajorId.NaturalScience, MajorId.IntlStudies)] = veryEffective,
+			[(MajorId.NaturalScience, MajorId.Geology)] = veryEffective,
+			[(MajorId.NaturalScience, MajorId.Business)] = veryEffective,
+			[(MajorId.NaturalScience, MajorId.Economics)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.Math)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.Journalism)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.NaturalScience)] = ineffective,
+			[(MajorId.NaturalScience, MajorId.English)] = ineffective,
+
+			[(MajorId.PoliticalScience, MajorId.NaturalScience)] = veryEffective,
+			[(MajorId.PoliticalScience, MajorId.FHS)] = veryEffective,
+			[(MajorId.PoliticalScience, MajorId.PoliticalScience)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.IntlStudies)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.Geology)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.History)] = ineffective,
+			[(MajorId.PoliticalScience, MajorId.ProductDesign)] = notEffective,
+
+			[(MajorId.ProductDesign, MajorId.Geology)] = veryEffective,
+			[(MajorId.ProductDesign, MajorId.EnvironmentalScience)] = veryEffective,
+			[(MajorId.ProductDesign, MajorId.FHS)] = veryEffective,
+			[(MajorId.ProductDesign, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.ProductDesign, MajorId.Journalism)] = ineffective,
+			[(MajorId.ProductDesign, MajorId.Business)] = ineffective,
+			[(MajorId.ProductDesign, MajorId.ComputerScience)] = ineffective,
+
+			[(MajorId.Psychology, MajorId.HumanPhys)] = veryEffective,
+			[(MajorId.Psychology, MajorId.PoliticalScience)] = veryEffective,
+			[(MajorId.Psychology, MajorId.ProductDesign)] = ineffective,
+			[(MajorId.Psychology, MajorId.Psychology)] = ineffective,
+			[(MajorId.Psychology, MajorId.Accounting)] = notEffective,
+
+			[(MajorId.Undeclared, MajorId.Geology)] = ineffective,
+			[(MajorId.Undeclared, MajorId.IntlStudies)] = ineffective,
+			[(MajorId.Undeclared, MajorId.History)] = notEffective,
+		};
 	}
 
 	// Function to initialize a new battle, for trainers and wild Delts
@@ -190,13 +342,13 @@ public class BattleManager : MonoBehaviour {
 
 		// Ensure Delt doesn't start with status affliction
 		oppDeltSpawn.curStatus = statusType.None;
-		oppDeltSpawn.statusImage = noStatus;
+		oppDeltSpawn.statusImage = null;
 
 		BattleUI.transform.GetChild (2).GetChild (4).gameObject.SetActive (false);
 
 		StartCoroutine(SwitchDelts (oppDeltSpawn, false));
 
-		UIManager.StartMessage("A wild " + oppDeltSpawn.deltdex.nickname + " appeared!", null, ()=>TurnStart());
+		UIManager.StartMessage("A wild " + oppDeltSpawn.deltdex.Nickname + " appeared!", null, ()=>TurnStart());
 	}
 
 	void PlayBattleMusic() {
@@ -336,63 +488,63 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Calc cumulative score for move buff
-	float CalculateBuffScore(buffTuple buff) {
+	float CalculateBuffScore(Buff buff) {
 		float tmpBuffScore = 0;
 
-		if (buff.buffT == buffType.Heal) {
+		if (buff.BuffT == buffType.Heal) {
 			if (curOppDelt.health < 0.4 * curOppDelt.GPA) {
 				tmpBuffScore = 2;
 			} else {
 				tmpBuffScore = 1;
 			}
 
-			tmpBuffScore *= buff.buffAmount;
+			tmpBuffScore *= buff.Amount;
 
 		} else {
 			byte index = 0;
-			switch (buff.buffT) {
+			switch (buff.BuffT) {
 			case (buffType.Truth):
 				index = 1;
 				// Priority for if oppDelt has TruthAtk and it buffs oppDelt
-				if (buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				if (buff.IsBuff && (curOppDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				} 
 				// Priority for if player has TruthAtk and it debuffs player
-				else if (!buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				else if (!buff.IsBuff && (curPlayerDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				}
 				break;
 			case (buffType.Courage):
 				index = 2;
 				// Priority for if oppDelt has powerAtk and it debuffs player
-				if (!buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				if (!buff.IsBuff && (curOppDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				} 
 				// Priority for if player has powerAtk and it buffs oppDelt
-				else if (buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				else if (buff.IsBuff && (curPlayerDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				}
 				break;
 			case (buffType.Faith):
 				index = 3;
 				// Priority for if oppDelt has truthAtk and it debuffs player
-				if (!buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				if (!buff.IsBuff && (curOppDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				} 
 				// Priority for if player has truthAtk and it buffs oppDelt
-				else if (buff.isBuff && (curPlayerDelt.moveset.Exists (m => ((m.movType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				else if (buff.IsBuff && (curPlayerDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.TruthAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				}
 				break;
 			case (buffType.Power):
 				index = 4;
 				// Priority for if oppDelt has PowerAtk and it buffs oppDelt
-				if (buff.isBuff && (curOppDelt.moveset.Exists (m => ((m.movType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+				if (buff.IsBuff && (curOppDelt.moveset.Exists (m => ((m.Move.MoveType == moveType.PowerAtk) && (m.PPLeft > 0))))) {
+					tmpBuffScore = 15 * buff.Amount;
 				} 
 				// Priority for if player has PowerAtk and it debuffs player
-					else if (!buff.isBuff && (curPlayerDelt.moveset.Exists (m => (m.movType == moveType.PowerAtk) && (m.PPLeft > 0)))) {
-					tmpBuffScore = 15 * buff.buffAmount;
+					else if (!buff.IsBuff && (curPlayerDelt.moveset.Exists (m => (m.Move.MoveType == moveType.PowerAtk) && (m.PPLeft > 0)))) {
+					tmpBuffScore = 15 * buff.Amount;
 				}
 				break;
 			case (buffType.ChillToPull):
@@ -403,15 +555,15 @@ public class BattleManager : MonoBehaviour {
 				// If opp speed is less than player's, and within an amendable range
 				// Note: Buff type does not matter in this context
 				if ((oppCTP < playerCTP) && (oppCTP > 0.80f * playerCTP)) {
-					tmpBuffScore = 15 * buff.buffAmount;
+					tmpBuffScore = 15 * buff.Amount;
 				} 
 				break;
 			}
 
 			// If a buff/debuff has already affected the Delt, lower the priority of the buff/debuff
-			if (buff.isBuff && OppStatAdditions [index] > 0) {
+			if (buff.IsBuff && OppStatAdditions [index] > 0) {
 				tmpBuffScore *= 0.8f;
-			} else if (!buff.isBuff && OppStatAdditions [index] < 0) {
+			} else if (!buff.IsBuff && OppStatAdditions [index] < 0) {
 				tmpBuffScore *= 0.8f;
 			}
 		}
@@ -440,7 +592,7 @@ public class BattleManager : MonoBehaviour {
 			}
 
 			// If opp has a blocking move
-			if (move.movType == moveType.Block) {
+			if (move.Move.MoveType == moveType.Block) {
 				// If player has damaging status, add score
 				if ((curPlayerDelt.curStatus == statusType.Indebted) ||
 					(curPlayerDelt.curStatus == statusType.Roasted) ||
@@ -466,27 +618,27 @@ public class BattleManager : MonoBehaviour {
 			} 
 
 			// If move deals damage
-			if (move.damage > 0) {
+			if (move.Move.Damage > 0) {
 
 				// Set tmpScore to the base damage * effectiveness move deals
 				score = moveDamage (move, curOppDelt, curPlayerDelt, false);
-				score = score * moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
+				score = score * moveTypeEffectivenessCalc (move.Move.MoveMajor, curPlayerDelt.deltdex.FirstMajor, curPlayerDelt.deltdex.SecondMajor);
 
 				// More priority to crit chance
-				score += (0.1f * move.critChance);
+				score += (0.1f * move.Move.CritChance);
 
 				// Finally, multiply score by damage and hit chance
-				score *= move.damage * 0.01f * move.hitChance;
+				score *= move.Move.Damage * 0.01f * move.Move.HitChance;
 			}
 
 			// Add score for every buff
-			foreach (buffTuple buff in move.buffs) {
+			foreach (var buff in move.Move.Buffs) {
 				score += CalculateBuffScore (buff);
 			}
 
 			// Add score if move has a status effect and player has no status
-			if ((move.statType != statusType.None) && (curPlayerDelt.curStatus == statusType.None)) {
-				score += (move.statusChance * 0.01f * 150);
+			if ((move.Status != statusType.None) && (curPlayerDelt.curStatus == statusType.None)) {
+				score += (move.Move.StatusChance * 0.01f * 150);
 			}
 
 			// If this move has the highest score, update top Score and chosenMove
@@ -496,7 +648,7 @@ public class BattleManager : MonoBehaviour {
 			}
 		}
 
-		if (chosenMove != null && chosenMove.movType == moveType.Block) {
+		if (chosenMove != null && chosenMove.Move.MoveType == moveType.Block) {
 			oppBlocked = true;
 		}
 		return chosenMove;
@@ -518,7 +670,7 @@ public class BattleManager : MonoBehaviour {
 		// If opponent has a status
 		if (curOppDelt.curStatus != statusType.None) {
 			// If move doesn't heal
-			if (!chosenMove.buffs.Exists (b => b.buffT == buffType.Heal)) {
+			if (!chosenMove.Move.Buffs.Exists (b => b.BuffT == buffType.Heal)) {
 
 				// Lower health == lower stayChance
 				if (curOppDelt.health < 0.35 * curOppDelt.GPA) {
@@ -559,8 +711,8 @@ public class BattleManager : MonoBehaviour {
 
 			// Determine the effectiveness against current player's Delt
 			foreach (MoveClass move in delt.moveset) {
-				if ((move.movType == moveType.TruthAtk) || (move.movType == moveType.PowerAtk)) {
-					majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curPlayerDelt.deltdex.major1, curPlayerDelt.deltdex.major2);
+				if ((move.Move.MoveType == moveType.TruthAtk) || (move.Move.MoveType == moveType.PowerAtk)) {
+					majorEffectiveness = moveTypeEffectivenessCalc (move.Move.MoveMajor, curPlayerDelt.deltdex.FirstMajor, curPlayerDelt.deltdex.SecondMajor);
 					if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
 						if (majorEffectiveness == 4) {
 							switchEffectiveness += 50;
@@ -573,7 +725,7 @@ public class BattleManager : MonoBehaviour {
 
 			// Determine the effectiveness of other player's moves against it
 			foreach (MoveClass move in curPlayerDelt.moveset) {
-				majorEffectiveness = moveTypeEffectivenessCalc (move.majorType, curOppDelt.deltdex.major1, curOppDelt.deltdex.major2);
+				majorEffectiveness = moveTypeEffectivenessCalc (move.Move.MoveMajor, curOppDelt.deltdex.FirstMajor, curOppDelt.deltdex.SecondMajor);
 				if ((majorEffectiveness >= 2) && (move.PPLeft > 0)) {
 					if (majorEffectiveness == 4) {
 						if (switchEffectiveness < 50) {
@@ -710,17 +862,17 @@ public class BattleManager : MonoBehaviour {
 			if (gameManager.pork) {
 				playerDeltSprite.sprite = porkBack;
 			} else {
-				playerDeltSprite.sprite = curPlayerDelt.deltdex.backImage;
+				playerDeltSprite.sprite = curPlayerDelt.deltdex.BackSprite;
 			}
 			playerStatus.sprite = curPlayerDelt.statusImage;
 		} else {
 			if (gameManager.pork) {
 				oppDeltSprite.sprite = UIManager.porkSprite;
 			} else {
-				oppDeltSprite.sprite = curOppDelt.deltdex.frontImage;
+				oppDeltSprite.sprite = curOppDelt.deltdex.FrontSprite;
 			}
 			oppStatus.sprite = curOppDelt.statusImage;
-			if (gameManager.deltDex.Exists (dd => dd.nickname == curOppDelt.deltdex.nickname)) {
+			if (gameManager.deltDex.Exists (dd => dd == curOppDelt.DeltId)) {
 				isCaught.SetActive (true);
 			} else {
 				isCaught.SetActive (false);
@@ -790,11 +942,11 @@ public class BattleManager : MonoBehaviour {
 				tmpMove = curPlayerDelt.moveset [i];
 				// Pork option case, color = pink, PP = Porks
 				if (gameManager.pork) {
-					MoveOptions [i].GetComponent<Image> ().color = new Color (0.967f, 0.698f, 0.878f);
-					moveText [i].GetComponent<Text> ().text = ("What is pork?!" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK");
+					MoveOptions [i].GetComponent<Image>().color = new Color (0.967f, 0.698f, 0.878f);
+					moveText [i].GetComponent<Text> ().text = "What is pork?!" + System.Environment.NewLine + "Porks: " + tmpMove.PPLeft + "/ PORK";
 				} else {
-					MoveOptions [i].GetComponent<Image> ().color = tmpMove.majorType.background;
-					moveText [i].GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+					MoveOptions [i].GetComponent<Image>().color = tmpMove.Move.MoveMajor.Color;
+					moveText [i].GetComponent<Text> ().text = tmpMove.Move.Name + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.Move.PP;
 				}
 				if (tmpMove.PPLeft <= 0) {
 					MoveOptions [i].interactable = false;
@@ -863,7 +1015,7 @@ public class BattleManager : MonoBehaviour {
 				}
 				yield return new WaitForSeconds (1);
 
-				StatusChange (true, statusType.None, noStatus);
+				StatusChange (true, statusType.None);
 
 				yield return StartCoroutine (evolMessage (delt.nickname + " is no longer " + delt.curStatus + "!"));
 			} else if (delt.curStatus != statusType.None) {
@@ -952,7 +1104,7 @@ public class BattleManager : MonoBehaviour {
 			break;
 		}
 
-		switch (curOppDelt.deltdex.rarity) {
+		switch (curOppDelt.deltdex.RarityEnum) {
 		case (Rarity.VeryCommon):
 			oppRarity = 1;
 			break;
@@ -1058,8 +1210,11 @@ public class BattleManager : MonoBehaviour {
 				yield return StartCoroutine(evolMessage ("Posse full, " + curOppDelt.nickname + " has been added to your house."));
 			}
 
+			long totalDeltsRushed = GameManager.GameMan.deltPosse.Count + GameManager.GameMan.houseDelts.Count;
+
 			UIManager.StartMessage (null, null, () => gameManager.AddDelt (curOppDelt));
-			UIManager.StartMessage (null, null, ()=> AchievementManager.AchieveMan.DeltsRushedUpdate ());
+			UIManager.StartMessage (null, null, () => 
+				AchievementManager.ReportScore(AchievementManager.ScoreId.DeltsRushed, totalDeltsRushed));
 			UIManager.StartMessage (null, null, () => EndBattle ());
 		} else {
 			oppDeltSprite.GetComponent <Animator> ().Play ("BallReleaseFadeIn");
@@ -1090,14 +1245,14 @@ public class BattleManager : MonoBehaviour {
 		if (tmpMove.PPLeft > 0) {
 			
 			// Do not allow player to block twice in a row
-			if (tmpMove.movType == moveType.Block && playerBlocked) {
+			if (tmpMove.Move.MoveType == moveType.Block && playerBlocked) {
 				UIManager.StartMessage ("You cannot block twice in a row!");
 				return;
 			}
 
 			tmpMove.PPLeft--;
 			MoveMenu.SetActive (false);
-			moveText [moveIndex].GetComponent<Text> ().text = (tmpMove.moveName + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.PP);
+			moveText [moveIndex].GetComponent<Text> ().text = (tmpMove.Move.Name + System.Environment.NewLine + "PP: " + tmpMove.PPLeft + "/" + tmpMove.Move.PP);
 
 			// Disable button if no uses left
 			if (tmpMove.PPLeft <= 0) {
@@ -1108,7 +1263,7 @@ public class BattleManager : MonoBehaviour {
 			playerChoice.IENum = UseMove (tmpMove, true);
 			playerChoice.type = actionT.Move;
 
-			if (tmpMove.movType == moveType.Block) {
+			if (tmpMove.Move.MoveType == moveType.Block) {
 				playerBlocked = true;
 			}
 
@@ -1216,7 +1371,7 @@ public class BattleManager : MonoBehaviour {
 			defenderStatus = oppBattleAnim;
 
 			// Allow player to block next turn
-			if (move.movType != moveType.Block) {
+			if (move.Move.MoveType != moveType.Block) {
 				playerBlocked = false;
 			}
 		} else {
@@ -1226,7 +1381,7 @@ public class BattleManager : MonoBehaviour {
 			defenderStatus = playerBattleAnim;
 
 			// Allow player to block next turn
-			if (move.movType != moveType.Block) {
+			if (move.Move.MoveType != moveType.Block) {
 				oppBlocked = false;
 			}
 		}
@@ -1262,7 +1417,7 @@ public class BattleManager : MonoBehaviour {
 				if (attacker.health <= 0) {
 					attacker.health = 0;
 					yield return StartCoroutine (evolMessage (attacker.nickname + " has DA'd for being too Drunk!"));
-					StatusChange(isPlayer, statusType.DA, daStatus);
+					StatusChange(isPlayer, statusType.DA);
 					checkLoss (isPlayer);
 				}
 				yield break;
@@ -1270,7 +1425,7 @@ public class BattleManager : MonoBehaviour {
 			// Attacker relieved from Drunk status
 			else if (Random.Range (0, 100) <= 27) {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " has sobered up!"));
-				StatusChange(isPlayer, statusType.None, noStatus);
+				StatusChange(isPlayer, statusType.None);
 			}
 		} 
 		// If Delt is Asleep
@@ -1284,7 +1439,7 @@ public class BattleManager : MonoBehaviour {
 			// Delt wakes up
 			if (Random.Range (0, 100) <= 20) {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " woke up!"));
-				StatusChange(isPlayer, statusType.None, noStatus);
+				StatusChange(isPlayer, statusType.None);
 			} else {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " hit the snooze button..."));
 				yield break;
@@ -1301,7 +1456,7 @@ public class BattleManager : MonoBehaviour {
 			// If Delt comes down
 			if (Random.Range (0, 100) <= 21) {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " came down!"));
-				StatusChange(isPlayer, statusType.None, noStatus);
+				StatusChange(isPlayer, statusType.None);
 			} else {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " is still pretty lit."));
 				yield break;
@@ -1319,7 +1474,7 @@ public class BattleManager : MonoBehaviour {
 			// If Delt comes down
 			if (Random.Range (0, 100) <= 21) {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " repealed the suspension!"));
-				StatusChange(isPlayer, statusType.None, noStatus);
+				StatusChange(isPlayer, statusType.None);
 			} else {
 				yield return StartCoroutine (evolMessage (attacker.nickname + " is still doing their time."));
 				yield break;
@@ -1333,13 +1488,13 @@ public class BattleManager : MonoBehaviour {
 		float effectiveness = 1;
 
 		// Display attack choice
-		yield return StartCoroutine(evolMessage (attacker.nickname + " used " + move.moveName + "!"));
+		yield return StartCoroutine(evolMessage (attacker.nickname + " used " + move.Move.Name + "!"));
 
 		// If the first move is a hit
-		if (Random.Range(0,100) <= move.hitChance) {
+		if (Random.Range(0,100) <= move.Move.HitChance) {
 
-			if (move.damage > 0) {
-				effectiveness = moveTypeEffectivenessCalc (move.majorType, defender.deltdex.major1, defender.deltdex.major2);
+			if (move.Move.Damage > 0) {
+				effectiveness = moveTypeEffectivenessCalc (move.Move.MoveMajor, defender.deltdex.FirstMajor, defender.deltdex.SecondMajor);
 
 				if (isPlayer) {
 					playerDeltSprite.GetComponent <Animator> ().SetTrigger ("Attack");
@@ -1368,19 +1523,19 @@ public class BattleManager : MonoBehaviour {
 			}
 
 
-			if (move.movType == moveType.Block) {
+			if (move.Move.MoveType == moveType.Block) {
 				// attacker.nickname blocks!
 				yield return StartCoroutine (evolMessage (attacker.nickname + " blocks!"));
 				yield break;
 			} 
 
 			// If move is an attack
-			if (move.damage > 0) {
+			if (move.Move.Damage > 0) {
 				bool isCrit = false;
 				float rawDamage = moveDamage (move, attacker, defender, isPlayer);
 
 				// If a critical hit
-				if (Random.Range (0, 100) <= move.critChance) {
+				if (Random.Range (0, 100) <= move.Move.CritChance) {
 					rawDamage = rawDamage * 1.75f;
 					isCrit = true;
 				}
@@ -1423,7 +1578,7 @@ public class BattleManager : MonoBehaviour {
 				if (defender.health <= 0) {
 					defender.health = 0;
 					yield return StartCoroutine (evolMessage (defender.nickname + " has DA'd!"));
-					StatusChange(!isPlayer, statusType.DA, daStatus);
+					StatusChange(!isPlayer, statusType.DA);
 					checkLoss (!isPlayer);
 
 					if ((isPlayer && OppDA) || (!isPlayer && PlayerDA)) {
@@ -1436,10 +1591,10 @@ public class BattleManager : MonoBehaviour {
 			byte statIndex = 0;
 
 			// Do move buffs
-			foreach (buffTuple buff in move.buffs) {
+			foreach (var buff in move.Move.Buffs) {
 				
 				// Get index for stat addition
-				switch (buff.buffT) {
+				switch (buff.BuffT) {
 				case buffType.Truth:
 					statIndex = 1;
 					break;
@@ -1458,13 +1613,13 @@ public class BattleManager : MonoBehaviour {
 				}
 
 				// If buff helps player
-				if (buff.isBuff) {
+				if (buff.IsBuff) {
 					
 					// If buff is a heal
-					if (buff.buffT == buffType.Heal) {
+					if (buff.BuffT == buffType.Heal) {
 
 						// Add health to Delt
-						attacker.health += (buff.buffAmount);
+						attacker.health += buff.Amount;
 
 						// Player health cannot exceed GPA
 						if (attacker.health > attacker.GPA) {
@@ -1480,20 +1635,20 @@ public class BattleManager : MonoBehaviour {
 						
 						// Add to Delt's stat additions
 						if (isPlayer) {
-							PlayerStatAdditions [statIndex] += (int)(buff.buffAmount  * 0.02f * attacker.deltdex.BVs[statIndex]) + buff.buffAmount;
+							PlayerStatAdditions [statIndex] += (int)(buff.Amount  * 0.02f * attacker.deltdex.BVs[statIndex]) + buff.Amount;
 							playerBattleAnim.SetTrigger ("Buff");
 						} else {
-							OppStatAdditions [statIndex] += (int)(buff.buffAmount  * 0.02f * attacker.deltdex.BVs[statIndex]) + buff.buffAmount;
+							OppStatAdditions [statIndex] += (int)(buff.Amount  * 0.02f * attacker.deltdex.BVs[statIndex]) + buff.Amount;
 							oppBattleAnim.SetTrigger ("Buff");
 						}
 						SoundEffectManager.SEM.PlaySoundImmediate ("Buff");
 						yield return new WaitForSeconds (0.5f);
 
 						// Prompt message for user
-						if (buff.buffAmount < 5) {
-							yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went up!"));
+						if (buff.Amount < 5) {
+							yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.BuffT + " stat went up!"));
 						} else {
-							yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.buffT + " stat went waaay up!"));
+							yield return StartCoroutine (evolMessage (attacker.nickname + "'s " + buff.BuffT + " stat went waaay up!"));
 						}
 					}
 				} 
@@ -1501,30 +1656,30 @@ public class BattleManager : MonoBehaviour {
 				else {
 					// Subtract from Delt's stat additions
 					if (isPlayer) {
-						OppStatAdditions[statIndex] -= (int)(buff.buffAmount  * 0.02f * defender.deltdex.BVs[statIndex]) + buff.buffAmount;
+						OppStatAdditions[statIndex] -= (int)(buff.Amount * 0.02f * defender.deltdex.BVs[statIndex]) + buff.Amount;
 						oppBattleAnim.SetTrigger ("Debuff");
 					} else {
-						PlayerStatAdditions [statIndex] -= (int)(buff.buffAmount  * 0.02f * defender.deltdex.BVs[statIndex]) + buff.buffAmount;
+						PlayerStatAdditions [statIndex] -= (int)(buff.Amount * 0.02f * defender.deltdex.BVs[statIndex]) + buff.Amount;
 						playerBattleAnim.SetTrigger ("Debuff");
 					}
 					SoundEffectManager.SEM.PlaySoundImmediate ("Debuff");
 					yield return new WaitForSeconds (0.5f);
 
 					// Prompt message for user
-					if (buff.buffAmount < 5) {
-						yield return StartCoroutine (evolMessage (defender.nickname + "'s " + buff.buffT + " stat went down!"));
+					if (buff.Amount < 5) {
+						yield return StartCoroutine (evolMessage (defender.nickname + "'s " + buff.BuffT + " stat went down!"));
 					} else {
-						yield return StartCoroutine (evolMessage (defender.nickname + "'s " + buff.buffT + " stat went waaay down!"));
+						yield return StartCoroutine (evolMessage (defender.nickname + "'s " + buff.BuffT + " stat went waaay down!"));
 					}
 				}
 			}
 
 			// If move has a status affliction and chance is met
-			if ((move.statusChance > 0) && (Random.Range (0, 100) <= move.statusChance) && (defender.curStatus != move.statType)) {
+			if ((move.Move.StatusChance > 0) && (Random.Range (0, 100) <= move.Move.StatusChance) && (defender.curStatus != move.Status)) {
 
 				// Status animations!
 				// LATER: Sound effects for each animation!!
-				switch (move.statType) {
+				switch (move.Status) {
 				case (statusType.Drunk):
 					defenderStatus.SetTrigger ("Drunk");
 					SoundEffectManager.SEM.PlaySoundImmediate ("Drunk");
@@ -1558,7 +1713,7 @@ public class BattleManager : MonoBehaviour {
 				yield return new WaitForSeconds (1);
 
 				// Update defender status
-				StatusChange(!isPlayer, move.statType, move.status);
+				StatusChange(!isPlayer, move.Status);
 
 				yield return StartCoroutine (evolMessage (defender.nickname + " is now " + defender.curStatus + "!"));
 			}
@@ -1586,7 +1741,7 @@ public class BattleManager : MonoBehaviour {
 		float otherMods;
 
 		// Determine damage based on attacker and defender stats
-		if (move.movType == moveType.PowerAtk) {
+		if (move.Move.MoveType == moveType.PowerAtk) {
 			if (isPlayer) {
 				atkDefModifier = (float)((attacker.Power + PlayerStatAdditions [4]) / (defender.Courage + OppStatAdditions [4]));
 			} else {
@@ -1601,13 +1756,13 @@ public class BattleManager : MonoBehaviour {
 		}
 
 		// Extra damage if move is same major as Delt
-		if ((move.majorType == attacker.deltdex.major1) || (move.majorType == attacker.deltdex.major2)) {
+		if ((move.Move.MoveMajor.MajorId == attacker.deltdex.FirstMajor.MajorId) || (move.Move.MoveMajor.MajorId == attacker.deltdex.SecondMajor.MajorId)) {
 			otherMods = 1.5f;
 		} else {
 			otherMods = 1f;
 		}
 
-		levelDamage = (((levelDamage * atkDefModifier * move.damage) + 2) * otherMods);
+		levelDamage = (((levelDamage * atkDefModifier * move.Move.Damage) + 2) * otherMods);
 
 		return levelDamage;
 	}
@@ -1668,7 +1823,7 @@ public class BattleManager : MonoBehaviour {
 			if (curOppDelt.health == 0) {
 				yield return StartCoroutine (evolMessage (curOppDelt.nickname + " has DA'd!"));
 
-				StatusChange (false, statusType.DA, daStatus);
+				StatusChange (false, statusType.DA);
 
 				// Opponent loses/selects another Delt
 				checkLoss (false);
@@ -1716,7 +1871,7 @@ public class BattleManager : MonoBehaviour {
 			if (curPlayerDelt.health == 0) {
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " has DA'd!"));
 
-				StatusChange (true, statusType.DA, daStatus);
+				StatusChange(true, statusType.DA);
 
 				// Opponent loses/selects another Delt
 				checkLoss (true);
@@ -1748,31 +1903,43 @@ public class BattleManager : MonoBehaviour {
 	}
 
 	// Change status sprites
-	void StatusChange(bool isPlayer, statusType status, Sprite statusSprite) {
-		if (isPlayer) {
+	void StatusChange(bool isPlayer, statusType statusType) 
+	{
+		Sprite statusSprite = null;
+		if (statusType != statusType.None)
+		{
+			statusSprite = gameManager.Data.Statuses[statusType].Sprite;
+		}
+
+		if (isPlayer)
+		{
 			curPlayerDelt.statusImage = statusSprite;
-			curPlayerDelt.curStatus = status;
+			curPlayerDelt.curStatus = statusType;
 			playerStatus.sprite = statusSprite;
-		} else {
+		} 
+		else 
+		{
 			curOppDelt.statusImage = statusSprite;
-			curOppDelt.curStatus = status;
+			curOppDelt.curStatus = statusType;
 			oppStatus.sprite = statusSprite;
 		}
 	}
 
 	// Calculate major effectiveness
-	float moveTypeEffectivenessCalc(MajorClass attackerMove, MajorClass defenderM1, MajorClass defenderM2) {
+	float moveTypeEffectivenessCalc(Major attackerMove, Major defenderM1, Major defenderM2) {
+
 		float effectiveness = 1f;
-		// If attack is super effective
-		if (attackerMove.veryEffective.Contains(defenderM1) || attackerMove.veryEffective.Contains(defenderM2)) {
-			effectiveness *= 2;
-		} // If attack is not very effective
-		if (attackerMove.uneffective.Contains (defenderM1) || attackerMove.uneffective.Contains(defenderM2)) {
-			effectiveness *= 0.5f;
-		} // If attack does 0 damage
-		if (attackerMove.zeroDamage.Contains (defenderM1) || attackerMove.zeroDamage.Contains (defenderM2)) {
-			effectiveness = 0;
+
+		if (MajorEffectiveness.TryGetValue((attackerMove.MajorId, defenderM1.MajorId), out float effectivenessM1))
+        {
+			effectiveness *= effectivenessM1;
 		}
+
+		if (defenderM2 != null && MajorEffectiveness.TryGetValue((attackerMove.MajorId, defenderM2.MajorId), out float effectivenessM2))
+		{
+			effectiveness *= effectivenessM2;
+		}
+
 		return effectiveness;
 	}
 
@@ -1793,14 +1960,14 @@ public class BattleManager : MonoBehaviour {
 			// Award Action Values to the player's Delt
 			if (curPlayerDelt.AVCount < 250) {
 				
-				curPlayerDelt.AVCount += curOppDelt.deltdex.AVAwardAmount;
+				curPlayerDelt.AVCount += curOppDelt.deltdex.AVAmount;
 
 				// Cap AV Count at 250
 				if (curPlayerDelt.AVCount > 250) {
-					curPlayerDelt.AVs [curOppDelt.deltdex.AVIndex] += (byte)(curOppDelt.deltdex.AVAwardAmount - (curPlayerDelt.AVCount - 250));
+					curPlayerDelt.AVs [curOppDelt.deltdex.AVIndex] += (byte)(curOppDelt.deltdex.AVAmount - (curPlayerDelt.AVCount - 250));
 					curPlayerDelt.AVCount = 250;
 				} else {
-					curPlayerDelt.AVs [curOppDelt.deltdex.AVIndex] += curOppDelt.deltdex.AVAwardAmount;
+					curPlayerDelt.AVs [curOppDelt.deltdex.AVIndex] += curOppDelt.deltdex.AVAmount;
 				}
 			}
 
@@ -1829,19 +1996,47 @@ public class BattleManager : MonoBehaviour {
 
 				// Give achievements if any
 				if (trainer.isGymLeader) {
-					AchievementManager.AchieveMan.GymLeaderBattles (trainerName);
+					// TODO: Turn trainers/leaders into enums/refactor data
+					AchievementManager.AchievementId? achievementId = null;
+					switch (trainerName)
+					{
+						case "Kane Varon": // Sigma Chi
+							achievementId = AchievementManager.AchievementId.Gym1;
+							break;
+						case "Brayden Figueroa": // Delta Sig
+							achievementId = AchievementManager.AchievementId.Gym2;
+							break;
+						case "Nick Scrivens": // Sigma Nu
+							achievementId = AchievementManager.AchievementId.Gym3;
+							break;
+					}
+
+					
+
+					if (achievementId != null)
+                    {
+						AchievementManager.ReportAchievement(achievementId.Value);
+
+						// Update number of gyms defeated
+						List<ItemData> allBadges = GameManager.GameMan.allItems.FindAll(item => item.itemT == itemType.Badge);
+						AchievementManager.ReportScore(AchievementManager.ScoreId.Gyms, allBadges.Count);
+					}
+					else
+                    {
+						Debug.LogError($"Failed to get achievement ID for gym leader {trainerName}");
+                    }
 
 					// Heal all player Delts after defeating gym
 					foreach (DeltemonClass delt in playerDelts) {
 						delt.health = delt.GPA;
 						delt.curStatus = statusType.None;
-						delt.statusImage = noStatus;
+						delt.statusImage = null;
 						foreach (MoveClass move in delt.moveset) {
-							move.PPLeft = move.PP;
+							move.PPLeft = move.Move.PP;
 						}
 					}
 				} else {
-					QuestManager.QuestMan.BattleAcheivements (trainerName);
+					QuestManager.QuestMan.BattleAcheivements(trainerName);
 				}
 
 				// Give player coins
@@ -1853,7 +2048,6 @@ public class BattleManager : MonoBehaviour {
 				wildPool = curOppDelt;
 				WildDeltCoinReward ();
 				PlayerWinBattle ();
-
 			}
 		}
 		UIManager.StartMessage(null, null, ()=>EndBattle ());
@@ -1869,7 +2063,7 @@ public class BattleManager : MonoBehaviour {
 		} else {
 			totalXPGained = 1;
 		}
-		totalXPGained *= 1.5f * (1550 - curOppDelt.deltdex.pinNumber);
+		totalXPGained *= 1.5f * (1550 - curOppDelt.deltdex.PinNumber);
 		totalXPGained *= curOppDelt.level;
 		totalXPGained *= 0.0714f;
 
@@ -1910,25 +2104,27 @@ public class BattleManager : MonoBehaviour {
 				string[] lvlUpText = curPlayerDelt.levelUp ();
 
 				// Try to update highest level score
-				AchievementManager.AchieveMan.HighestLevelUpdate (curPlayerDelt.level);
+				int highestLevelDelt = gameManager.GetHighestLevelDelt();
+				AchievementManager.ReportScore(AchievementManager.ScoreId.HighestLevel, highestLevelDelt);
 
 				// If the Delt's level causes it to evolve
-				if (curPlayerDelt.level == curPlayerDelt.deltdex.evolveLevel) {
+				if (curPlayerDelt.level == curPlayerDelt.deltdex.EvolveLevel) {
 					Image prevEvolImage = EvolveUI.transform.GetChild (1).GetComponent <Image> ();
 					Image nextEvolImage = EvolveUI.transform.GetChild (2).GetComponent <Image> ();
-					DeltDexClass nextEvol = curPlayerDelt.deltdex.nextEvol;
+					var nextEvol = curPlayerDelt.deltdex.NextEvolution;
 
+					// TODO: Implement second evolution in data
 					// If Delt has a second evol and second evol stat is greater than the first
 					// Then the Delt becomes the second evol instead of the first
-					if ((curPlayerDelt.deltdex.secondEvolution.secondEvol != null) && 
-					(curPlayerDelt.AVs [curPlayerDelt.deltdex.secondEvolution.firstEvolStat] <= 
-					curPlayerDelt.AVs [curPlayerDelt.deltdex.secondEvolution.secEvolStat] )) {
-						nextEvol = curPlayerDelt.deltdex.secondEvolution.secondEvol;
-					} 
+					//if ((curPlayerDelt.deltdex.secondEvolution.secondEvol != null) && 
+					//(curPlayerDelt.AVs [curPlayerDelt.deltdex.secondEvolution.firstEvolStat] <= 
+					//curPlayerDelt.AVs [curPlayerDelt.deltdex.secondEvolution.secEvolStat] )) {
+					//	nextEvol = curPlayerDelt.deltdex.secondEvolution.secondEvol;
+					//} 
 
 					// Set images for evolution animation
-					prevEvolImage.sprite = curPlayerDelt.deltdex.frontImage;
-					nextEvolImage.sprite = nextEvol.frontImage;
+					prevEvolImage.sprite = curPlayerDelt.deltdex.FrontSprite;
+					nextEvolImage.sprite = nextEvol.FrontSprite;
 					EvolveUI.SetActive (true);
 
 					// Text for before evolution animation
@@ -1949,24 +2145,24 @@ public class BattleManager : MonoBehaviour {
 						yield return StartCoroutine (evolMessage("A gush of pink bacon-smelling amneotic fluid from the evolution stains the ground."));
 						yield return StartCoroutine (evolMessage("I wish this could have happened somewhere more private."));
 					} else {
-						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has evolved into " + nextEvol.nickname + "!"));
+						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has evolved into " + nextEvol.Nickname + "!"));
 					}
 					yield return new WaitUntil (() => UIManager.endMessage);
 
 					// If Delt's name is not custom nicknamed by the player, make it the evolution's nickname
-					if (curPlayerDelt.nickname == curPlayerDelt.deltdex.nickname) {
-						curPlayerDelt.nickname = nextEvol.nickname;
+					if (curPlayerDelt.nickname == curPlayerDelt.deltdex.Nickname) {
+						curPlayerDelt.nickname = nextEvol.Nickname;
 					}
 
 					// Set the deltdex to the evolution's deltdex
 					// Note: This is how the Delt stays evolved
-					curPlayerDelt.deltdex = nextEvol;
+					curPlayerDelt.DeltId = nextEvol.DeltId;
 
 					// Add dex to deltDex if not there already
-					gameManager.AddDeltDex (curPlayerDelt.deltdex);
+					gameManager.AddDeltDex(curPlayerDelt.deltdex);
 
 					// Set battle image to new image
-					playerDeltSprite.sprite = curPlayerDelt.deltdex.backImage;
+					playerDeltSprite.sprite = curPlayerDelt.deltdex.BackSprite;
 
 					// Prepare for next time Delt evolves
 					EvolveUI.GetComponent <Animator>().SetBool ("Evolve", false);
@@ -1991,34 +2187,32 @@ public class BattleManager : MonoBehaviour {
 				playerName.text = (curPlayerDelt.nickname + "   lvl. " + curPlayerDelt.level);
 
 				// If Delt can learn a new move
-				LevelUpMove newMove = curPlayerDelt.deltdex.levelUpMoves.Find (lum => lum.level == curPlayerDelt.level);
+				var newMove = curPlayerDelt.deltdex.LevelUpMoves.Find (lum => lum.Level == curPlayerDelt.level);
 				if (newMove != null) {
 
 					// If the player doesn't have a full moveset yet
 					if (curPlayerDelt.moveset.Count < 4) {
 
 						// Instantiate and learn new move
-						MoveClass move = Instantiate (newMove.move, curPlayerDelt.transform);
-						curPlayerDelt.moveset.Add (move);
-
-						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has learned the move " + newMove.move.moveName + "!"));
+						curPlayerDelt.moveset.Add (new MoveClass(newMove.Move.MoveId));
+						yield return StartCoroutine (evolMessage(curPlayerDelt.nickname + " has learned the move " + newMove.Move.Name + "!"));
 					} 
 					// Player must choose to either switch a move or not learn new move
 					else {
 						for (int i = 0; i < 4; i++) {
 							MoveClass tmp = curPlayerDelt.moveset [i];
 							Transform button = NewMoveUI.transform.GetChild (i);
-							button.GetComponent <Image>().color = tmp.majorType.background;
-							button.GetChild (0).GetComponent<Text> ().text = (tmp.moveName + System.Environment.NewLine + "PP: " + tmp.PP);
+							button.GetComponent <Image>().color = tmp.Move.MoveMajor.Color;
+							button.GetChild (0).GetComponent<Text> ().text = (tmp.Move.Name + System.Environment.NewLine + "PP: " + tmp.Move.PP);
 						}
 							
-						yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " can learn the move " + newMove.move.moveName + "!"));
+						yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " can learn the move " + newMove.Move.Name + "!"));
 
 						NewMoveUI.SetActive (true);
 
 						// Load new move into move overview
 						// Note: This temporarily sets move as 5th move in Delt moveset
-						UIManager.SetLevelUpMove (newMove.move, curPlayerDelt);
+						UIManager.SetLevelUpMove (newMove.Move, curPlayerDelt);
 
 						yield return new WaitUntil (() => finishNewMove);
 
@@ -2082,7 +2276,7 @@ public class BattleManager : MonoBehaviour {
 			if (cancelText.text == "Sure?") {
 
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " didn't learn the move " + 
-					curPlayerDelt.moveset[4].moveName + "!"));
+					curPlayerDelt.moveset[4].Move.Name + "!"));
 				
 				// Remove tmp 5th new move
 				curPlayerDelt.moveset.RemoveAt (4);
@@ -2113,16 +2307,13 @@ public class BattleManager : MonoBehaviour {
 				UIManager.CloseMoveOverviews ();
 
 				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " forgot the move " +
-					curPlayerDelt.moveset [forgetMoveIndex].moveName + "!"));
+					curPlayerDelt.moveset [forgetMoveIndex].Move.Name + "!"));
 				
-				// Instantiate and learn new move
-				MoveClass newMove = Instantiate (curPlayerDelt.moveset[4], curPlayerDelt.transform);
-				curPlayerDelt.moveset [forgetMoveIndex] = newMove;
+				// Learn new move
+				curPlayerDelt.moveset[forgetMoveIndex] = curPlayerDelt.moveset[4];
+				curPlayerDelt.moveset.RemoveAt(4);
 
-				// Remove 5th move
-				curPlayerDelt.moveset.RemoveAt (4);
-
-				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " learned the move " + newMove.moveName + "!"));
+				yield return StartCoroutine (evolMessage (curPlayerDelt.nickname + " learned the move " + curPlayerDelt.moveset[forgetMoveIndex].Move.Name + "!"));
 
 				finishNewMove = true;
 			} 
@@ -2150,7 +2341,7 @@ public class BattleManager : MonoBehaviour {
 	void WildDeltCoinReward() {
 		float multiplier;
 
-		switch (curOppDelt.deltdex.rarity) {
+		switch (curOppDelt.deltdex.RarityEnum) {
 		case Rarity.VeryCommon:
 			multiplier = 0.1f;
 			break;
@@ -2351,7 +2542,7 @@ public class BattleManager : MonoBehaviour {
 	void PlayerWinBattle() {
 		playerWon = true;
 		gameManager.battlesWon++;
-		AchievementManager.AchieveMan.BattlesWonUpdate (gameManager.battlesWon);
+		AchievementManager.ReportScore(AchievementManager.ScoreId.BattlesWon, gameManager.battlesWon);
 	}
 
 	// Ends the battle once a player has lost, stops battle coroutine
@@ -2402,9 +2593,9 @@ public class BattleManager : MonoBehaviour {
 			foreach (DeltemonClass delt in playerDelts) {
 				delt.health = delt.GPA;
 				delt.curStatus = statusType.None;
-				delt.statusImage = noStatus;
+				delt.statusImage = null;
 				foreach (MoveClass move in delt.moveset) {
-					move.PPLeft = move.PP;
+					move.PPLeft = move.Move.PP;
 				}
 			}
 

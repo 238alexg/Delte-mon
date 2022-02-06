@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Save;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +43,7 @@ public class QuestManager : MonoBehaviour {
 	}
 	// Test to see if, when Delts are given certain items, something happens
 	public bool DeltItemQuests(DeltemonClass delt) {
-		if ((delt.deltdex.deltName == "Ammas Tanveer") && (delt.item.itemName == "Peanut Butter")) {
+		if ((delt.deltdex.DeltName == "Ammas Tanveer") && (delt.item.itemName == "Peanut Butter")) {
 			// GREAT PAUSE
 			return true;
 		}
@@ -58,7 +59,7 @@ public class QuestManager : MonoBehaviour {
 			UIManager.UIMan.StartMessage ("You shed a tear and praise the almighty Mr. West");
 			UIManager.UIMan.StartMessage ("You can now use the B button to run!");
 		} else if (item.itemName == "Composite") {
-			AchievementManager.AchieveMan.CompositeUpdate (item.numberOfItem);
+			AchievementManager.ReportScore(AchievementManager.ScoreId.Composites, item.numberOfItem);
 		} 
 	}
 

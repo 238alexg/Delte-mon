@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BattleDelts.Save;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,7 +60,7 @@ public class MapManager : MonoBehaviour {
 
 		if (selectedTownText.text != "") {
 			foreach (DeltemonClass delt in GameManager.GameMan.deltPosse) {
-				if (delt.moveset.Exists (move => move.moveName == "Drive")) {
+				if (delt.moveset.Exists (move => move.MoveId == BattleDelts.Data.MoveId.DriveCar)) {
 					if ((delt.item != null) && (delt.item.itemName == "Car Keys")) {
 						canDrive = true;
 						break;
