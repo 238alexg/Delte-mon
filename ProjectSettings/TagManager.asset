@@ -45,3 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: GroundTiles
+    uniqueID: 2992656447
+    locked: 0
+  - name: TallGrass
+    uniqueID: 312523463
+    locked: 0
+  - name: Characters
+    uniqueID: 956093373
+    locked: 0
+  - name: Interactables
+    uniqueID: 1691306331
+    locked: 0
