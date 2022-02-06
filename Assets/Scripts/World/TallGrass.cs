@@ -13,12 +13,14 @@ public class TallGrass : MonoBehaviour {
 	public Sprite untouched;
 
 	[Space]
-	public List<wildDeltSpawn> wildDelts;
+	public WildDeltSpawnId WildDeltSpawnId;
 
 	[HideInInspector]
 	public BattleManager battleManager;
 	[HideInInspector]
 	public UIManager UIManager;
+
+	private GameManager GameManager;
 
 	bool hasTriggered;
 
@@ -27,6 +29,7 @@ public class TallGrass : MonoBehaviour {
 		battleStepBuffer = 2;
 		battleManager = BattleManager.BattleMan;
 		UIManager = UIManager.UIMan;
+		GameManager = GameManager.GameMan;
 	}
 
 	// Determine whether Pokemon spawn in grass
@@ -55,46 +58,18 @@ public class TallGrass : MonoBehaviour {
 					chosenDelt = Instantiate (genericDelt);
 				}
 
-				wildDeltSpawn WDS;
-
-				// Very rare Delts
-				if ((spawnProb < 0.75f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Legendary))) {
-					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Legendary);
-				} 
-				else if ((spawnProb < 1.25f) && (wildDelts.Exists (wd => wd.rarity == Rarity.VeryRare))) {
-					WDS = wildDelts.Find (wd => wd.rarity == Rarity.VeryRare);
-				}
-				// Rare Delts
-				else if ((spawnProb < 4.58f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Rare))) {
-					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Rare);
-				}
-				// Uncommon Delts
-				else if ((spawnProb < 11.33f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Uncommon))) {
-					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Uncommon);
-				}
-				// Common Delts
-				else if ((spawnProb < 19.83f) && (wildDelts.Exists (wd => wd.rarity == Rarity.Common))) {
-					WDS = wildDelts.Find (wd => wd.rarity == Rarity.Common);
-				}
-				// Very Common Delts
-				else if (wildDelts.Exists (wd => wd.rarity == Rarity.VeryCommon)) {
-					WDS = wildDelts.Find (wd => wd.rarity == Rarity.VeryCommon);
-				} else {
+				MapSectionSpawns spawns = GameManager.Data.DeltSpawns[WildDeltSpawnId];
+				var rarity = GetRarityFromSpawnProbability(spawnProb);
+				if (!spawns.TryGetDeltOfRarityOrLower(rarity, out var encounter)) 
+				{ 
 					// no Delts assigned to this grass tile
 					Debug.Log ("> ERROR: No Delts assigned to this grass tile");
 					return;
 				}
 
-				// Get random delt from list of spawns
-				var spawnedDelt = WDS.spawns[Random.Range(0, WDS.spawns.Count)];
-				if (!GameManager.GameMan.Data.TryParseDeltId(spawnedDelt.nickname, out var deltId))
-                {
-					Debug.LogError($"Failed to parse {nameof(DeltId)} of spawned wild delt {spawnedDelt.nickname}");
-                }
-
 				// Determine stats of the Delt
-				chosenDelt.DeltId = deltId;
-				chosenDelt.level = (byte)Random.Range (WDS.minLevel, WDS.maxLevel);
+				chosenDelt.DeltId = encounter.Delt.DeltId;
+				chosenDelt.level = (byte)Random.Range (encounter.MinLevel, encounter.MaxLevel);
 				chosenDelt.initializeDelt ();
 
 				battleStepBuffer = 5;
@@ -107,6 +82,32 @@ public class TallGrass : MonoBehaviour {
 				return;
 			}
 		}
+	}
+
+	private Rarity GetRarityFromSpawnProbability(float spawnProbability)
+    {
+		if (spawnProbability < 0.75f)
+        {
+			return Rarity.Legendary;
+        }
+		if (spawnProbability < 1.25f)
+        {
+			return Rarity.VeryRare;
+		}
+		if (spawnProbability < 4.58f)
+        {
+			return Rarity.Rare;
+        }
+		if (spawnProbability < 11.33f)
+		{
+			return Rarity.Uncommon;
+		}
+		if (spawnProbability < 19.83f)
+		{
+			return Rarity.Common;
+		}
+
+		return Rarity.VeryCommon;
 	}
 
 	// Undo trigger and animate grass moving

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BattleDelts.Data
 {
@@ -24,6 +25,23 @@ namespace BattleDelts.Data
 
         [NonSerialized]
         public WildDeltSpawnId WildDeltSpawnId;
+
+        public bool TryGetDeltOfRarityOrLower(Rarity rarity, out DeltEncounter encounter)
+        {
+            var encountersOfRarity = Encounters
+                .Where(e => e.Rarity <= rarity)
+                .OrderByDescending(e => e.Rarity)
+                .Distinct()
+                .ToList();
+            if (encountersOfRarity.Count() == 0)
+            {
+                encounter = null;
+                return false;
+            }
+
+            encounter = encountersOfRarity[UnityEngine.Random.Range(0, encountersOfRarity.Count)];
+            return true;
+        }
     }
 
     [Serializable]
