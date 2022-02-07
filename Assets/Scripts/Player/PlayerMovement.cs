@@ -1,12 +1,13 @@
 ﻿
-using BattleDelts.Save;
+using BattleDelts.Controls;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour, IInputConsumer
+{
 	public UIManager UIManager;
 	public GameManager GameManager;
 	public Animator playerMovementAnimation;
@@ -41,77 +42,58 @@ public class PlayerMovement : MonoBehaviour {
 
 	public static PlayerMovement PlayMov { get; private set; }
 
-	private void Awake() {
-		if (PlayMov != null) {
+	private void Awake()
+	{
+		if (PlayMov != null)
+		{
 			DestroyImmediate(gameObject);
 			return;
 		}
 		PlayMov = this;
 	}
 
-	void Start() {
+	void Start()
+	{
 		inMovementNow = false;
 		movementQueued = false;
 		isRunning = false;
+
+#if UNITY_EDITOR
+		InputEventBroadcaster.RegisterInputGenerator(new PCInput());
+#endif
+		InputEventBroadcaster.RegisterInputConsumer(this);
 	}
 
-	#if UNITY_EDITOR
-	void Update() {
-		if (UIManager.MovementUI.activeInHierarchy) {
-			if (Input.GetKeyDown (KeyCode.W)) {
-				Move (0);
-			} else if (Input.GetKeyDown (KeyCode.A)) {
-				Move (3);
-			} else if (Input.GetKeyDown (KeyCode.S)) {
-				Move (2);
-			} else if (Input.GetKeyDown (KeyCode.D)) {
-				Move (1);
-			} else if (Input.GetKeyDown (KeyCode.Slash)) {
-				bButtonPress ();
-			} else if (Input.GetKeyUp (KeyCode.Slash)) {
-				bButtonRelease ();
-			} else if (Input.GetKeyUp (KeyCode.Quote)) {
-				if (UIManager.isMessageToDisplay) {
-					UIManager.interactWithMessage ();
-				} else {
-					aButtonPress ();
-				}
-			}
-
-			if (Input.GetKeyUp (KeyCode.W) || Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.S) || Input.GetKeyUp (KeyCode.D)) {
-				StopMoving (true);
-			}
-		} else if (Input.GetKeyUp (KeyCode.Quote)) {
-			if (UIManager.isMessageToDisplay) {
-				UIManager.interactWithMessage ();
-			}
-		}
+	void Update()
+    {
+		// TODO: Move this update to a more sensible location
+		InputEventBroadcaster.BroadcastInputEvents();
 	}
-	#endif
 
 	// Worker to move character
-	IEnumerator MoveWorker() {
-		
+	IEnumerator MoveWorker()
+	{
 		// Keep moving until stopped
-		while (movementQueued) {
-			
+		while (movementQueued)
+		{
 			// If the player can move to that position
-			if (CanMove (x, y)) {
-				
+			if (CanMove(x, y))
+			{
 				// Animate moving in that direction
-				switch (playerFacing) {
-				case Direction.North:
-					playerMovementAnimation.SetInteger ("Move", 1);
-					break;
-				case Direction.East:
-					playerMovementAnimation.SetInteger ("Move", 2);
-					break;
-				case Direction.South:
-					playerMovementAnimation.SetInteger ("Move", 3);
-					break;
-				case Direction.West:
-					playerMovementAnimation.SetInteger ("Move", 4);
-					break;
+				switch (playerFacing)
+				{
+					case Direction.North:
+						playerMovementAnimation.SetInteger("Move", 1);
+						break;
+					case Direction.East:
+						playerMovementAnimation.SetInteger("Move", 2);
+						break;
+					case Direction.South:
+						playerMovementAnimation.SetInteger("Move", 3);
+						break;
+					case Direction.West:
+						playerMovementAnimation.SetInteger("Move", 4);
+						break;
 				}
 
 				t = 0;
@@ -123,131 +105,177 @@ public class PlayerMovement : MonoBehaviour {
 				endPos.z = startPos.z;
 
 				// Move player
-				while (t < 1f) {
-					if (isRunning) {
+				while (t < 1f)
+				{
+					if (isRunning)
+					{
 						t += Time.deltaTime * 8;
-					} else {
+					}
+					else
+					{
 						t += Time.deltaTime * 4;
 					}
 
-					transform.position = Vector3.Lerp (startPos, endPos, t);
+					transform.position = Vector3.Lerp(startPos, endPos, t);
 					yield return null;
 				}
 
 				// Decrement repel steps
-				if (repelStepsLeft > 0) {
-					if (repelStepsLeft == 1) {
-						StopMoving ();
-						UIManager.UIMan.StartMessage ("You stop and whiff yourself...");
-						UIManager.UIMan.StartMessage ("You no longer smell like Meathook's finest.", null, () => ResumeMoving ());
+				if (repelStepsLeft > 0)
+				{
+					if (repelStepsLeft == 1)
+					{
+						StopMoving();
+						UIManager.UIMan.StartMessage("You stop and whiff yourself...");
+						UIManager.UIMan.StartMessage("You no longer smell like Meathook's finest.", null, () => ResumeMoving());
 					}
 					repelStepsLeft--;
 				}
 
 				// Decrement steps before next opp can spawn
-				if (TallGrass.battleStepBuffer > 0) {
+				if (TallGrass.battleStepBuffer > 0)
+				{
 					TallGrass.battleStepBuffer--;
 				}
-			} else {
+			}
+			else
+			{
 				// If player cannot move, set player orientation
 				// Allows player to turn towards objects that obstruct movement, even if player does not move in that direction
-				playerMovementAnimation.SetInteger ("Move", 0);
+				playerMovementAnimation.SetInteger("Move", 0);
 
-				SoundEffectManager.SEM.PlaySoundImmediate ("Bump");
+				SoundEffectManager.SEM.PlaySoundImmediate("Bump");
 
-				StopAndFace ();
+				StopAndFace();
 
 				movementQueued = false;
 			}
 		}
 		inMovementNow = false;
 	}
+
 	// Called when the player stops so that they are facing the correct direction
 	// Note: This is necessary because otherwise the player might not face
 	//       correct direction after a turn or when NPC triggers, etc.
-	void StopAndFace() {
-		switch (playerFacing) {
-		case Direction.North:
-			if (isMale) {
-				playerMovementAnimation.Play ("IdleNorth");
-			} else {
-				playerMovementAnimation.Play ("IdleNorth 0");
-			}
-			break;
-		case Direction.East:
-			if (isMale) {
-				playerMovementAnimation.Play ("IdleEast");
-			} else {
-				playerMovementAnimation.Play ("IdleEast 0");
-			}
-			break;
-		case Direction.South:
-			if (isMale) {
-				playerMovementAnimation.Play ("IdleSouth");
-			} else {
-				playerMovementAnimation.Play ("IdleSouth 0");
-			}
-			break;
-		case Direction.West:
-			if (isMale) {
-				playerMovementAnimation.Play ("IdleWest");
-			} else {
-				playerMovementAnimation.Play ("IdleWest 0");
-			}
-			break;
+	void StopAndFace()
+	{
+		switch (playerFacing)
+		{
+			case Direction.North:
+				if (isMale)
+				{
+					playerMovementAnimation.Play("IdleNorth");
+				}
+				else
+				{
+					playerMovementAnimation.Play("IdleNorth 0");
+				}
+				break;
+			case Direction.East:
+				if (isMale)
+				{
+					playerMovementAnimation.Play("IdleEast");
+				}
+				else
+				{
+					playerMovementAnimation.Play("IdleEast 0");
+				}
+				break;
+			case Direction.South:
+				if (isMale)
+				{
+					playerMovementAnimation.Play("IdleSouth");
+				}
+				else
+				{
+					playerMovementAnimation.Play("IdleSouth 0");
+				}
+				break;
+			case Direction.West:
+				if (isMale)
+				{
+					playerMovementAnimation.Play("IdleWest");
+				}
+				else
+				{
+					playerMovementAnimation.Play("IdleWest 0");
+				}
+				break;
 		}
 	}
 
+	// TODO: Remove this call. Also why is QuestManager calling PlayerMovement? Wonk af
 	// Called by: QUESTMANAGER
-	public void Move(int dir) {
-		
+	public void Move(int dir)
+	{
+		switch (dir)
+		{
+			case 0:
+				Move(InputValue.MoveNorth);
+				break;
+			case 1:
+				Move(InputValue.MoveEast);
+				break;
+			case 2:
+				Move(InputValue.MoveSouth);
+				break;
+			case 3:
+				Move(InputValue.MoveWest);
+				break;
+		}
+	}
+
+	public void Move(InputValue inputEvent)
+	{
 		Direction pFace = Direction.South;
-		switch (dir) {
-		case 0:
-			pFace = Direction.North;
-			dpad.sprite = dpadNorth;
-			y = 1;
-			x = 0;
-			break;
-		case 1:
-			pFace = Direction.East;
-			dpad.sprite = dpadEast;
-			y = 0;
-			x = 1;
-			break;
-		case 2:
-			pFace = Direction.South;
-			dpad.sprite = dpadSouth;
-			y = -1;
-			x = 0;
-			break;
-		case 3:
-			pFace = Direction.West;
-			dpad.sprite = dpadWest;
-			y = 0;
-			x = -1;
-			break;
+		switch (inputEvent)
+		{
+			case InputValue.MoveNorth:
+				pFace = Direction.North;
+				dpad.sprite = dpadNorth;
+				y = 1;
+				x = 0;
+				break;
+			case InputValue.MoveEast:
+				pFace = Direction.East;
+				dpad.sprite = dpadEast;
+				y = 0;
+				x = 1;
+				break;
+			case InputValue.MoveSouth:
+				pFace = Direction.South;
+				dpad.sprite = dpadSouth;
+				y = -1;
+				x = 0;
+				break;
+			case InputValue.MoveWest:
+				pFace = Direction.West;
+				dpad.sprite = dpadWest;
+				y = 0;
+				x = -1;
+				break;
 		}
 
-		if (playerFacing != pFace) {
+		if (playerFacing != pFace)
+		{
 			playerFacing = pFace;
 		}
 
 		// Tell Move Worker to keep moving player until stopped
 		movementQueued = true;
-		
 
 		// Do not start another MoveWorker if one is already going
-		if (!inMovementNow) {
+		if (!inMovementNow)
+		{
 			inMovementNow = true;
 			// Start a movement in that direction
-			StartCoroutine (MoveWorker ());
+			StartCoroutine(MoveWorker());
 		}
 	}
 
 	//Move returns true if it is able to move and false if not. 
 	//Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
-	protected bool CanMove (int xDir, int yDir)
+	protected bool CanMove(int xDir, int yDir)
 	{
 		// Player's current starting position
 		Vector2 start = transform.position;
@@ -255,37 +283,55 @@ public class PlayerMovement : MonoBehaviour {
 		// Calculate end position based on the direction parameters passed in when calling Move.
 		Vector2 end = new Vector2(start.x + xDir, start.y + yDir);
 
-		RaycastHit2D hit = Physics2D.Linecast (start, end, layer);
+		RaycastHit2D hit = Physics2D.Linecast(start, end, layer);
+
+#if UNITY_EDITOR
+		Debug.DrawLine(start, end, Color.green, 2, false);
+#endif
 
 		//Check if anything was hit
-		if (hit) {
+		if (hit)
+		{
 			return false;
 		}
-		else {
+		else
+		{
 			return true;
 		}
 	}
 
 	// Stops player movement
-	public void StopMoving (bool wasDPadRelease = false) {
-		if (!wasDPadRelease) {
+	public void StopMoving(bool wasDPadRelease = false)
+	{
+		if (!wasDPadRelease)
+		{
 			QuestManager.QuestMan.isAllowedToMove = false;
-			UIManager.MovementUI.SetActive (false);
-			bButtonRelease ();
+			UIManager.MovementUI.SetActive(false);
+			bButtonRelease();
 		}
-		StopAndFace ();
+
+		StopAndFace();
 		movementQueued = false;
 		dpad.sprite = dpadNeutral;
-		playerMovementAnimation.SetInteger ("Move", 0);
+		playerMovementAnimation.SetInteger("Move", 0);
 	}
+
 	// Allows player movement
-	public void ResumeMoving() {
-		UIManager.MovementUI.SetActive (true);
+	public void ResumeMoving()
+	{
+		UIManager.MovementUI.SetActive(true);
 		QuestManager.QuestMan.isAllowedToMove = true;
 	}
 
 	// Check to see if action exists for A button press in that direction
-	public void aButtonPress() {
+	public void aButtonPress()
+	{
+		if (UIManager.isMessageToDisplay)
+		{
+			UIManager.interactWithMessage();
+			return;
+		}
+
 		// Later: if action exists, change UI to proper action
 		// This should include end message and sending user back to movement UI
 
@@ -293,173 +339,297 @@ public class PlayerMovement : MonoBehaviour {
 		Vector2 end = transform.position;
 		RaycastHit2D ray;
 
-		switch (playerFacing) {
-		case Direction.North:
-			end.y++;
-			break;
-		case Direction.East:
-			end.x++;
-			break;
-		case Direction.South:
-			end.y--;
-			break;
-		case Direction.West:
-			end.x--;
-			break;
+		switch (playerFacing)
+		{
+			case Direction.North:
+				end.y++;
+				break;
+			case Direction.East:
+				end.x++;
+				break;
+			case Direction.South:
+				end.y--;
+				break;
+			case Direction.West:
+				end.x--;
+				break;
 		}
-		ray = Physics2D.Linecast (start, end, LayerMask.GetMask ("StopPlayer"));
 
-		if ((ray.collider != null) && (ray.collider.tag == "Action")) {
-			StopMoving ();
-			InteractAction ia = ray.collider.gameObject.GetComponent<InteractAction> ();
-			if ((ia.actionT == actionType.itemWithNext) || (ia.actionT == actionType.itemWithoutNext)) {
-				if (!ia.hasBeenViewed) {
+		ray = Physics2D.Linecast(start, end, LayerMask.GetMask("StopPlayer"));
+
+		if ((ray.collider != null) && (ray.collider.tag == "Action"))
+		{
+			StopMoving();
+			InteractAction ia = ray.collider.gameObject.GetComponent<InteractAction>();
+			if ((ia.actionT == actionType.itemWithNext) || (ia.actionT == actionType.itemWithoutNext))
+			{
+				if (!ia.hasBeenViewed)
+				{
 					ia.hasBeenViewed = true;
 
 					// Present player with messages
-					foreach (string message in ia.messages) {
-						UIManager.StartMessage (message);
+					foreach (string message in ia.messages)
+					{
+						UIManager.StartMessage(message);
 					}
 
 					// Award player items
-					foreach (ItemClass item in ia.items) {
-						GameManager.AddItem (item, item.numberOfItem);
+					foreach (ItemClass item in ia.items)
+					{
+						GameManager.AddItem(item, item.numberOfItem);
 					}
 
 					// Award player coins
-					if (ia.coins > 0) {
+					if (ia.coins > 0)
+					{
 						GameManager.coins += ia.coins;
-						UIManager.StartMessage (GameManager.playerName + " received " + ia.coins + " coins!", null,
-							() => SoundEffectManager.SEM.PlaySoundImmediate ("coinDing"));
+						UIManager.StartMessage(GameManager.playerName + " received " + ia.coins + " coins!", null,
+							() => SoundEffectManager.SEM.PlaySoundImmediate("coinDing"));
 					}
-					UIManager.StartMessage (null, null, () => destroyQuestAndPresentChild (ia));
+					UIManager.StartMessage(null, null, () => destroyQuestAndPresentChild(ia));
 
-				} else {
-					UIManager.StartMessage ("There is nothing more of interest here");
 				}
-			} else if (ia.actionT == actionType.message) {
-				foreach (string message in ia.messages) {
-					UIManager.StartMessage (message);
+				else
+				{
+					UIManager.StartMessage("There is nothing more of interest here");
 				}
-			} else if (ia.actionT == actionType.quest) {
+			}
+			else if (ia.actionT == actionType.message)
+			{
+				foreach (string message in ia.messages)
+				{
+					UIManager.StartMessage(message);
+				}
+			}
+			else if (ia.actionT == actionType.quest)
+			{
 				ItemData questItem = null;
 
-				if (ia.needsItem) {
-					questItem = GameManager.allItems.Find (item => item.itemName.Equals (ia.questItem.itemName));
+				if (ia.needsItem)
+				{
+					questItem = GameManager.allItems.Find(item => item.itemName.Equals(ia.questItem.itemName));
 
 					// Player doesn't have item
-					if (questItem == null) {
-						foreach (string message in ia.messages) {
-							UIManager.StartMessage (message, null, null);
+					if (questItem == null)
+					{
+						foreach (string message in ia.messages)
+						{
+							UIManager.StartMessage(message, null, null);
 						}
-						UIManager.StartMessage (null, null, () => ResumeMoving ());
+						UIManager.StartMessage(null, null, () => ResumeMoving());
 						return;
-					} 
+					}
 					// Player doesn't have enough of the item
-					else if (questItem.numberOfItem < ia.numberOfItemsNeeded) {
-						foreach (string message in ia.messages) {
-							UIManager.StartMessage (message, null, null);
+					else if (questItem.numberOfItem < ia.numberOfItemsNeeded)
+					{
+						foreach (string message in ia.messages)
+						{
+							UIManager.StartMessage(message, null, null);
 						}
-						UIManager.StartMessage ("You need " + (ia.numberOfItemsNeeded - questItem.numberOfItem) + " more of this item!", null, () => ResumeMoving ());
+						UIManager.StartMessage("You need " + (ia.numberOfItemsNeeded - questItem.numberOfItem) + " more of this item!", null, () => ResumeMoving());
 						return;
 					}
 				}
 				// Check if player has enough coins to proceed
-				if (ia.coinsNeeded > 0) {
-					if (GameManager.coins < ia.coinsNeeded) {
-						foreach (string message in ia.messages) {
-							UIManager.StartMessage (message, null, null);
+				if (ia.coinsNeeded > 0)
+				{
+					if (GameManager.coins < ia.coinsNeeded)
+					{
+						foreach (string message in ia.messages)
+						{
+							UIManager.StartMessage(message, null, null);
 						}
-						UIManager.StartMessage ("You need " + (ia.coinsNeeded - GameManager.coins) + " more coins!", null, () => ResumeMoving ());
+						UIManager.StartMessage("You need " + (ia.coinsNeeded - GameManager.coins) + " more coins!", null, () => ResumeMoving());
 						return;
-					} 
+					}
 					// Player has enough coins
-					else {
+					else
+					{
 						GameManager.coins -= ia.coinsNeeded;
-						SoundEffectManager.SEM.PlaySoundImmediate ("coinDing");
+						SoundEffectManager.SEM.PlaySoundImmediate("coinDing");
 					}
 				}
 
 				// Remove items
-				if (ia.needsItem) {
+				if (ia.needsItem)
+				{
 					questItem.numberOfItem -= ia.numberOfItemsNeeded;
 					// Remove item/s from inventory
-					if (questItem.numberOfItem < 1) {
-						GameManager.allItems.Remove (questItem);
+					if (questItem.numberOfItem < 1)
+					{
+						GameManager.allItems.Remove(questItem);
 					}
 				}
 
 				// Print quest completion messages
-				foreach (string message in ia.questCompletionMessages) {
-					UIManager.StartMessage (message);
+				foreach (string message in ia.questCompletionMessages)
+				{
+					UIManager.StartMessage(message);
 				}
 				// Destroy completed quest object, update player quests
-				UIManager.StartMessage (null, null, (() => destroyQuestAndPresentChild (ia)));
-			} else if (ia.actionT == actionType.trainer) {
-				NPCInteraction trainer = ia.transform.parent.GetComponent <NPCInteraction>();
+				UIManager.StartMessage(null, null, (() => destroyQuestAndPresentChild(ia)));
+			}
+			else if (ia.actionT == actionType.trainer)
+			{
+				NPCInteraction trainer = ia.transform.parent.GetComponent<NPCInteraction>();
 
 				// If trainer has already been defeated, present with end battle messages
-				if (GameManager.GameMan.curSceneData.trainers [trainer.index]) {
-					trainer.DefeatedDialogue ();
-				} else {
-					trainer.OnTriggerEnter2D (null);
+				if (GameManager.GameMan.curSceneData.trainers[trainer.index])
+				{
+					trainer.DefeatedDialogue();
+				}
+				else
+				{
+					trainer.OnTriggerEnter2D(null);
 					return;
 				}
 			}
-			UIManager.StartMessage (null, null, () => ResumeMoving ());
+			UIManager.StartMessage(null, null, () => ResumeMoving());
 		}
 	}
 	// Remove top active tile and reveal lower tile
-	public void destroyQuestAndPresentChild (InteractAction ia) {
-		if (ia.nextTile != null) {
-			ia.nextTile.SetActive (true);
-			GameManager.curSceneData.interactables [ia.nextTile.GetComponent<InteractAction>().index] = false;
+	public void destroyQuestAndPresentChild(InteractAction ia)
+	{
+		if (ia.nextTile != null)
+		{
+			ia.nextTile.SetActive(true);
+			GameManager.curSceneData.interactables[ia.nextTile.GetComponent<InteractAction>().index] = false;
 		}
-		if (GameManager.curSceneName != "New Game") {
-			GameManager.curSceneData.interactables [ia.index] = true;
+		if (GameManager.curSceneName != "New Game")
+		{
+			GameManager.curSceneData.interactables[ia.index] = true;
 		}
-		if (ia.actionT != actionType.itemWithoutNext) {
-			Destroy (ia.gameObject);
+		if (ia.actionT != actionType.itemWithoutNext)
+		{
+			Destroy(ia.gameObject);
 		}
 	}
 
 	// Functions for pressing and releasing B button to run
-	public void bButtonPress () {
-		if (hasDormkicks) {
+	public void bButtonPress()
+	{
+		if (hasDormkicks)
+		{
 			isRunning = true;
-			playerMovementAnimation.SetBool ("Run", true);
-		} else {
+			playerMovementAnimation.SetBool("Run", true);
+		}
+		else
+		{
 			// Do not display message in New Game scene
-			if (GameManager.curSceneName == "New Game") {
+			if (GameManager.curSceneName == "New Game")
+			{
 				return;
 			}
-			StopMoving ();
-			UIManager.StartMessage ("You look down at your feet. They are bare.");
-			UIManager.StartMessage ("Should probably try and find some shoes in the Delta Shelter...", null, ()=> ResumeMoving ());
+			StopMoving();
+			UIManager.StartMessage("You look down at your feet. They are bare.");
+			UIManager.StartMessage("Should probably try and find some shoes in the Delta Shelter...", null, () => ResumeMoving());
 		}
 	}
-	public void bButtonRelease () {
+
+	public void bButtonRelease()
+	{
 		isRunning = false;
-		playerMovementAnimation.SetBool ("Run", false);
+		playerMovementAnimation.SetBool("Run", false);
 	}
 
 	// Setting function: Chance avatar gender
-	public void ChangeGender(bool male) {
-		if (isMale) {
+	public void ChangeGender(bool male)
+	{
+		if (isMale)
+		{
 			maleButton.color = Color.white;
 			femaleButton.color = Color.grey;
-		} else {
+		}
+		else
+		{
 			femaleButton.color = Color.white;
 			maleButton.color = Color.grey;
 		}
 		isMale = male;
-		playerMovementAnimation.SetBool ("isMale", isMale);
+		playerMovementAnimation.SetBool("isMale", isMale);
 
-		playerMovementAnimation.Play ("GenderChange");
+		playerMovementAnimation.Play("GenderChange");
 	}
+
+	public bool ConsumeInputEvents(Dictionary<InputValue, InputState> inputEvents)
+	{
+		bool inputConsumed = false;
+
+		if (inputEvents.Count > 0)
+        {
+			Debug.Log(string.Join(", ", inputEvents.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
+		}
+
+		if (inputEvents.TryGetValue(InputValue.BButton, out var bButtonState))
+		{
+			switch (bButtonState)
+			{
+				case InputState.Down:
+					bButtonPress();
+					break;
+				case InputState.Up:
+					bButtonRelease();
+					break;
+			}
+			inputConsumed = true;
+		}
+
+		if (inputEvents.TryGetValue(InputValue.AButton, out var aButtonState))
+		{
+			switch (aButtonState)
+			{
+				case InputState.Down:
+					aButtonPress();
+					break;
+			}
+			inputConsumed = true;
+		}
+
+		if (TryGetMovementInput(inputEvents, out var movement, out var movementState))
+		{
+			switch (movementState)
+			{
+				case InputState.Down:
+					Move(movement.Value);
+					break;
+				case InputState.Up:
+					StopMoving(wasDPadRelease: true);
+					break;
+			}
+
+			inputConsumed = true;
+		}
+
+		return inputConsumed;
+	}
+
+	private bool TryGetMovementInput(Dictionary<InputValue, InputState> inputEvents, out InputValue? movementEvent, out InputState? inputState)
+    {
+		movementEvent = null;
+		inputState = null;
+		foreach (var inputEvent in inputEvents)
+        {
+			switch (inputEvent.Key)
+			{
+				case InputValue.MoveSouth:
+				case InputValue.MoveWest:
+				case InputValue.MoveNorth:
+				case InputValue.MoveEast:
+					if (!inputState.HasValue || inputEvent.Value < inputState.Value)
+                    {
+						inputState = inputEvent.Value;
+						movementEvent = inputEvent.Key;
+                    }
+					break;
+			}
+		}
+
+		return inputState != null;
+    }
 }
 
-public enum Direction {
+public enum Direction
+{
 	North,
 	East,
 	South,
