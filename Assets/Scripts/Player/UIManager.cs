@@ -496,10 +496,9 @@ public class UIManager : MonoBehaviour {
 		// Set major images
 		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().sprite = curOverviewDex.FirstMajor.Sprite;
 		DeltDexOverviewUI.GetChild (3).gameObject.GetComponent<Image> ().preserveAspect = true;
-		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().sprite = curOverviewDex.SecondMajor.Sprite;
+		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().sprite = curOverviewDex.SecondMajor is null ? null : curOverviewDex.SecondMajor.Sprite;
+		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().color = curOverviewDex.SecondMajor is null ? Color.clear : Color.white;
 		DeltDexOverviewUI.GetChild (4).gameObject.GetComponent<Image> ().preserveAspect = true;
-
-
 
 		// Create base values string
 		int total = 0;
