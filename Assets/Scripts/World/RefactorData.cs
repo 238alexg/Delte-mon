@@ -293,6 +293,15 @@ namespace BattleDelts.Data
                         }
 
                         section.WildDeltSpawnId = wildDeltSpawnId;
+
+                        if (section.AllBounds != null)
+                        {
+                            foreach (var bound in section.AllBounds)
+                            {
+                                section.Bounds.Add(bound.ToUnityBoundsInt());
+                            }
+                        }
+
                         DeltSpawns.Add(wildDeltSpawnId, section);
                     }
 

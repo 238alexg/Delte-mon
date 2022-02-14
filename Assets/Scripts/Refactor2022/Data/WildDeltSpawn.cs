@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace BattleDelts.Data
 {
@@ -22,9 +23,13 @@ namespace BattleDelts.Data
     {
         public string SectionName;
         public List<DeltEncounter> Encounters;
+        public List<Bounds2DInt> AllBounds;
 
         [NonSerialized]
         public WildDeltSpawnId WildDeltSpawnId;
+
+        [NonSerialized]
+        public List<BoundsInt> Bounds = new List<BoundsInt>();
 
         public bool TryGetDeltOfRarityOrLower(Rarity rarity, out DeltEncounter encounter)
         {
@@ -41,6 +46,20 @@ namespace BattleDelts.Data
 
             encounter = encountersOfRarity[UnityEngine.Random.Range(0, encountersOfRarity.Count)];
             return true;
+        }
+    }
+
+    [Serializable]
+    public class Bounds2DInt
+    {
+        public int XMin;
+        public int YMin;
+        public int XLength;
+        public int YLength;
+
+        public BoundsInt ToUnityBoundsInt()
+        {
+            return new BoundsInt(XMin, YMin, 0, XLength, YLength, 0);
         }
     }
 

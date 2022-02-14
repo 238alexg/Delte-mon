@@ -4,6 +4,14 @@
       "MapName": "University St",
       "Sections": [
         {
+          "AllBounds": [
+            {
+              "XMin": 10,
+              "YMin": 0,
+              "XLength": 10,
+              "YLength": 10
+            }
+          ],
           "SectionName": "0",
           "Encounters": [
             {
@@ -57,6 +65,14 @@
           ]
         },
         {
+          "AllBounds": [
+            {
+              "XMin": 10,
+              "YMin": 10,
+              "XLength": 10,
+              "YLength": 10
+            }
+          ],
           "SectionName": "1",
           "Encounters": [
             {
@@ -115,6 +131,14 @@
       "MapName": "DA Graveyard",
       "Sections": [
         {
+          "AllBounds": [
+            {
+              "XMin": 30,
+              "YMin": 10,
+              "XLength": 10,
+              "YLength": 10
+            }
+          ],
           "SectionName": "0",
           "Encounters": [
             {
@@ -173,6 +197,14 @@
       "MapName": "Onyx St",
       "Sections": [
         {
+          "AllBounds": [
+            {
+              "XMin": 20,
+              "YMin": 10,
+              "XLength": 10,
+              "YLength": 10
+            }
+          ],
           "SectionName": "0",
           "Encounters": [
             {
@@ -190,6 +222,14 @@
           ]
         },
         {
+          "AllBounds": [
+            {
+              "XMin": 10,
+              "YMin": 20,
+              "XLength": 10,
+              "YLength": 10
+            }
+          ],
           "SectionName": "1",
           "Encounters": [
             {
@@ -219,6 +259,14 @@
           ]
         },
         {
+          "AllBounds": [
+            {
+              "XMin": 0,
+              "YMin": 30,
+              "XLength": 10,
+              "YLength": 10
+            }
+          ],
           "SectionName": "2",
           "Encounters": [
             {
