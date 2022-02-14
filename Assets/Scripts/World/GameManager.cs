@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using BattleDelts.Data;
 using BattleDelts.Save;
 
 public class GameManager : MonoBehaviour {
 	public UIManager UIManager;
 	public RefactorData Data;
+	public TileMapManager TileMapManager;
 
 	[SerializeField]
 	private SpriteData SpriteData;
