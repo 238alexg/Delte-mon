@@ -337,7 +337,7 @@ public class PlayerMovement : MonoBehaviour, IInputConsumer
 
 		Vector2 start = transform.position;
 		Vector2 end = transform.position;
-		RaycastHit2D ray;
+		;
 
 		switch (playerFacing)
 		{
@@ -355,8 +355,7 @@ public class PlayerMovement : MonoBehaviour, IInputConsumer
 				break;
 		}
 
-		ray = Physics2D.Linecast(start, end, LayerMask.GetMask("StopPlayer"));
-
+		var ray = Physics2D.Linecast(start, end, LayerMask.GetMask("StopPlayer"));
 		if ((ray.collider != null) && (ray.collider.tag == "Action"))
 		{
 			StopMoving();
