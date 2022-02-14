@@ -46,7 +46,6 @@ public class DebugVisualizer : MonoBehaviour
                 heightOffset += DefaultGuiHeight;
 
                 string currentWds = GetWdsPlayerIsIn();
-                Debug.Log(currentWds);
                 GUI.Label(
                     new Rect(Offset, heightOffset, GuiDefaultWidth, DefaultGuiHeight), 
                     $"Current WDS: {currentWds}");
