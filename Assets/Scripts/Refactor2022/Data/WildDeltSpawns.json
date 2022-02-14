@@ -6,10 +6,16 @@
         {
           "AllBounds": [
             {
-              "XMin": 10,
-              "YMin": 0,
-              "XLength": 10,
-              "YLength": 10
+              "XMin": 49,
+              "YMin": -18,
+              "XLength": 5,
+              "YLength": 15
+            },
+            {
+              "XMin": 60,
+              "YMin": -18,
+              "XLength": 15,
+              "YLength": 20
             }
           ],
           "SectionName": "0",
@@ -67,10 +73,16 @@
         {
           "AllBounds": [
             {
-              "XMin": 10,
-              "YMin": 10,
-              "XLength": 10,
-              "YLength": 10
+              "XMin": 49,
+              "YMin": 1,
+              "XLength": 5,
+              "YLength": 5
+            },
+            {
+              "XMin": 60,
+              "YMin": 5,
+              "XLength": 15,
+              "YLength": 2
             }
           ],
           "SectionName": "1",
@@ -133,10 +145,10 @@
         {
           "AllBounds": [
             {
-              "XMin": 30,
-              "YMin": 10,
-              "XLength": 10,
-              "YLength": 10
+              "XMin": -8,
+              "YMin": -12,
+              "XLength": 26,
+              "YLength": 18
             }
           ],
           "SectionName": "0",
@@ -199,10 +211,10 @@
         {
           "AllBounds": [
             {
-              "XMin": 20,
-              "YMin": 10,
-              "XLength": 10,
-              "YLength": 10
+              "XMin": 109,
+              "YMin": -59,
+              "XLength": 5,
+              "YLength": 1
             }
           ],
           "SectionName": "0",
@@ -224,10 +236,10 @@
         {
           "AllBounds": [
             {
-              "XMin": 10,
-              "YMin": 20,
-              "XLength": 10,
-              "YLength": 10
+              "XMin": 119,
+              "YMin": -64,
+              "XLength": 16,
+              "YLength": 16
             }
           ],
           "SectionName": "1",
@@ -261,10 +273,16 @@
         {
           "AllBounds": [
             {
-              "XMin": 0,
-              "YMin": 30,
-              "XLength": 10,
-              "YLength": 10
+              "XMin": 110,
+              "YMin": -49,
+              "XLength": 4,
+              "YLength": 6
+            },
+            {
+              "XMin": 119,
+              "YMin": -48,
+              "XLength": 16,
+              "YLength": 8
             }
           ],
           "SectionName": "2",
