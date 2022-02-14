@@ -554,12 +554,6 @@ public class PlayerMovement : MonoBehaviour, IInputConsumer
 	public bool ConsumeInputEvents(Dictionary<InputValue, InputState> inputEvents)
 	{
 		bool inputConsumed = false;
-
-		if (inputEvents.Count > 0)
-        {
-			Debug.Log(string.Join(", ", inputEvents.Select(kvp => $"{kvp.Key}: {kvp.Value}")));
-		}
-
 		if (inputEvents.TryGetValue(InputValue.BButton, out var bButtonState))
 		{
 			switch (bButtonState)
